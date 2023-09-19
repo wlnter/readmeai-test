@@ -90,14 +90,15 @@ const changeSubtotal = (snapshot) => {
   // Change default click behavior of checkout button
   const submitHandler = async (event) => {
     event.preventDefault();
-    const { url: checkoutUrl } = await fetch(`${window.location.origin}/cart`, {
-      headers: {
-        "content-type": "application/x-www-form-urlencoded",
-      },
-      method: "post",
-      body: "checkout=",
-    });
-    window.open(checkoutUrl, "_self");
+    // const { url: checkoutUrl } = await fetch(`${window.location.origin}/cart`, {
+    //   headers: {
+    //     "content-type": "application/x-www-form-urlencoded",
+    //   },
+    //   method: "post",
+    //   body: "checkout=",
+    // });
+    // window.open(checkoutUrl, "_self");
+    window.open("/checkout", "_self");
     return false;
   };
   // Bind event
