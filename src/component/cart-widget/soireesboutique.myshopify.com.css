@@ -1,0 +1,12 @@
+.seel_widget {
+  border: none !important;
+  background-color: rgb(247, 247, 252);
+  max-width: 500px;
+  text-align: left;
+  margin-top: 10px;
+}
+
+.seel_widget--desc_line--text {
+  font-family: none;
+  font-weight: normal;
+}

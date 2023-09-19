@@ -1,1 +1,0 @@
-console.log('checkout.banks-39.myshopify.com.js')

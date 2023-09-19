@@ -1,0 +1,89 @@
+name: Build and Deploy to Production
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          token: ${{secrets.GH_TOKEN}}
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18"
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Print Versions
+        run: |
+          git --version
+          node --version
+          npm --version
+          npx commitlint --version
+
+      - name: Build
+        run: npm run build:prod
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1-node16
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_REGION }}
+
+      - name: Semantic Release
+        id: semantic
+        uses: cycjimmy/semantic-release-action@v4
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          NPM_TOKEN: ${{secrets.NPM_TOKEN}}
+
+      - name: Compare ETag
+        id: etag
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const scripts = require('./.github/scripts/compare-etag.js');
+            const assets = await scripts.compareETags('static-resources-prod-bucket', '${{steps.semantic.outputs.last_release_version}}');
+            return assets;
+          result-encoding: string
+
+      - name: Upload to S3
+        run: |
+          if ${{steps.semantic.outputs.new_release_published}}
+          then
+            find ./dist/script -name '*.js' -exec sed -i -e 's/SEMANTIC_RELEASE_VERSION/${{steps.semantic.outputs.new_release_version}}/g' {} \;
+            aws s3 cp dist s3://static-resources-prod-bucket/shopify/ --recursive
+          fi
+
+      - name: Invalidate Cloudfront Distribution and Wait For Completion
+        uses: muratiger/invalidate-cloudfront-and-wait-for-completion-action@master
+        env:
+          DISTRIBUTION_ID: "E3FQ7VYH3Z2QQD"
+          PATHS: "/shopify/*"
+          AWS_REGION: ${{ secrets.AWS_REGION }}
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+
+      - name: Send Notification
+        uses: actions/github-script@v6
+        with:
+          script: |
+            if(${{steps.semantic.outputs.new_release_published}} == false){
+              return null;
+            }
+            const scripts = require('./.github/scripts/notify.js');
+            const release = {
+              version: '${{steps.semantic.outputs.new_release_version}}',
+              notes: '',
+              previousVersion: '${{steps.semantic.outputs.last_release_version}}',
+              author: '${{github.event.commits[0].author.name}}'
+            }
+            scripts.sendNotification('${{secrets.SLACK_WEBHOOKS}}', '${{steps.etag.outputs.result}}', release, true)

@@ -1,0 +1,12 @@
+.seel_widget {
+  border: none !important;
+  background-color: rgb(247, 247, 252);
+  margin-bottom: 10px;
+}
+.seel_widget--desc_line--text {
+  color: #878787;
+}
+.seel_widget--title_line--name {
+  flex-shrink: 0;
+  margin-right: 4px;
+}

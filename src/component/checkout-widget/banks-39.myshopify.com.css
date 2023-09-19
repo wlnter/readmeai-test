@@ -1,0 +1,33 @@
+.seel_widget--desc_line--text {
+  color: white;
+}
+.seel_widget--title_line--name {
+  color: white;
+}
+.seel_widget {
+  border-color: rgba(123, 116, 101, 0.34);
+}
+.seel_widget--title_line--checkbox {
+  border-color: rgb(217 217 217);
+}
+.seel_widget {
+  border: none;
+  background-color: rgb(255 255 255 / 10%);
+  margin-bottom: 10px;
+}
+
+[data-seel-product-type="sp"] {
+  background-color: white;
+  margin-top: 15px;
+  border: 1px solid #cfcfcf;
+}
+[data-seel-product-type="sp"]
+  > .seel_widget--title_line
+  > .seel_widget--title_line--name {
+  color: black;
+}
+[data-seel-product-type="sp"]
+  > .seel_widget--desc_line
+  > .seel_widget--desc_line--text {
+  color: black;
+}

@@ -1,0 +1,17 @@
+.seel_widget--title_line--icon {
+  width: 14px !important;
+  height: 14px !important;
+}
+
+.seel_widget--desc_line--icon {
+  width: 30px !important;
+  height: 30px !important;
+}
+
+.product-popup-modal__content {
+  overflow-y: auto !important;
+}
+
+.seel_hidden {
+  display: none !important;
+}

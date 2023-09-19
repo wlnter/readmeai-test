@@ -1,0 +1,5 @@
+.Cart--expanded .Cart__Recap {
+  display: flex !important;
+  flex-direction: column;
+  align-items: flex-end;
+}

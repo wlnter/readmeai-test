@@ -1,0 +1,83 @@
+.seel--product_tip {
+  display: flex;
+  flex-direction: row;
+  /* height: 26px; */
+  align-items: center;
+  margin-bottom: 8px;
+  margin-top: 8px;
+}
+
+.seel--product_tip--logo {
+  height: 16px;
+  width: 60px;
+}
+
+.seel--product_tip--text {
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.seel--product_tip--info-icon {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.seel--product_tip--icon-image {
+  width: 24px;
+  height: 24px;
+}
+
+.seel--product_tip--info-icon:hover .seel--product_tip--tooltip,
+.seel--product_tip--info-icon:hover .hover_triangle {
+  /* opacity: 1; */
+  display: block;
+}
+
+.seel--product_tip--tooltip {
+  /* opacity: 0; */
+  display: none;
+  position: absolute;
+  bottom: 20px;
+  left: -110px;
+  z-index: 20;
+  background: #fff;
+  padding: 10px;
+  width: 240px;
+  border-radius: 4px;
+  box-shadow:
+    0px 3px 6px -3px rgba(23, 24, 24, 0.08),
+    0px 8px 20px -4px rgba(23, 24, 24, 0.12);
+  cursor: auto;
+  font-size: 14px;
+  color: #6e6e6e;
+  line-height: 20px;
+}
+
+.hover_triangle {
+  /* opacity: 0; */
+  display: none;
+  width: 0;
+  height: 0;
+  position: absolute;
+  border-bottom: solid 6px transparent;
+  border-right: solid 6px transparent;
+  border-left: solid 6px transparent;
+  border-top: solid 6px #efebea;
+  bottom: 8px;
+  left: 0;
+}
+
+.seel--product_tip img {
+  margin: 0;
+  display: inline-block;
+}
+
+.seel-pdp-banner-text {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+  margin-left: 5px;
+}

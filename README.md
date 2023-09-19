@@ -1,15 +1,5 @@
-# 🚀 Welcome to your new awesome project!
+# 🚀 Shopify Scripts
 
-This project has been created using **webpack-cli**, you can now run
+> For Shopify merchants to integrate with Seel insurance product in online store.
 
-```
-npm run build
-```
-
-or
-
-```
-yarn build
-```
-
-to bundle your application
+## CI/CD

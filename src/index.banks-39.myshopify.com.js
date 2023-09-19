@@ -1,1 +1,0 @@
-console.log('index.banks-39.myshopify.com.js')
