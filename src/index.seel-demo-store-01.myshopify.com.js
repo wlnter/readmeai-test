@@ -79,7 +79,7 @@ store.configs = configurations;
     // });
     // window.open(checkoutUrl, "_self");
     window.open("/checkout", "_self");
-    return false;
+    // return false;
   };
   // Bind event
   document

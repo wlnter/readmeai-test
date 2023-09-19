@@ -84,7 +84,7 @@ const handler = async () => {
     // });
     // window.open(checkoutUrl, "_self");
     window.open("/checkout", "_self");
-    return false;
+    // return false;
   };
   // static cart
   document.querySelector("#checkout")?.addEventListener("click", submitHandler);
