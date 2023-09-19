@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/kover-ai/shopify-scripts/compare/v1.0.0...v1.1.0) (2023-09-19)
+
+
+### Features
+
+* swap-boutique.myshopify.com 安装ra dfd6c1-2.myshopify.com 安装sp ([fcb0f78](https://github.com/kover-ai/shopify-scripts/commit/fcb0f78c5574f10d37f811c739dd00aadfd226b0))
+
 # 1.0.0 (2023-09-19)
 
 
