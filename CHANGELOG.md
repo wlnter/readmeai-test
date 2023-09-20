@@ -1,3 +1,10 @@
+## [1.2.1](https://github.com/kover-ai/shopify-scripts/compare/v1.2.0...v1.2.1) (2023-09-20)
+
+
+### Bug Fixes
+
+* 修复swap-boutique.myshopify.com弹框文案中未展示Real Authentication的问题 ([e96906f](https://github.com/kover-ai/shopify-scripts/commit/e96906fa155f9626647f6e17c8b71b285b199b31))
+
 # [1.2.0](https://github.com/kover-ai/shopify-scripts/compare/v1.1.0...v1.2.0) (2023-09-20)
 
 
