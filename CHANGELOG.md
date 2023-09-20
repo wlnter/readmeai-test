@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/kover-ai/shopify-scripts/compare/v1.1.0...v1.2.0) (2023-09-20)
+
+
+### Features
+
+* 6a6765.myshopify.com 安装ra ([e71f0ba](https://github.com/kover-ai/shopify-scripts/commit/e71f0ba3752480e523efc1685db8257edc191dcf))
+
 # [1.1.0](https://github.com/kover-ai/shopify-scripts/compare/v1.0.0...v1.1.0) (2023-09-19)
 
 
