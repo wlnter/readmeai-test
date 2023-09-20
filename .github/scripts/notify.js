@@ -42,7 +42,7 @@ const sendNotification = async (
   const motion = `${isProd && isBreakChange ? "@channel" : ""}`;
   const verisonNumber = `${isProd ? `(${version})` : ""}`;
   const content = [
-    `${emoji} ${motion} We've released new version ${verisonNumber} of Shopify script! ${emoji}`,
+    `${emoji} ${motion}We've released new version ${verisonNumber} of Shopify script! ${emoji}`,
     `:four_leaf_clover: ${
       isProd ? "production" : "development"
     }  :technologist::skin-tone-2: ${author}  :calendar: ${new Date().toLocaleString(
