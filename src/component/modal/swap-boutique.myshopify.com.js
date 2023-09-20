@@ -1,5 +1,5 @@
 import lodashTemplate from "lodash.template";
-import complexTemplate from "./complex.my-girlfriends-wardrobe.myshopify.com.html";
+import complexTemplate from "./complex.swap-boutique.myshopify.com.html";
 import simpleTemplate from "./simple.html";
 import store, { snapshot } from "../../core/store";
 import { seelEvents } from "../../core";

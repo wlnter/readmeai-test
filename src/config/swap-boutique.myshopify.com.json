@@ -73,7 +73,7 @@
           }
         ],
         "paragraph": [
-          "Return Assurance gives you a {{returnWindow}}-day return window on otherwise final sale (non-refundable) items. If you’re unhappy with the purchase for any reason, Seel will buy it back from you for 100% of the purchase price you paid. You can use the <a href={{link}} target=\"_blank\">{{text}}</a> to effortlessly make the return. In the event your entire order is cancelled by the seller or all items in your order are successfully disputed, the Return Assurance fee will be refunded to you. However, the fee will not be refunded for partial cancellations or partial disputes.",
+          "Return Assurance gives you a {{returnWindow}}-day return window on otherwise final sale items. If you’re unhappy with the purchase for any reason, Seel will buy it back from you for 100% of the purchase price you paid. You can use the <a href={{link}} target=\"_blank\">{{text}}</a> to effortlessly make the return. Shipping and return shipping fees are not included. The cost of the Return Option is non-refundable. All returns will be authenticated via <a href='https://realauthentication.com/faqs/' target=\"_blank\">Real Authentication</a>.",
           "Please note that shipping fees are not covered by Return Assurance. The original shipping fee will not be returned and a ${{returnShippingFee}} return shipping fee will be deducted from your final refund.",
           "* Your order may be ineligible for Return Assurance if the order value exceeds our price cap or you are shipping to an address outside of the United States."
         ],
