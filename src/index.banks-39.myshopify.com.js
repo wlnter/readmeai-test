@@ -18,7 +18,7 @@ const dynamicCheckoutBtnSelector = "#sidebar-cart .Cart__Checkout";
 
 const changeSubtotal = (snapshot) => {
   // Change Subtotal
-  const { currencySymbol, currencyCode } = snapshot.quotes[0];
+  const { currencySymbol, currencyCode } = snapshot.quotes[0] || {};
   const { total_price: amount } = snapshot.cart;
   const subTotal = `${currencySymbol} ${(amount / 100).toFixed(2)} ${
     currencyCode || ""

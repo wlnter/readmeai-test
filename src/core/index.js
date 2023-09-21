@@ -62,6 +62,7 @@ export const getQuotesAndUpdateCart = async (shop) => {
     (type) => `${type}_quote_id`,
   );
   const attributes = {};
+  const updates = {};
   quoteKeys.reduce((acc, cur) => {
     acc[cur] = "";
     return acc;
@@ -86,7 +87,27 @@ export const getQuotesAndUpdateCart = async (shop) => {
     store.cart,
     store.profiles.map((_) => _.type),
   );
+  const deselectSeelProducts =
+    quoteResults
+      ?.map((_) => {
+        if (_ || _.price == 0) {
+          return _.productId;
+        } else {
+          return null;
+        }
+      })
+      ?.filter(Boolean) || [];
   store.quotes = quoteResults?.filter((_) => _ && _.price);
+  // remove Seel product when quote fail
+  store.cart?.items.forEach((item) => {
+    const found = deselectSeelProducts.find((_) => {
+      return item.product_id == _;
+    });
+    if (found) {
+      updates[item.variant_id] = 0;
+    }
+  });
+
   // SP(GSP)和BP(17BP)互斥
   if (store.quotes?.find((_) => _.type === productType.sp)) {
     store.quotes = store.quotes.filter((_) => _.type !== productType.bp);
@@ -94,13 +115,13 @@ export const getQuotesAndUpdateCart = async (shop) => {
 
   // 无报价
   if (!store.quotes || !store.quotes.length) {
-    updateCart(shop, {}, attributes);
+    updateCart(shop, updates, attributes);
     return null;
   }
 
   // convert quote to cart attributes and updates
   store.types = [];
-  const updates = {};
+
   store.quotes.forEach((quote) => {
     store.types.push(quote.type);
     const [seelVariantsInCart, matched, notMatched] = cartDiff(
@@ -135,15 +156,6 @@ export const getQuotesAndUpdateCart = async (shop) => {
       store.sessions[quote.type] = true;
     }
     attributes[`${quote.type}_quote_id`] = quote.quoteId;
-  });
-
-  Object.values(productType).forEach((type) => {
-    const found = store.quotes.find((quote) => quote.type === type);
-    if (!found) {
-      // TODO
-      // remove Seel product from cart
-      // set updates object
-    }
   });
 
   store.cart = await updateCart(
