@@ -3,22 +3,22 @@
     {
       "type": "ra",
       "name": "ADD RETURN ASSURANCE",
-      "infoIcon": "https://static.seel.com/image/widget-info-icon-light.svg",
+      "infoIcon": "https://static.seel.com/image/widget-info-icon.svg",
       "infoIconLink": "",
-      "description": "Extend your return period to {{returnWindow}} days by adding Return Assurance for <del>{{listPrice}}</del> {{currencySymbol}}{{price}}. You'll have the option to return your purchase if it doesn't work out for any reason.",
+      "description": "Extend your return period to {{returnWindow}} days by adding Return Assurance for {{currencySymbol}}{{price}}. You\u0027ll have the option to return your purchase if it doesn\u0027t work out for any reason.",
       "widgetIcon": "https://static.seel.com/image/ra-widget-icon.svg",
-      "anchor": "",
+      "anchor": ".Cart__Footer .Cart__Checkout",
       "position": "beforebegin",
-      "dynamicAnchor": "",
+      "dynamicAnchor": "#sidebar-cart .Drawer__FooterTop",
       "dynamicPosition": "beforebegin",
-      "checkoutAnchor": ".order-summary__section.order-summary__section--total-lines",
+      "checkoutAnchor": "",
       "checkoutPosition": "beforebegin",
       "listPriceRate": 0
     },
     {
       "type": "bp",
       "name": "ADD GREEN SHIPPING PROTECTION",
-      "infoIcon": "https://static.seel.com/image/widget-info-icon-light.svg",
+      "infoIcon": "https://static.seel.com/image/widget-info-icon.svg",
       "infoIconLink": "https://www.seel.com/terms/17trackbuyerprotection",
       "description": "Protect against loss, damage, delay & offset emissions for <strong>{{currencySymbol}}{{price}} {{currencyCode}}</strong>",
       "widgetIcon": "https://static.seel.com/image/bp-widget-icon.svg",
@@ -37,12 +37,12 @@
       "infoIconLink": "https://www.seel.com/terms/learn-more-about-seel-shipping-protection",
       "description": "Protect against loss, damage, delay & offset emissions for <strong>{{currencySymbol}}{{price}} {{currencyCode}}</strong>",
       "widgetIcon": "https://static.seel.com/image/sp-widget-icon.svg",
-      "anchor": "",
+      "anchor": ".Cart__Footer .Cart__Checkout",
       "position": "beforebegin",
-      "dynamicAnchor": "",
+      "dynamicAnchor": "#sidebar-cart .Drawer__FooterTop",
       "dynamicPosition": "beforebegin",
-      "checkoutAnchor": ".main__content",
-      "checkoutPosition": "beforeend",
+      "checkoutAnchor": "",
+      "checkoutPosition": "beforebegin",
       "listPriceRate": 0
     }
   ],
@@ -74,7 +74,7 @@
       ],
       "paragraph": [
         "Return Assurance gives you a {{returnWindow}}-day return window on otherwise final sale (non-refundable) items. If you’re unhappy with the purchase for any reason, Seel will buy it back from you for 100% of the purchase price you paid. You can use the <a href={{link}} target=\"_blank\">{{text}}</a> to effortlessly make the return. In the event your entire order is cancelled by the seller or all items in your order are successfully disputed, the Return Assurance fee will be refunded to you. However, the fee will not be refunded for partial cancellations or partial disputes.",
-        "Please note that shipping fees are not covered by Return Assurance. The original shipping fee will not be returned and a {{returnShippingFee}} return shipping fee will be deducted from your final refund.",
+        "Please note that shipping fees are not covered by Return Assurance. The original shipping fee will not be returned and a ${{returnShippingFee}} return shipping fee will be deducted from your final refund.",
         "* Your order may be ineligible for Return Assurance if the order value exceeds our price cap or you are shipping to an address outside of the United States."
       ],
       "marketing": "Over 1,000 customers have purchased Return Assurance for peace of mind in the last 30 days. Join them and shop worry-free.",
@@ -144,6 +144,19 @@
         "link": "https://resolve.seel.com/"
       },
       "links": []
+    }
+  ],
+  "banners": [
+    {
+      "type": "ra",
+      "bannerType": "default",
+      "infoIcon": "https://cdn.seel.com/assets/images/buyer-protection/info_icon.svg",
+      "bannerIcon": "",
+      "bannerLogo": "https://cdn.seel.com/assets/images/logo/seel_logo.svg",
+      "bannerDesc": "Return Option Available with",
+      "bannerTip": "You can add the option to return this item for a refund. Proceed to the cart for more details.",
+      "anchor": ".ProductForm__BuyButtons",
+      "position": "beforebegin"
     }
   ]
 }
