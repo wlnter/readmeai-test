@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/kover-ai/shopify-scripts/compare/v1.2.1...v1.3.0) (2023-09-21)
+
+
+### Features
+
+* banks-39.myshopify.com 安装ra gsp ([97186c1](https://github.com/kover-ai/shopify-scripts/commit/97186c1517dedf12eae9644cdcbd04eb7ae04b67))
+
 ## [1.2.1](https://github.com/kover-ai/shopify-scripts/compare/v1.2.0...v1.2.1) (2023-09-20)
 
 
