@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/kover-ai/shopify-scripts/compare/v1.3.0...v1.4.0) (2023-09-21)
+
+
+### Features
+
+* 8d4b8c.myshopify.com 安装ra ([e10ebef](https://github.com/kover-ai/shopify-scripts/commit/e10ebef2e4eb408343805ad14da184e97428b733))
+
 # [1.3.0](https://github.com/kover-ai/shopify-scripts/compare/v1.2.1...v1.3.0) (2023-09-21)
 
 
