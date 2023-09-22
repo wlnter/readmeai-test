@@ -184,7 +184,7 @@ export const getQuoteResults = async (shop, cart, types) => {
     const quotes = await Promise.all(promises);
     return quotes;
   } catch (e) {
-    console.log(e.message);
+    console.log("getQuoteResults",e.message);
     return null;
   }
 };
