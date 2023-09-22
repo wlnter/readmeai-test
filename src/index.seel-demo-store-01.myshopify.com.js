@@ -53,7 +53,7 @@ store.configs = configurations;
     });
 
     // Change Subtotal
-    const { currencySymbol, currencyCode } = store.quotes[0];
+    const { currencySymbol, currencyCode } = store.quotes[0] || {};
     const { total_price: amount } = store.cart;
     const subTotal = `${currencySymbol} ${(amount / 100).toFixed(2)} ${
       currencyCode || ""
