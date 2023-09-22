@@ -1,3 +1,10 @@
+## [1.4.1](https://github.com/kover-ai/shopify-scripts/compare/v1.4.0...v1.4.1) (2023-09-22)
+
+
+### Bug Fixes
+
+* 修复相关保险商品报价为0时不能自动从购物车移除的问题 ([60062b0](https://github.com/kover-ai/shopify-scripts/commit/60062b06c003ad81d28f12f319b8ecfbc91c6610))
+
 # [1.4.0](https://github.com/kover-ai/shopify-scripts/compare/v1.3.0...v1.4.0) (2023-09-21)
 
 
