@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/kover-ai/shopify-scripts/compare/v1.4.1...v1.5.0) (2023-09-26)
+
+
+### Features
+
+* **bennas.myshopify.com:** add ra ([a2a451f](https://github.com/kover-ai/shopify-scripts/commit/a2a451f749914712a5506421324fb6f3ce80e1e5))
+
 ## [1.4.1](https://github.com/kover-ai/shopify-scripts/compare/v1.4.0...v1.4.1) (2023-09-22)
 
 
