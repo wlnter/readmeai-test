@@ -4,6 +4,9 @@ import { bindWidgetEvents } from "../../core";
 import store, { snapshot } from "../../core/store";
 import { formatMoney } from "../../core/util";
 import "./index.css";
+import "./bennas.myshopify.com.css";
+
+const delay = (t) => new Promise((resolve) => setTimeout(resolve, t));
 
 export const flatten = (widget, type) => {
   const { configs, profiles, quotes, sessions } = snapshot(store);
@@ -37,10 +40,8 @@ export const flatten = (widget, type) => {
     ...formatQuote,
     listPrice: listPriceRate ? listPrice : "",
   });
-
   widget.querySelector(".seel_widget--title_line--checkbox").checked =
     sessions?.[type] == null ? profile?.checked : sessions?.[type];
-
   return widget;
 };
 
@@ -51,21 +52,27 @@ export const getComponent = (type) => {
   return component;
 };
 
+const containerClass = "seel_widgets_list_container";
+const createContainer = () => {
+  const container = document.createElement("div");
+  container.classList.add(containerClass);
+  return container;
+};
+const isContainerMounted = () => document.querySelector(`.${containerClass}`);
+
 let dynamicAnchorObserver = {};
 export const embedWidget = async (type) => {
+  // 第一次加载widget延迟展示
+  await delay(1000);
   const { configs, sessions } = snapshot(store);
   const config = configs.widgets.find((_) => _.type === type);
   if (!config) {
     return;
   }
   const widget = getComponent(type);
-  if (sessions?.[type]) {
-    widget
-      .querySelector("[data-seel-widget-input]")
-      .setAttribute("checked", true);
-  } else {
-    widget.querySelector("[data-seel-widget-input]").removeAttribute("checked");
-  }
+  widget.querySelector("[data-seel-widget-input]").checked = sessions?.[type]
+    ? true
+    : false;
 
   const {
     anchor,
@@ -79,33 +86,68 @@ export const embedWidget = async (type) => {
   const insertPosition = checkoutPosition || position || "beforebegin";
 
   if (selector && document.querySelector(selector) && widget) {
-    document
-      .querySelector(selector)
-      .insertAdjacentElement(insertPosition, widget);
+    let container = isContainerMounted();
+    if (!container) {
+      document
+        .querySelector(selector)
+        .insertAdjacentElement(insertPosition, createContainer());
+      container = isContainerMounted();
+    }
+    container.insertAdjacentElement("beforeend", widget);
+    // document
+    //   .querySelector(selector)
+    //   .insertAdjacentElement(insertPosition, widget);
     widget.dataset.seelProductType = type;
     console.log(`insert ${type} widget and bind events`);
     bindWidgetEvents(type);
+  } else if (dynamicAnchor && document.querySelector(dynamicAnchor) && widget) {
+    const widgetElement = document.querySelector(
+      `.seel_widget[data-seel-product-type='${type}']`
+    );
+    if (!widgetElement && document.querySelector(dynamicAnchor)) {
+      let container = isContainerMounted();
+      if (!container) {
+        document
+          .querySelector(dynamicAnchor)
+          .insertAdjacentElement(dynamicPosition, createContainer());
+        container = isContainerMounted();
+      }
+      container.insertAdjacentElement("beforeend", widget);
+      // document
+      //   .querySelector(dynamicAnchor)
+      //   .insertAdjacentElement(dynamicPosition || "beforebegin", widget);
+      widget.dataset.seelProductType = type;
+      console.log(`insert dynamicAnchor ${type} widget and bind events`);
+      bindWidgetEvents(type);
+    }
   } else if (dynamicAnchor && widget) {
     dynamicAnchorObserver?.[type]?.disconnect?.();
     dynamicAnchorObserver[type] = new MutationObserver(() => {
       const widgetElement = document.querySelector(
-        `.seel_widget[data-seel-product-type='${type}']`
+        `.seel_widget[data-seel-product-type='${type}']`,
       );
       if (!widgetElement && document.querySelector(dynamicAnchor)) {
-        document
-          .querySelector(dynamicAnchor)
-          .insertAdjacentElement(dynamicPosition || "beforebegin", widget);
+        let container = isContainerMounted();
+        if (!container) {
+          document
+            .querySelector(dynamicAnchor)
+            .insertAdjacentElement(dynamicPosition, createContainer());
+          container = isContainerMounted();
+        }
+        container.insertAdjacentElement("beforeend", widget);
+        // document
+        //   .querySelector(dynamicAnchor)
+        //   .insertAdjacentElement(dynamicPosition || "beforebegin", widget);
         widget.dataset.seelProductType = type;
-        console.log(`insert dynamicAnchor ${type} widget and bind events`);
+        console.log(`insert ${type} widget and bind events`);
         bindWidgetEvents(type);
         dynamicAnchorObserver?.[type]?.disconnect?.();
       }
     });
-    dynamicAnchorObserver[type].observe(document.body, {
-      attributes: true,
-      childList: true,
-      subtree: true,
-    });
+    dynamicAnchorObserver[type].observe(
+      document.querySelector("#sidebar-cart") || document.body,
+      { attributes: true, childList: true, subtree: true },
+    );
   }
 };
 

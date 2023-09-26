@@ -116,6 +116,12 @@ export const getQuotesAndUpdateCart = async (shop) => {
   // 无报价
   if (!store.quotes || !store.quotes.length) {
     updateCart(shop, updates, attributes);
+    if (shop === "bennas.myshopify.com") {
+      // 更新UI
+      setTimeout(() => {
+        window.ajaxCart.load();
+      }, 1000);
+    }
     return null;
   }
 
