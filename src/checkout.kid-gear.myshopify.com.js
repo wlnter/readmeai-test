@@ -7,6 +7,8 @@ import initialize, { seelEvents } from "./core";
 import configuration from "./config/kid-gear.myshopify.com.json";
 import "./component/checkout-widget/kid-gear.myshopify.com.css";
 store.configs = configuration;
+import renderPdpBanner from "./component/pdp-banner";
+import { productType } from "./core/constant";
 
 const shop = "kid-gear.myshopify.com";
 const productListSelector =
@@ -26,6 +28,7 @@ const repaintAside = async (checkoutUrl = window.location.href) => {
 
 (async () => {
   await initialize(shop);
+  renderPdpBanner(productType.ra, shop);
 
   store?.types?.forEach?.((type) => {
     embedWidget(type);

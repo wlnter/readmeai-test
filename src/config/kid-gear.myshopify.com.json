@@ -119,9 +119,12 @@
   "banners": [
     {
       "type": "ra",
-      "bannerType": "plain",
-      "bannerIcon": "https://cdn.seel.com/assets/images/return-assurance/widget_icon.svg",
-      "bannerDesc": "This item is nonreturnable, but you can purchase a return option with Seel Return Assurance for an additional fee.",
+      "bannerType": "default",
+      "infoIcon": "https://cdn.seel.com/assets/images/buyer-protection/info_icon.svg",
+      "bannerIcon": "",
+      "bannerLogo": "https://cdn.seel.com/assets/images/logo/seel_logo.svg",
+      "bannerDesc": "Return Option Available with",
+      "bannerTip": "You can add the option to return this item for a refund. Proceed to the cart for more details.",
       "anchor": ".product-main .product-form-regular .product-form-button",
       "position": "beforebegin"
     }
