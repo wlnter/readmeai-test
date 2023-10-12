@@ -1,3 +1,15 @@
+# [1.6.0](https://github.com/kover-ai/shopify-scripts/compare/v1.5.0...v1.6.0) (2023-10-12)
+
+
+### Bug Fixes
+
+* **kid-gear.myshopify.com:** 增加pdp banner ([e055ade](https://github.com/kover-ai/shopify-scripts/commit/e055adea224f738c72a9b68e5d6d27b203a18750))
+
+
+### Features
+
+* **kid-gear.myshopify.com:** add ra ([db01131](https://github.com/kover-ai/shopify-scripts/commit/db01131b9cbb324a97aaa99352aeeb14307ba60e))
+
 # [1.5.0](https://github.com/kover-ai/shopify-scripts/compare/v1.4.1...v1.5.0) (2023-09-26)
 
 
