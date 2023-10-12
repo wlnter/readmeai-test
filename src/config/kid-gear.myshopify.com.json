@@ -5,7 +5,7 @@
       "name": "ADD RETURN ASSURANCE",
       "infoIcon": "https://static.seel.com/image/widget-info-icon.svg",
       "infoIconLink": "",
-      "description": "You have item(s) worth {{currencySymbol}}{{value}} in your cart that are final sale. For <del>{{listPrice}}</del> {{currencySymbol}}{{price}}, you can add an option within {{returnWindow}} days to return these item(s) if they don’t work out for any reason.",
+      "description": "You have item(s) worth {{currencySymbol}}{{value}} in your cart that are non-returnable except for quality issues. For <del>{{listPrice}}</del> {{currencySymbol}}{{price}}, you can add the option to return this item if you change your mind, have compatibility issues, or buyer's remorse.",
       "widgetIcon": "https://static.seel.com/image/ra-widget-icon.svg",
       "anchor": "",
       "position": "beforebegin",
@@ -43,7 +43,7 @@
         }
       ],     
        "paragraph": [
-        "Return Assurance gives you a {{returnWindow}}-day return window on otherwise final sale (non-refundable) items. If you’re unhappy with the purchase for any reason, Seel will buy it back from you for 100% of the purchase price you paid. You can use the <a href={{link}} target=\"_blank\">{{text}}</a> to effortlessly make the return. In the event your entire order is cancelled by the seller or all items in your order are successfully disputed, the Return Assurance fee will be refunded to you. However, the fee will not be refunded for partial cancellations or partial disputes.",
+        "Return Assurance gives you a {{returnWindow}}-day return window on eligible items. If you change your mind or have buyer's remorse about a purchase, Seel will buy it back from you for 100% of the purchase price you paid. You can use the <a href={{link}} target=\"_blank\">{{text}}</a> to effortlessly make the return. In the event your entire order is cancelled by the seller or all items in your order are successfully disputed, the Return Assurance fee will be refunded to you. However, the fee will not be refunded for partial cancellations or partial disputes.",
         "Please note that shipping fees are not covered by Return Assurance. The original shipping fee will not be returned and a return shipping fee (based on the actual charge by the carrier) will be deducted from your final refund.",
         "* Your order may be ineligible for Return Assurance if the order value exceeds our price cap or you are shipping to an address outside of the United States."
       ],
@@ -124,7 +124,7 @@
       "bannerIcon": "",
       "bannerLogo": "https://cdn.seel.com/assets/images/logo/seel_logo.svg",
       "bannerDesc": "Return Option Available with",
-      "bannerTip": "You can add the option to return this item for a refund. Proceed to the cart for more details.",
+      "bannerTip": "You can add the option to return this item for a refund if you change your mind, have compatibility issues, or buyer’s remorse. Proceed to the checkout for more details",
       "anchor": ".product-main .product-form-regular .product-form-button",
       "position": "beforebegin"
     }
