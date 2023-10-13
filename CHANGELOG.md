@@ -1,3 +1,10 @@
+# [1.7.0](https://github.com/kover-ai/shopify-scripts/compare/v1.6.0...v1.7.0) (2023-10-13)
+
+
+### Features
+
+* shoppremiumoutlets.myshopify.com 新增cart 与checkout ra widget ([c09a4bc](https://github.com/kover-ai/shopify-scripts/commit/c09a4bcacee8db06c148cb034c2c79b3447fa88c))
+
 # [1.6.0](https://github.com/kover-ai/shopify-scripts/compare/v1.5.0...v1.6.0) (2023-10-12)
 
 
