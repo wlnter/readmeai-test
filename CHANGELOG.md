@@ -1,3 +1,10 @@
+# [1.8.0](https://github.com/kover-ai/shopify-scripts/compare/v1.7.0...v1.8.0) (2023-10-24)
+
+
+### Features
+
+* **thunder-textile.myshopify.com and deowoo.myshopify.com:** add widget ([574ad89](https://github.com/kover-ai/shopify-scripts/commit/574ad896fc11a5cd2a7682047de024547fbd4300))
+
 # [1.7.0](https://github.com/kover-ai/shopify-scripts/compare/v1.6.0...v1.7.0) (2023-10-13)
 
 
