@@ -1,3 +1,10 @@
+# [1.9.0](https://github.com/kover-ai/shopify-scripts/compare/v1.8.0...v1.9.0) (2023-10-30)
+
+
+### Features
+
+* **spo:** spo.myshopify.com 在结算页集成RA ([1762dc2](https://github.com/kover-ai/shopify-scripts/commit/1762dc2822eef195989d13bddd8e0d5d895e4b37))
+
 # [1.8.0](https://github.com/kover-ai/shopify-scripts/compare/v1.7.0...v1.8.0) (2023-10-24)
 
 
