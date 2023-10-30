@@ -46,7 +46,8 @@ const sendNotification = async (
     `:four_leaf_clover: ${
       isProd ? "production" : "development"
     }  :technologist::skin-tone-2: ${author}  :calendar: ${new Date().toLocaleString(
-      "zh-CN"
+      "zh-CN",
+      { timeZone: "Asia/Shanghai" }
     )}.`,
   ]
     .concat(shopList)
