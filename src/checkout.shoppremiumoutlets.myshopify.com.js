@@ -1,7 +1,7 @@
 import store from "./core/store";
 import embedWidget, {
   flatten as repaintWidget,
-} from "./component/checkout-widget";
+} from "./component/checkout-widget/shoppremiumoutlets.myshopify.com.js";
 import renderModal from "./component/modal";
 import initialize, { seelEvents, querys } from "./core";
 import configuration from "./config/shoppremiumoutlets.myshopify.com.json";
@@ -19,6 +19,17 @@ const repaintAside = async (checkoutUrl = window.location.href) => {
   const totalLine = doc.querySelector(totalLineSelector);
   document.querySelector(productListSelector)?.replaceWith(productList);
   document.querySelector(totalLineSelector)?.replaceWith(totalLine);
+
+  // enable checkbox
+  if (document.querySelector(".seel_widget--title_line--checkbox")) {
+    const checkboxs = document.querySelectorAll(
+      ".seel_widget--title_line--checkbox",
+    );
+    checkboxs?.forEach((checkbox) => {
+      //disable checkbox input
+      checkbox.disabled = false;
+    });
+  }
 };
 
 (async () => {
@@ -39,6 +50,13 @@ const repaintAside = async (checkoutUrl = window.location.href) => {
       );
       if (widget) {
         repaintWidget(widget, type);
+        const checkboxs = document.querySelectorAll(
+          ".seel_widget--title_line--checkbox",
+        );
+        checkboxs?.forEach((checkbox) => {
+          //disable checkbox input
+          checkbox.disabled = true;
+        });
       }
     });
     repaintAside();

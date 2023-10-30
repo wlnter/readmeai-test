@@ -41,8 +41,6 @@ const changeSubtotal = (snapshot) => {
 (async () => {
   await initialize(shop);
 
-  renderPdpBanner(productType.ra, shop);
-
   // Discard the first cart_updated event, and manually complete the inital rendering
   // Update subtotal manually
   changeSubtotal(snapshot(store));
