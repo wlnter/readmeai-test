@@ -5,7 +5,7 @@
       "name": "ADD RETURN ASSURANCE",
       "infoIcon": "https://static.seel.com/image/widget-info-icon.svg",
       "infoIconLink": "",
-      "description": "You have item(s) worth {{currencySymbol}}{{value}} in your cart that are non-returnable except for quality issues. For <del>{{listPrice}}</del> {{currencySymbol}}{{price}}, you can add the option to return this item if you change your mind, have compatibility issues, or buyer's remorse.",
+      "description": "You have item(s) worth {{currencySymbol}}{{value}} in your cart that are final sale. For <del>{{listPrice}}</del> {{currencySymbol}}{{price}}, you can add an option to return these item(s) within {{returnWindow}} days if they don’t work out for any reason.",
       "widgetIcon": "https://static.seel.com/image/ra-widget-icon.svg",
       "anchor": "",
       "position": "beforebegin",

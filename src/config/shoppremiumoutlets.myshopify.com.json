@@ -5,7 +5,7 @@
       "name": "Add return option with",
       "infoIcon": "https://static.seel.com/image/widget-info-icon.svg",
       "infoIconLink": "",
-      "description": "You have item(s) worth {{currencySymbol}}{{value}} in your cart that are final sale. For <del>{{listPrice}}</del> {{currencySymbol}}{{price}}, you can add an option within {{returnWindow}} days to return these item(s) if they don’t work out for any reason.",
+      "description": "You have item(s) worth {{currencySymbol}}{{value}} in your cart that are final sale. For <del>{{listPrice}}</del> {{currencySymbol}}{{price}}, you can add an option to return these item(s) within {{returnWindow}} days if they don’t work out for any reason.",
       "widgetIcon": "https://cdn.seel.com/assets/images/spo-ra-widget-icon.svg",
       "anchor": ".cart__checkout-wrapper [name=checkout]",
       "position": "beforebegin",
@@ -93,7 +93,11 @@
         {
           "header": "1-click protect against",
           "contentIcon": "https://cdn.seel.com/assets/images/modal-section-icon-1.svg",
-          "contentText": ["Loss", "Damage", "Delay"]
+          "contentText": [
+            "Loss",
+            "Damage",
+            "Delay"
+          ]
         },
         {
           "header": "Instant resolution",
