@@ -1,3 +1,15 @@
+# [1.11.0](https://github.com/kover-ai/shopify-scripts/compare/v1.10.0...v1.11.0) (2023-10-31)
+
+
+### Bug Fixes
+
+* **holy-thrift:** pdp banner锚点调整 ([ee15e4d](https://github.com/kover-ai/shopify-scripts/commit/ee15e4db58e8518e5701acaf735eb1adb0b21a31))
+
+
+### Features
+
+* **holy-thrift:** add RA widget to cart ([a013e94](https://github.com/kover-ai/shopify-scripts/commit/a013e94dc24dd622c1473f0c42b1ed8d6f6b990b))
+
 # [1.10.0](https://github.com/kover-ai/shopify-scripts/compare/v1.9.0...v1.10.0) (2023-10-31)
 
 
