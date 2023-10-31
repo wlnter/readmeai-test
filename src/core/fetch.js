@@ -37,8 +37,13 @@ export const fetchSPProfile = async (type = productType.sp, shop) => {
 
 export const fetchProfile = async (type, shop) => {
   let url = `https://${process.env.API_DOMAIN}/gateway/merchant-service/api/cart-configs-v2/${shop}`;
-  if (type === productType.ra) {
+  const isRA = type === productType.ra;
+  if (isRA) {
     url = `${url}?type=${type.toUpperCase()}`;
+  }
+  // 增加debug=1时接口返回live=true，以便测试
+  if (querys.debug === "1") {
+    url = `${url}${isRA ? "&" : "?"}token=${shop}`;
   }
   let resp = await fetch(url);
   resp = await resp.text();
