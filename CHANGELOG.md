@@ -1,3 +1,10 @@
+# [1.10.0](https://github.com/kover-ai/shopify-scripts/compare/v1.9.0...v1.10.0) (2023-10-31)
+
+
+### Features
+
+* 1.pdpbanner增加对live=false的判断;2.增加debug=1以便测试 ([bd9d872](https://github.com/kover-ai/shopify-scripts/commit/bd9d872d77025a9982b36059cb101c99682378f7))
+
 # [1.9.0](https://github.com/kover-ai/shopify-scripts/compare/v1.8.0...v1.9.0) (2023-10-30)
 
 
