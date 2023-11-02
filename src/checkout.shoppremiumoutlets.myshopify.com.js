@@ -15,10 +15,13 @@ const repaintAside = async (checkoutUrl = window.location.href) => {
   const productListSelector =
     ".order-summary__section.order-summary__section--product-list";
   const totalLineSelector = ".total-line-table__footer";
+  const priceListSelector = ".total-line-table__tbody";
   const productList = doc.querySelector(productListSelector);
   const totalLine = doc.querySelector(totalLineSelector);
+  const priceList = doc.querySelector(priceListSelector);
   document.querySelector(productListSelector)?.replaceWith(productList);
   document.querySelector(totalLineSelector)?.replaceWith(totalLine);
+  document.querySelector(priceListSelector)?.replaceWith(priceList);
 
   // enable checkbox
   if (document.querySelector(".seel_widget--title_line--checkbox")) {

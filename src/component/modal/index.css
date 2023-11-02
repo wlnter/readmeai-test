@@ -81,6 +81,7 @@
 .seel_modal--header--close {
   width: 16px;
   height: 16px;
+  cursor: pointer;
 }
 
 /* modal sections */

@@ -43,21 +43,14 @@
         }
       ],
       "paragraph": [
-        "Return Assurance gives you a {{returnWindow}}-day return window on otherwise final sale (non-refundable) items. If you’re unhappy with the purchase for any reason, Seel will buy it back from you for 100% of the purchase price you paid. You can use the <a href={{link}} target=\"_blank\">{{text}}</a> to effortlessly make the return. In the event your entire order is cancelled by the seller or all items in your order are successfully disputed, the Return Assurance fee will be refunded to you. However, the fee will not be refunded for partial cancellations or partial disputes.",
-        "Please note that shipping fees are not covered by Return Assurance. The original shipping fee will not be returned and a ${{returnShippingFee}} return shipping fee will be deducted from your final refund.",
-        "* Your order may be ineligible for Return Assurance if the order value exceeds our price cap or you are shipping to an address outside of the United States."
+        "Return Assurance gives you a {{returnWindow}}-day return window on otherwise final sale items. If you're unhappy with the purchase for any reason, Seel will buy it back from you for 100% of the purchase price you paid. You can use the Seel Resolution Center to effortlessly make the return. Shipping and return shipping fees are not included. The cost of the Return Option is non-refundable."
       ],
       "marketing": "Over 1,000 customers have purchased Return Assurance for peace of mind in the last 30 days. Join them and shop worry-free.",
       "linkInText": {
         "text": "Seel Resolution Center",
         "link": "https://resolve.seel.com/shoppremiumoutlets"
       },
-      "links": [
-        {
-          "text": "Learn more >",
-          "link": "https://www.seel.com/customer-testimonials"
-        }
-      ]
+      "links": []
     },
     {
       "type": "ra",
@@ -78,44 +71,6 @@
       "linkInText": {
         "text": "Terms of Service",
         "link": "https://www.seel.com/terms/customer-terms-of-service"
-      },
-      "links": [
-        {
-          "text": "Learn more >",
-          "link": "https://www.seel.com/customer-testimonials"
-        }
-      ]
-    },
-    {
-      "type": "sp",
-      "modalType": "complex",
-      "section": [
-        {
-          "header": "1-click protect against",
-          "contentIcon": "https://cdn.seel.com/assets/images/modal-section-icon-1.svg",
-          "contentText": [
-            "Loss",
-            "Damage",
-            "Delay"
-          ]
-        },
-        {
-          "header": "Instant resolution",
-          "contentIcon": "https://cdn.seel.com/assets/images/modal-section-icon-3.svg",
-          "contentText": "Instantly resolve your shipment issues and get a refund or replacement with a few clicks."
-        },
-        {
-          "header": "Protect our planet",
-          "contentIcon": "https://cdn.seel.com/assets/images/modal-section-icon-4.svg",
-          "contentText": "Part of your Green Shipping Protection fee will fund green projects to offset emissions from shipping."
-        }
-      ],
-      "paragraph": [
-        "Green Shipping Protection offers peace of mind against package loss, damage, and delay, while offsetting carbon emissions from shipping for a greener planet. Should any covered incidents occur, use the <a href={{link}} target=\"_blank\">{{text}}</a> to resolve your package issue and get a compensation up to the full value of your order!"
-      ],
-      "linkInText": {
-        "text": "Seel Resolution Center",
-        "link": "https://resolve.seel.com/"
       },
       "links": []
     }
