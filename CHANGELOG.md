@@ -1,3 +1,10 @@
+# [1.12.0](https://github.com/kover-ai/shopify-scripts/compare/v1.11.0...v1.12.0) (2023-11-02)
+
+
+### Features
+
+* **spo:** 变更弹窗内容，移除外跳链接。 ([77f2cea](https://github.com/kover-ai/shopify-scripts/commit/77f2cea39c3a4b972b1dc300d3ec718a11fad885))
+
 # [1.11.0](https://github.com/kover-ai/shopify-scripts/compare/v1.10.0...v1.11.0) (2023-10-31)
 
 
