@@ -1,3 +1,10 @@
+## [1.12.1](https://github.com/kover-ai/shopify-scripts/compare/v1.12.0...v1.12.1) (2023-11-07)
+
+
+### Bug Fixes
+
+* **luxcellent:** 修复店铺购物车金额更新时的TypeError ([f201800](https://github.com/kover-ai/shopify-scripts/commit/f201800adf15986218f0986b0a535745cf17be3a))
+
 # [1.12.0](https://github.com/kover-ai/shopify-scripts/compare/v1.11.0...v1.12.0) (2023-11-02)
 
 
