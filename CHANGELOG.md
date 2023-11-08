@@ -1,3 +1,11 @@
+# [1.13.0](https://github.com/kover-ai/shopify-scripts/compare/v1.12.1...v1.13.0) (2023-11-08)
+
+
+### Features
+
+* **kid-gear:** 使用模板调整checkout-widget标题 ([cb799d3](https://github.com/kover-ai/shopify-scripts/commit/cb799d30757dcf7178622bcf0763970a664573d2))
+* **kid-gear:** 店铺cart页面集成widget ([aabdcb2](https://github.com/kover-ai/shopify-scripts/commit/aabdcb2c767b5ba13937f4ec388670c9fad6863d))
+
 ## [1.12.1](https://github.com/kover-ai/shopify-scripts/compare/v1.12.0...v1.12.1) (2023-11-07)
 
 
