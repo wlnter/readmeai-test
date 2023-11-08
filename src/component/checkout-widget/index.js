@@ -25,7 +25,15 @@ export const flatten = (widget, type) => {
   const widgetIconEl = widget.querySelector(".seel_widget--desc_line--icon");
   const widgetInfoIconEl = widget.querySelector("[data-seel-widget-info]");
   const widgetDesc = widget.querySelector(".seel_widget--desc_line--text");
-  widgetName.innerHTML = name;
+  widgetName.innerHTML = lodashTemplate(
+    name,
+    templateOption
+  )({
+    ...profile,
+    ...quote,
+    ...formatQuote,
+    listPrice: listPriceRate ? listPrice : "",
+  });
   widgetIconEl.setAttribute("src", widgetIcon);
   widgetInfoIconEl.setAttribute("src", infoIcon);
   widgetDesc.innerHTML = lodashTemplate(
