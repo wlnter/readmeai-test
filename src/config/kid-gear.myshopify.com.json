@@ -1,20 +1,20 @@
 {
   "widgets": [
-  {
+    {
       "type": "ra",
-      "name": "ADD RETURN ASSURANCE",
+      "name": "Add {{returnWindow}}-day return",
       "infoIcon": "https://static.seel.com/image/widget-info-icon.svg",
       "infoIconLink": "",
       "description": "You have item(s) worth {{currencySymbol}}{{value}} in your cart that are final sale. For <del>{{listPrice}}</del> {{currencySymbol}}{{price}}, you can add an option to return these item(s) within {{returnWindow}} days if they don’t work out for any reason.",
       "widgetIcon": "https://static.seel.com/image/ra-widget-icon.svg",
-      "anchor": "",
+      "anchor": ".cart-checkout",
       "position": "beforebegin",
       "dynamicAnchor": "",
       "dynamicPosition": "beforebegin",
       "checkoutAnchor": ".order-summary__section.order-summary__section--total-lines",
       "checkoutPosition": "beforebegin",
       "listPriceRate": 0
-  }
+    }
   ],
   "modals": [
     {
@@ -41,8 +41,8 @@
           "contentIcon": "https://cdn.seel.com/assets/images/modal-section-icon-3.svg",
           "contentText": "Resolve your return request and get refunded with a few clicks."
         }
-      ],     
-       "paragraph": [
+      ],
+      "paragraph": [
         "Return Assurance gives you a {{returnWindow}}-day return window on eligible items. If you change your mind or have buyer's remorse about a purchase, Seel will buy it back from you for 100% of the purchase price you paid. You can use the <a href={{link}} target=\"_blank\">{{text}}</a> to effortlessly make the return. In the event your entire order is cancelled by the seller or all items in your order are successfully disputed, the Return Assurance fee will be refunded to you. However, the fee will not be refunded for partial cancellations or partial disputes.",
         "Please note that shipping fees are not covered by Return Assurance. The original shipping fee will not be returned and a return shipping fee (based on the actual charge by the carrier) will be deducted from your final refund.",
         "* Your order may be ineligible for Return Assurance if the order value exceeds our price cap or you are shipping to an address outside of the United States."

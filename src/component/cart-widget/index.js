@@ -1,6 +1,6 @@
 import lodashTemplate from "lodash.template";
 import widgetTemplate from "./index.html";
-import { bindWidgetEvents } from "../../core";
+import { bindWidgetEvents, seelEvents } from "../../core";
 import store, { snapshot } from "../../core/store";
 import { formatMoney } from "../../core/util";
 import "./index.css";
@@ -25,7 +25,15 @@ export const flatten = (widget, type) => {
   const widgetIconEl = widget.querySelector(".seel_widget--desc_line--icon");
   const widgetInfoIconEl = widget.querySelector("[data-seel-widget-info]");
   const widgetDesc = widget.querySelector(".seel_widget--desc_line--text");
-  widgetName.innerHTML = name;
+  widgetName.innerHTML = lodashTemplate(
+    name,
+    templateOption
+  )({
+    ...profile,
+    ...quote,
+    ...formatQuote,
+    listPrice: listPriceRate ? listPrice : "",
+  });
   widgetIconEl.setAttribute("src", widgetIcon);
   widgetInfoIconEl.setAttribute("src", infoIcon);
   widgetDesc.innerHTML = lodashTemplate(
@@ -59,6 +67,7 @@ export const embedWidget = async (type) => {
     return;
   }
   const widget = getComponent(type);
+  console.log("***", widget);
   if (sessions?.[type]) {
     widget
       .querySelector("[data-seel-widget-input]")
@@ -75,13 +84,19 @@ export const embedWidget = async (type) => {
     dynamicAnchor,
     dynamicPosition,
   } = config;
-  const selector = checkoutAnchor || anchor;
-  const insertPosition = checkoutPosition || position || "beforebegin";
-
-  if (selector && document.querySelector(selector) && widget) {
+  if (anchor && document.querySelector(anchor) && widget) {
+    document.querySelector(anchor).insertAdjacentElement(position, widget);
+    widget.dataset.seelProductType = type;
+    console.log(`insert ${type} widget and bind events`);
+    bindWidgetEvents(type);
+  } else if (
+    checkoutAnchor &&
+    document.querySelector(checkoutAnchor) &&
+    widget
+  ) {
     document
-      .querySelector(selector)
-      .insertAdjacentElement(insertPosition, widget);
+      .querySelector(checkoutAnchor)
+      .insertAdjacentElement(checkoutPosition, widget);
     widget.dataset.seelProductType = type;
     console.log(`insert ${type} widget and bind events`);
     bindWidgetEvents(type);
