@@ -1,3 +1,7 @@
 .seel_widget {
+  max-width: 500px;
+  border: none;
+  background: #f1f0ff;
+  margin: 0 auto;
   margin-bottom: 20px;
 }
