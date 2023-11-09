@@ -1,3 +1,10 @@
+# [1.14.0](https://github.com/kover-ai/shopify-scripts/compare/v1.13.0...v1.14.0) (2023-11-09)
+
+
+### Features
+
+* **kid-gear:** 调整cart-widget样式，包括背景色，居中对齐等 ([8e4324f](https://github.com/kover-ai/shopify-scripts/commit/8e4324fea722811456e58bcb02b07649a307c311))
+
 # [1.13.0](https://github.com/kover-ai/shopify-scripts/compare/v1.12.1...v1.13.0) (2023-11-08)
 
 
