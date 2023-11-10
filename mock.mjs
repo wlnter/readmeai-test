@@ -7,7 +7,7 @@ const __dirname = url.fileURLToPath(new URL(".", import.meta.url));
 
 const scripts = glob.sync("dist/script/*.js");
 
-var mockDir = "./mock/static-test.seel.com/shopify/script";
+var mockDir = "./mock/static.seel.com/shopify/script";
 if (!fs.existsSync(mockDir)) {
   fs.mkdirSync(mockDir, { recursive: true });
 }
