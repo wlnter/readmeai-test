@@ -1,3 +1,10 @@
+# [1.15.0](https://github.com/kover-ai/shopify-scripts/compare/v1.14.0...v1.15.0) (2023-11-13)
+
+
+### Features
+
+* **stumbul.myshopify.com:** op-3074 add ra and gsp ([59916d5](https://github.com/kover-ai/shopify-scripts/commit/59916d51b7536fc352cb4efae9bc00a8685e1767))
+
 # [1.14.0](https://github.com/kover-ai/shopify-scripts/compare/v1.13.0...v1.14.0) (2023-11-09)
 
 
