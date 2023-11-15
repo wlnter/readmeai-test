@@ -1,0 +1,57 @@
+{
+  "widgets": [
+    {
+      "type": "sp",
+      "name": "ADD GREEN SHIPPING PROTECTION",
+      "infoIcon": "https://static.seel.com/image/widget-info-icon.svg",
+      "infoIconLink": "https://www.seel.com/terms/learn-more-about-seel-shipping-protection",
+      "description": "Protect against loss, damage, delay & offset emissions for <strong>{{currencySymbol}}{{price}} {{currencyCode}}</strong>",
+      "widgetIcon": "https://static.seel.com/image/sp-widget-icon.svg",
+      "anchor": "#main .cart-form button[name=checkout]", 
+      "position": "beforebegin",
+      "dynamicAnchor": ".cart-drawer .buy-buttons", 
+      "dynamicPosition": "beforebegin",
+      "checkoutAnchor": "", 
+      "checkoutPosition": "beforebegin",
+      "listPriceRate": 0
+    }
+  ],
+  "modals": [
+    {
+      "type": "sp",
+      "modalType": "complex",
+      "section": [
+        {
+          "header": "1-click protect against",
+          "contentIcon": "https://cdn.seel.com/assets/images/modal-section-icon-1.svg",
+          "contentText": [
+            "Loss",
+            "Damage",
+            "Delay"
+          ]
+        },
+        {
+          "header": "Instant resolution",
+          "contentIcon": "https://cdn.seel.com/assets/images/modal-section-icon-3.svg",
+          "contentText": "Instantly resolve your shipment issues and get a refund or replacement with a few clicks."
+        },
+        {
+          "header": "Protect our planet",
+          "contentIcon": "https://cdn.seel.com/assets/images/modal-section-icon-4.svg",
+          "contentText": "Part of your Green Shipping Protection fee will fund green projects to offset emissions from shipping."
+        }
+      ],
+      "paragraph": [
+        "Green Shipping Protection offers peace of mind against package loss, damage, and delay, while offsetting carbon emissions from shipping for a greener planet. Should any covered incidents occur, use the <a href={{link}} target=\"_blank\">{{text}}</a> to resolve your package issue and get a compensation up to the full value of your order!"
+      ],
+      "linkInText": {
+        "text": "Seel Resolution Center",
+        "link": "https://resolve.seel.com/"
+      },
+      "links": []
+    }
+  ],
+  "banners": [
+    
+  ]
+}
