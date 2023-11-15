@@ -1,3 +1,10 @@
+# [1.16.0](https://github.com/kover-ai/shopify-scripts/compare/v1.15.0...v1.16.0) (2023-11-15)
+
+
+### Features
+
+* add new shop mooncool-2.myshopify.com ([33fa1d9](https://github.com/kover-ai/shopify-scripts/commit/33fa1d943a6fe362f3eea884ec967980055294cd))
+
 # [1.15.0](https://github.com/kover-ai/shopify-scripts/compare/v1.14.0...v1.15.0) (2023-11-13)
 
 
