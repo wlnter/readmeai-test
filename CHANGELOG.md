@@ -1,3 +1,15 @@
+# [2.0.0](https://github.com/kover-ai/shopify-scripts/compare/v1.16.0...v2.0.0) (2023-11-16)
+
+
+### Features
+
+* 添加a/b试验功能 ([bf48d1c](https://github.com/kover-ai/shopify-scripts/commit/bf48d1caf60a804612cdfeeae7a40346d0f44f64))
+
+
+### BREAKING CHANGES
+
+* 增加试验功能
+
 # [1.16.0](https://github.com/kover-ai/shopify-scripts/compare/v1.15.0...v1.16.0) (2023-11-15)
 
 
