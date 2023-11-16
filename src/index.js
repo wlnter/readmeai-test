@@ -45,17 +45,31 @@ const changeSubtotal = (snapshot) => {
   }
 };
 
+const submitHandler = async (event) => {
+  event.preventDefault();
+  window.open("/checkout", "_self");
+};
+
 (async () => {
   await initialize(shop);
 
   renderPdpBanner(productType.ra, shop);
 
   // Discard the first cart_updated event, and manually complete the inital rendering
-  changeSubtotal(snapshot(store));
   store?.types?.forEach?.((type) => {
     embedWidget(type);
     renderModal(type);
   });
+  changeSubtotal(snapshot(store));
+  // Bind event
+  chekoutBtnSelector &&
+    document
+      .querySelector(chekoutBtnSelector)
+      ?.addEventListener("click", submitHandler);
+  dynamicCheckoutBtnSelector &&
+    document
+      .querySelector(dynamicCheckoutBtnSelector)
+      ?.addEventListener("click", submitHandler);
 
   // Cart Update Handler
   document.addEventListener(seelEvents.cartUpdated, () => {
@@ -85,29 +99,14 @@ const changeSubtotal = (snapshot) => {
 
     // Change Subtotal
     changeSubtotal(snapshot(store));
+    // Bind event
+    chekoutBtnSelector &&
+      document
+        .querySelector(chekoutBtnSelector)
+        ?.addEventListener("click", submitHandler);
+    dynamicCheckoutBtnSelector &&
+      document
+        .querySelector(dynamicCheckoutBtnSelector)
+        ?.addEventListener("click", submitHandler);
   });
-
-  // Change default click behavior of checkout button
-  const submitHandler = async (event) => {
-    event.preventDefault();
-    // const { url: checkoutUrl } = await fetch(`${window.location.origin}/cart`, {
-    //   headers: {
-    //     "content-type": "application/x-www-form-urlencoded",
-    //   },
-    //   method: "post",
-    //   body: "checkout=",
-    // });
-    // window.open(checkoutUrl, "_self");
-    window.open("/checkout", "_self");
-    // return false;
-  };
-  // Bind event
-  chekoutBtnSelector &&
-    document
-      .querySelector(chekoutBtnSelector)
-      ?.addEventListener("click", submitHandler);
-  dynamicCheckoutBtnSelector &&
-    document
-      .querySelector(dynamicCheckoutBtnSelector)
-      ?.addEventListener("click", submitHandler);
 })();
