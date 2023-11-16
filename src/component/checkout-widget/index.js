@@ -46,7 +46,7 @@ export const flatten = (widget, type) => {
     listPrice: listPriceRate ? listPrice : "",
   });
 
-  widget.querySelector(".seel_widget--title_line--checkbox").checked =
+  widget.querySelector("[data-seel-widget-input]").checked =
     sessions?.[type] !== null ? sessions?.[type] : profile?.checked;
 
   return widget;

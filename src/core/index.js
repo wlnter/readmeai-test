@@ -184,6 +184,7 @@ export default async (shop) => {
   setPerformanceObserver();
   const merchantProfiles = await getProfilesUsingCacheFirst(shop);
   store.profiles = merchantProfiles?.filter((_) => _.live);
+  store.shop = shop;
   await getQuotesAndUpdateCart(shop);
   // Cart Changed
   document.addEventListener(seelEvents.cartChanged, () => {

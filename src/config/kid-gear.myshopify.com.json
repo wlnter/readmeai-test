@@ -11,7 +11,7 @@
       "position": "beforebegin",
       "dynamicAnchor": "",
       "dynamicPosition": "beforebegin",
-      "checkoutAnchor": ".order-summary__section.order-summary__section--total-lines",
+      "checkoutAnchor": ".step__sections",
       "checkoutPosition": "beforebegin",
       "listPriceRate": 0
     }

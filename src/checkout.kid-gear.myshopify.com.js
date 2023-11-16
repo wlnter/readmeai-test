@@ -13,7 +13,7 @@ import { productType } from "./core/constant";
 const shop = "kid-gear.myshopify.com";
 const productListSelector =
   ".order-summary__section.order-summary__section--product-list";
-const totalLineSelector = ".total-line-table__footer";
+const totalLineSelector = ".total-line__price";
 
 const repaintAside = async (checkoutUrl = window.location.href) => {
   const resp = await fetch(checkoutUrl);

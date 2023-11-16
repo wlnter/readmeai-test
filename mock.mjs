@@ -23,8 +23,10 @@ scripts.forEach((scriptPath) => {
     path.join(
       __dirname,
       mockDir,
-      // `${scriptPath.replace("dist/script/", "")}?shop=${shop}`
-      `${scriptPath.replace("dist/script/", "")}`
+      shop
+        ? `${scriptPath.replace("dist/script/", "")}?shop=${shop}`
+        : `${scriptPath.replace("dist/script/", "")}`
+      // `${scriptPath.replace("dist/script/", "")}`
     ),
     function (err) {
       if (err) {
