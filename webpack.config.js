@@ -69,16 +69,6 @@ const config = {
         },
       ],
     }),
-    new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, "checkout.html"),
-      filename: "checkout.html",
-      chunks: ["checkout"],
-    }),
-    new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, "index.html"),
-      filename: "index.html",
-      chunks: ["index"],
-    }),
     new Dotenv({
       path: path.resolve(
         __dirname,

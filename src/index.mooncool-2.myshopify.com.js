@@ -16,7 +16,6 @@ const dynamicSubtotalSelector = ".cart-drawer .h-stack>span.h5:last-child";
 const chekoutBtnSelector = "#custom-button";
 const dynamicCheckoutBtnSelector = ".quick-buy-drawer__info .buy-buttons";
 
-
 const changeSubtotal = (snapshot) => {
   // Change Subtotal
   if (!snapshot.quotes || !snapshot.quotes.length) {
@@ -109,4 +108,3 @@ const changeSubtotal = (snapshot) => {
     .querySelector(dynamicCheckoutBtnSelector)
     ?.addEventListener("click", submitHandler);
 })();
-
