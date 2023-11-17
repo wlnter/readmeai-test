@@ -8,18 +8,17 @@ import renderModal from "./component/modal";
 import renderPdpBanner from "./component/pdp-banner";
 //import configurations from "./config/index.json";
 import { productType } from "./core/constant";
+import "./component/cart-widget/new-venus-9877.myshopify.com.css";
 // get myshopify domain from global var
 
 store.configs = configurations;
 
 const shop = window?.Shopify?.shop || window?.Shopify?.Checkout?.apiHost;
 
-const subtotalSelector =
-  "#MainContent .t4s-cartPage__footer .t4s-cart__totalPrice";
-const dynamicSubtotalSelector = "#t4s-mini_cart .t4s-cart__totalPrice";
-const chekoutBtnSelector =
-  "#MainContent .t4s-cartPage__footer .t4s-btn-group__checkout-update";
-const dynamicCheckoutBtnSelector = "";
+const subtotalSelector = "#MainContent .cart__footer .totals__subtotal-value";
+const dynamicSubtotalSelector = "#CartDrawer .totals__subtotal-value";
+const chekoutBtnSelector = "#checkout";
+const dynamicCheckoutBtnSelector = "#CartDrawer-Checkout";
 
 const changeSubtotal = (snapshot) => {
   // Change Subtotal
