@@ -1,3 +1,10 @@
+# [2.2.0](https://github.com/kover-ai/shopify-scripts/compare/v2.1.0...v2.2.0) (2023-11-17)
+
+
+### Features
+
+* **niumicro:** 修改结算页subtotal元素的selector，移除其他未上线的checkout.niu-xx.js ([f8016c2](https://github.com/kover-ai/shopify-scripts/commit/f8016c29f7fd8c4390149800d42593d498ac63fa))
+
 # [2.1.0](https://github.com/kover-ai/shopify-scripts/compare/v2.0.0...v2.1.0) (2023-11-16)
 
 
