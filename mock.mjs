@@ -5,35 +5,38 @@ import * as url from "url";
 const __filename = url.fileURLToPath(import.meta.url);
 const __dirname = url.fileURLToPath(new URL(".", import.meta.url));
 
-const scripts = glob.sync("dist/script/*.js");
+const mockDir = "./mock/static.seel.com/shopify";
+const testMockDir = "./mock/static-test.seel.com/shopify";
 
-var mockDir = "./mock/static.seel.com/shopify/script";
-if (!fs.existsSync(mockDir)) {
-  fs.mkdirSync(mockDir, { recursive: true });
-}
+fs.cpSync("dist", mockDir, { recursive: true });
+fs.cpSync("dist", testMockDir, { recursive: true });
 
-scripts.forEach((scriptPath) => {
-  const name = scriptPath.replace("dist/script/", "").replace(".js", "");
+const renameThenCopy = (mockDir, scriptPath) => {
+  const dir = scriptPath.split("/");
+  const name = dir[dir.length - 1];
   const temp = name.split(".");
   temp.shift();
+  temp.pop();
   const shop = temp.join(".");
-  console.log(shop);
   fs.rename(
     path.join(__dirname, scriptPath),
-    path.join(
-      __dirname,
-      mockDir,
-      shop
-        ? `${scriptPath.replace("dist/script/", "")}?shop=${shop}`
-        : `${scriptPath.replace("dist/script/", "")}`
-      // `${scriptPath.replace("dist/script/", "")}`
-    ),
+    path.join(__dirname, `${mockDir}/script`, `${name}?shop=${shop}`),
     function (err) {
       if (err) {
-        throw err;
+        console.log(err.message);
       } else {
-        console.log("Successfully moved the file!");
+        fs.copyFileSync(
+          path.join(__dirname, `${mockDir}/script/${name}?shop=${shop}`),
+          path.join(__dirname, `${mockDir}/script/${name}`)
+        );
       }
     }
   );
+};
+
+glob.sync(`${mockDir}/script/*.js`).forEach((scriptPath) => {
+  renameThenCopy(mockDir, scriptPath);
+});
+glob.sync(`${testMockDir}/script/*.js`).forEach((scriptPath) => {
+  renameThenCopy(testMockDir, scriptPath);
 });
