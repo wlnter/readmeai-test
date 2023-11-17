@@ -12,16 +12,14 @@ import { productType } from "./core/constant";
 
 store.configs = configurations;
 
-const shop = window?.Shopify?.shop || window?.Shopify?.Checkout?.apiHost; 
+const shop = window?.Shopify?.shop || window?.Shopify?.Checkout?.apiHost;
 
 const subtotalSelector =
   "#MainContent .t4s-cartPage__footer .t4s-cart__totalPrice";
-const dynamicSubtotalSelector =
-  "#t4s-mini_cart .t4s-cart__totalPrice";
+const dynamicSubtotalSelector = "#t4s-mini_cart .t4s-cart__totalPrice";
 const chekoutBtnSelector =
   "#MainContent .t4s-cartPage__footer .t4s-btn-group__checkout-update";
-const dynamicCheckoutBtnSelector =
-  "";
+const dynamicCheckoutBtnSelector = "";
 
 const changeSubtotal = (snapshot) => {
   // Change Subtotal
@@ -88,13 +86,13 @@ const changeSubtotal = (snapshot) => {
     // Change Subtotal
     changeSubtotal(snapshot(store));
     chekoutBtnSelector &&
-    document
-      .querySelector(chekoutBtnSelector)
-      ?.addEventListener("click", submitHandler);
+      document
+        .querySelector(chekoutBtnSelector)
+        ?.addEventListener("click", submitHandler);
     dynamicCheckoutBtnSelector &&
-    document
-      .querySelector(dynamicCheckoutBtnSelector)
-      ?.addEventListener("click", submitHandler);
+      document
+        .querySelector(dynamicCheckoutBtnSelector)
+        ?.addEventListener("click", submitHandler);
   });
 
   // Change default click behavior of checkout button

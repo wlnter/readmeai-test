@@ -8,21 +8,19 @@ import renderModal from "./component/modal";
 import renderPdpBanner from "./component/pdp-banner";
 //import configurations from "./config/index.json";
 import { productType } from "./core/constant";
-import './component/cart-widget/5701c4-3.myshopify.com.css';
+import "./component/cart-widget/5701c4-3.myshopify.com.css";
 // get myshopify domain from global var
 
 store.configs = configurations;
 
-const shop = window?.Shopify?.shop || window?.Shopify?.Checkout?.apiHost; 
+const shop = window?.Shopify?.shop || window?.Shopify?.Checkout?.apiHost;
 
 const subtotalSelector =
   "#MainContent .t4s-cartPage__footer .t4s-cart__totalPrice";
-const dynamicSubtotalSelector =
-  "#t4s-mini_cart .t4s-cart__totalPrice";
+const dynamicSubtotalSelector = "#t4s-mini_cart .t4s-cart__totalPrice";
 const chekoutBtnSelector =
   "#MainContent .t4s-cartPage__footer .t4s-btn-group__checkout-update";
-const dynamicCheckoutBtnSelector =
-  "";
+const dynamicCheckoutBtnSelector = "";
 
 const changeSubtotal = (snapshot) => {
   // Change Subtotal
@@ -89,13 +87,13 @@ const changeSubtotal = (snapshot) => {
     // Change Subtotal
     changeSubtotal(snapshot(store));
     chekoutBtnSelector &&
-    document
-      .querySelector(chekoutBtnSelector)
-      ?.addEventListener("click", submitHandler);
+      document
+        .querySelector(chekoutBtnSelector)
+        ?.addEventListener("click", submitHandler);
     dynamicCheckoutBtnSelector &&
-    document
-      .querySelector(dynamicCheckoutBtnSelector)
-      ?.addEventListener("click", submitHandler);
+      document
+        .querySelector(dynamicCheckoutBtnSelector)
+        ?.addEventListener("click", submitHandler);
   });
 
   // Change default click behavior of checkout button
