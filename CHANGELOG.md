@@ -1,3 +1,10 @@
+# [2.4.0](https://github.com/kover-ai/shopify-scripts/compare/v2.3.0...v2.4.0) (2023-11-17)
+
+
+### Features
+
+* **funnyfuzzy:** funnyfuzzy迁移至V3 ([3655508](https://github.com/kover-ai/shopify-scripts/commit/3655508b330d219be78693d31502a72654a285e7))
+
 # [2.3.0](https://github.com/kover-ai/shopify-scripts/compare/v2.2.0...v2.3.0) (2023-11-17)
 
 
