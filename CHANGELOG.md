@@ -1,3 +1,10 @@
+# [2.5.0](https://github.com/kover-ai/shopify-scripts/compare/v2.4.0...v2.5.0) (2023-11-19)
+
+
+### Features
+
+* 上报试验分桶数据 ([ed10fcc](https://github.com/kover-ai/shopify-scripts/commit/ed10fcc3d124d9a7100608255b36ace101696f80))
+
 # [2.4.0](https://github.com/kover-ai/shopify-scripts/compare/v2.3.0...v2.4.0) (2023-11-17)
 
 
