@@ -1,6 +1,21 @@
 import { querys } from "../core/util";
 import { EXPERIMENT_PROFILE_KEY } from "../core/constant";
 
+export const report = async ({ code, bucket }) => {
+  if (!code || !bucket) {
+    return;
+  }
+  fetch(`//${window.location.host}/cart/update.js`, {
+    headers: { "content-type": "application/json" },
+    method: "POST",
+    body: JSON.stringify({
+      attributes: {
+        exp: `${code.substr(0, 2)}_${bucket}`,
+      },
+    }),
+  });
+};
+
 export const trafficSplitter = async ({ shop, code }) => {
   let urlBucket = null;
   if (querys.code === code) {
@@ -15,6 +30,7 @@ export const trafficSplitter = async ({ shop, code }) => {
         delete data[code];
         localStorage.setItem(EXPERIMENT_PROFILE_KEY, JSON.stringify(data));
       } else {
+        report({ code, bucket: exp.bucket });
         return urlBucket ? { ...exp, bucket: urlBucket } : exp;
       }
     }
@@ -47,6 +63,7 @@ export const trafficSplitter = async ({ shop, code }) => {
           },
         }),
       );
+      report({ code, bucket: buckets[index] });
       return {
         bucket: urlBucket || buckets[index],
         profile,
