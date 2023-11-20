@@ -15,7 +15,8 @@ const repaintAside = async (checkoutUrl = window.location.href) => {
   const doc = parser.parseFromString(html, "text/html");
   const productListSelector =
     ".order-summary__section.order-summary__section--product-list";
-  const totalLineSelector = ".total-line__price";
+  const totalLineSelector =
+    "div.order-summary__section.order-summary__section--total-lines";
   const productList = doc.querySelector(productListSelector);
   const totalLine = doc.querySelector(totalLineSelector);
   document.querySelector(productListSelector)?.replaceWith(productList);
