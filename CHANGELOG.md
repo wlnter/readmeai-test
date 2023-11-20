@@ -1,3 +1,10 @@
+## [2.6.1](https://github.com/kover-ai/shopify-scripts/compare/v2.6.0...v2.6.1) (2023-11-20)
+
+
+### Bug Fixes
+
+* **niumicro:** niumicro在结算页集成widget时，变更价格区域的更新逻辑，并且手动发布 ([2cc025a](https://github.com/kover-ai/shopify-scripts/commit/2cc025aadf20e17a2d51faedbbe6bb5d4cbe9a98))
+
 # [2.6.0](https://github.com/kover-ai/shopify-scripts/compare/v2.5.0...v2.6.0) (2023-11-20)
 
 
