@@ -1,3 +1,10 @@
+# [2.8.0](https://github.com/kover-ai/shopify-scripts/compare/v2.7.0...v2.8.0) (2023-11-20)
+
+
+### Features
+
+* **add one shop:** add new shop theclosettradingco.myshopify.com ([f3fbb17](https://github.com/kover-ai/shopify-scripts/commit/f3fbb175e2de9b494c68efdd9f4bdcd6b168a008))
+
 # [2.7.0](https://github.com/kover-ai/shopify-scripts/compare/v2.6.1...v2.7.0) (2023-11-20)
 
 
