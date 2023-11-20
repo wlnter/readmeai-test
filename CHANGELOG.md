@@ -1,3 +1,10 @@
+# [2.6.0](https://github.com/kover-ai/shopify-scripts/compare/v2.5.0...v2.6.0) (2023-11-20)
+
+
+### Features
+
+* **add two shop and delete 17bp folder:**  add e53475-2.myshopify.com 49c965-3.myshopify.com ([e261a9e](https://github.com/kover-ai/shopify-scripts/commit/e261a9e9d2e03888ed6b9224176335d504f42dae))
+
 # [2.5.0](https://github.com/kover-ai/shopify-scripts/compare/v2.4.0...v2.5.0) (2023-11-19)
 
 
