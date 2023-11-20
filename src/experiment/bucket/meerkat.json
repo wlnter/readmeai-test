@@ -2,8 +2,48 @@
   "code": "meerkat",
   "scope": [
     {
+      "shop": "adelanteshoes.com",
+      "domain": "adelante-shoe-co.myshopify.com",
+      "buckets": ["a", "b", "c"],
+      "profile": {
+        "productType": ["ra"]
+      }
+    },
+    {
+      "shop": "ericjavits.com",
+      "domain": "eric-javits.myshopify.com",
+      "buckets": ["a", "b", "c"],
+      "profile": {
+        "productType": ["ra"]
+      }
+    },
+    {
+      "shop": "riversidetoolanddye.com",
+      "domain": "bennas.myshopify.com",
+      "buckets": ["a", "b", "c"],
+      "profile": {
+        "productType": ["ra"]
+      }
+    },
+    {
+      "shop": "holythrift.com",
+      "domain": "holy-thrift.myshopify.com",
+      "buckets": ["a", "b", "c"],
+      "profile": {
+        "productType": ["ra"]
+      }
+    },
+    {
       "shop": "www.marcjanie.com",
       "domain": "marcjanie.myshopify.com",
+      "buckets": ["a", "b", "c"],
+      "profile": {
+        "productType": ["ra"]
+      }
+    },
+    {
+      "shop": "www.bewelldressed.com",
+      "domain": "well-dressed-nasvhille.myshopify.com",
       "buckets": ["a", "b", "c"],
       "profile": {
         "productType": ["ra"]
