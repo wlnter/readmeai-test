@@ -3,24 +3,22 @@ import store, { snapshot } from "./core/store";
 import embedWidget, {
   flatten as repaint,
 } from "./component/cart-widget/index.js";
-import configurations from "./config/5701c4-3.myshopify.com.json";
+import configurations from "./config/49c965-3.myshopify.com.json";
 import renderModal from "./component/modal";
 import renderPdpBanner from "./component/pdp-banner";
 //import configurations from "./config/index.json";
 import { productType } from "./core/constant";
-import "./component/cart-widget/5701c4-3.myshopify.com.css";
+import "./component/cart-widget/49c965-3.myshopify.com.css";
 // get myshopify domain from global var
 
 store.configs = configurations;
 
 const shop = window?.Shopify?.shop || window?.Shopify?.Checkout?.apiHost;
 
-const subtotalSelector =
-  "#MainContent .t4s-cartPage__footer .t4s-cart__totalPrice";
-const dynamicSubtotalSelector = "#t4s-mini_cart .t4s-cart__totalPrice";
-const chekoutBtnSelector =
-  "#MainContent .t4s-cartPage__footer .t4s-btn-group__checkout-update";
-const dynamicCheckoutBtnSelector = "";
+const subtotalSelector = "#main-cart-footer .totals__total-value";
+const dynamicSubtotalSelector = "#CartDrawer .totals__total-value";
+const chekoutBtnSelector = "#checkout";
+const dynamicCheckoutBtnSelector = "#CartDrawer-Checkout";
 
 const changeSubtotal = (snapshot) => {
   // Change Subtotal

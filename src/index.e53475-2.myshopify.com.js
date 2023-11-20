@@ -3,24 +3,21 @@ import store, { snapshot } from "./core/store";
 import embedWidget, {
   flatten as repaint,
 } from "./component/cart-widget/index.js";
-import configurations from "./config/5701c4-3.myshopify.com.json";
+import configurations from "./config/e53475-2.myshopify.com.json";
 import renderModal from "./component/modal";
 import renderPdpBanner from "./component/pdp-banner";
 //import configurations from "./config/index.json";
 import { productType } from "./core/constant";
-import "./component/cart-widget/5701c4-3.myshopify.com.css";
 // get myshopify domain from global var
 
 store.configs = configurations;
 
 const shop = window?.Shopify?.shop || window?.Shopify?.Checkout?.apiHost;
 
-const subtotalSelector =
-  "#MainContent .t4s-cartPage__footer .t4s-cart__totalPrice";
-const dynamicSubtotalSelector = "#t4s-mini_cart .t4s-cart__totalPrice";
-const chekoutBtnSelector =
-  "#MainContent .t4s-cartPage__footer .t4s-btn-group__checkout-update";
-const dynamicCheckoutBtnSelector = "";
+const subtotalSelector = "#main-cart-footer .totals__total-value";
+const dynamicSubtotalSelector = "";
+const chekoutBtnSelector = "#checkout";
+const dynamicCheckoutBtnSelector = "#cart-notification-form";
 
 const changeSubtotal = (snapshot) => {
   // Change Subtotal

@@ -3,7 +3,7 @@ import store, { snapshot } from "./core/store";
 import embedWidget, {
   flatten as repaint,
 } from "./component/cart-widget/index.js";
-import configurations from "./config/17bp/new-venus-9877.myshopify.com.json";
+import configurations from "./config/new-venus-9877.myshopify.com.json";
 import renderModal from "./component/modal";
 import renderPdpBanner from "./component/pdp-banner";
 //import configurations from "./config/index.json";
