@@ -1,3 +1,10 @@
+# [2.7.0](https://github.com/kover-ai/shopify-scripts/compare/v2.6.1...v2.7.0) (2023-11-20)
+
+
+### Features
+
+* **ab test:** 扩大UI试验的店铺范围 ([2af03c0](https://github.com/kover-ai/shopify-scripts/commit/2af03c09f3914f70a3a0d27a95834c74ac15233e))
+
 ## [2.6.1](https://github.com/kover-ai/shopify-scripts/compare/v2.6.0...v2.6.1) (2023-11-20)
 
 
