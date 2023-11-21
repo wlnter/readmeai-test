@@ -1,3 +1,10 @@
+## [2.8.1](https://github.com/kover-ai/shopify-scripts/compare/v2.8.0...v2.8.1) (2023-11-21)
+
+
+### Bug Fixes
+
+* **fix style:** fix two shop style ([473668a](https://github.com/kover-ai/shopify-scripts/commit/473668a96221b44636627ec9cab6d6c1dba49e7c))
+
 # [2.8.0](https://github.com/kover-ai/shopify-scripts/compare/v2.7.0...v2.8.0) (2023-11-20)
 
 
