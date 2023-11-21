@@ -49,6 +49,9 @@ const submitHandler = async (event) => {
 };
 
 (async () => {
+  if (window.location.href.indexOf("/cart") > -1) {
+    return;
+  }
   await initialize(shop);
 
   renderPdpBanner(productType.ra, shop);
