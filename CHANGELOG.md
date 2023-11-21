@@ -1,3 +1,10 @@
+# [2.9.0](https://github.com/kover-ai/shopify-scripts/compare/v2.8.2...v2.9.0) (2023-11-21)
+
+
+### Features
+
+* **e4dc65.myshopify.com:** add new shop ([e074c67](https://github.com/kover-ai/shopify-scripts/commit/e074c6739f473f6c733924b261b9ed6729957874))
+
 ## [2.8.2](https://github.com/kover-ai/shopify-scripts/compare/v2.8.1...v2.8.2) (2023-11-21)
 
 
