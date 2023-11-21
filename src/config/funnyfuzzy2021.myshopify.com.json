@@ -7,7 +7,7 @@
       "infoIconLink": "https://www.seel.com/terms/17trackbuyerprotection",
       "description": "Protect against loss, damage, delay & offset emissions for <strong>{{currencySymbol}}{{price}} {{currencyCode}}</strong>",
       "widgetIcon": "https://static.seel.com/image/bp-widget-icon.svg",
-      "anchor": "div.cart__recap-note",
+      "anchor": "",
       "position": "beforebegin",
       "dynamicAnchor": "#mini-cart > footer > button",
       "dynamicPosition": "beforebegin",
