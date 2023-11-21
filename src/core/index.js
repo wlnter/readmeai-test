@@ -185,10 +185,24 @@ export default async (shop) => {
   const merchantProfiles = await getProfilesUsingCacheFirst(shop);
   store.profiles = merchantProfiles?.filter((_) => _.live);
   store.shop = shop;
-  await getQuotesAndUpdateCart(shop);
+  if (
+    !(
+      shop === "funnyfuzzy2021.myshopify.com" &&
+      window.location.href.indexOf("/cart") > -1
+    )
+  ) {
+    await getQuotesAndUpdateCart(shop);
+  }
   // Cart Changed
   document.addEventListener(seelEvents.cartChanged, () => {
-    getQuotesAndUpdateCart(shop);
+    if (
+      !(
+        shop === "funnyfuzzy2021.myshopify.com" &&
+        window.location.href.indexOf("/cart") > -1
+      )
+    ) {
+      getQuotesAndUpdateCart(shop);
+    }
   });
   styledLogger(`Script Version: ${window.SEEL_SCRIPT_VERSION}`);
   return store;
