@@ -1,3 +1,11 @@
+## [2.8.2](https://github.com/kover-ai/shopify-scripts/compare/v2.8.1...v2.8.2) (2023-11-21)
+
+
+### Bug Fixes
+
+* **funnyfuzzy2021.myshopify.com cart页面一直刷新的问题:** 修复funnyfuzzy2021.myshopify.com cart页面一直刷新的问题 ([75e757f](https://github.com/kover-ai/shopify-scripts/commit/75e757fca4fa8a44bda740c3f1d2d538fdd76a14))
+* **funnyfuzzy2021.myshopify.com:**  fixed funnyfuzzy2021.myshopify.com，只影响这家店铺 ([9058fe5](https://github.com/kover-ai/shopify-scripts/commit/9058fe54c1439977cf7d54b9ca53290613ad4aaa))
+
 ## [2.8.1](https://github.com/kover-ai/shopify-scripts/compare/v2.8.0...v2.8.1) (2023-11-21)
 
 
