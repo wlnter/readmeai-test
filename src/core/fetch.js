@@ -5,6 +5,7 @@ import {
   appendQuerys,
   querys,
 } from "./util";
+import store from "./store";
 import { productType } from "./constant";
 
 export const fetchRAEligibility = async (params) => {
@@ -75,10 +76,13 @@ export const fetchAllProfiles = async (shop) => {
 };
 
 export const updateCart = async (_, updates = {}, attributes) => {
+  const sections = store.configs?.sections || [];
   const resp = await fetch(`//${window.location.host}/cart/update.js`, {
     headers: { "content-type": "application/json" },
     method: "POST",
-    body: JSON.stringify(attributes ? { updates, attributes } : { updates }),
+    body: JSON.stringify(
+      attributes ? { updates, attributes, sections } : { updates, sections },
+    ),
   });
   const cart = await resp.json();
   return cart;

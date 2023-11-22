@@ -128,3 +128,9 @@ export const formatMoney = (num) => {
     minimumFractionDigits: 2,
   }).format(num);
 };
+
+export const createElementFromString = (htmlString) => {
+  var div = document.createElement("div");
+  div.innerHTML = htmlString.trim();
+  return div.firstChild;
+};

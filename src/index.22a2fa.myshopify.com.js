@@ -3,23 +3,24 @@ import store, { snapshot } from "./core/store";
 import embedWidget, {
   flatten as repaint,
 } from "./component/cart-widget/index.js";
+import configurations from "./config/22a2fa.myshopify.com.json";
 import renderModal from "./component/modal";
 import renderPdpBanner from "./component/pdp-banner";
-import configurations from "./config/funnyfuzzy2021.myshopify.com.json";
+//import configurations from "./config/index.json";
 import { productType } from "./core/constant";
-import "./component/cart-widget/funnyfuzzy2021.myshopify.com.css";
-import { createElementFromString } from "./core/util";
+// get myshopify domain from global var
 
 store.configs = configurations;
 
-// get myshopify domain from global var
-const shop = "funnyfuzzy2021.myshopify.com";
-const subtotalSelector = "#revy-cart-subtotal-price";
-const dynamicSubtotalSelector = "#mini-cart > footer > button";
-const chekoutBtnSelector = "div.cart__aside > safe-sticky > form > button";
-const dynamicCheckoutBtnSelector = "#mini-cart > footer > button";
-const dynamicUpdateSection = "#mini-cart-form";
-const updateSection = "";
+const shop = window?.Shopify?.shop || window?.Shopify?.Checkout?.apiHost;
+
+const subtotalSelector =
+  "#main .cart-form__totals>.h-stack:nth-child(2)>.h5:last-child";
+const totalSelector =
+  "#main .cart-form__totals>.h-stack:nth-child(1)>.text-subdued:last-child";
+const dynamicSubtotalSelector = "";
+const chekoutBtnSelector = "#main [name=checkout]";
+const dynamicCheckoutBtnSelector = "";
 
 const changeSubtotal = (snapshot) => {
   // Change Subtotal
@@ -36,74 +37,33 @@ const changeSubtotal = (snapshot) => {
     const element = document.querySelector(subtotalSelector);
     element.innerHTML = subTotal;
   }
+  if (totalSelector && document.querySelector(totalSelector)) {
+    const element = document.querySelector(totalSelector);
+    element.innerHTML = subTotal;
+  }
   if (
     dynamicSubtotalSelector &&
     document.querySelector(dynamicSubtotalSelector)
   ) {
     const element = document.querySelector(dynamicSubtotalSelector);
-    console.log(subTotal);
-    element.innerHTML = `Checkout · ${subTotal}`;
+    element.childNodes[4].replaceWith(subTotal);
   }
-};
-
-const submitHandler = async (event) => {
-  event.preventDefault();
-  window.open("/checkout", "_self");
 };
 
 (async () => {
-  if (window.location.href.indexOf("/cart") > -1) {
-    return;
-  }
   await initialize(shop);
 
   renderPdpBanner(productType.ra, shop);
 
   // Discard the first cart_updated event, and manually complete the inital rendering
+  changeSubtotal(snapshot(store));
   store?.types?.forEach?.((type) => {
     embedWidget(type);
     renderModal(type);
   });
-  changeSubtotal(snapshot(store));
-  // Bind event
-  chekoutBtnSelector &&
-    document
-      .querySelector(chekoutBtnSelector)
-      ?.addEventListener("click", submitHandler);
-  dynamicCheckoutBtnSelector &&
-    document
-      .querySelector(dynamicCheckoutBtnSelector)
-      ?.addEventListener("click", submitHandler);
 
   // Cart Update Handler
   document.addEventListener(seelEvents.cartUpdated, () => {
-    // Rerender cart
-    if (updateSection || dynamicUpdateSection) {
-      const sections = store.cart.sections;
-      for (let prop in sections) {
-        if (sections[prop]) {
-          const element = createElementFromString(sections[prop]);
-          if (updateSection) {
-            if (
-              element.querySelector(updateSection) &&
-              document.querySelector(updateSection)
-            ) {
-              document.querySelector(updateSection).innerHTML =
-                element.querySelector(updateSection).innerHTML;
-            }
-          }
-          if (dynamicUpdateSection) {
-            if (
-              element.querySelector(dynamicUpdateSection) &&
-              document.querySelector(dynamicUpdateSection)
-            ) {
-              document.querySelector(dynamicUpdateSection).innerHTML =
-                element.querySelector(dynamicUpdateSection).innerHTML;
-            }
-          }
-        }
-      }
-    }
     // Rerender widget
     store?.types?.forEach?.((type) => {
       const widget = document.querySelector(
@@ -130,7 +90,6 @@ const submitHandler = async (event) => {
 
     // Change Subtotal
     changeSubtotal(snapshot(store));
-    // Bind event
     chekoutBtnSelector &&
       document
         .querySelector(chekoutBtnSelector)
@@ -140,4 +99,28 @@ const submitHandler = async (event) => {
         .querySelector(dynamicCheckoutBtnSelector)
         ?.addEventListener("click", submitHandler);
   });
+
+  // Change default click behavior of checkout button
+  const submitHandler = async (event) => {
+    event.preventDefault();
+    // const { url: checkoutUrl } = await fetch(`${window.location.origin}/cart`, {
+    //   headers: {
+    //     "content-type": "application/x-www-form-urlencoded",
+    //   },
+    //   method: "post",
+    //   body: "checkout=",
+    // });
+    // window.open(checkoutUrl, "_self");
+    window.open("/checkout", "_self");
+    // return false;
+  };
+  // Bind event
+  chekoutBtnSelector &&
+    document
+      .querySelector(chekoutBtnSelector)
+      ?.addEventListener("click", submitHandler);
+  dynamicCheckoutBtnSelector &&
+    document
+      .querySelector(dynamicCheckoutBtnSelector)
+      ?.addEventListener("click", submitHandler);
 })();
