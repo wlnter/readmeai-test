@@ -2,23 +2,31 @@ import initialize, { seelEvents } from "./core";
 import store, { snapshot } from "./core/store";
 import embedWidget, {
   flatten as repaint,
-} from "./component/cart-widget/index.js";
+} from "./component/cart-widget/zeera-wireless.myshopify.com";
 import renderModal from "./component/modal";
 import renderPdpBanner from "./component/pdp-banner";
-import configurations from "./config/marcjanie.myshopify.com.json";
-import "./component/cart-widget/marcjanie.myshopify.com.css";
+import configurations from "./config/zeera-wireless.myshopify.com.json";
 import { productType } from "./core/constant";
+import { rerenderCart } from "./core/util";
+import "./component/cart-widget/zeera-wireless.myshopify.com.css";
 
 store.configs = configurations;
 
-const shop = "marcjanie.myshopify.com";
-const subtotalSelector = ".t4s-cart__totalPrice .transcy-money.notranslate";
-const dynamicSubtotalSelector = ".t4s-cart__totalPrice .transcy-money";
-const chekoutBtnSelector = ".t4s-btn-group__checkout-update";
-const dynamicCheckoutBtnSelector = ".t4s-btn__checkout";
+// get myshopify domain from global var
+const shop = "zeera-wireless.myshopify.com";
+const subtotalSelector = "#main .cart-recap__price-line-price";
+const dynamicSubtotalSelector =
+  ".mini-cart__recap-price-line:nth-child(2) > span:last-child";
+const chekoutBtnSelector = "#main .recap__checkout";
+const dynamicCheckoutBtnSelector = "#mini-cart [name=checkout]";
+const dynamicUpdateSection = "";
+const updateSection = "";
 
 const changeSubtotal = (snapshot) => {
   // Change Subtotal
+  if (!snapshot.quotes || !snapshot.quotes.length) {
+    return;
+  }
   const { currencySymbol, currencyCode } = snapshot.quotes
     ? snapshot.quotes[0]
     : {};
@@ -40,21 +48,41 @@ const changeSubtotal = (snapshot) => {
   }
 };
 
+const submitHandler = async (event) => {
+  event.preventDefault();
+  window.open("/checkout", "_self");
+};
+
 (async () => {
   await initialize(shop);
 
   renderPdpBanner(productType.ra, shop);
 
   // Discard the first cart_updated event, and manually complete the inital rendering
-  // Update subtotal manually
-  changeSubtotal(snapshot(store));
   store?.types?.forEach?.((type) => {
     embedWidget(type);
     renderModal(type);
   });
+  changeSubtotal(snapshot(store));
+  // Bind event
+  chekoutBtnSelector &&
+    document
+      .querySelector(chekoutBtnSelector)
+      ?.addEventListener("click", submitHandler);
+  dynamicCheckoutBtnSelector &&
+    document
+      .querySelector(dynamicCheckoutBtnSelector)
+      ?.addEventListener("click", submitHandler);
 
   // Cart Update Handler
   document.addEventListener(seelEvents.cartUpdated, () => {
+    // Rerender cart
+    try {
+      rerenderCart(updateSection, dynamicUpdateSection, store);
+    } catch {
+      console.log("rerender cart fail");
+    }
+
     // Rerender widget
     store?.types?.forEach?.((type) => {
       const widget = document.querySelector(
@@ -82,27 +110,14 @@ const changeSubtotal = (snapshot) => {
 
     // Change Subtotal
     changeSubtotal(snapshot(store));
+    // Bind event
+    chekoutBtnSelector &&
+      document
+        .querySelector(chekoutBtnSelector)
+        ?.addEventListener("click", submitHandler);
+    dynamicCheckoutBtnSelector &&
+      document
+        .querySelector(dynamicCheckoutBtnSelector)
+        ?.addEventListener("click", submitHandler);
   });
-
-  // Change default click behavior of checkout button
-  const submitHandler = async (event) => {
-    event.preventDefault();
-    // const { url: checkoutUrl } = await fetch(`${window.location.origin}/cart`, {
-    //   headers: {
-    //     "content-type": "application/x-www-form-urlencoded",
-    //   },
-    //   method: "post",
-    //   body: "checkout=",
-    // });
-    // window.open(checkoutUrl, "_self");
-    window.open("/checkout", "_self");
-    // return false;
-  };
-  // Bind event
-  document
-    .querySelector(chekoutBtnSelector)
-    ?.addEventListener("click", submitHandler);
-  document
-    .querySelector(dynamicCheckoutBtnSelector)
-    ?.addEventListener("click", submitHandler);
 })();
