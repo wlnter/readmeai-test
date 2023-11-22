@@ -1,3 +1,10 @@
+# [2.10.0](https://github.com/kover-ai/shopify-scripts/compare/v2.9.0...v2.10.0) (2023-11-22)
+
+
+### Features
+
+* **22a2fa.myshopify.com and funnyfuzzy2021.myshopify.com:** add new shop and fixed 错位问题 ([984bad7](https://github.com/kover-ai/shopify-scripts/commit/984bad746736e2091f35d5e8a08d69a8e82101b6))
+
 # [2.9.0](https://github.com/kover-ai/shopify-scripts/compare/v2.8.2...v2.9.0) (2023-11-21)
 
 
