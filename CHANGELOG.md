@@ -1,3 +1,10 @@
+# [2.11.0](https://github.com/kover-ai/shopify-scripts/compare/v2.10.0...v2.11.0) (2023-11-22)
+
+
+### Features
+
+* **add new shop:** add new shop and fix marcjanie.myshopify.com ([c6eb128](https://github.com/kover-ai/shopify-scripts/commit/c6eb1285cb97730f8421cf6eb03bbcbd58a32cc9))
+
 # [2.10.0](https://github.com/kover-ai/shopify-scripts/compare/v2.9.0...v2.10.0) (2023-11-22)
 
 
