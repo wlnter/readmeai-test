@@ -2,6 +2,6 @@
   margin-bottom:10px;
 }
 .seel_widget--title_line--checkbox{
-  margin-right: 0;
-  margin-left: 6px;
+  margin-right: 0!important;
+  margin-left: 6px!important;
 }
