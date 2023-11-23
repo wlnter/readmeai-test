@@ -1,0 +1,9 @@
+.seel_widget {
+  margin-bottom:10px;
+}
+.seel_widget--title_line--checkbox{
+  margin-left: 6px!important;
+  margin-right:0!important;
+  width: 16px!important;
+  height: 16px!important;
+}

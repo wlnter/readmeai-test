@@ -2,27 +2,23 @@ import initialize, { seelEvents } from "./core";
 import store, { snapshot } from "./core/store";
 import embedWidget, {
   flatten as repaint,
-} from "./component/cart-widget/shop-luxury-labels.myshopify.com";
-import configurations from "./config/shop-luxury-labels.myshopify.com.json";
+} from "./component/cart-widget/index.js";
+import configurations from "./config/c-i-b-3.myshopify.com.json";
 import renderModal from "./component/modal";
 import renderPdpBanner from "./component/pdp-banner";
 //import configurations from "./config/index.json";
 import { productType } from "./core/constant";
-import { rerenderCart } from "./core/util";
-import "./component/cart-widget/shop-luxury-labels.myshopify.com.css";
-
+import "./component/cart-widget/c-i-b-3.myshopify.com.css";
 // get myshopify domain from global var
 
 store.configs = configurations;
 
 const shop = window?.Shopify?.shop || window?.Shopify?.Checkout?.apiHost;
 
-const subtotalSelector = "#Cart [name=checkout] span";
-const dynamicSubtotalSelector = "#Cart-Drawer .checkout span";
-const chekoutBtnSelector = "#Cart [name=checkout]";
-const dynamicCheckoutBtnSelector = "#Cart-Drawer .checkout";
-const updateSection = ""; //".cart-items tbody";
-const dynamicUpdateSection = ""; //"#Cart-Drawer .product-cart-item--container";
+const subtotalSelector = "#MainContent .totals__subtotal-value";
+const dynamicSubtotalSelector = "#cart .items_subtotal";
+const chekoutBtnSelector = "#MainContent [name=checkout]";
+const dynamicCheckoutBtnSelector = "#cart [name=checkout]";
 
 const changeSubtotal = (snapshot) => {
   // Change Subtotal
@@ -37,16 +33,14 @@ const changeSubtotal = (snapshot) => {
 
   if (subtotalSelector && document.querySelector(subtotalSelector)) {
     const element = document.querySelector(subtotalSelector);
-    //element.innerHTML = subTotal;
-    element.innerHTML = `Checkout · ${subTotal}`;
+    element.innerHTML = subTotal;
   }
   if (
     dynamicSubtotalSelector &&
     document.querySelector(dynamicSubtotalSelector)
   ) {
     const element = document.querySelector(dynamicSubtotalSelector);
-    //element.innerHTML = subTotal;
-    element.innerHTML = `Checkout · ${subTotal}`;
+    element.innerHTML = subTotal;
   }
 };
 
@@ -64,11 +58,6 @@ const changeSubtotal = (snapshot) => {
 
   // Cart Update Handler
   document.addEventListener(seelEvents.cartUpdated, () => {
-    try {
-      rerenderCart(updateSection, dynamicUpdateSection, store);
-    } catch {
-      console.log("rerender cart fail");
-    }
     // Rerender widget
     store?.types?.forEach?.((type) => {
       const widget = document.querySelector(
