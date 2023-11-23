@@ -1,3 +1,10 @@
+# [2.13.0](https://github.com/kover-ai/shopify-scripts/compare/v2.12.0...v2.13.0) (2023-11-23)
+
+
+### Features
+
+* **add new shop and fixed one shop:** fixed style and add new shop ([3dbeba8](https://github.com/kover-ai/shopify-scripts/commit/3dbeba82b7fecc6c237e4148c1ac55b8d2866919))
+
 # [2.12.0](https://github.com/kover-ai/shopify-scripts/compare/v2.11.0...v2.12.0) (2023-11-23)
 
 
