@@ -2,12 +2,13 @@ import initialize, { seelEvents } from "./core";
 import store, { snapshot } from "./core/store";
 import embedWidget, {
   flatten as repaint,
-} from "./component/cart-widget/index.js";
+} from "./component/cart-widget/index.needInitAddWidget";
 import configurations from "./config/caught-in-candy-boutique.myshopify.com.json";
 import renderModal from "./component/modal";
 import renderPdpBanner from "./component/pdp-banner";
 //import configurations from "./config/index.json";
 import { productType } from "./core/constant";
+import { rerenderCart } from "./core/util";
 import "./component/cart-widget/caught-in-candy-boutique.myshopify.com.css";
 // get myshopify domain from global var
 
@@ -19,6 +20,8 @@ const subtotalSelector = "#main-cart-footer .totals__subtotal-value";
 const dynamicSubtotalSelector = "#CartDrawer .totals__subtotal-value";
 const chekoutBtnSelector = "#checkout";
 const dynamicCheckoutBtnSelector = "#CartDrawer-Checkout";
+const dynamicUpdateSection = "#CartDrawer-Form";
+const updateSection = "#main-cart-items";
 
 const changeSubtotal = (snapshot) => {
   // Change Subtotal
@@ -58,6 +61,12 @@ const changeSubtotal = (snapshot) => {
 
   // Cart Update Handler
   document.addEventListener(seelEvents.cartUpdated, () => {
+    // Rerender cart
+    try {
+      rerenderCart(updateSection, dynamicUpdateSection, store);
+    } catch {
+      console.log("rerender cart fail");
+    }
     // Rerender widget
     store?.types?.forEach?.((type) => {
       const widget = document.querySelector(

@@ -6,6 +6,7 @@ import embedWidget, {
 import renderModal from "./component/modal";
 import renderPdpBanner from "./component/pdp-banner";
 import configurations from "./config/thunder-textile.myshopify.com.json";
+import { rerenderCart } from "./core/util";
 import { productType } from "./core/constant";
 
 store.configs = configurations;
@@ -15,6 +16,8 @@ const subtotalSelector = ".cart__footer .totals__subtotal-value";
 const dynamicSubtotalSelector = "";
 const chekoutBtnSelector = ".cart__footer [name=checkout]";
 const dynamicCheckoutBtnSelector = "";
+const dynamicUpdateSection = "";
+const updateSection = "#main-cart-items";
 
 const changeSubtotal = (snapshot) => {
   // Change Subtotal
@@ -58,6 +61,12 @@ const changeSubtotal = (snapshot) => {
 
   // Cart Update Handler
   document.addEventListener(seelEvents.cartUpdated, () => {
+    // Rerender cart
+    try {
+      rerenderCart(updateSection, dynamicUpdateSection, store);
+    } catch {
+      console.log("rerender cart fail");
+    }
     // Rerender widget
     store?.types?.forEach?.((type) => {
       const widget = document.querySelector(

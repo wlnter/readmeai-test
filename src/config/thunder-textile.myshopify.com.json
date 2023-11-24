@@ -143,5 +143,6 @@
       "anchor": ".product-form__buttons",
       "position": "beforebegin"
     }
-  ]
+  ],
+  "sections":["template--15694527692956__cart-items"]
 }
