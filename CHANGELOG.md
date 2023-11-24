@@ -1,3 +1,10 @@
+## [2.14.1](https://github.com/kover-ai/shopify-scripts/compare/v2.14.0...v2.14.1) (2023-11-24)
+
+
+### Bug Fixes
+
+* **thunder-textile.myshopify.com and caught-in-candy-boutique.myshopify.com:** fix 错位问题 ([f307832](https://github.com/kover-ai/shopify-scripts/commit/f3078321a794f7c2567aa4b42686356bb197510e))
+
 # [2.14.0](https://github.com/kover-ai/shopify-scripts/compare/v2.13.0...v2.14.0) (2023-11-24)
 
 

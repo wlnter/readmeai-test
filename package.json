@@ -1,6 +1,6 @@
 {
   "name": "shopify-scripts",
-  "version": "2.14.0",
+  "version": "2.14.1",
   "description": "scripts for Shopify merchants to integrate with Seel assurance services",
   "main": "index.js",
   "scripts": {
