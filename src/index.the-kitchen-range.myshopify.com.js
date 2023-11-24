@@ -3,12 +3,12 @@ import store, { snapshot } from "./core/store";
 import embedWidget, {
   flatten as repaint,
 } from "./component/cart-widget/index.js";
-import configurations from "./config/theclosettradingco.myshopify.com.json";
+import configurations from "./config/the-kitchen-range.myshopify.com.json";
 import renderModal from "./component/modal";
 import renderPdpBanner from "./component/pdp-banner";
 //import configurations from "./config/index.json";
 import { productType } from "./core/constant";
-import "./component/cart-widget/theclosettradingco.myshopify.com.css";
+import "./component/cart-widget/common.css";
 import { rerenderCart } from "./core/util";
 // get myshopify domain from global var
 
@@ -16,10 +16,11 @@ store.configs = configurations;
 
 const shop = window?.Shopify?.shop || window?.Shopify?.Checkout?.apiHost;
 
-const subtotalSelector = "";
-const dynamicSubtotalSelector = "";
-const chekoutBtnSelector = "#Cart [name=checkout]";
-const dynamicCheckoutBtnSelector = "#Cart-Drawer [name=checkout]";
+const subtotalSelector = "[data-cart-total] #revy-cart-subtotal-price";
+const dynamicSubtotalSelector =
+  ".qsc2-drawer-footer__summary-subtotal div:last-child";
+const chekoutBtnSelector = "#site-main [name=checkout]";
+const dynamicCheckoutBtnSelector = ".qsc2-mini-cart .qsc2-checkout-button";
 const dynamicUpdateSection = "";
 const updateSection = "";
 
@@ -35,8 +36,10 @@ const changeSubtotal = (snapshot) => {
   }`;
 
   if (subtotalSelector && document.querySelector(subtotalSelector)) {
-    const element = document.querySelector(subtotalSelector);
-    element.innerHTML = subTotal;
+    const elements = document.querySelectorAll(subtotalSelector);
+    for (let i = 0; i < elements.length; i++) {
+      elements[i].innerHTML = subTotal;
+    }
   }
   if (
     dynamicSubtotalSelector &&

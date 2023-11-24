@@ -8,7 +8,7 @@ import {
 import { seelEvents, MERCHANT_PROFILE_KEY, productType } from "./constant";
 import { cartDiff, styledLogger } from "./util";
 import store, { snapshot } from "./store";
-import { setPerformanceObserver } from "./event";
+import { setPerformanceObserver, setPerformanceObserver2 } from "./event";
 
 export { seelEvents } from "./constant";
 export { updateCart } from "./fetch";
@@ -182,6 +182,20 @@ export const getQuotesAndUpdateCart = async (shop) => {
 
 export default async (shop) => {
   setPerformanceObserver();
+  const merchantProfiles = await getProfilesUsingCacheFirst(shop);
+  store.profiles = merchantProfiles?.filter((_) => _.live);
+  store.shop = shop;
+  await getQuotesAndUpdateCart(shop);
+  // Cart Changed
+  document.addEventListener(seelEvents.cartChanged, () => {
+    getQuotesAndUpdateCart(shop);
+  });
+  styledLogger(`Script Version: ${window.SEEL_SCRIPT_VERSION}`);
+  return store;
+};
+
+export const initialize2 = async (shop) => {
+  setPerformanceObserver2();
   const merchantProfiles = await getProfilesUsingCacheFirst(shop);
   store.profiles = merchantProfiles?.filter((_) => _.live);
   store.shop = shop;

@@ -2,13 +2,13 @@ import initialize, { seelEvents } from "./core";
 import store, { snapshot } from "./core/store";
 import embedWidget, {
   flatten as repaint,
-} from "./component/cart-widget/index.js";
-import configurations from "./config/theclosettradingco.myshopify.com.json";
+} from "./component/cart-widget/index.needInitAddWidget.js";
+import configurations from "./config/1f6e39-2.myshopify.com.json";
 import renderModal from "./component/modal";
 import renderPdpBanner from "./component/pdp-banner";
 //import configurations from "./config/index.json";
 import { productType } from "./core/constant";
-import "./component/cart-widget/theclosettradingco.myshopify.com.css";
+import "./component/cart-widget/common.css";
 import { rerenderCart } from "./core/util";
 // get myshopify domain from global var
 
@@ -16,12 +16,12 @@ store.configs = configurations;
 
 const shop = window?.Shopify?.shop || window?.Shopify?.Checkout?.apiHost;
 
-const subtotalSelector = "";
-const dynamicSubtotalSelector = "";
-const chekoutBtnSelector = "#Cart [name=checkout]";
-const dynamicCheckoutBtnSelector = "#Cart-Drawer [name=checkout]";
-const dynamicUpdateSection = "";
-const updateSection = "";
+const subtotalSelector = "#main-cart-footer .totals__total-value .money";
+const dynamicSubtotalSelector = "#CartDrawer .totals__total-value .money";
+const chekoutBtnSelector = "#checkout";
+const dynamicCheckoutBtnSelector = "#CartDrawer-Checkout";
+const dynamicUpdateSection = "#CartDrawer-Form";
+const updateSection = "#main-cart-items";
 
 const changeSubtotal = (snapshot) => {
   // Change Subtotal
@@ -58,6 +58,13 @@ const changeSubtotal = (snapshot) => {
     embedWidget(type);
     renderModal(type);
   });
+
+  // Rerender cart
+  try {
+    rerenderCart(updateSection, dynamicUpdateSection, store);
+  } catch {
+    console.log("rerender cart fail");
+  }
 
   // Cart Update Handler
   document.addEventListener(seelEvents.cartUpdated, () => {

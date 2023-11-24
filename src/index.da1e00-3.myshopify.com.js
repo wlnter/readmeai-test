@@ -1,14 +1,14 @@
-import initialize, { seelEvents } from "./core";
+import initialize, { seelEvents, initialize2 } from "./core";
 import store, { snapshot } from "./core/store";
 import embedWidget, {
   flatten as repaint,
-} from "./component/cart-widget/index.js";
-import configurations from "./config/theclosettradingco.myshopify.com.json";
+} from "./component/cart-widget/index.needInitAddWidget";
+import configurations from "./config/da1e00-3.myshopify.com.json";
 import renderModal from "./component/modal";
 import renderPdpBanner from "./component/pdp-banner";
 //import configurations from "./config/index.json";
 import { productType } from "./core/constant";
-import "./component/cart-widget/theclosettradingco.myshopify.com.css";
+import "./component/cart-widget/common.css";
 import { rerenderCart } from "./core/util";
 // get myshopify domain from global var
 
@@ -16,10 +16,10 @@ store.configs = configurations;
 
 const shop = window?.Shopify?.shop || window?.Shopify?.Checkout?.apiHost;
 
-const subtotalSelector = "";
-const dynamicSubtotalSelector = "";
-const chekoutBtnSelector = "#Cart [name=checkout]";
-const dynamicCheckoutBtnSelector = "#Cart-Drawer [name=checkout]";
+const subtotalSelector = ".mini-cart--cart-page .mini-cart__subtotal__price";
+const dynamicSubtotalSelector = ".mini-cart .mini-cart__subtotal__price";
+const chekoutBtnSelector = ".mini-cart--cart-page .mini-cart__checkout";
+const dynamicCheckoutBtnSelector = ".mini-cart .mini-cart__checkout";
 const dynamicUpdateSection = "";
 const updateSection = "";
 
@@ -48,7 +48,7 @@ const changeSubtotal = (snapshot) => {
 };
 
 (async () => {
-  await initialize(shop);
+  await initialize2(shop);
 
   renderPdpBanner(productType.ra, shop);
 

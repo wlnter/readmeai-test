@@ -137,26 +137,28 @@ export const createElementFromString = (htmlString) => {
 
 export const rerenderCart = (updateSection, dynamicUpdateSection, store) => {
   if (updateSection || dynamicUpdateSection) {
-    const sections = store.cart.sections;
-    for (let prop in sections) {
-      if (sections[prop]) {
-        const element = createElementFromString(sections[prop]);
-        if (updateSection) {
-          if (
-            element.querySelector(updateSection) &&
-            document.querySelector(updateSection)
-          ) {
-            document.querySelector(updateSection).innerHTML =
-              element.querySelector(updateSection).innerHTML;
+    const sections = store.cart?.sections;
+    if (sections) {
+      for (let prop in sections) {
+        if (sections[prop]) {
+          const element = createElementFromString(sections[prop]);
+          if (updateSection) {
+            if (
+              element.querySelector(updateSection) &&
+              document.querySelector(updateSection)
+            ) {
+              document.querySelector(updateSection).innerHTML =
+                element.querySelector(updateSection).innerHTML;
+            }
           }
-        }
-        if (dynamicUpdateSection) {
-          if (
-            element.querySelector(dynamicUpdateSection) &&
-            document.querySelector(dynamicUpdateSection)
-          ) {
-            document.querySelector(dynamicUpdateSection).innerHTML =
-              element.querySelector(dynamicUpdateSection).innerHTML;
+          if (dynamicUpdateSection) {
+            if (
+              element.querySelector(dynamicUpdateSection) &&
+              document.querySelector(dynamicUpdateSection)
+            ) {
+              document.querySelector(dynamicUpdateSection).innerHTML =
+                element.querySelector(dynamicUpdateSection).innerHTML;
+            }
           }
         }
       }

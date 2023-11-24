@@ -8,7 +8,7 @@ import renderModal from "./component/modal";
 import renderPdpBanner from "./component/pdp-banner";
 //import configurations from "./config/index.json";
 import { productType } from "./core/constant";
-import "./component/cart-widget/theclosettradingco.myshopify.com.css";
+import "./component/cart-widget/common.css";
 import { rerenderCart } from "./core/util";
 // get myshopify domain from global var
 
@@ -20,8 +20,8 @@ const subtotalSelector = "";
 const dynamicSubtotalSelector = "";
 const chekoutBtnSelector = "#Cart [name=checkout]";
 const dynamicCheckoutBtnSelector = "#Cart-Drawer [name=checkout]";
-const dynamicUpdateSection = "";
-const updateSection = "";
+const dynamicUpdateSection = "#Cart-Drawer .product-cart-item--container";
+const updateSection = ".cart-items tbody";
 
 const changeSubtotal = (snapshot) => {
   // Change Subtotal
