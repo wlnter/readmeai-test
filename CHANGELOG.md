@@ -1,3 +1,22 @@
+# [3.0.0](https://github.com/kover-ai/shopify-scripts/compare/v2.15.0...v3.0.0) (2023-11-27)
+
+
+### Bug Fixes
+
+* **mooncool2:** 修复没有product-protection报价时，加购按钮无法点击的问题 ([a25cda8](https://github.com/kover-ai/shopify-scripts/commit/a25cda8dd4757c3e63500c29123890edbd5a4269))
+
+
+### Features
+
+* **product-protection:** 在测试店铺mooncool2店铺集成product-protection产品 ([0e9be13](https://github.com/kover-ai/shopify-scripts/commit/0e9be13dcb067278356073de51e246e6c6140d7f))
+* **product-protection:** 在测试店铺和mooncool店铺集成product-protection产品 ([3e59df0](https://github.com/kover-ai/shopify-scripts/commit/3e59df073cc3766178214fec1cee41098d65d614))
+
+
+### BREAKING CHANGES
+
+* **product-protection:** 新增pdp-widget和pdp-modal，核心流程调整适配
+* **product-protection:** 新增product-protection产品对原核心流程有改动
+
 # [2.15.0](https://github.com/kover-ai/shopify-scripts/compare/v2.14.1...v2.15.0) (2023-11-27)
 
 
