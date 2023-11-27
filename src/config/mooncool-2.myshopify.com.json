@@ -1,4 +1,16 @@
 {
+  "pdpWidgets": [
+    {
+      "type": "ew",
+      "name": "Add product protection",
+      "description": "Protect your purchase beyond manufacturer’s warranty.",
+      "linkHref": "https://www.seel.com/faq/product-protection-plan-customer",
+      "linkText": "Learn more",
+      "logo": "https://cdn.seel.com/assets/images/ew-powerby-logo.svg",
+      "anchor": ".product-info__buy-buttons",
+      "position": "beforebegin"
+    }
+  ],
   "widgets": [
     {
       "type": "sp",
@@ -7,11 +19,11 @@
       "infoIconLink": "https://www.seel.com/terms/learn-more-about-seel-shipping-protection",
       "description": "Protect against loss, damage, delay & offset emissions for <strong>{{currencySymbol}}{{price}} {{currencyCode}}</strong>",
       "widgetIcon": "https://static.seel.com/image/sp-widget-icon.svg",
-      "anchor": "#main .cart-form button[name=checkout]", 
+      "anchor": "#main .cart-form button[name=checkout]",
       "position": "beforebegin",
-      "dynamicAnchor": ".cart-drawer .buy-buttons", 
+      "dynamicAnchor": ".cart-drawer .buy-buttons",
       "dynamicPosition": "beforebegin",
-      "checkoutAnchor": "", 
+      "checkoutAnchor": "",
       "checkoutPosition": "beforebegin",
       "listPriceRate": 0
     }
@@ -24,11 +36,7 @@
         {
           "header": "1-click protect against",
           "contentIcon": "https://cdn.seel.com/assets/images/modal-section-icon-1.svg",
-          "contentText": [
-            "Loss",
-            "Damage",
-            "Delay"
-          ]
+          "contentText": ["Loss", "Damage", "Delay"]
         },
         {
           "header": "Instant resolution",
@@ -51,7 +59,5 @@
       "links": []
     }
   ],
-  "banners": [
-    
-  ]
+  "banners": []
 }

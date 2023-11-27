@@ -129,6 +129,37 @@ export const formatMoney = (num) => {
   }).format(num);
 };
 
+export const getProduct = async () => {
+  const pathname = window.location.pathname;
+  const page = window?.meta?.page;
+  const product = window?.meta?.product;
+  const isProductPage =
+    page?.pageType != null
+      ? page?.pageType === "product"
+      : pathname.indexOf("/products/") !== -1;
+
+  // If we are on a product page
+  if (isProductPage) {
+    if (page?.resourceId) {
+      return {
+        productId: page?.resourceId,
+        variants: product.variants,
+      };
+    } else {
+      try {
+        const productHandle = pathname.match(/\/products\/([a-z0-9-]+)/)[1];
+        const resp = await fetch(`/products/${productHandle}.js`);
+        const result = await resp.text();
+        const { id: productId, variants } = JSON.stringify(result);
+        return { productId, variants };
+      } catch (e) {
+        console.log(e);
+      }
+    }
+  }
+  return null;
+};
+
 export const createElementFromString = (htmlString) => {
   var div = document.createElement("div");
   div.innerHTML = htmlString.trim();

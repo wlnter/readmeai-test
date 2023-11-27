@@ -14,4 +14,8 @@ export const seelEvents = {
   showModal: "seel:widget:show_modal",
   cartChanged: "seel:widget:cart_changed",
   cartUpdated: "seel:widget:cart_updated",
+  urlChanged: "seel:widget:url_changed",
+  protectionAdded: "seel:pdp_modal:protection_added",
+  protectionRemoved: "seel:pdp_modal:protection_removed",
+  showPdpModal: "seel:widget:show_pdp_modal",
 };

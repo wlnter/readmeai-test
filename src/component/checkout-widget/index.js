@@ -27,7 +27,7 @@ export const flatten = (widget, type) => {
   const widgetDesc = widget.querySelector(".seel_widget--desc_line--text");
   widgetName.innerHTML = lodashTemplate(
     name,
-    templateOption
+    templateOption,
   )({
     ...profile,
     ...quote,
@@ -38,7 +38,7 @@ export const flatten = (widget, type) => {
   widgetInfoIconEl.setAttribute("src", infoIcon);
   widgetDesc.innerHTML = lodashTemplate(
     description,
-    templateOption
+    templateOption,
   )({
     ...profile,
     ...quote,

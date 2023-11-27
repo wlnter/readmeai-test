@@ -2,7 +2,7 @@
 const glob = require("glob");
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-// const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const HookShellScriptPlugin = require('hook-shell-script-webpack-plugin');
 const CopyPlugin = require("copy-webpack-plugin");
 const Dotenv = require("dotenv-webpack");
 const TerserPlugin = require("terser-webpack-plugin");
@@ -45,6 +45,10 @@ const config = {
   resolve: {
     extensions: [".js", ".json"],
   },
+  watch: false,
+  watchOptions: {
+    ignored: /node_modules/,
+  },
   devServer: {
     open: true,
     host: "localhost",
@@ -75,6 +79,7 @@ const config = {
         isProduction ? ".env.production" : ".env.development"
       ),
     }),
+    
     // Add your plugins here
     // Learn more about plugins from https://webpack.js.org/configuration/plugins/
   ],
@@ -108,14 +113,17 @@ const config = {
       }),
     ],
   },
+  
 };
 
 module.exports = () => {
   if (isProduction) {
     config.mode = "production";
-    // config.plugins.push(new MiniCssExtractPlugin());
   } else {
     config.mode = "development";
+    // config.plugins.push(new HookShellScriptPlugin({
+    //   afterEmit: [`node ./mock.mjs ${process.env.NODE_ENV}`],
+    // }));
   }
   return config;
 };

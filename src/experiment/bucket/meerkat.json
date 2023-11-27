@@ -48,6 +48,14 @@
       "profile": {
         "productType": ["ra"]
       }
+    },
+    {
+      "shop": "seel-dev-store.myshopify.com",
+      "domain": "seel-dev-store.myshopify.com",
+      "buckets": ["a", "b", "b", "c", "c"],
+      "profile": {
+        "productType": ["ra"]
+      }
     }
   ]
 }

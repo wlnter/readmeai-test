@@ -29,13 +29,6 @@ const changeSubtotal = (snapshot) => {
     const element = document.querySelector(subtotalSelector);
     element.innerHTML = subTotal;
   }
-  //   if (
-  //     dynamicSubtotalSelector &&
-  //     document.querySelector(dynamicSubtotalSelector)
-  //   ) {
-  //     const element = document.querySelector(dynamicSubtotalSelector);
-  //     element.innerHTML = subTotal;
-  //   }
 };
 
 (async () => {
