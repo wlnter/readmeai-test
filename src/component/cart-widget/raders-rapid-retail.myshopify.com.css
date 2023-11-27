@@ -1,0 +1,13 @@
+.seel_widget--title_line--name{
+  color: #efb34c!important
+}
+.seel_widget--desc_line--text{
+  color: #efb34c!important;
+}
+.seel_widget--title_line--icon{
+  filter: invert(80%);
+}
+
+#MainContent .seel_widget{
+  margin-bottom: 10px;
+}

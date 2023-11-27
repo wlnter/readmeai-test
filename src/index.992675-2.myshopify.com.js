@@ -3,7 +3,7 @@ import store, { snapshot } from "./core/store";
 import embedWidget, {
   flatten as repaint,
 } from "./component/cart-widget/index.needInitAddWidget";
-import configurations from "./config/2fb54b-2.myshopify.com.json";
+import configurations from "./config/992675-2.myshopify.com.json";
 import renderModal from "./component/modal";
 import renderPdpBanner from "./component/pdp-banner";
 //import configurations from "./config/index.json";
@@ -16,12 +16,12 @@ store.configs = configurations;
 
 const shop = window?.Shopify?.shop || window?.Shopify?.Checkout?.apiHost;
 
-const subtotalSelector = ".Cart__Footer .wholesale-original-price";
-const dynamicSubtotalSelector = "#sidebar-cart #revy-cart-subtotal-price";
-const chekoutBtnSelector = ".Cart__Footer [name=checkout]";
-const dynamicCheckoutBtnSelector = "#sidebar-cart [name=checkout]";
-const dynamicUpdateSection = "";
-const updateSection = "";
+const subtotalSelector = "#MainContent .totals__subtotal-value";
+const dynamicSubtotalSelector = "#CartDrawer .totals__subtotal-value";
+const chekoutBtnSelector = "#MainContent [name=checkout]";
+const dynamicCheckoutBtnSelector = "#CartDrawer [name=checkout]";
+const dynamicUpdateSection = "#CartDrawer-CartItems";
+const updateSection = "#main-cart-items .cart-items";
 
 const changeSubtotal = (snapshot) => {
   // Change Subtotal

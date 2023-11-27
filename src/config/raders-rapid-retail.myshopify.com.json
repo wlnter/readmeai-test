@@ -1,0 +1,19 @@
+{
+  "widgets": [
+    {
+      "type": "bp",
+      "name": "ADD GREEN SHIPPING PROTECTION",
+      "infoIcon": "https://static.seel.com/image/widget-info-icon.svg",
+      "infoIconLink": "https://www.seel.com/terms/17trackbuyerprotection",
+      "description": "Protect against loss, damage, delay & offset emissions for <strong>{{currencySymbol}}{{price}} {{currencyCode}}</strong>",
+      "widgetIcon": "https://static.seel.com/image/bp-widget-icon.svg",
+      "anchor": "#cartCheckout",
+      "position": "beforebegin",
+      "dynamicAnchor": "#mini__cart .cart-btn-container",
+      "dynamicPosition": "beforebegin",
+      "checkoutAnchor": "",
+      "checkoutPosition": "beforebegin",
+      "listPriceRate": 0
+    }
+  ]
+}

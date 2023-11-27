@@ -3,12 +3,12 @@ import store, { snapshot } from "./core/store";
 import embedWidget, {
   flatten as repaint,
 } from "./component/cart-widget/index.needInitAddWidget";
-import configurations from "./config/2fb54b-2.myshopify.com.json";
+import configurations from "./config/aa9619-3.myshopify.com.json";
 import renderModal from "./component/modal";
 import renderPdpBanner from "./component/pdp-banner";
 //import configurations from "./config/index.json";
 import { productType } from "./core/constant";
-import "./component/cart-widget/common.css";
+import "./component/cart-widget/aa9619-3.myshopify.com.css";
 import { rerenderCart } from "./core/util";
 // get myshopify domain from global var
 
@@ -16,10 +16,10 @@ store.configs = configurations;
 
 const shop = window?.Shopify?.shop || window?.Shopify?.Checkout?.apiHost;
 
-const subtotalSelector = ".Cart__Footer .wholesale-original-price";
-const dynamicSubtotalSelector = "#sidebar-cart #revy-cart-subtotal-price";
-const chekoutBtnSelector = ".Cart__Footer [name=checkout]";
-const dynamicCheckoutBtnSelector = "#sidebar-cart [name=checkout]";
+const subtotalSelector = ".cart__footer .cart__footer-subtotal span";
+const dynamicSubtotalSelector = ".quick-cart .quick-cart__footer-subtotal span";
+const chekoutBtnSelector = ".cart__footer [name=checkout]";
+const dynamicCheckoutBtnSelector = ".quick-cart [name=checkout]";
 const dynamicUpdateSection = "";
 const updateSection = "";
 
