@@ -1,3 +1,10 @@
+## [3.2.1](https://github.com/kover-ai/shopify-scripts/compare/v3.2.0...v3.2.1) (2023-11-27)
+
+
+### Bug Fixes
+
+* **ffc1aa-3.myshopify.com and 4bf535-2.myshopify.com :** fix two shop ([6c00bed](https://github.com/kover-ai/shopify-scripts/commit/6c00bedd2603f00d1ec9b970bfde2352715b3884))
+
 # [3.2.0](https://github.com/kover-ai/shopify-scripts/compare/v3.1.0...v3.2.0) (2023-11-27)
 
 
