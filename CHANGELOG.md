@@ -1,3 +1,10 @@
+# [3.1.0](https://github.com/kover-ai/shopify-scripts/compare/v3.0.0...v3.1.0) (2023-11-27)
+
+
+### Features
+
+* 调整mock功能，减少build时间 ([9c7e5f6](https://github.com/kover-ai/shopify-scripts/commit/9c7e5f6421c81bdeb0e4d95dec1c5c92a0611d20))
+
 # [3.0.0](https://github.com/kover-ai/shopify-scripts/compare/v2.15.0...v3.0.0) (2023-11-27)
 
 
