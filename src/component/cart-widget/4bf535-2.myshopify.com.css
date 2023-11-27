@@ -1,0 +1,9 @@
+.seel_widget--title_line--name{
+  color:#047deb!important;
+}
+.seel_widget--desc_line--text{
+  color:#7410ed!important;
+}
+.seel_widget--title_line--icon{
+  filter: invert(1);
+}
