@@ -3,19 +3,23 @@ import embedWidget, {
   flatten as repaintWidget,
 } from "./component/checkout-widget";
 import renderModal from "./component/modal";
-import initialize, { seelEvents, querys } from "./core";
-import configuration from "./config/niueuro.myshopify.com.json";
-import "./component/checkout-widget/niueuro.myshopify.com.css";
+import initialize, { seelEvents } from "./core";
+import configuration from "./config/kid-gear.myshopify.com.json";
+import "./component/checkout-widget/kid-gear.myshopify.com.css";
 store.configs = configuration;
+import renderPdpBanner from "./component/pdp-banner";
+import { productType } from "./core/constant";
+
+const shop = "kid-gear.myshopify.com";
+const productListSelector =
+  ".order-summary__section.order-summary__section--product-list";
+const totalLineSelector = ".total-line__price";
 
 const repaintAside = async (checkoutUrl = window.location.href) => {
   const resp = await fetch(checkoutUrl);
   const html = await resp.text();
   const parser = new DOMParser();
   const doc = parser.parseFromString(html, "text/html");
-  const productListSelector =
-    ".order-summary__section.order-summary__section--product-list";
-  const totalLineSelector = ".total-line-table__footer";
   const productList = doc.querySelector(productListSelector);
   const totalLine = doc.querySelector(totalLineSelector);
   document.querySelector(productListSelector)?.replaceWith(productList);
@@ -23,9 +27,8 @@ const repaintAside = async (checkoutUrl = window.location.href) => {
 };
 
 (async () => {
-  const shop = "niumicro.myshopify.com";
-
   await initialize(shop);
+  renderPdpBanner(productType.ra, shop);
 
   store?.types?.forEach?.((type) => {
     embedWidget(type);

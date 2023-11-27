@@ -1,0 +1,27 @@
+.seel_widget--title_line--logo {
+  width: 26px;
+  margin: 0 0 2px 6px;
+}
+.seel_widget--title_line--name {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 0 6px 0 10px;
+}
+.seel_widget--title_line--checkbox:checked {
+  background-color: black;
+  border-color: black;
+}
+
+.seel_widget--title_line--checkbox:disabled {
+  /* background-color: #666; */
+  border-color: #666;
+}
+.seel_widget--title_line--checkbox:checked:disabled {
+  background-color: #666;
+}
+.seel_widget--desc_line--icon {
+  width: 25px;
+  height: 25px;
+  margin: 4px;
+}

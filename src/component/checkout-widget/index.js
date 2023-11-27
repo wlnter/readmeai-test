@@ -25,11 +25,8 @@ export const flatten = (widget, type) => {
   const widgetIconEl = widget.querySelector(".seel_widget--desc_line--icon");
   const widgetInfoIconEl = widget.querySelector("[data-seel-widget-info]");
   const widgetDesc = widget.querySelector(".seel_widget--desc_line--text");
-  widgetName.innerHTML = name;
-  widgetIconEl.setAttribute("src", widgetIcon);
-  widgetInfoIconEl.setAttribute("src", infoIcon);
-  widgetDesc.innerHTML = lodashTemplate(
-    description,
+  widgetName.innerHTML = lodashTemplate(
+    name,
     templateOption
   )({
     ...profile,
@@ -37,8 +34,19 @@ export const flatten = (widget, type) => {
     ...formatQuote,
     listPrice: listPriceRate ? listPrice : "",
   });
+  widgetIconEl.setAttribute("src", widgetIcon);
+  widgetInfoIconEl.setAttribute("src", infoIcon);
+  widgetDesc.innerHTML = lodashTemplate(
+    description,
+    templateOption,
+  )({
+    ...profile,
+    ...quote,
+    ...formatQuote,
+    listPrice: listPriceRate ? listPrice : "",
+  });
 
-  widget.querySelector(".seel_widget--title_line--checkbox").checked =
+  widget.querySelector("[data-seel-widget-input]").checked =
     sessions?.[type] !== null ? sessions?.[type] : profile?.checked;
 
   return widget;

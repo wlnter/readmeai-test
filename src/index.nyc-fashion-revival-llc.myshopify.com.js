@@ -19,7 +19,10 @@ const dynamicCheckoutBtnSelector = "";
 
 const changeSubtotal = (snapshot) => {
   // Change Subtotal
-  const { currencySymbol, currencyCode } = snapshot.quotes[0];
+  if (!snapshot?.quotes?.[0]) {
+    return;
+  }
+  const { currencySymbol, currencyCode } = snapshot.quotes[0] || {};
   const { total_price: amount } = snapshot.cart;
   const subTotal = `${currencySymbol} ${(amount / 100).toFixed(2)} ${
     currencyCode || ""

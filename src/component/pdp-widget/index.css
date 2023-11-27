@@ -1,0 +1,57 @@
+.seel_pdp_widget {
+  display: flex;
+  flex-direction: column;
+}
+.seel_pdp_widget--title_line {
+  display: flex;
+  flex-direction: row;
+}
+.seel_pdp_widget--title_line--name {
+  font-size: 22px;
+  color: black;
+  font-weight: 700;
+}
+.seel_pdp_widget--title_line--logo {
+  width: 100px;
+  margin-left: 10px;
+}
+.seel_pdp_widget--description {
+  color: #5c5f62;
+  font-size: 14px;
+}
+a.seel_pdp_widget--link {
+  text-decoration: underline;
+  color: #5c5f62;
+  font-size: 14px;
+}
+.seel_pdp_widget--options {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.seel_pdp_widget--option:first-child {
+  margin-left: 0;
+}
+.seel_pdp_widget--option:last-child {
+  margin-right: 0;
+}
+.seel_pdp_widget--option {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  border: 1px solid #c6c6c6;
+  color: #797979;
+  border-radius: 5px;
+  padding: 0 5px;
+  margin: 0 8px;
+  cursor: pointer;
+}
+.seel_pdp_widget--option--selected {
+  border-color: black;
+  border-width: 2px;
+  color: black;
+}
+.seel_pdp_widget--option--price {
+  font-weight: 600;
+}

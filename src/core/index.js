@@ -1,21 +1,22 @@
 import {
   fetchAllProfiles,
   getQuoteResults,
+  getEWQuoteResult,
   getCart,
   updateCart,
   fetchRAEligibility,
 } from "./fetch";
 import { seelEvents, MERCHANT_PROFILE_KEY, productType } from "./constant";
-import { cartDiff, styledLogger } from "./util";
+import { cartDiff, styledLogger, getProduct } from "./util";
 import store, { snapshot } from "./store";
-import { setPerformanceObserver } from "./event";
+import { setPerformanceObserver, locationHashObserver } from "./event";
 
 export { seelEvents } from "./constant";
-export { updateCart } from "./fetch";
+export { updateCart, addCart } from "./fetch";
 export { bindWidgetEvents } from "./event";
 export { styledLogger, querys } from "./util";
 
-window.SEEL_SCRIPT_VERSION = "SEMANTIC_RELEASE_VERSION";
+window.SEEL_SCRIPT_VERSION = process.env.VERSION;
 
 export const getProductEligibility = async (params) => {
   const {
@@ -58,35 +59,49 @@ const getProfilesUsingCacheFirst = async (shop, type) => {
 
 export const getQuotesAndUpdateCart = async (shop) => {
   // generate empty quote attributes for each product type
-  const quoteKeys = Object.values(productType).map(
-    (type) => `${type}_quote_id`,
-  );
+  const quoteKeys = Object.values(productType)
+    .filter((type) => type !== productType.ew)
+    .map((type) => `${type}_quote_id`);
   const attributes = {};
+  const updates = {};
   quoteKeys.reduce((acc, cur) => {
     acc[cur] = "";
     return acc;
   }, attributes);
+  updateCart(shop, {}, attributes);
 
-  // 商家未开启保险功能
+  // 商家未开启任何保险功能
   if (!store.profiles || !store.profiles.length) {
-    updateCart(shop, {}, attributes);
     return null;
   }
+
   // 购物车为空
   store.cart = await getCart();
-  if (!store.cart) return null;
+  store.product = await getProduct();
+  const previousEWQuoteId =
+    store?.cart?.attributes?.[`${productType.ew}_quote_id`] || "";
 
-  //购物车为空时不显示widget
-  if (!store.cart?.items || store.cart?.items?.length === 0) {
-    return;
+  const quotePromises = [];
+  if (store.cart && store.cart?.items && store.cart?.items?.length !== 0) {
+    // RA BP SP
+    quotePromises.push(
+      getQuoteResults(
+        shop,
+        store.cart,
+        store.profiles.map((_) => _.type).filter((_) => _ !== productType.ew),
+      ),
+    );
+  } else {
+    quotePromises.push(null);
   }
-
-  const quoteResults = await getQuoteResults(
-    shop,
-    store.cart,
-    store.profiles.map((_) => _.type),
-  );
-  store.quotes = quoteResults?.filter((_) => _ && _.price);
+  if (store.product) {
+    quotePromises.push(getEWQuoteResult(shop, store.product, productType.ew));
+  } else {
+    quotePromises.push(null);
+  }
+  const [cartQuotes, pdpQuote] = await Promise.all(quotePromises);
+  store.quotes = cartQuotes ? cartQuotes.concat([pdpQuote]) : [pdpQuote];
+  store.quotes = store.quotes?.filter((_) => _?.status === "accepted");
   // SP(GSP)和BP(17BP)互斥
   if (store.quotes?.find((_) => _.type === productType.sp)) {
     store.quotes = store.quotes.filter((_) => _.type !== productType.bp);
@@ -94,13 +109,19 @@ export const getQuotesAndUpdateCart = async (shop) => {
 
   // 无报价
   if (!store.quotes || !store.quotes.length) {
-    updateCart(shop, {}, attributes);
+    updateCart(shop, updates, attributes);
+    if (shop === "bennas.myshopify.com") {
+      // 更新UI
+      setTimeout(() => {
+        window.ajaxCart.load();
+      }, 1000);
+    }
     return null;
   }
 
   // convert quote to cart attributes and updates
   store.types = [];
-  const updates = {};
+
   store.quotes.forEach((quote) => {
     store.types.push(quote.type);
     const [seelVariantsInCart, matched, notMatched] = cartDiff(
@@ -114,8 +135,10 @@ export const getQuotesAndUpdateCart = async (shop) => {
         updates[_.id] = 0;
       });
 
-      if (matched || store?.sessions?.[quote.type] || profile.checked) {
-        updates[quote.variantId] = 1;
+      if (matched || store?.sessions?.[quote.type] || profile?.checked) {
+        if (quote?.variantId) {
+          updates[quote.variantId] = 1;
+        }
         store.sessions = store.sessions || {};
         store.sessions[quote.type] = true;
       }
@@ -130,19 +153,19 @@ export const getQuotesAndUpdateCart = async (shop) => {
         ? profile.checked
         : store?.sessions?.[quote.type]
     ) {
-      updates[quote.variantId] = 1;
+      if (quote?.variantId) {
+        updates[quote.variantId] = 1;
+      }
       store.sessions = store.sessions || {};
       store.sessions[quote.type] = true;
     }
-    attributes[`${quote.type}_quote_id`] = quote.quoteId;
-  });
 
-  Object.values(productType).forEach((type) => {
-    const found = store.quotes.find((quote) => quote.type === type);
-    if (!found) {
-      // TODO
-      // remove Seel product from cart
-      // set updates object
+    if (quote.type === productType.ew) {
+      attributes[`${quote.type}_quote_id`] = previousEWQuoteId
+        ? `${previousEWQuoteId},${quote.quoteId}`
+        : quote.quoteId;
+    } else {
+      attributes[`${quote.type}_quote_id`] = quote.quoteId;
     }
   });
 
@@ -164,8 +187,10 @@ export const getQuotesAndUpdateCart = async (shop) => {
 
 export default async (shop) => {
   setPerformanceObserver();
+  locationHashObserver();
   const merchantProfiles = await getProfilesUsingCacheFirst(shop);
   store.profiles = merchantProfiles?.filter((_) => _.live);
+  store.shop = shop;
   await getQuotesAndUpdateCart(shop);
   // Cart Changed
   document.addEventListener(seelEvents.cartChanged, () => {

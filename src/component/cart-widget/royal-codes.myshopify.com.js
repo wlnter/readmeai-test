@@ -32,7 +32,7 @@ export const flatten = (widget, type) => {
   widgetInfoIconEl.setAttribute("src", infoIcon);
   widgetDesc.innerHTML = lodashTemplate(
     description,
-    templateOption
+    templateOption,
   )({
     ...profile,
     ...quote,

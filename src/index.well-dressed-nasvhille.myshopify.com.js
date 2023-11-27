@@ -22,7 +22,7 @@ const changeSubtotal = (snapshot) => {
   if (!snapshot.quotes || !snapshot.quotes.length) {
     return;
   }
-  const { currencySymbol, currencyCode } = snapshot.quotes[0];
+  const { currencySymbol, currencyCode } = snapshot.quotes[0] || {};
   const { total_price: amount } = snapshot.cart;
   const subTotal = `${currencySymbol} ${(amount / 100).toFixed(2)} ${
     currencyCode || ""

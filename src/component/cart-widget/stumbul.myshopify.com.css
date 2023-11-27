@@ -1,0 +1,67 @@
+.seel_widget {
+  border: none;
+  background-color: rgb(247, 247, 252);
+  max-width: 500px;
+  border-radius: 0;
+  padding: 8px;
+  margin: 0 auto;
+  min-width: initial;
+  
+}
+.seel--product_tip{
+  margin-bottom: 0;
+}
+.seel_widget--title_line {
+  height: 20px;
+  margin-left: 5px;
+}
+
+.seel_widget--title_line--name {
+  font-size: 12px;
+  flex-shrink: 0;
+}
+
+.seel_widget--desc_line--text {
+  font-size: 12px;
+  line-height: 14px;
+}
+
+.seel_widget--title_line--checkbox {
+  min-width: 14px;
+  width: 14px;
+  height: 14px;
+  margin: 0;
+}
+
+.seel_widget--desc_line--icon {
+  width: 26px;
+  height: 26px;
+}
+.seel_widgets_list_container{
+  margin-bottom: 10px;
+}
+
+.seel_widgets_list_container .seel_widget:first-child {
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  position: relative;
+}
+
+.seel_widgets_list_container .seel_widget:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  left: 5px;
+  bottom: 0;
+  right: 5px;
+  height: 1px;
+  border-bottom: 1px solid #cccccc9c;
+}
+
+.seel_widgets_list_container .seel_widget:last-child {
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.seel_modal{
+  z-index: 999999;
+}

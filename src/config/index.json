@@ -1,13 +1,23 @@
 {
+  "pdpWidgets": [{
+    "type": "ew",
+    "name": "Add product protection",
+    "description": "Protect your purchase beyond manufacturer’s warranty.",
+    "linkHref": "https://www.seel.com",
+    "linkText": "Learn more",
+    "logo": "https://static.seel.com/assets/images/ew-powerby-logo.svg",
+    "anchor": ".product-form__buttons",
+    "position": "afterend"
+  }],
   "widgets": [
     {
       "type": "ra",
       "name": "ADD RETURN ASSURANCE",
       "infoIcon": "https://static.seel.com/image/widget-info-icon.svg",
       "infoIconLink": "",
-      "description": "You have item(s) worth {{currencySymbol}}{{value}} in your cart that are final sale. For <del>{{listPrice}}</del> {{currencySymbol}}{{price}}, you can add an option within {{returnWindow}} days to return these item(s) if they don’t work out for any reason.",
+      "description": "You have item(s) worth {{currencySymbol}}{{value}} in your cart that are final sale. For <del>{{listPrice}}</del> {{currencySymbol}}{{price}}, you can add an option to return these item(s) within {{returnWindow}} days if they don’t work out for any reason.",
       "widgetIcon": "https://static.seel.com/image/ra-widget-icon.svg",
-      "anchor": "",
+      "anchor": "#checkout",
       "position": "beforebegin",
       "dynamicAnchor": "",
       "dynamicPosition": "beforebegin",
@@ -22,7 +32,7 @@
       "infoIconLink": "https://www.seel.com/terms/17trackbuyerprotection",
       "description": "Protect against loss, damage, delay & offset emissions for <strong>{{currencySymbol}}{{price}} {{currencyCode}}</strong>",
       "widgetIcon": "https://static.seel.com/image/bp-widget-icon.svg",
-      "anchor": ".cart__ctas",
+      "anchor": "#checkout",
       "position": "beforebegin",
       "dynamicAnchor": ".rebuy-cart__flyout-actions",
       "dynamicPosition": "beforebegin",
@@ -37,7 +47,7 @@
       "infoIconLink": "https://www.seel.com/terms/learn-more-about-seel-shipping-protection",
       "description": "Protect against loss, damage, delay & offset emissions for <strong>{{currencySymbol}}{{price}} {{currencyCode}}</strong>",
       "widgetIcon": "https://static.seel.com/image/sp-widget-icon.svg",
-      "anchor": "",
+      "anchor": "#checkout",
       "position": "beforebegin",
       "dynamicAnchor": "",
       "dynamicPosition": "beforebegin",
@@ -123,7 +133,11 @@
         {
           "header": "1-click protect against",
           "contentIcon": "https://cdn.seel.com/assets/images/modal-section-icon-1.svg",
-          "contentText": ["Loss", "Damage", "Delay"]
+          "contentText": [
+            "Loss",
+            "Damage",
+            "Delay"
+          ]
         },
         {
           "header": "Instant resolution",
@@ -154,7 +168,7 @@
       "bannerIcon": "",
       "bannerLogo": "https://cdn.seel.com/assets/images/logo/seel_logo.svg",
       "bannerDesc": "Return Option Available with",
-      "bannerTip": "You can add the option to return this item for a refund back to your original payment method. Proceed to the cart for more details.",
+      "bannerTip": "You can add the option to return this item for a refund. Proceed to the cart for more details.",
       "anchor": ".product-form__buttons",
       "position": "beforebegin"
     }

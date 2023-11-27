@@ -1,0 +1,6 @@
+#MainContent .seel_widget {
+  margin-bottom:10px;
+}
+.seel_widget .seel_widget--title_line--name,.seel_widget .seel_widget--desc_line--text{
+  font-size: 12px;
+}

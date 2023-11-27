@@ -1,13 +1,15 @@
 import lodashTemplate from "lodash.template";
 import widgetTemplate from "./index.html";
-import { bindWidgetEvents } from "../../core";
+import { bindWidgetEvents, seelEvents } from "../../core";
 import store, { snapshot } from "../../core/store";
 import { formatMoney } from "../../core/util";
 import "./index.css";
+import { loadExperimentAsset, trafficSplitter } from "../../experiment";
 
 export const flatten = (widget, type) => {
   const { configs, profiles, quotes, sessions } = snapshot(store);
   const config = configs.widgets.find((_) => _.type === type);
+
   const profile = profiles.find((_) => _.type === type);
   const quote = quotes.find((_) => _.type === type);
   const { description, name, infoIcon, widgetIcon, listPriceRate } = config;
@@ -22,10 +24,18 @@ export const flatten = (widget, type) => {
     price: formatMoney(price),
   };
   const widgetName = widget.querySelector(".seel_widget--title_line--name");
-  const widgetIconEl = widget.querySelector(".seel_widget--desc_line--icon");
+  const widgetIconEl = widget.querySelector("[data-seel-widget-icon]");
   const widgetInfoIconEl = widget.querySelector("[data-seel-widget-info]");
-  const widgetDesc = widget.querySelector(".seel_widget--desc_line--text");
-  widgetName.innerHTML = name;
+  const widgetDesc = widget.querySelector("[data-seel-widget-desc]");
+  widgetName.innerHTML = lodashTemplate(
+    name,
+    templateOption
+  )({
+    ...profile,
+    ...quote,
+    ...formatQuote,
+    listPrice: listPriceRate ? listPrice : "",
+  });
   widgetIconEl.setAttribute("src", widgetIcon);
   widgetInfoIconEl.setAttribute("src", infoIcon);
   widgetDesc.innerHTML = lodashTemplate(
@@ -38,14 +48,50 @@ export const flatten = (widget, type) => {
     listPrice: listPriceRate ? listPrice : "",
   });
 
-  widget.querySelector(".seel_widget--title_line--checkbox").checked =
+  widget.querySelector("[data-seel-widget-input]").checked =
     sessions?.[type] == null ? profile?.checked : sessions?.[type];
 
   return widget;
 };
 
-export const getComponent = (type) => {
+export const getComponent = async (type) => {
   const parser = new DOMParser();
+
+  // bucket testing start
+  const { bucket, profile, ...rest } = await trafficSplitter({
+    shop: store.shop,
+    code: "meerkat",
+  });
+
+  console.log(bucket, profile);
+
+  const experimentAsset = await loadExperimentAsset(type, {
+    bucket,
+    profile,
+    ...rest,
+    code: "meerkat",
+  });
+
+  console.log(experimentAsset);
+
+  if (experimentAsset) {
+    const { cartWidgetTemplate, overrideConfig } = experimentAsset;
+    const doc = parser.parseFromString(cartWidgetTemplate, "text/html");
+    // override config
+    store.configs.widgets = store.configs.widgets.map((_) => {
+      if (_.type === type) {
+        return {
+          ..._,
+          ...overrideConfig,
+        };
+      } else {
+        return _;
+      }
+    });
+    const component = flatten(doc.body.firstChild, type);
+    return component;
+  }
+  // bucket testing end
   const doc = parser.parseFromString(widgetTemplate, "text/html");
   const component = flatten(doc.body.firstChild, type);
   return component;
@@ -58,7 +104,7 @@ export const embedWidget = async (type) => {
   if (!config) {
     return;
   }
-  const widget = getComponent(type);
+  const widget = await getComponent(type);
   if (sessions?.[type]) {
     widget
       .querySelector("[data-seel-widget-input]")
@@ -75,13 +121,19 @@ export const embedWidget = async (type) => {
     dynamicAnchor,
     dynamicPosition,
   } = config;
-  const selector = checkoutAnchor || anchor;
-  const insertPosition = checkoutPosition || position || "beforebegin";
-
-  if (selector && document.querySelector(selector) && widget) {
+  if (anchor && document.querySelector(anchor) && widget) {
+    document.querySelector(anchor).insertAdjacentElement(position, widget);
+    widget.dataset.seelProductType = type;
+    console.log(`insert ${type} widget and bind events`);
+    bindWidgetEvents(type);
+  } else if (
+    checkoutAnchor &&
+    document.querySelector(checkoutAnchor) &&
+    widget
+  ) {
     document
-      .querySelector(selector)
-      .insertAdjacentElement(insertPosition, widget);
+      .querySelector(checkoutAnchor)
+      .insertAdjacentElement(checkoutPosition, widget);
     widget.dataset.seelProductType = type;
     console.log(`insert ${type} widget and bind events`);
     bindWidgetEvents(type);
@@ -96,7 +148,7 @@ export const embedWidget = async (type) => {
           .querySelector(dynamicAnchor)
           .insertAdjacentElement(dynamicPosition || "beforebegin", widget);
         widget.dataset.seelProductType = type;
-        console.log(`insert ${type} widget and bind events`);
+        console.log(`insert dynamicAnchor ${type} widget and bind events`);
         bindWidgetEvents(type);
         dynamicAnchorObserver?.[type]?.disconnect?.();
       }

@@ -19,7 +19,7 @@ const changeSubtotal = (snapshot) => {
   if (!snapshot.quotes || !snapshot.quotes.length) {
     return;
   }
-  const { currencySymbol, currencyCode } = snapshot.quotes[0];
+  const { currencySymbol, currencyCode } = snapshot.quotes[0] || {};
   const { total_price: amount } = snapshot.cart;
   const subTotal = `${currencySymbol} ${(amount / 100).toFixed(2)} ${
     currencyCode || ""
@@ -29,13 +29,6 @@ const changeSubtotal = (snapshot) => {
     const element = document.querySelector(subtotalSelector);
     element.innerHTML = subTotal;
   }
-  //   if (
-  //     dynamicSubtotalSelector &&
-  //     document.querySelector(dynamicSubtotalSelector)
-  //   ) {
-  //     const element = document.querySelector(dynamicSubtotalSelector);
-  //     element.innerHTML = subTotal;
-  //   }
 };
 
 (async () => {

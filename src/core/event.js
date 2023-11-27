@@ -19,6 +19,20 @@ export const setPerformanceObserver = () => {
   observer.observe({ type: "resource" });
 };
 
+export const locationHashObserver = () => {
+  let href = document.location.href;
+  const observer = new MutationObserver(() => {
+    if (href !== document.location.href) {
+      href = document.location.href;
+      document.dispatchEvent(new CustomEvent(seelEvents.urlChanged));
+    }
+  });
+  observer.observe(document.querySelector("body"), {
+    childList: true,
+    subtree: true,
+  });
+};
+
 export const bindWidgetEvents = async (type, widget) => {
   widget =
     widget ||

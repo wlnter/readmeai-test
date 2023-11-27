@@ -43,7 +43,12 @@ const getPdpBanner = (bannerType, type) => {
 const renderPdpBanner = async (type, shop) => {
   const seelProductTipRoot = document.createElement("div");
   seelProductTipRoot.setAttribute("class", "seel--product_tip_root");
-  const { configs } = snapshot(store);
+  const { configs, profiles } = snapshot(store);
+  // 如果live=false，不显示pdpbanner
+  const profile = profiles.find((_) => _.type === type);
+  if (!profile) {
+    return;
+  }
   const config = configs.banners.find((_) => _.type === type);
   if (!config) {
     return;

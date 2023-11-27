@@ -290,6 +290,9 @@ const render = (type) => {
     flatten = simpleFlatten;
   }
   const component = flatten(doc.body.firstChild, type);
+  if (!component) {
+    return null;
+  }
   document.body.appendChild(component);
   appendModalMask();
   document.addEventListener(seelEvents.showModal, (event) => {
