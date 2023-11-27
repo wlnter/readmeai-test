@@ -1,3 +1,10 @@
+# [2.15.0](https://github.com/kover-ai/shopify-scripts/compare/v2.14.1...v2.15.0) (2023-11-27)
+
+
+### Features
+
+* **add two shop:** add 2fb54b-2.myshopify.com snowandwhitee.myshopify.com ([64193f1](https://github.com/kover-ai/shopify-scripts/commit/64193f12d120fd303a053b3e5470c73dd075eb08))
+
 ## [2.14.1](https://github.com/kover-ai/shopify-scripts/compare/v2.14.0...v2.14.1) (2023-11-24)
 
 
