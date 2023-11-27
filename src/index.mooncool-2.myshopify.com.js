@@ -45,6 +45,11 @@ const changeSubtotal = (snapshot) => {
 };
 
 const atcActionHandler = (ev) => {
+  const _store = snapshot(store);
+  const found = _store.quotes?.find((_) => _.type === productType.ew);
+  if (!found) {
+    return;
+  }
   ev.preventDefault();
   const pdpWidget = document.querySelector(
     `.seel_pdp_widget[data-seel-product-type=${productType.ew}]`,

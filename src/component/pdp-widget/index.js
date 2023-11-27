@@ -35,6 +35,11 @@ export const flatten = (node, type) => {
 
   const options = node.querySelector("[data-seel-pdp-widget-options]");
   options.innerHTML = "";
+
+  if (!quote?.data) {
+    return null;
+  }
+
   const currentVariantQuote = quote.data?.find(
     (_) => _.variantId == (querys?.variant || product?.variants?.[0]?.id),
   );

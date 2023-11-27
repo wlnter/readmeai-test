@@ -48,6 +48,11 @@ const changeSubtotal = (snapshot) => {
 };
 
 const atcActionHandler = (ev) => {
+  const _store = snapshot(store);
+  const found = _store.quotes?.find((_) => _.type === productType.ew);
+  if (!found) {
+    return;
+  }
   ev.preventDefault();
   const pdpWidget = document.querySelector(
     `.seel_pdp_widget[data-seel-product-type=${productType.ew}]`,
@@ -72,21 +77,6 @@ const atcActionHandler = (ev) => {
     const quantity = document?.querySelector(quantitySelector)?.value || "1";
     const plan = quoteData.plans.find((_) => _.planId == planId);
 
-    // calculate ew_mapping start
-    // const value = cart?.attributes?.[`${productType.ew}_mapping`] || "";
-    // const mapping = {};
-    // const delimiter = "__";
-    // (value.split(",") || []).forEach((item) => {
-    //   if (item) {
-    //     const [q, v, p] = item.split(delimiter);
-    //     mapping[`${v}${delimiter}${p}`] = q;
-    //   }
-    // });
-    // mapping[`${productVariant}${delimiter}${planId}`] = quote.quoteId;
-    // const attr = Object.entries(mapping).map(
-    //   ([key, value]) => `${value}${delimiter}${key}`,
-    // );
-    // ew_mapping end
     addCart({
       items: [
         {
@@ -116,6 +106,8 @@ const atcActionHandler = (ev) => {
 
 (async () => {
   await initialize(shop);
+
+  console.log(snapshot(store));
 
   if (store?.product?.productId) {
     renderPdpBanner(productType.ra);

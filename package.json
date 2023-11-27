@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest",
     "build": "webpack --mode=production --node-env=production  && node ./mock.mjs",
-    "build:dev": "webpack --mode=development --node-env=development",
+    "build:dev": "webpack --mode=development --node-env=development  && node ./mock.mjs",
     "build:prod": "webpack --mode=production --node-env=production",
     "watch": "webpack serve",
     "lint": "npx eslint src/**/*.js src/*.js --fix",
