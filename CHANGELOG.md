@@ -1,3 +1,10 @@
+# [3.3.0](https://github.com/kover-ai/shopify-scripts/compare/v3.2.1...v3.3.0) (2023-11-28)
+
+
+### Features
+
+* **lovejuliesllc.myshopify.com:** add new shop ([15e44f3](https://github.com/kover-ai/shopify-scripts/commit/15e44f3c8cb2293240064f9c9634d3709b58290a))
+
 ## [3.2.1](https://github.com/kover-ai/shopify-scripts/compare/v3.2.0...v3.2.1) (2023-11-27)
 
 
