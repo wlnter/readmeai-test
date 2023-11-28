@@ -1,3 +1,15 @@
+# [3.4.0](https://github.com/kover-ai/shopify-scripts/compare/v3.3.0...v3.4.0) (2023-11-28)
+
+
+### Bug Fixes
+
+* **fix style:** fix style ([2f46bf4](https://github.com/kover-ai/shopify-scripts/commit/2f46bf4b47af376ae0618b41acb4187f8aed13f3))
+
+
+### Features
+
+* **aeb9ab.myshopify.com has-no-bounds.myshopify.com 0f19ac-2.myshopify.com:** add three shop ([812c2d8](https://github.com/kover-ai/shopify-scripts/commit/812c2d8b0dd1f28ef5b4041d9db361800a2fcee9))
+
 # [3.3.0](https://github.com/kover-ai/shopify-scripts/compare/v3.2.1...v3.3.0) (2023-11-28)
 
 
