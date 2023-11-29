@@ -12,16 +12,17 @@
 
 .seel_widget--title_line--checkbox {
   appearance: none;
-  margin-left: 6px;
+  margin-left: 6px!important;
   min-width: 16px;
-  width: 16px;
-  height: 16px;
+  width: 16px!important;
+  height: 16px!important;
   border: 1px solid #202223;
   border-radius: 4px;
   display: grid !important;
   place-content: center;
-  cursor: pointer;
-  padding: 0px;
+  cursor: pointer!important;
+  padding: 0px!important;
+  margin-right:0!important;
 }
 
 .seel_widget--title_line--checkbox:checked {
