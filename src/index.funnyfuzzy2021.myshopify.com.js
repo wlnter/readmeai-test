@@ -26,11 +26,10 @@ const changeSubtotal = (snapshot) => {
   if (!snapshot.quotes || !snapshot.quotes.length) {
     return;
   }
+  console.log(snapshot);
   const { currencySymbol, currencyCode } = snapshot.quotes[0] || {};
-  const { total_price: amount } = snapshot.cart;
-  const subTotal = `${currencySymbol} ${(amount / 100).toFixed(2)} ${
-    currencyCode || ""
-  }`;
+  const { total_price: amount, currency } = snapshot.cart;
+  const subTotal = `${(amount / 100).toFixed(2)} ${currency || ""}`;
 
   if (subtotalSelector && document.querySelector(subtotalSelector)) {
     const element = document.querySelector(subtotalSelector);
