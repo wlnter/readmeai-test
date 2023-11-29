@@ -3,12 +3,12 @@ import store, { snapshot } from "./core/store";
 import embedWidget, {
   flatten as repaint,
 } from "./component/cart-widget/index.needInitAddWidget";
-import configurations from "./config/theclosettradingco.myshopify.com.json";
+import configurations from "./config/785f8f.myshopify.com.json";
 import renderModal from "./component/modal";
 import renderPdpBanner from "./component/pdp-banner";
 //import configurations from "./config/index.json";
 import { productType } from "./core/constant";
-import "./component/cart-widget/theclosettradingco.myshopify.com.css";
+import "./component/cart-widget/785f8f.myshopify.com.css";
 import { rerenderCart } from "./core/util";
 // get myshopify domain from global var
 
@@ -16,12 +16,12 @@ store.configs = configurations;
 
 const shop = window?.Shopify?.shop || window?.Shopify?.Checkout?.apiHost;
 
-const subtotalSelector = "";
-const dynamicSubtotalSelector = "";
-const chekoutBtnSelector = "#Cart [name=checkout]";
-const dynamicCheckoutBtnSelector = "#Cart-Drawer [name=checkout]";
-const dynamicUpdateSection = "";
-const updateSection = "";
+const subtotalSelector = "#main-cart-footer .totals__total-value";
+const dynamicSubtotalSelector = "#CartDrawer .totals__total-value";
+const chekoutBtnSelector = "#checkout";
+const dynamicCheckoutBtnSelector = "#CartDrawer-Checkout";
+const dynamicUpdateSection = "#CartDrawer .drawer__cart-items-wrapper tbody";
+const updateSection = "#main-cart-items";
 
 const changeSubtotal = (snapshot) => {
   // Change Subtotal
