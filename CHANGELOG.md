@@ -1,3 +1,10 @@
+## [3.6.1](https://github.com/kover-ai/shopify-scripts/compare/v3.6.0...v3.6.1) (2023-11-29)
+
+
+### Bug Fixes
+
+* **funnyfuzzy:** 购物车金额币种和货币符号以购物车为准 ([9441d90](https://github.com/kover-ai/shopify-scripts/commit/9441d9097affa1b46f36d4b3044faad150b6577e))
+
 # [3.6.0](https://github.com/kover-ai/shopify-scripts/compare/v3.5.0...v3.6.0) (2023-11-29)
 
 
