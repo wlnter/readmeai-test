@@ -1,3 +1,10 @@
+## [3.6.3](https://github.com/kover-ai/shopify-scripts/compare/v3.6.2...v3.6.3) (2023-11-29)
+
+
+### Bug Fixes
+
+* **soireesboutique.com:** fixed one shop ([a3e3a23](https://github.com/kover-ai/shopify-scripts/commit/a3e3a23e2f9aa08a4b887652b4df36714eea08cd))
+
 ## [3.6.2](https://github.com/kover-ai/shopify-scripts/compare/v3.6.1...v3.6.2) (2023-11-29)
 
 
