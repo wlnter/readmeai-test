@@ -7,7 +7,6 @@ import renderModal from "./component/modal";
 import renderPdpBanner from "./component/pdp-banner";
 import configurations from "./config/funnyfuzzy2021.myshopify.com.json";
 import { productType } from "./core/constant";
-import "./component/cart-widget/funnyfuzzy2021.myshopify.com.css";
 import { createElementFromString } from "./core/util";
 
 store.configs = configurations;

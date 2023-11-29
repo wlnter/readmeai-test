@@ -8,7 +8,6 @@ import renderModal from "./component/modal";
 import renderPdpBanner from "./component/pdp-banner";
 //import configurations from "./config/index.json";
 import { productType } from "./core/constant";
-import "./component/cart-widget/0f19ac-2.myshopify.com.css";
 import { rerenderCart } from "./core/util";
 // get myshopify domain from global var
 

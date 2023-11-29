@@ -9,7 +9,6 @@ import renderPdpBanner from "./component/pdp-banner";
 //import configurations from "./config/index.json";
 import { productType } from "./core/constant";
 import { rerenderCart } from "./core/util";
-import "./component/cart-widget/shop-luxury-labels.myshopify.com.css";
 
 // get myshopify domain from global var
 

@@ -8,7 +8,6 @@ import renderPdpBanner from "./component/pdp-banner";
 import configurations from "./config/zeera-wireless.myshopify.com.json";
 import { productType } from "./core/constant";
 import { rerenderCart } from "./core/util";
-import "./component/cart-widget/zeera-wireless.myshopify.com.css";
 
 store.configs = configurations;
 
