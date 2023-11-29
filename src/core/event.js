@@ -9,23 +9,6 @@ export const setPerformanceObserver = () => {
       if (
         entry.entryType === "resource" &&
         (entry.name.indexOf("cart/change") > -1 ||
-          entry.name.indexOf("cart/add") > -1)
-      ) {
-        document.dispatchEvent(new CustomEvent(seelEvents.cartChanged));
-        styledLogger("Cart Edited");
-      }
-    });
-  });
-  observer.observe({ type: "resource" });
-};
-
-//有些店铺购物车改变是通过update接口
-export const setPerformanceObserver2 = () => {
-  const observer = new PerformanceObserver((list) => {
-    list.getEntries().forEach((entry) => {
-      if (
-        entry.entryType === "resource" &&
-        (entry.name.indexOf("cart/change") > -1 ||
           entry.name.indexOf("cart/add") > -1 ||
           entry.name.indexOf("cart/update?update") > -1)
       ) {

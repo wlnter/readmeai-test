@@ -11,7 +11,6 @@ import { cartDiff, styledLogger, getProduct } from "./util";
 import store, { snapshot } from "./store";
 import {
   setPerformanceObserver,
-  setPerformanceObserver2,
   locationHashObserver,
 } from "./event";
 
@@ -114,12 +113,9 @@ export const getQuotesAndUpdateCart = async (shop) => {
   // 无报价
   if (!store.quotes || !store.quotes.length) {
     updateCart(shop, updates, attributes);
-    if (shop === "bennas.myshopify.com") {
-      // 更新UI
-      setTimeout(() => {
-        window.ajaxCart.load();
-      }, 1000);
-    }
+    document.dispatchEvent(
+      new CustomEvent(seelEvents.quoteUpdate),
+    );
     return null;
   }
 
@@ -191,21 +187,6 @@ export const getQuotesAndUpdateCart = async (shop) => {
 
 export default async (shop) => {
   setPerformanceObserver();
-  locationHashObserver();
-  const merchantProfiles = await getProfilesUsingCacheFirst(shop);
-  store.profiles = merchantProfiles?.filter((_) => _.live);
-  store.shop = shop;
-  await getQuotesAndUpdateCart(shop);
-  // Cart Changed
-  document.addEventListener(seelEvents.cartChanged, () => {
-    getQuotesAndUpdateCart(shop);
-  });
-  styledLogger(`Script Version: ${window.SEEL_SCRIPT_VERSION}`);
-  return store;
-};
-
-export const initialize2 = async (shop) => {
-  setPerformanceObserver2();
   locationHashObserver();
   const merchantProfiles = await getProfilesUsingCacheFirst(shop);
   store.profiles = merchantProfiles?.filter((_) => _.live);

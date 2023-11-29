@@ -138,6 +138,17 @@ export const embedWidget = async (type) => {
     console.log(`insert ${type} widget and bind events`);
     bindWidgetEvents(type);
   } else if (dynamicAnchor && widget) {
+    const widgetElement = document.querySelector(
+      `.seel_widget[data-seel-product-type='${type}']`
+    );
+    if (!widgetElement && document.querySelector(dynamicAnchor)) {
+      document
+        .querySelector(dynamicAnchor)
+        .insertAdjacentElement(dynamicPosition || "beforebegin", widget);
+      widget.dataset.seelProductType = type;
+      console.log(`insert dynamicAnchor ${type} widget and bind events`);
+      bindWidgetEvents(type);
+    }
     dynamicAnchorObserver?.[type]?.disconnect?.();
     dynamicAnchorObserver[type] = new MutationObserver(() => {
       const widgetElement = document.querySelector(

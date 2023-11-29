@@ -2,7 +2,7 @@ import initialize, { seelEvents } from "./core";
 import store, { snapshot } from "./core/store";
 import embedWidget, {
   flatten as repaint,
-} from "./component/cart-widget/index.needInitAddWidget";
+} from "./component/cart-widget/index.js";
 import configurations from "./config/e4dc65.myshopify.com.json";
 import renderModal from "./component/modal";
 import renderPdpBanner from "./component/pdp-banner";
