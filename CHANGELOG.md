@@ -1,3 +1,15 @@
+# [3.6.0](https://github.com/kover-ai/shopify-scripts/compare/v3.5.0...v3.6.0) (2023-11-29)
+
+
+### Bug Fixes
+
+* **e4dc65.myshopify.com:** fixed one shop ([0f1099a](https://github.com/kover-ai/shopify-scripts/commit/0f1099aae14fa7549ea38abc62f9b154216c0984))
+
+
+### Features
+
+* **785f8f.myshopify.com and theclosettradingco.myshopify.com:** add new shop and fixed a shop ([cd390fc](https://github.com/kover-ai/shopify-scripts/commit/cd390fce5bf0aaa891e310cfbd2f026b3a8a5c42))
+
 # [3.5.0](https://github.com/kover-ai/shopify-scripts/compare/v3.4.0...v3.5.0) (2023-11-28)
 
 
