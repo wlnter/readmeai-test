@@ -26,10 +26,17 @@ const changeSubtotal = (snapshot) => {
   if (!snapshot.quotes || !snapshot.quotes.length) {
     return;
   }
-  console.log(snapshot);
-  const { currencySymbol, currencyCode } = snapshot.quotes[0] || {};
-  const { total_price: amount, currency } = snapshot.cart;
-  const subTotal = `${(amount / 100).toFixed(2)} ${currency || ""}`;
+
+  const { total_price: cartTotalPrice, currency } = snapshot.cart;
+  const subTotal = (cartTotalPrice / 100).toFixed(2);
+  const numberFormat = new Intl.NumberFormat("de-DE", {
+    style: "currency",
+    currency,
+  });
+  const parts = numberFormat.formatToParts(subTotal);
+  const partValues = parts.map((p) => p.value);
+  const currencySymbol = partValues.pop();
+  const amount = partValues.join("");
 
   if (subtotalSelector && document.querySelector(subtotalSelector)) {
     const element = document.querySelector(subtotalSelector);
@@ -40,8 +47,7 @@ const changeSubtotal = (snapshot) => {
     document.querySelector(dynamicSubtotalSelector)
   ) {
     const element = document.querySelector(dynamicSubtotalSelector);
-    console.log(subTotal);
-    element.innerHTML = `Checkout · ${subTotal}`;
+    element.innerHTML = `Checkout · ${currencySymbol} ${amount}${currency}`;
   }
 };
 
