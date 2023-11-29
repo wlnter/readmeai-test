@@ -1,3 +1,10 @@
+## [3.6.2](https://github.com/kover-ai/shopify-scripts/compare/v3.6.1...v3.6.2) (2023-11-29)
+
+
+### Bug Fixes
+
+* **funnyfuzzy:** 增加价格币种前缀、使用Intl格式化价格 ([3b715f6](https://github.com/kover-ai/shopify-scripts/commit/3b715f612d522d2b760d63404a200f0eec7c102b))
+
 ## [3.6.1](https://github.com/kover-ai/shopify-scripts/compare/v3.6.0...v3.6.1) (2023-11-29)
 
 
