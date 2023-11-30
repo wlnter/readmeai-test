@@ -11,6 +11,7 @@ import { rerenderCart, createElementFromString } from "./core/util";
 import embedPdpWidget, {
   flatten as repaintPdpWidget,
 } from "./component/pdp-widget";
+import "./component/cart-widget/stript-official.myshopify.com.css";
 
 store.configs = configurations;
 
