@@ -1,3 +1,6 @@
+---
+to: "<%= integrationPoint === 'cart' ? `src/index.${shop}.myshopify.com.js` : null %>"
+---
 import initialize, { addCart, updateCart } from "./core";
 import { productType, seelEvents } from "./core/constant";
 import store, { snapshot } from "./core/store";
@@ -6,7 +9,7 @@ import embedWidget, {
 } from "./component/cart-widget/index.js";
 import renderModal from "./component/modal";
 import renderPdpBanner from "./component/pdp-banner";
-import configurations from "./config/seel-dev-store.myshopify.com.json";
+import configurations from "./config/<%= shop %>.myshopify.com.json";
 import { rerenderCart, createElementFromString } from "./core/util";
 import embedPdpWidget, {
   flatten as repaintPdpWidget,
@@ -15,18 +18,18 @@ import embedPdpWidget, {
 store.configs = configurations;
 
 // shop related variables
-const shop = "seel-dev-store.myshopify.com";
+const shop = "<%= shop %>.myshopify.com";
 const option = {
   atcButtonSelector: ".product-form__submit",
   quantitySelector: ".quantity__input",
-  subtotalSelector:
-    "#main-cart-footer > div > div > div > div.js-contents > div.totals > p",
+  subtotalSelector: "#main-cart-footer > div > div > div > div.js-contents > div.totals > p",
   dynamicSubtotalSelector: "",
   chekoutBtnSelector: ".cart__ctas",
   dynamicCheckoutBtnSelector: "",
   dynamicUpdateSection: "",
   updateSection: "#template--21173089665323__cart-items",
 };
+
 
 // helper
 const changeSubtotal = (
@@ -143,16 +146,7 @@ const actionDurationFrame = (
       ?.addEventListener("click", submitHandler);
 };
 
-(async (
-  shop,
-  {
-    dynamicUpdateSection,
-    updateSection,
-    atcButtonSelector,
-    chekoutBtnSelector,
-    quantitySelector,
-  },
-) => {
+(async (shop, { dynamicUpdateSection, updateSection, atcButtonSelector, chekoutBtnSelector, quantitySelector }) => {
   await initialize(shop);
 
   if (store?.product?.productId) {
@@ -171,7 +165,7 @@ const actionDurationFrame = (
 
     const atcButton =
       atcButtonSelector && document.querySelector(atcButtonSelector);
-    atcButton?.addEventListener("click", (ev) => {
+        atcButton?.addEventListener("click", (ev) => {
       atcActionHandler(ev, option);
     });
     document.addEventListener(seelEvents.protectionAdded, (ev) => {
@@ -262,3 +256,4 @@ const actionDurationFrame = (
     actionDurationFrame(snapshot(store), option);
   });
 })(shop, option);
+

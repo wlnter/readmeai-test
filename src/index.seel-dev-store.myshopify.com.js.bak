@@ -1,52 +1,38 @@
 import initialize, { addCart, updateCart } from "./core";
-import { productType, seelEvents } from "./core/constant";
+import { createElementFromString } from "./core/util";
 import store, { snapshot } from "./core/store";
-import embedWidget, {
-  flatten as repaint,
-} from "./component/cart-widget/index.js";
-import renderModal from "./component/modal";
 import renderPdpBanner from "./component/pdp-banner";
 import configurations from "./config/seel-dev-store.myshopify.com.json";
-import { rerenderCart, createElementFromString } from "./core/util";
+import { productType, seelEvents } from "./core/constant";
 import embedPdpWidget, {
   flatten as repaintPdpWidget,
 } from "./component/pdp-widget";
+import embedWidget, { flatten as repaint } from "./component/cart-widget";
+import renderModal from "./component/modal";
 
 store.configs = configurations;
 
-// shop related variables
 const shop = "seel-dev-store.myshopify.com";
-const option = {
-  atcButtonSelector: ".product-form__submit",
-  quantitySelector: ".quantity__input",
-  subtotalSelector:
-    "#main-cart-footer > div > div > div > div.js-contents > div.totals > p",
-  dynamicSubtotalSelector: "",
-  chekoutBtnSelector: ".cart__ctas",
-  dynamicCheckoutBtnSelector: "",
-  dynamicUpdateSection: "",
-  updateSection: "#template--21173089665323__cart-items",
-};
+const atcButtonSelector = ".product-form__submit";
+const quantitySelector = ".quantity__input";
+const subtotalSelector =
+  "#main-cart-footer > div > div > div > div.js-contents > div.totals > p";
+const dynamicSubtotalSelector = "";
+const chekoutBtnSelector = ".cart__ctas";
+const dynamicCheckoutBtnSelector = "";
+const dynamicUpdateSection = "";
+const updateSection = "#template--21173089665323__cart-items";
 
-// helper
-const changeSubtotal = (
-  store,
-  { subtotalSelector, dynamicSubtotalSelector },
-) => {
-  if (!store.quotes || !store.quotes.length) {
+const changeSubtotal = (snapshot) => {
+  // Change Subtotal
+  if (!snapshot.quotes || !snapshot.quotes.length) {
     return;
   }
-
-  const { total_price: cartTotalPrice, currency } = store.cart;
-  const subTotal = (cartTotalPrice / 100).toFixed(2);
-  const numberFormat = new Intl.NumberFormat("de-DE", {
-    style: "currency",
-    currency,
-  });
-  const parts = numberFormat.formatToParts(subTotal);
-  const partValues = parts.map((p) => p.value);
-  const currencySymbol = partValues.pop();
-  const amount = partValues.join("");
+  const { currencySymbol, currencyCode } = snapshot.quotes[0];
+  const { total_price: amount } = snapshot.cart;
+  const subTotal = `${currencySymbol} ${(amount / 100).toFixed(2)} ${
+    currencyCode || ""
+  }`;
 
   if (subtotalSelector && document.querySelector(subtotalSelector)) {
     const element = document.querySelector(subtotalSelector);
@@ -57,13 +43,13 @@ const changeSubtotal = (
     document.querySelector(dynamicSubtotalSelector)
   ) {
     const element = document.querySelector(dynamicSubtotalSelector);
-    element.innerHTML = `Checkout · ${currencySymbol} ${amount}${currency}`;
+    element.innerHTML = subTotal;
   }
 };
 
-// helper
-const atcActionHandler = (ev, { quantitySelector }) => {
-  const found = snapshot(store).quotes?.find((_) => _.type === productType.ew);
+const atcActionHandler = (ev) => {
+  const _store = snapshot(store);
+  const found = _store.quotes?.find((_) => _.type === productType.ew);
   if (!found) {
     return;
   }
@@ -118,45 +104,13 @@ const atcActionHandler = (ev, { quantitySelector }) => {
   }
 };
 
-// helper
-const submitHandler = async (event) => {
-  event.preventDefault();
-  window.open("/checkout", "_self");
-};
-
-// helper
-const actionDurationFrame = (
-  store,
-  { chekoutBtnSelector, dynamicCheckoutBtnSelector },
-) => {
-  // rerender subtotal
-  changeSubtotal(store, { chekoutBtnSelector, dynamicCheckoutBtnSelector });
-
-  // change behavior of checkout button
-  chekoutBtnSelector &&
-    document
-      .querySelector(chekoutBtnSelector)
-      ?.addEventListener("click", submitHandler);
-  dynamicCheckoutBtnSelector &&
-    document
-      .querySelector(dynamicCheckoutBtnSelector)
-      ?.addEventListener("click", submitHandler);
-};
-
-(async (
-  shop,
-  {
-    dynamicUpdateSection,
-    updateSection,
-    atcButtonSelector,
-    chekoutBtnSelector,
-    quantitySelector,
-  },
-) => {
+(async () => {
   await initialize(shop);
 
+  console.log(snapshot(store));
+
   if (store?.product?.productId) {
-    renderPdpBanner(productType.ra, shop);
+    renderPdpBanner(productType.ra);
     embedPdpWidget(productType.ew, shop);
     document.addEventListener(seelEvents.urlChanged, () => {
       const pdpWidget = document.querySelector(
@@ -171,12 +125,8 @@ const actionDurationFrame = (
 
     const atcButton =
       atcButtonSelector && document.querySelector(atcButtonSelector);
-    atcButton?.addEventListener("click", (ev) => {
-      atcActionHandler(ev, option);
-    });
-    document.addEventListener(seelEvents.protectionAdded, (ev) => {
-      atcActionHandler(ev, option);
-    });
+    atcButton?.addEventListener("click", atcActionHandler);
+    document.addEventListener(seelEvents.protectionAdded, atcActionHandler);
     document.addEventListener(seelEvents.protectionRemoved, (ev) => {
       const quantity = document?.querySelector(quantitySelector)?.value || "1";
       const { product } = snapshot(store);
@@ -196,21 +146,41 @@ const actionDurationFrame = (
     });
   }
 
-  // render widget
+  // Discard the first cart_updated event, and manually complete the inital rendering
+  changeSubtotal(snapshot(store));
   store?.types?.forEach?.((type) => {
     embedWidget(type);
     renderModal(type);
   });
 
-  actionDurationFrame(snapshot(store), option);
-
-  // reaction of cart update event
+  // Cart Update Handler
   document.addEventListener(seelEvents.cartUpdated, async () => {
-    // rerender cart
-    try {
-      rerenderCart(updateSection, dynamicUpdateSection, snapshot(store));
-    } catch (e) {
-      console.log(e.message);
+    // Rerender cart
+    if (updateSection || dynamicUpdateSection) {
+      const sections = store.cart.sections;
+      for (let prop in sections) {
+        if (sections[prop]) {
+          const element = createElementFromString(sections[prop]);
+          if (updateSection) {
+            if (
+              element.querySelector(updateSection) &&
+              document.querySelector(updateSection)
+            ) {
+              document.querySelector(updateSection).innerHTML =
+                element.querySelector(updateSection).innerHTML;
+            }
+          }
+          if (dynamicUpdateSection) {
+            if (
+              element.querySelector(dynamicUpdateSection) &&
+              document.querySelector(dynamicUpdateSection)
+            ) {
+              document.querySelector(dynamicUpdateSection).innerHTML =
+                element.querySelector(dynamicUpdateSection).innerHTML;
+            }
+          }
+        }
+      }
     }
 
     // keep quantity of product and ew item start
@@ -220,6 +190,7 @@ const actionDurationFrame = (
       const { vendor, properties } = item;
       if (vendor === "Seel" && properties?.["Plan ID"]) {
         const productVariantId = properties["Reference"];
+        console.log(productVariantId);
         const planId = properties["Plan ID"];
         const reference = cart.items.find(
           (item) =>
@@ -233,21 +204,24 @@ const actionDurationFrame = (
         }
       }
     });
+    console.log("ew-product quantity changed", updates);
     store.cart = await updateCart("", updates, {});
     // keep quantity of product and ew item end
 
-    // rerender widget
+    // Rerender widget
     store?.types?.forEach?.((type) => {
       const widget = document.querySelector(
         `.seel_widget[data-seel-product-type='${type}']`,
       );
       if (widget) {
+        console.log(`repaint ${type}`);
         repaint(widget, type);
       } else {
+        console.log(`reembed ${type}`);
         embedWidget(type);
       }
     });
-    // remove widget
+    // Remove widget
     Object.values(productType).forEach((type) => {
       const found = store.types.find((_) => _ === type);
       const widget = document.querySelector(
@@ -255,10 +229,25 @@ const actionDurationFrame = (
       );
       if (!found && widget) {
         widget.remove();
-        // todo: remove seel product in cart
       }
     });
 
-    actionDurationFrame(snapshot(store), option);
+    // Change Subtotal
+    changeSubtotal(snapshot(store));
   });
-})(shop, option);
+
+  // Change default click behavior of checkout button
+  const submitHandler = async (event) => {
+    event.preventDefault();
+    window.open("/checkout", "_self");
+  };
+  // Bind event
+  chekoutBtnSelector &&
+    document
+      .querySelector(chekoutBtnSelector)
+      ?.addEventListener("click", submitHandler);
+  dynamicCheckoutBtnSelector &&
+    document
+      .querySelector(dynamicCheckoutBtnSelector)
+      ?.addEventListener("click", submitHandler);
+})();

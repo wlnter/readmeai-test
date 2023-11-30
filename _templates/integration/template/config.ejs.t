@@ -1,3 +1,6 @@
+---
+to: src/config/<%= shop %>.myshopify.com.json
+---
 {
   "pdpWidgets": [
     {
