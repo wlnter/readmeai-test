@@ -18,5 +18,5 @@ export const seelEvents = {
   protectionAdded: "seel:pdp_modal:protection_added",
   protectionRemoved: "seel:pdp_modal:protection_removed",
   showPdpModal: "seel:widget:show_pdp_modal",
-  quoteUpdate: "seel:widget:quote_update",
+  quoteUpdated: "seel:widget:quote_updated",
 };

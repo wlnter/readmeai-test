@@ -107,10 +107,11 @@ export const getQuotesAndUpdateCart = async (shop) => {
     store.quotes = store.quotes.filter((_) => _.type !== productType.bp);
   }
 
+  document.dispatchEvent(new CustomEvent(seelEvents.quoteUpdated));
+
   // 无报价
   if (!store.quotes || !store.quotes.length) {
     updateCart(shop, updates, attributes);
-    document.dispatchEvent(new CustomEvent(seelEvents.quoteUpdate));
     return null;
   }
 

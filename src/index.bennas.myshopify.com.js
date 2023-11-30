@@ -54,7 +54,7 @@ const changeSubtotal = (snapshot) => {
   });
 
   // quote update
-  document.addEventListener(seelEvents.quoteUpdate, () => {
+  document.addEventListener(seelEvents.quoteUpdated, () => {
     if (!store.quotes || !store.quotes.length) {
       // 更新UI
       setTimeout(() => {
