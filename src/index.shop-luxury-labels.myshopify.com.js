@@ -22,7 +22,7 @@ const dynamicSubtotalSelector = "#Cart-Drawer .checkout span";
 const chekoutBtnSelector = "#Cart [name=checkout]";
 const dynamicCheckoutBtnSelector = "#Cart-Drawer .checkout";
 const updateSection = ""; //".cart-items tbody";
-const dynamicUpdateSection = ""; //"#Cart-Drawer .product-cart-item--container";
+const dynamicUpdateSection = "#Cart-Drawer"; //"#Cart-Drawer .product-cart-item--container";
 
 const changeSubtotal = (snapshot) => {
   // Change Subtotal

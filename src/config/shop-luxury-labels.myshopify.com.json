@@ -99,5 +99,6 @@
       "anchor": ".product-information .add_to_cart_holder",
       "position": "beforebegin"
     }
-  ]
+  ],
+  "sections": ["cart-drawer"]
 }
