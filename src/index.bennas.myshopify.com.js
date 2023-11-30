@@ -54,14 +54,14 @@ const changeSubtotal = (snapshot) => {
   });
 
   // quote update
-  document.addEventListener(seelEvents.quoteUpdate, ()=>{
+  document.addEventListener(seelEvents.quoteUpdate, () => {
     if (!store.quotes || !store.quotes.length) {
       // 更新UI
       setTimeout(() => {
         window.ajaxCart.load();
       }, 1000);
     }
-  })
+  });
   // Cart Update Handler
   document.addEventListener(seelEvents.cartUpdated, () => {
     // 更新UI

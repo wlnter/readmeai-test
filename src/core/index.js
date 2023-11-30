@@ -9,10 +9,7 @@ import {
 import { seelEvents, MERCHANT_PROFILE_KEY, productType } from "./constant";
 import { cartDiff, styledLogger, getProduct } from "./util";
 import store, { snapshot } from "./store";
-import {
-  setPerformanceObserver,
-  locationHashObserver,
-} from "./event";
+import { setPerformanceObserver, locationHashObserver } from "./event";
 
 export { seelEvents } from "./constant";
 export { updateCart, addCart } from "./fetch";
@@ -113,9 +110,7 @@ export const getQuotesAndUpdateCart = async (shop) => {
   // 无报价
   if (!store.quotes || !store.quotes.length) {
     updateCart(shop, updates, attributes);
-    document.dispatchEvent(
-      new CustomEvent(seelEvents.quoteUpdate),
-    );
+    document.dispatchEvent(new CustomEvent(seelEvents.quoteUpdate));
     return null;
   }
 

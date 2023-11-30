@@ -1,4 +1,4 @@
-import initialize, { seelEvents, initialize2 } from "./core";
+import initialize, { seelEvents } from "./core";
 import store, { snapshot } from "./core/store";
 import embedWidget, {
   flatten as repaint,
@@ -47,7 +47,7 @@ const changeSubtotal = (snapshot) => {
 };
 
 (async () => {
-  await initialize2(shop);
+  await initialize(shop);
 
   renderPdpBanner(productType.ra, shop);
 
