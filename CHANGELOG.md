@@ -1,3 +1,17 @@
+# [3.8.0](https://github.com/kover-ai/shopify-scripts/compare/v3.7.0...v3.8.0) (2023-11-30)
+
+
+### Bug Fixes
+
+* **公共模块:** 修复每次获取报价后派发报价更新事件的时机 ([21c788c](https://github.com/kover-ai/shopify-scripts/commit/21c788ca308b8de5a43238920e92d30192d9d3c3))
+* **公共模块:** 删除定制化文件，迁移到公共模块 ([f56f906](https://github.com/kover-ai/shopify-scripts/commit/f56f906e5168a44b61667a92939b861d483804c1))
+
+
+### Features
+
+* fixed one shop ([65cabc2](https://github.com/kover-ai/shopify-scripts/commit/65cabc25d600c1317b2eaf638fe2dfa1546b19be))
+* 删除多余的代码 ([f906aa3](https://github.com/kover-ai/shopify-scripts/commit/f906aa3352ef834ef683250f5829991997ca211b))
+
 # [3.7.0](https://github.com/kover-ai/shopify-scripts/compare/v3.6.3...v3.7.0) (2023-11-30)
 
 
