@@ -1,3 +1,10 @@
+# [3.7.0](https://github.com/kover-ai/shopify-scripts/compare/v3.6.3...v3.7.0) (2023-11-30)
+
+
+### Features
+
+* **luxury-labels:** opt-in/out保险产品时，刷新购物车内的商品 ([9d5d89d](https://github.com/kover-ai/shopify-scripts/commit/9d5d89d3c39f90d40fd106edd381c68978747cab))
+
 ## [3.6.3](https://github.com/kover-ai/shopify-scripts/compare/v3.6.2...v3.6.3) (2023-11-29)
 
 
