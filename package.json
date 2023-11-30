@@ -11,7 +11,8 @@
     "watch": "webpack serve",
     "lint": "npx eslint src/**/*.js src/*.js --fix",
     "prepare": "husky install",
-    "commit": "npm run lint && git-cz"
+    "commit": "npm run lint && git-cz",
+    "generate": "hygen integration template"
   },
   "config": {
     "commitizen": {
@@ -49,6 +50,7 @@
     "html-loader": "^4.2.0",
     "html-webpack-plugin": "^5.5.3",
     "husky": "^8.0.3",
+    "hygen": "^6.2.11",
     "inquirer": "^8.2.6",
     "jest": "^29.7.0",
     "mini-css-extract-plugin": "^2.7.6",
