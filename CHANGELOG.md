@@ -1,3 +1,10 @@
+# [3.9.0](https://github.com/kover-ai/shopify-scripts/compare/v3.8.0...v3.9.0) (2023-11-30)
+
+
+### Features
+
+* **51aad1.myshopify.com and 803c78-2.myshopify.com:** add two new shop ([90472ec](https://github.com/kover-ai/shopify-scripts/commit/90472ec6431ff4549057f1161c4bf57616a33acb))
+
 # [3.8.0](https://github.com/kover-ai/shopify-scripts/compare/v3.7.0...v3.8.0) (2023-11-30)
 
 
