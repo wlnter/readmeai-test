@@ -1,3 +1,10 @@
+# [3.15.0](https://github.com/kover-ai/shopify-scripts/compare/v3.14.0...v3.15.0) (2023-12-01)
+
+
+### Features
+
+* **thript-official:** 将该店铺加入到AB试验（meerkat）批次中 ([2ec6634](https://github.com/kover-ai/shopify-scripts/commit/2ec6634ce307ad9dfcba4f693ecf61bf3247f063))
+
 # [3.14.0](https://github.com/kover-ai/shopify-scripts/compare/v3.13.0...v3.14.0) (2023-12-01)
 
 
