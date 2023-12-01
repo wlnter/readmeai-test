@@ -3,7 +3,7 @@ import store, { snapshot } from "./core/store";
 import embedWidget, {
   flatten as repaint,
 } from "./component/cart-widget/index.js";
-import configurations from "./config/803c78-2.myshopify.com.json";
+import configurations from "./config/3avape.myshopify.com.json";
 import renderModal from "./component/modal";
 import renderPdpBanner from "./component/pdp-banner";
 //import configurations from "./config/index.json";
@@ -15,10 +15,10 @@ store.configs = configurations;
 
 const shop = window?.Shopify?.shop || window?.Shopify?.Checkout?.apiHost;
 
-const subtotalSelector = "#MainContent .totals__subtotal-value";
-const dynamicSubtotalSelector = "#mini-cart #mini-cart-subtotal";
-const chekoutBtnSelector = "#MainContent [name=checkout]";
-const dynamicCheckoutBtnSelector = "#mini-cart [name=checkout]";
+const subtotalSelector = "";
+const dynamicSubtotalSelector = "";
+const chekoutBtnSelector = ".cart__footer [name=checkout]";
+const dynamicCheckoutBtnSelector = ".mini_cart_footer .btn-checkout";
 const dynamicUpdateSection = "";
 const updateSection = "";
 
@@ -27,28 +27,22 @@ const changeSubtotal = (snapshot) => {
   if (!snapshot.quotes || !snapshot.quotes.length) {
     return;
   }
-
-  const { total_price: cartTotalPrice, currency } = snapshot.cart;
-  const subTotal = (cartTotalPrice / 100).toFixed(2);
-  const numberFormat = new Intl.NumberFormat("en-US", {
-    style: "currency",
-    currency,
-  });
-  const parts = numberFormat.formatToParts(subTotal);
-  const partValues = parts.map((p) => p.value);
-  const currencySymbol = partValues.shift();
-  const amount = partValues.join("");
+  const { currencySymbol, currencyCode } = snapshot.quotes[0] || {};
+  const { total_price: amount } = snapshot.cart;
+  const subTotal = `${currencySymbol} ${(amount / 100).toFixed(2)} ${
+    currencyCode || ""
+  }`;
 
   if (subtotalSelector && document.querySelector(subtotalSelector)) {
     const element = document.querySelector(subtotalSelector);
-    element.innerHTML = `${currencySymbol}${amount} ${currency}`;
+    element.innerHTML = subTotal;
   }
   if (
     dynamicSubtotalSelector &&
     document.querySelector(dynamicSubtotalSelector)
   ) {
     const element = document.querySelector(dynamicSubtotalSelector);
-    element.innerHTML = `${currencySymbol} ${amount}${currency}`;
+    element.innerHTML = subTotal;
   }
 };
 

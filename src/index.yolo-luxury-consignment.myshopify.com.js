@@ -3,7 +3,7 @@ import store, { snapshot } from "./core/store";
 import embedWidget, {
   flatten as repaint,
 } from "./component/cart-widget/index.js";
-import configurations from "./config/803c78-2.myshopify.com.json";
+import configurations from "./config/yolo-luxury-consignment.myshopify.com.json";
 import renderModal from "./component/modal";
 import renderPdpBanner from "./component/pdp-banner";
 //import configurations from "./config/index.json";
@@ -15,10 +15,10 @@ store.configs = configurations;
 
 const shop = window?.Shopify?.shop || window?.Shopify?.Checkout?.apiHost;
 
-const subtotalSelector = "#MainContent .totals__subtotal-value";
-const dynamicSubtotalSelector = "#mini-cart #mini-cart-subtotal";
-const chekoutBtnSelector = "#MainContent [name=checkout]";
-const dynamicCheckoutBtnSelector = "#mini-cart [name=checkout]";
+const subtotalSelector = "#CartSection .cart__subtotal-price";
+const dynamicSubtotalSelector = "";
+const chekoutBtnSelector = "#CartSection [name=checkout]";
+const dynamicCheckoutBtnSelector = "";
 const dynamicUpdateSection = "";
 const updateSection = "";
 

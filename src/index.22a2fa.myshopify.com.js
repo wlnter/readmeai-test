@@ -14,13 +14,10 @@ store.configs = configurations;
 
 const shop = window?.Shopify?.shop || window?.Shopify?.Checkout?.apiHost;
 
-const subtotalSelector =
-  "#main .cart-form__totals>.h-stack:nth-child(2)>.h5:last-child";
-const totalSelector =
-  "#main .cart-form__totals>.h-stack:nth-child(1)>.text-subdued:last-child";
-const dynamicSubtotalSelector = "";
+const subtotalSelector = "#MainContent .totals__subtotal-value";
+const dynamicSubtotalSelector = "#CartDrawer .cart-drawer__totals__row__money";
 const chekoutBtnSelector = "#main [name=checkout]";
-const dynamicCheckoutBtnSelector = "";
+const dynamicCheckoutBtnSelector = "#CartDrawer-Checkout";
 
 const changeSubtotal = (snapshot) => {
   // Change Subtotal
@@ -37,16 +34,16 @@ const changeSubtotal = (snapshot) => {
     const element = document.querySelector(subtotalSelector);
     element.innerHTML = subTotal;
   }
-  if (totalSelector && document.querySelector(totalSelector)) {
+  /*if (totalSelector && document.querySelector(totalSelector)) {
     const element = document.querySelector(totalSelector);
     element.innerHTML = subTotal;
-  }
+  }*/
   if (
     dynamicSubtotalSelector &&
     document.querySelector(dynamicSubtotalSelector)
   ) {
     const element = document.querySelector(dynamicSubtotalSelector);
-    element.childNodes[4].replaceWith(subTotal);
+    element.innerHTML = subTotal;
   }
 };
 
