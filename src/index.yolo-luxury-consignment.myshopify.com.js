@@ -9,6 +9,7 @@ import renderPdpBanner from "./component/pdp-banner";
 //import configurations from "./config/index.json";
 import { productType } from "./core/constant";
 import { rerenderCart } from "./core/util";
+import "./component/cart-widget/yolo-luxury-consignment.myshopify.com.css";
 // get myshopify domain from global var
 
 store.configs = configurations;

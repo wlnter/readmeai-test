@@ -43,13 +43,14 @@
         }
       ],
       "paragraph": [
-        "Shipping Protection gives you peace of mind against loss, damage and delay of your package. Within 7 days upon delivery for damage/delay, and 30 days upon fulfilment for loss, buyers can easily request a new shipment or refund for their protected orders through Seel Resolution Center 100% paid for by Seel."
+        "Shipping Protection gives you peace of mind against loss, damage and delay of your package. Within 7 days upon delivery for damage/delay, and 30 days upon fulfilment for loss, buyers can easily request a new shipment or refund for their protected orders through <a href={{link}} target=\"_blank\">{{text}}</a> 100% paid for by Seel."
       ],
       "linkInText": {
         "text": "Seel Resolution Center",
-        "link": "https://resolve.seel.com/"
+        "link": "https://resolve.seel.com/17track"
       },
       "links": []
     }
-  ]
+  ],
+  "sections":[]
 }

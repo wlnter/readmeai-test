@@ -143,11 +143,19 @@
 .seel_modal--section--item--content_list {
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
+  align-items: center; 
   justify-content: center;
   padding: 35px 15px;
   height: 180px;
   box-sizing: border-box;
+}
+
+.seel_modal--section--item--content_list-inner{
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: left;
+  justify-content: center;
 }
 
 .seel_modal--section--item--content_list--item {
@@ -325,5 +333,12 @@
   .seel_modal--section--item--content_list {
     padding-left: 10%;
     height: 140px;
+  }
+  .seel_modal--section--item--content_list-inner{
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
 }

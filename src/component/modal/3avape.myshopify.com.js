@@ -77,7 +77,9 @@ const complexFlatten = (modal, type) => {
           ...linkInText,
         })}</div>
         <div class="seel_modal--section--item--content_list">
+          <div class="seel_modal--section--item--content_list-inner">
           ${list.join("")}
+          </div>
         </div>
       </div>`;
     }

@@ -48,7 +48,7 @@ const changeSubtotal = (snapshot) => {
     document.querySelector(dynamicSubtotalSelector)
   ) {
     const element = document.querySelector(dynamicSubtotalSelector);
-    element.innerHTML = `${currencySymbol} ${amount}${currency}`;
+    element.innerHTML = `${currencySymbol}${amount} ${currency}`;
   }
 };
 
