@@ -66,6 +66,14 @@
       }
     },
     {
+      "shop": "striptofficial.com",
+      "domain": "stript-official.myshopify.com",
+      "buckets": ["a", "b", "c"],
+      "profile": {
+        "productType": ["ra"]
+      }
+    },
+    {
       "shop": "vex-clothing-inc.myshopify.com",
       "domain": "vex-clothing-inc.myshopify.com",
       "buckets": ["a", "b", "c"],
