@@ -1,3 +1,12 @@
+# [3.14.0](https://github.com/kover-ai/shopify-scripts/compare/v3.13.0...v3.14.0) (2023-12-01)
+
+
+### Features
+
+* **room-shop-vintage:** 将改店铺添加到widget试验（meerkat）中 ([66fdec7](https://github.com/kover-ai/shopify-scripts/commit/66fdec7c45a8f008effcb9d146bb77fa2be65997))
+* **room-shop-vintage:** 店铺迁移至新版本的shopify-script ([8ca6c4b](https://github.com/kover-ai/shopify-scripts/commit/8ca6c4b6e21872d4ed77ea3e971800bc2acadfe9))
+* **vex-clothing-inc:** 将该商家的shopify-script迁移至最新版本 ([997f623](https://github.com/kover-ai/shopify-scripts/commit/997f6238c272e31a82d0ec9fe611393a6cadfa04))
+
 # [3.13.0](https://github.com/kover-ai/shopify-scripts/compare/v3.12.0...v3.13.0) (2023-12-01)
 
 
