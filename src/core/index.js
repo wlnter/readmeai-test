@@ -95,7 +95,10 @@ export const getQuotesAndUpdateCart = async (shop) => {
     quotePromises.push(null);
   }
   if (store.product) {
-    quotePromises.push(getEWQuoteResult(shop, store.product, productType.ew));
+    const found = store.profiles.find((_) => _.type === productType.ew);
+    if (found?.live) {
+      quotePromises.push(getEWQuoteResult(shop, store.product, productType.ew));
+    }
   } else {
     quotePromises.push(null);
   }
