@@ -3,8 +3,8 @@ import widgetTemplate from "./index.html";
 import { bindWidgetEvents, seelEvents } from "../../core";
 import store, { snapshot } from "../../core/store";
 import { formatMoney } from "../../core/util";
-import "./index.css";
 import { loadExperimentAsset, trafficSplitter } from "../../experiment";
+import "./index.css";
 
 export const flatten = (widget, type) => {
   const { configs, profiles, quotes, sessions } = snapshot(store);
@@ -29,7 +29,7 @@ export const flatten = (widget, type) => {
   const widgetDesc = widget.querySelector("[data-seel-widget-desc]");
   widgetName.innerHTML = lodashTemplate(
     name,
-    templateOption
+    templateOption,
   )({
     ...profile,
     ...quote,
@@ -40,7 +40,7 @@ export const flatten = (widget, type) => {
   widgetInfoIconEl.setAttribute("src", infoIcon);
   widgetDesc.innerHTML = lodashTemplate(
     description,
-    templateOption
+    templateOption,
   )({
     ...profile,
     ...quote,
@@ -63,16 +63,12 @@ export const getComponent = async (type) => {
     code: "meerkat",
   });
 
-  console.log(bucket, profile);
-
   const experimentAsset = await loadExperimentAsset(type, {
     bucket,
     profile,
     ...rest,
     code: "meerkat",
   });
-
-  console.log(experimentAsset);
 
   if (experimentAsset) {
     const { cartWidgetTemplate, overrideConfig } = experimentAsset;
@@ -139,7 +135,7 @@ export const embedWidget = async (type) => {
     bindWidgetEvents(type);
   } else if (dynamicAnchor && widget) {
     const widgetElement = document.querySelector(
-      `.seel_widget[data-seel-product-type='${type}']`
+      `.seel_widget[data-seel-product-type='${type}']`,
     );
     if (!widgetElement && document.querySelector(dynamicAnchor)) {
       document
@@ -152,7 +148,7 @@ export const embedWidget = async (type) => {
     dynamicAnchorObserver?.[type]?.disconnect?.();
     dynamicAnchorObserver[type] = new MutationObserver(() => {
       const widgetElement = document.querySelector(
-        `.seel_widget[data-seel-product-type='${type}']`
+        `.seel_widget[data-seel-product-type='${type}']`,
       );
       if (!widgetElement && document.querySelector(dynamicAnchor)) {
         document

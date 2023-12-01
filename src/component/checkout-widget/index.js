@@ -3,6 +3,7 @@ import widgetTemplate from "./index.html";
 import { bindWidgetEvents } from "../../core";
 import store, { snapshot } from "../../core/store";
 import { formatMoney } from "../../core/util";
+import { loadExperimentAsset, trafficSplitter } from "../../experiment";
 import "./index.css";
 
 export const flatten = (widget, type) => {
@@ -52,20 +53,54 @@ export const flatten = (widget, type) => {
   return widget;
 };
 
-export const getComponent = (type) => {
+export const getComponent = async (type) => {
   const parser = new DOMParser();
+
+  // bucket testing start
+  const expCode = "meerkat";
+  const { bucket, profile, ...rest } = await trafficSplitter({
+    shop: store.shop,
+    code: expCode,
+  });
+
+  const experimentAsset = await loadExperimentAsset(type, {
+    bucket,
+    profile,
+    ...rest,
+    code: expCode,
+  });
+
+  if (experimentAsset) {
+    const { cartWidgetTemplate, overrideConfig } = experimentAsset;
+    const doc = parser.parseFromString(cartWidgetTemplate, "text/html");
+    // override config
+    store.configs.widgets = store.configs.widgets.map((_) => {
+      if (_.type === type) {
+        return {
+          ..._,
+          ...overrideConfig,
+        };
+      } else {
+        return _;
+      }
+    });
+    const component = flatten(doc.body.firstChild, type);
+    return component;
+  }
+  // bucket testing end
+
   const doc = parser.parseFromString(widgetTemplate, "text/html");
   const component = flatten(doc.body.firstChild, type);
   return component;
 };
 
-export const embedWidget = (type) => {
+export const embedWidget = async (type) => {
   const { configs, sessions } = snapshot(store);
   const config = configs.widgets.find((_) => _.type === type);
   if (!config) {
     return;
   }
-  const widget = getComponent(type);
+  const widget = await getComponent(type);
   if (sessions?.[type]) {
     widget
       .querySelector("[data-seel-widget-input]")
