@@ -1,3 +1,11 @@
+# [3.10.0](https://github.com/kover-ai/shopify-scripts/compare/v3.9.0...v3.10.0) (2023-12-01)
+
+
+### Features
+
+* **stript-official:** 将shopify-script迁移至最新版本 ([130646d](https://github.com/kover-ai/shopify-scripts/commit/130646d886c53a8f8505c3fdb219bb8fc4883a4f))
+* 通过模板生成的方式，提升新店铺接入效率 ([1cf9b84](https://github.com/kover-ai/shopify-scripts/commit/1cf9b8465a99522bcec4065121d8f65dcb21828e))
+
 # [3.9.0](https://github.com/kover-ai/shopify-scripts/compare/v3.8.0...v3.9.0) (2023-11-30)
 
 
