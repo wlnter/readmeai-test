@@ -4,7 +4,7 @@
       "type": "bp",
       "name": "ADD GREEN SHIPPING PROTECTION",
       "infoIcon": "https://static.seel.com/image/widget-info-icon.svg",
-      "infoIconLink": "https://www.seel.com/terms/17trackbuyerprotection",
+      "infoIconLink": "",
       "description": "Protect against loss, damage, delay & offset emissions for <strong>{{currencySymbol}}{{price}} {{currencyCode}}</strong>",
       "widgetIcon": "https://static.seel.com/image/bp-widget-icon.svg",
       "anchor": ".cart__footer [name=checkout]",
@@ -16,5 +16,40 @@
       "listPriceRate": 0
     }
   ],
-  "sections":["cart-drawer"]
+  "modals":[
+    {
+      "type": "bp",
+      "modalType": "complex",
+      "section": [
+        {
+          "header": "Add shipping protection",
+          "contentIcon": "https://cdn.seel.com/assets/images/modal-section-icon-2.svg",
+          "contentText": "1-click protect your order"
+        },
+        {
+          "header": "Guaranteed safe delivery",
+          "contentIcon": "https://cdn.seel.com/assets/images/modal-section-icon-1.svg",
+          "contentText": [
+            "Loss",
+            "Damage",
+            "Delay"
+          ]
+          
+        },
+        {
+          "header": "Instant resolution",
+          "contentIcon": "https://cdn.seel.com/assets/images/modal-section-icon-3.svg",
+          "contentText": "Instantly resolve your shipment issues and get a refund or replacement with a few clicks."
+        }
+      ],
+      "paragraph": [
+        "Shipping Protection gives you peace of mind against loss, damage and delay of your package. Within 7 days upon delivery for damage/delay, and 30 days upon fulfilment for loss, buyers can easily request a new shipment or refund for their protected orders through Seel Resolution Center 100% paid for by Seel."
+      ],
+      "linkInText": {
+        "text": "Seel Resolution Center",
+        "link": "https://resolve.seel.com/"
+      },
+      "links": []
+    }
+  ]
 }

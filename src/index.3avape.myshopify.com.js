@@ -4,7 +4,7 @@ import embedWidget, {
   flatten as repaint,
 } from "./component/cart-widget/index.js";
 import configurations from "./config/3avape.myshopify.com.json";
-import renderModal from "./component/modal";
+import renderModal from "./component/modal/3avape.myshopify.com";
 import renderPdpBanner from "./component/pdp-banner";
 //import configurations from "./config/index.json";
 import { productType } from "./core/constant";
