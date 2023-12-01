@@ -1,3 +1,15 @@
+# [3.13.0](https://github.com/kover-ai/shopify-scripts/compare/v3.12.0...v3.13.0) (2023-12-01)
+
+
+### Bug Fixes
+
+* 修复checkout-widget未加载试验资源的问题 ([c57fc3d](https://github.com/kover-ai/shopify-scripts/commit/c57fc3d4ff858add40dfbec52cf085f96fdaaac0))
+
+
+### Features
+
+* 增加checkout widget A/B试验 ([cd99e80](https://github.com/kover-ai/shopify-scripts/commit/cd99e80795a25e0fa1351174a9b7bdf89cfa50bb))
+
 # [3.12.0](https://github.com/kover-ai/shopify-scripts/compare/v3.11.0...v3.12.0) (2023-12-01)
 
 
