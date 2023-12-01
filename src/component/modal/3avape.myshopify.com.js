@@ -3,7 +3,7 @@ import complexTemplate from "./complex.html";
 import simpleTemplate from "./simple.html";
 import store, { snapshot } from "../../core/store";
 import { seelEvents } from "../../core";
-import "./index.css";
+import "./3avape.myshopify.com.css";
 import { productType } from "../../core/constant";
 
 const templateOption = { interpolate: /\{\{(.+?)\}\}/g };
