@@ -66,6 +66,14 @@
       }
     },
     {
+      "shop": "vex-clothing-inc.myshopify.com",
+      "domain": "vex-clothing-inc.myshopify.com",
+      "buckets": ["a", "b", "c"],
+      "profile": {
+        "productType": ["ra"]
+      }
+    },
+    {
       "shop": "seel-dev-store.myshopify.com",
       "domain": "seel-dev-store.myshopify.com",
       "buckets": ["a", "b", "b", "c", "c"],
