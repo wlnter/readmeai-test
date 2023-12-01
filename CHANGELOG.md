@@ -1,3 +1,10 @@
+## [3.15.3](https://github.com/kover-ai/shopify-scripts/compare/v3.15.2...v3.15.3) (2023-12-01)
+
+
+### Bug Fixes
+
+* **公共模块:** 修复ra弹窗样式问题被覆盖 ([3f4c8eb](https://github.com/kover-ai/shopify-scripts/commit/3f4c8ebfcb404d384478ef787f4fdf6a3164b21f))
+
 ## [3.15.2](https://github.com/kover-ai/shopify-scripts/compare/v3.15.1...v3.15.2) (2023-12-01)
 
 
