@@ -1,3 +1,10 @@
+# [3.12.0](https://github.com/kover-ai/shopify-scripts/compare/v3.11.0...v3.12.0) (2023-12-01)
+
+
+### Features
+
+* **kid-gear:** 增加checkout-widget的试验功能，并且为kid-gear店铺配置checkout-widget试验 ([f734f0c](https://github.com/kover-ai/shopify-scripts/commit/f734f0cb985098978c996ffbf17debfbb9bd71e3))
+
 # [3.11.0](https://github.com/kover-ai/shopify-scripts/compare/v3.10.1...v3.11.0) (2023-12-01)
 
 
