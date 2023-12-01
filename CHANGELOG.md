@@ -1,3 +1,10 @@
+## [3.10.1](https://github.com/kover-ai/shopify-scripts/compare/v3.10.0...v3.10.1) (2023-12-01)
+
+
+### Bug Fixes
+
+* ew保险服务在产品详情页报价前先判断是否开通，避免无效调用 ([aafa91b](https://github.com/kover-ai/shopify-scripts/commit/aafa91bcee3ece6429660d2872687b856199ff36))
+
 # [3.10.0](https://github.com/kover-ai/shopify-scripts/compare/v3.9.0...v3.10.0) (2023-12-01)
 
 
