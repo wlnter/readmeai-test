@@ -1,3 +1,10 @@
+## [3.15.1](https://github.com/kover-ai/shopify-scripts/compare/v3.15.0...v3.15.1) (2023-12-01)
+
+
+### Bug Fixes
+
+* **3avape.myshopify.com and yolo-luxury-consignment.myshopify.com:** fixed 样式问题 ([0e4175b](https://github.com/kover-ai/shopify-scripts/commit/0e4175ba48bba6f73cc69865a6b821c22a2392eb))
+
 # [3.15.0](https://github.com/kover-ai/shopify-scripts/compare/v3.14.0...v3.15.0) (2023-12-01)
 
 
