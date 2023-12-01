@@ -1,3 +1,11 @@
+# [3.11.0](https://github.com/kover-ai/shopify-scripts/compare/v3.10.1...v3.11.0) (2023-12-01)
+
+
+### Features
+
+* **3avape.myshopify.com c9d5c0-2.myshopify.com yolo-luxury-consignment.myshopify.com:** add and fix ([4fc919f](https://github.com/kover-ai/shopify-scripts/commit/4fc919f646e82b1d635f8c87b097ab5fec196f40))
+* **3avape.myshopify.com:** 增加17bp的弹窗介绍 ([3c2b238](https://github.com/kover-ai/shopify-scripts/commit/3c2b2381f88e1785f6b2e2b523371c378275cf96))
+
 ## [3.10.1](https://github.com/kover-ai/shopify-scripts/compare/v3.10.0...v3.10.1) (2023-12-01)
 
 
