@@ -1,3 +1,10 @@
+## [3.15.2](https://github.com/kover-ai/shopify-scripts/compare/v3.15.1...v3.15.2) (2023-12-01)
+
+
+### Bug Fixes
+
+* **stript-official:** 修复购物车页面subtotal未更新的问题 ([a4e5e1f](https://github.com/kover-ai/shopify-scripts/commit/a4e5e1f900fa7bca667098d71637870fc3b1a0de))
+
 ## [3.15.1](https://github.com/kover-ai/shopify-scripts/compare/v3.15.0...v3.15.1) (2023-12-01)
 
 
