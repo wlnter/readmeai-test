@@ -21,7 +21,7 @@ const option = {
   atcButtonSelector: ".product-form__submit",
   quantitySelector: ".quantity__input",
   subtotalSelector:
-    "#main-cart-footer > div > div > div > div.js-contents > div.totals > p",
+    "#CartPageForm > div.cart__footer.text-center > div > div:nth-child(2) > div > span",
   dynamicSubtotalSelector: "",
   chekoutBtnSelector: ".cart__ctas",
   dynamicCheckoutBtnSelector: "",
@@ -51,7 +51,7 @@ const changeSubtotal = (
 
   if (subtotalSelector && document.querySelector(subtotalSelector)) {
     const element = document.querySelector(subtotalSelector);
-    element.innerHTML = subTotal;
+    element.innerHTML = `${currencySymbol} ${amount}${currency}`;
   }
   if (
     dynamicSubtotalSelector &&
@@ -128,10 +128,20 @@ const submitHandler = async (event) => {
 // helper
 const actionDurationFrame = (
   store,
-  { chekoutBtnSelector, dynamicCheckoutBtnSelector },
+  {
+    chekoutBtnSelector,
+    dynamicCheckoutBtnSelector,
+    subtotalSelector,
+    dynamicSubtotalSelector,
+  },
 ) => {
   // rerender subtotal
-  changeSubtotal(store, { chekoutBtnSelector, dynamicCheckoutBtnSelector });
+  changeSubtotal(store, {
+    chekoutBtnSelector,
+    dynamicCheckoutBtnSelector,
+    subtotalSelector,
+    dynamicSubtotalSelector,
+  });
 
   // change behavior of checkout button
   chekoutBtnSelector &&
