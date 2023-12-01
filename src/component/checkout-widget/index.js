@@ -22,9 +22,9 @@ export const flatten = (widget, type) => {
     price: formatMoney(price),
   };
   const widgetName = widget.querySelector(".seel_widget--title_line--name");
-  const widgetIconEl = widget.querySelector(".seel_widget--desc_line--icon");
+  const widgetIconEl = widget.querySelector("[data-seel-widget-icon]");
   const widgetInfoIconEl = widget.querySelector("[data-seel-widget-info]");
-  const widgetDesc = widget.querySelector(".seel_widget--desc_line--text");
+  const widgetDesc = widget.querySelector("[data-seel-widget-desc]");
   widgetName.innerHTML = lodashTemplate(
     name,
     templateOption,
