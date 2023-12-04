@@ -3,5 +3,9 @@
 }
 .seel_modal_mask{
   z-index: 1001;
+  display: block!important;
+}
 
+.seel_modal_hidden{
+  display: none!important;
 }
