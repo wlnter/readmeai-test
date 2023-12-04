@@ -1,7 +1,7 @@
 import widgetTemplate from "./index.html";
 import store, { snapshot } from "../../core/store";
 import "./index.css";
-
+import { pixelEvent } from "../../pixel/product-protection-pixel";
 import renderPdpModal, { flatten as flattenModal } from "../pdp-modal";
 
 const createOption = () => {
@@ -75,14 +75,13 @@ const getComponent = (type) => {
 };
 
 const renderPdpWidget = (type, shop) => {
-  const { configs, profiles, quotes, sessions } = snapshot(store);
+  const { configs, profiles, quotes, product } = snapshot(store);
   const config = configs?.pdpWidgets?.find((_) => _.type === type);
   const profile = profiles.find((_) => _.type === type);
   const quote = quotes.find((_) => _.type === type);
 
   const widget = getComponent(type);
 
-  console.log("***", widget);
   if (!config || !config.anchor || !quote || !widget) {
     return null;
   }
@@ -90,9 +89,15 @@ const renderPdpWidget = (type, shop) => {
   renderPdpModal(type, shop);
 
   const anchorElement = document.querySelector(config.anchor);
-  console.log("***", config, anchorElement);
+
   if (anchorElement) {
     anchorElement.insertAdjacentElement(config.position, widget);
+    document.dispatchEvent(new CustomEvent(pixelEvent.widgetRendered), {
+      detail: {
+        merchant: shop,
+        product: product.productId,
+      },
+    });
     widget
       .querySelector("[data-seel-pdp-widget-options]")
       .addEventListener("click", (e) => {

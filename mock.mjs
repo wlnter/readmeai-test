@@ -36,27 +36,27 @@ glob.sync(`${testMockDir}/script/*.js`).forEach((scriptPath) => {
   copyScript(testMockDir, scriptPath);
 });
 
-glob.sync(`./dist/script/*.js`).forEach((scriptPath) => {
-  const dir = scriptPath.split("/");
-  const name = dir[dir.length - 1];
-  const temp = name.split(".");
-  const integrationPoint = temp.shift();
-  temp.pop();
-  const shop = temp.join(".");
-  if (integrationPoint === "index" && shop) {
-    fs.copyFileSync(
-      path.join(__dirname, `./dist/script/${name}`),
-      path.join(
-        __dirname,
-        `${overrideRADir}/return-assurance.min.js?shop=${shop}`,
-      ),
-    );
-    fs.copyFileSync(
-      path.join(__dirname, `./dist/script/${name}`),
-      path.join(
-        __dirname,
-        `${override17BPDir}/bp-embedded.min.js?shop=${shop}`,
-      ),
-    );
-  }
-});
+// glob.sync(`./dist/script/*.js`).forEach((scriptPath) => {
+//   const dir = scriptPath.split("/");
+//   const name = dir[dir.length - 1];
+//   const temp = name.split(".");
+//   const integrationPoint = temp.shift();
+//   temp.pop();
+//   const shop = temp.join(".");
+//   if (integrationPoint === "index" && shop) {
+//     fs.copyFileSync(
+//       path.join(__dirname, `./dist/script/${name}`),
+//       path.join(
+//         __dirname,
+//         `${overrideRADir}/return-assurance.min.js?shop=${shop}`,
+//       ),
+//     );
+//     fs.copyFileSync(
+//       path.join(__dirname, `./dist/script/${name}`),
+//       path.join(
+//         __dirname,
+//         `${override17BPDir}/bp-embedded.min.js?shop=${shop}`,
+//       ),
+//     );
+//   }
+// });

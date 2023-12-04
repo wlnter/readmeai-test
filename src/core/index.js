@@ -9,7 +9,8 @@ import {
 import { seelEvents, MERCHANT_PROFILE_KEY, productType } from "./constant";
 import { cartDiff, styledLogger, getProduct } from "./util";
 import store, { snapshot } from "./store";
-import { setPerformanceObserver, locationHashObserver } from "./event";
+import { setCartObserver, locationHashObserver } from "./event";
+import { performanceObserver } from "../pixel/performance";
 
 export { seelEvents } from "./constant";
 export { updateCart, addCart } from "./fetch";
@@ -185,7 +186,8 @@ export const getQuotesAndUpdateCart = async (shop) => {
 };
 
 export default async (shop) => {
-  setPerformanceObserver();
+  setCartObserver();
+  performanceObserver(shop);
   locationHashObserver();
   const merchantProfiles = await getProfilesUsingCacheFirst(shop);
   store.profiles = merchantProfiles?.filter((_) => _.live);

@@ -1,6 +1,7 @@
 import modalTemplate from "./index.html";
 import store, { snapshot } from "../../core/store";
 import { seelEvents } from "../../core/constant";
+import { pixelEvent } from "../../pixel/product-protection-pixel";
 import "./index.css";
 
 export const createOption = () => {
@@ -113,6 +114,7 @@ const renderModal = (type, shop) => {
       });
       element.classList.add("seel_pdp_modal--plans--item--selected");
       element.setAttribute("data-seel-pdp-modal-plan-selected", true);
+
       syncSelection(planId);
     }
     // Add plan to cart
@@ -124,6 +126,11 @@ const renderModal = (type, shop) => {
         syncSelection(selected.getAttribute("data-seel-pdp-modal-plan-id"));
         modal.classList.add("seel_pdp_modal_hidden");
         document.dispatchEvent(new CustomEvent(seelEvents.protectionAdded));
+        document.dispatchEvent(
+          new CustomEvent(pixelEvent.protectionSelected, {
+            detail: { source: "modal" },
+          }),
+        );
       }
     }
   });

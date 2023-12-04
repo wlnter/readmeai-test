@@ -34,3 +34,24 @@ export const dataReport = async (name, data) => {
     console.log(e.message);
   });
 };
+
+export const sendBeacon = (code, platform, eventInfo) => {
+  if (!navigator?.sendBeacon) {
+    return null;
+  }
+  navigator.sendBeacon(
+    `https://${process.env.API_DOMAIN}/gateway/tracking-service/api/tracking-event`,
+    new Blob(
+      [
+        JSON.stringify({
+          code,
+          platform,
+          eventInfo,
+        }),
+      ],
+      {
+        type: "application/json",
+      },
+    ),
+  );
+};

@@ -3,7 +3,7 @@ import store, { snapshot } from "./store";
 import { seelEvents } from "./constant";
 import { styledLogger } from "./util";
 
-export const setPerformanceObserver = () => {
+export const setCartObserver = () => {
   const observer = new PerformanceObserver((list) => {
     list.getEntries().forEach((entry) => {
       if (
@@ -39,7 +39,6 @@ export const bindWidgetEvents = async (type, widget) => {
     widget ||
     document.querySelector(`.seel_widget[data-seel-product-type="${type}"]`);
   widget.addEventListener("click", async (event) => {
-    console.log("bindWidgetEvents", event);
     const source = event.target;
     const { configs, quotes } = snapshot(store);
     const config = configs.widgets.find((_) => _.type === type);
@@ -71,7 +70,9 @@ export const bindWidgetEvents = async (type, widget) => {
         window.open(config.infoIconLink, "_blank");
       } else {
         document.dispatchEvent(
-          new CustomEvent(seelEvents.showModal, { detail: { type } }),
+          new CustomEvent(seelEvents.showModal, {
+            detail: { type },
+          }),
         );
       }
     } else {

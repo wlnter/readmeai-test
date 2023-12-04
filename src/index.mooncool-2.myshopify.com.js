@@ -1,5 +1,5 @@
 import initialize, { addCart, updateCart } from "./core";
-import { createElementFromString } from "./core/util";
+import { getFingerprint } from "./core/util";
 import store, { snapshot } from "./core/store";
 import renderPdpBanner from "./component/pdp-banner";
 import configurations from "./config/mooncool-2.myshopify.com.json";
@@ -9,6 +9,7 @@ import embedPdpWidget, {
 } from "./component/pdp-widget";
 import embedWidget, { flatten as repaint } from "./component/cart-widget";
 import renderModal from "./component/modal";
+import { pixelEvent } from "./pixel/product-protection-pixel";
 
 store.configs = configurations;
 
@@ -135,7 +136,24 @@ const atcActionHandler = (ev) => {
 
     const atcButton =
       atcButtonSelector && document.querySelector(atcButtonSelector);
-    atcButton?.addEventListener("click", atcActionHandler);
+    atcButton?.addEventListener("click", async (ev) => {
+      const pdpWidget = document.querySelector(
+        `.seel_pdp_widget[data-seel-product-type=${productType.ew}]`,
+      );
+      if (
+        pdpWidget &&
+        pdpWidget.querySelector(`[data-seel-pdp-widget-option-selected]`)
+      ) {
+        document.dispatchEvent(
+          new CustomEvent(pixelEvent.protectionSelected, {
+            detail: {
+              source: "widget",
+            },
+          }),
+        );
+      }
+      atcActionHandler(ev);
+    });
     document.addEventListener(seelEvents.protectionAdded, atcActionHandler);
     document.addEventListener(seelEvents.protectionRemoved, (ev) => {
       const quantity = document?.querySelector(quantitySelector)?.value || "1";

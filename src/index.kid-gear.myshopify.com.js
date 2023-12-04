@@ -49,8 +49,6 @@ const changeSubtotal = (snapshot) => {
 
   renderPdpBanner(productType.ra, shop);
 
-  console.log("***", snapshot(store));
-
   // Discard the first cart_updated event, and manually complete the inital rendering
   changeSubtotal(snapshot(store));
   store?.types?.forEach?.((type) => {

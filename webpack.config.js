@@ -2,7 +2,7 @@
 const glob = require("glob");
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const HookShellScriptPlugin = require('hook-shell-script-webpack-plugin');
+const HookShellScriptPlugin = require("hook-shell-script-webpack-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
 const Dotenv = require("dotenv-webpack");
 const TerserPlugin = require("terser-webpack-plugin");
@@ -47,6 +47,9 @@ const config = {
   },
   watch: false,
   watchOptions: {
+    ignored: ["/node_modules", "/_templates"],
+  },
+  watchOptions: {
     ignored: /node_modules/,
   },
   devServer: {
@@ -76,10 +79,10 @@ const config = {
     new Dotenv({
       path: path.resolve(
         __dirname,
-        isProduction ? ".env.production" : ".env.development"
+        isProduction ? ".env.production" : ".env.development",
       ),
     }),
-    
+
     // Add your plugins here
     // Learn more about plugins from https://webpack.js.org/configuration/plugins/
   ],
@@ -113,7 +116,6 @@ const config = {
       }),
     ],
   },
-  
 };
 
 module.exports = () => {
