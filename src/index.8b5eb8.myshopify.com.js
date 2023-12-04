@@ -16,7 +16,7 @@ store.configs = configurations;
 const shop = window?.Shopify?.shop || window?.Shopify?.Checkout?.apiHost;
 
 const subtotalSelector = ".Cart__Footer .wholesale-original-price";
-const dynamicSubtotalSelector = "#sidebar-cart .revy-cart-subtotal-price";
+const dynamicSubtotalSelector = "#sidebar-cart #revy-cart-subtotal-price";
 const chekoutBtnSelector = ".Cart__Footer [name=checkout]";
 const dynamicCheckoutBtnSelector = "#sidebar-cart [name=checkout]";
 const dynamicUpdateSection = "";
