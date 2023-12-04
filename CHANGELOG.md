@@ -1,3 +1,10 @@
+# [3.16.0](https://github.com/kover-ai/shopify-scripts/compare/v3.15.3...v3.16.0) (2023-12-04)
+
+
+### Features
+
+* **fitshopby\8b5eb8\f63e41\5f7f34-2\e7b503-3:** add five shop fixed caught-in-candy-boutique. modal ([cd3e7ea](https://github.com/kover-ai/shopify-scripts/commit/cd3e7ead555f3a6991709035c07a0a086a9ec05d))
+
 ## [3.15.3](https://github.com/kover-ai/shopify-scripts/compare/v3.15.2...v3.15.3) (2023-12-01)
 
 
