@@ -1,3 +1,10 @@
+## [3.17.1](https://github.com/kover-ai/shopify-scripts/compare/v3.17.0...v3.17.1) (2023-12-04)
+
+
+### Bug Fixes
+
+* **fitshopby\8b5eb8\e7b503-3\script-official:** fix bug ([79f71de](https://github.com/kover-ai/shopify-scripts/commit/79f71dee80ad06ed274e84568836b505af3c6b26))
+
 # [3.17.0](https://github.com/kover-ai/shopify-scripts/compare/v3.16.0...v3.17.0) (2023-12-04)
 
 
