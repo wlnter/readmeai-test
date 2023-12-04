@@ -10,6 +10,11 @@ const testMockDir = "./mock/static-test.seel.com/shopify";
 const overrideRADir = "./mock/cdn.seel.com/releases/scripts/shopify-ra";
 const override17BPDir = "./mock/cdn.seel.com/releases/scripts/shopify-bp";
 
+fs.rmSync(mockDir, { recursive: true, force: true });
+fs.rmSync(testMockDir, { recursive: true, force: true });
+fs.rmSync(overrideRADir, { recursive: true, force: true });
+fs.rmSync(override17BPDir, { recursive: true, force: true });
+
 fs.mkdirSync(overrideRADir, { recursive: true });
 fs.mkdirSync(override17BPDir, { recursive: true });
 
