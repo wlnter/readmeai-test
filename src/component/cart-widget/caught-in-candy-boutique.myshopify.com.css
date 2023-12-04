@@ -1,0 +1,7 @@
+.seel_modal{
+  z-index: 1002;
+}
+.seel_modal_mask{
+  z-index: 1001;
+
+}

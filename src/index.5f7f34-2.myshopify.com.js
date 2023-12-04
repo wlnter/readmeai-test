@@ -3,13 +3,12 @@ import store, { snapshot } from "./core/store";
 import embedWidget, {
   flatten as repaint,
 } from "./component/cart-widget/index.js";
-import configurations from "./config/caught-in-candy-boutique.myshopify.com.json";
+import configurations from "./config/5f7f34-2.myshopify.com.json";
 import renderModal from "./component/modal";
 import renderPdpBanner from "./component/pdp-banner";
 //import configurations from "./config/index.json";
 import { productType } from "./core/constant";
 import { rerenderCart } from "./core/util";
-import "./component/cart-widget/caught-in-candy-boutique.myshopify.com.css";
 // get myshopify domain from global var
 
 store.configs = configurations;
@@ -20,7 +19,7 @@ const subtotalSelector = "#main-cart-footer .totals__subtotal-value";
 const dynamicSubtotalSelector = "#CartDrawer .totals__subtotal-value";
 const chekoutBtnSelector = "#checkout";
 const dynamicCheckoutBtnSelector = "#CartDrawer-Checkout";
-const dynamicUpdateSection = "#CartDrawer-Form";
+const dynamicUpdateSection = "#CartDrawer-CartItems";
 const updateSection = "#main-cart-items";
 
 const changeSubtotal = (snapshot) => {
