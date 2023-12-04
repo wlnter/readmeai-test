@@ -11,6 +11,7 @@ import renderModal from "./component/modal";
 import renderPdpBanner from "./component/pdp-banner";
 import configurations from "./config/<%= shop %>.myshopify.com.json";
 import { rerenderCart, createElementFromString } from "./core/util";
+import { pixelEvent } from "./pixel/product-protection-pixel";
 import embedPdpWidget, {
   flatten as repaintPdpWidget,
 } from "./component/pdp-widget";
@@ -165,7 +166,22 @@ const actionDurationFrame = (
 
     const atcButton =
       atcButtonSelector && document.querySelector(atcButtonSelector);
-        atcButton?.addEventListener("click", (ev) => {
+    atcButton?.addEventListener("click", (ev) => {
+      const pdpWidget = document.querySelector(
+        `.seel_pdp_widget[data-seel-product-type=${productType.ew}]`,
+      );
+      if (
+        pdpWidget &&
+        pdpWidget.querySelector(`[data-seel-pdp-widget-option-selected]`)
+      ) {
+        document.dispatchEvent(
+          new CustomEvent(pixelEvent.protectionSelected, {
+            detail: {
+              source: "widget",
+            },
+          }),
+        );
+      }
       atcActionHandler(ev, option);
     });
     document.addEventListener(seelEvents.protectionAdded, (ev) => {
