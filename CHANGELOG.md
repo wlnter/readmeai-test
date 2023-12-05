@@ -1,3 +1,11 @@
+# [3.18.0](https://github.com/kover-ai/shopify-scripts/compare/v3.17.1...v3.18.0) (2023-12-05)
+
+
+### Features
+
+* **product-protection:** 增加接口性能数据上报和用户行为数据上报 ([5d866ce](https://github.com/kover-ai/shopify-scripts/commit/5d866cebb2f8f7ebc5975b9e0907de39338965a2))
+* 调整模板代码 增加ew数据上报功能 ([a55a144](https://github.com/kover-ai/shopify-scripts/commit/a55a1447a8a56a112d2e19e12a5e0ec3ca2caacd))
+
 ## [3.17.1](https://github.com/kover-ai/shopify-scripts/compare/v3.17.0...v3.17.1) (2023-12-04)
 
 
