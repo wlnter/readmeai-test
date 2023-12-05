@@ -1,3 +1,10 @@
+# [3.19.0](https://github.com/kover-ai/shopify-scripts/compare/v3.18.0...v3.19.0) (2023-12-05)
+
+
+### Features
+
+* **f9ff66\mariamscollection\toxic-angelz.myshopify.com\tenacioustoys\3d3249:** add new shup ([5f1f572](https://github.com/kover-ai/shopify-scripts/commit/5f1f572b652adf0ed5ff3d263294b6a43a5f11c5))
+
 # [3.18.0](https://github.com/kover-ai/shopify-scripts/compare/v3.17.1...v3.18.0) (2023-12-05)
 
 
