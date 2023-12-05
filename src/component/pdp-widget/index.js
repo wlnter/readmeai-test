@@ -23,6 +23,9 @@ export const flatten = (node, type) => {
   const config = configs?.pdpWidgets?.find((_) => _.type === type);
   const profile = profiles.find((_) => _.type === type);
   const quote = quotes.find((_) => _.type === type);
+  if(!config){
+    return null;
+  }
   const { name, logo, anchor, position, linkHref, linkText, description } =
     config;
   node.setAttribute("data-seel-product-type", type);
