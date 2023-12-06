@@ -6,7 +6,7 @@ import embedWidget, {
 } from "./component/cart-widget/index.js";
 import renderModal from "./component/modal";
 import renderPdpBanner from "./component/pdp-banner";
-import configurations from "./config/658e0e-3.myshopify.com.json";
+import configurations from "./config/woos-too-boutique.myshopify.com.json";
 import { rerenderCart, createElementFromString } from "./core/util";
 import { pixelEvent } from "./pixel/product-protection-pixel";
 import embedPdpWidget, {
@@ -16,16 +16,16 @@ import embedPdpWidget, {
 store.configs = configurations;
 
 // shop related variables
-const shop = "658e0e-3.myshopify.com";
+const shop = "woos-too-boutique.myshopify.com";
 const option = {
   atcButtonSelector: "",
   quantitySelector: "",
-  subtotalSelector: ".cart-sub-total .total-price",
-  dynamicSubtotalSelector: ".subtotal-title-area #cart-total",
-  chekoutBtnSelector: ".proceed-to-checkout [href='/checkout']",
-  dynamicCheckoutBtnSelector: ".mini-cart-btns [href='/checkout']",
+  subtotalSelector: "#ra-subtotal",
+  dynamicSubtotalSelector: "",
+  chekoutBtnSelector: "#checkout",
+  dynamicCheckoutBtnSelector: ".cart-overview .checkout-link",
   dynamicUpdateSection: "",
-  updateSection: "",
+  updateSection: "#template--21173089665323__cart-items",
 };
 
 // helper

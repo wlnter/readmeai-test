@@ -1,0 +1,16 @@
+.seel_widget--title_line--checkbox{
+  border: 1px solid #202223!important;
+}
+.seel_widget {
+  border: 1px #d9d9d9 solid!important;
+}
+.seel_widget--title_line--checkbox:checked {
+  border-color: #645aff!important;
+}
+
+#mu-checkout-container .seel_widget--title_line--name{
+  font-size:12px!important;
+}
+#mu-checkout-container .seel_widget--desc_line--text{
+  font-size:12px!important;
+}

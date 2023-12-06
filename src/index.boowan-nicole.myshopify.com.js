@@ -6,24 +6,25 @@ import embedWidget, {
 } from "./component/cart-widget/index.js";
 import renderModal from "./component/modal";
 import renderPdpBanner from "./component/pdp-banner";
-import configurations from "./config/658e0e-3.myshopify.com.json";
+import configurations from "./config/boowan-nicole.myshopify.com.json";
 import { rerenderCart, createElementFromString } from "./core/util";
 import { pixelEvent } from "./pixel/product-protection-pixel";
 import embedPdpWidget, {
   flatten as repaintPdpWidget,
 } from "./component/pdp-widget";
+import "./component/cart-widget/boowan-nicole.myshopify.com.css";
 
 store.configs = configurations;
 
 // shop related variables
-const shop = "658e0e-3.myshopify.com";
+const shop = "boowan-nicole.myshopify.com";
 const option = {
   atcButtonSelector: "",
   quantitySelector: "",
-  subtotalSelector: ".cart-sub-total .total-price",
-  dynamicSubtotalSelector: ".subtotal-title-area #cart-total",
-  chekoutBtnSelector: ".proceed-to-checkout [href='/checkout']",
-  dynamicCheckoutBtnSelector: ".mini-cart-btns [href='/checkout']",
+  subtotalSelector: "",
+  dynamicSubtotalSelector: "#mu-checkout-container [data-value]",
+  chekoutBtnSelector: "",
+  dynamicCheckoutBtnSelector: "#mu-checkout-button",
   dynamicUpdateSection: "",
   updateSection: "",
 };

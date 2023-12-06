@@ -118,7 +118,10 @@ export const getQuotesAndUpdateCart = async (shop) => {
   if (!store.quotes || !store.quotes.length) {
     //需要把保险产品移除
     declinedQuotes?.forEach((quote) => {
-      const [seelVariantsInCart, notMatched] = cartDiff(quote, store.cart);
+      const [seelVariantsInCart, matched, notMatched] = cartDiff(
+        quote,
+        store.cart,
+      );
 
       if (seelVariantsInCart?.length) {
         notMatched?.forEach((_) => {
