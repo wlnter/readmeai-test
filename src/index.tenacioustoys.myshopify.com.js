@@ -40,7 +40,7 @@ const changeSubtotal = (
 
   const { total_price: cartTotalPrice, currency } = store.cart;
   const subTotal = (cartTotalPrice / 100).toFixed(2);
-  const numberFormat = new Intl.NumberFormat("en-us", {
+  const numberFormat = new Intl.NumberFormat("en-US", {
     style: "currency",
     currency,
   });

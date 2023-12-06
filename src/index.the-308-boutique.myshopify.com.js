@@ -6,7 +6,7 @@ import embedWidget, {
 } from "./component/cart-widget/index.js";
 import renderModal from "./component/modal";
 import renderPdpBanner from "./component/pdp-banner";
-import configurations from "./config/mariamscollection.myshopify.com.json";
+import configurations from "./config/the-308-boutique.myshopify.com.json";
 import { rerenderCart, createElementFromString } from "./core/util";
 import { pixelEvent } from "./pixel/product-protection-pixel";
 import embedPdpWidget, {
@@ -16,16 +16,16 @@ import embedPdpWidget, {
 store.configs = configurations;
 
 // shop related variables
-const shop = "mariamscollection.myshopify.com";
+const shop = "the-308-boutique.myshopify.com";
 const option = {
   atcButtonSelector: "",
   quantitySelector: "",
-  subtotalSelector: "#main .cart__total-container .money",
-  dynamicSubtotalSelector: ".checkout-button .money",
-  chekoutBtnSelector: "#main [name=checkout]",
-  dynamicCheckoutBtnSelector: "#mini-cart [name=checkout]",
-  dynamicUpdateSection: "#mini-cart-form",
-  updateSection: ".line-item-table",
+  subtotalSelector: "#PageContainer .saso-cart-original-total",
+  dynamicSubtotalSelector: "",
+  chekoutBtnSelector: "#cartform [name=checkout]",
+  dynamicCheckoutBtnSelector: "",
+  dynamicUpdateSection: "",
+  updateSection: "",
 };
 
 // helper
@@ -181,7 +181,7 @@ const actionDurationFrame = (
 
     const atcButton =
       atcButtonSelector && document.querySelector(atcButtonSelector);
-    if (atcButton) {
+    atcButton &&
       atcButton?.addEventListener("click", (ev) => {
         const pdpWidget = document.querySelector(
           `.seel_pdp_widget[data-seel-product-type=${productType.ew}]`,
@@ -200,8 +200,6 @@ const actionDurationFrame = (
         }
         atcActionHandler(ev, option);
       });
-    }
-
     document.addEventListener(seelEvents.protectionAdded, (ev) => {
       atcActionHandler(ev, option);
     });

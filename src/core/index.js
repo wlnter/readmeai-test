@@ -105,6 +105,7 @@ export const getQuotesAndUpdateCart = async (shop) => {
   }
   const [cartQuotes, pdpQuote] = await Promise.all(quotePromises);
   store.quotes = cartQuotes ? cartQuotes.concat([pdpQuote]) : [pdpQuote];
+  const declinedQuotes = store.quotes?.filter((_) => _?.status === "declined");
   store.quotes = store.quotes?.filter((_) => _?.status === "accepted");
   // SP(GSP)和BP(17BP)互斥
   if (store.quotes?.find((_) => _.type === productType.sp)) {
@@ -115,7 +116,17 @@ export const getQuotesAndUpdateCart = async (shop) => {
 
   // 无报价
   if (!store.quotes || !store.quotes.length) {
-    updateCart(shop, updates, attributes);
+    //需要把保险产品移除
+    declinedQuotes?.forEach((quote) => {
+      const [seelVariantsInCart, notMatched] = cartDiff(quote, store.cart);
+
+      if (seelVariantsInCart?.length) {
+        notMatched?.forEach((_) => {
+          updates[_.id] = 0;
+        });
+      }
+      updateCart(shop, updates, attributes);
+    });
     return null;
   }
 

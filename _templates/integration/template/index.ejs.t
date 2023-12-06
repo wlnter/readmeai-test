@@ -166,7 +166,7 @@ const actionDurationFrame = (
 
     const atcButton =
       atcButtonSelector && document.querySelector(atcButtonSelector);
-    atcButton?.addEventListener("click", (ev) => {
+    atcButton && atcButton?.addEventListener("click", (ev) => {
       const pdpWidget = document.querySelector(
         `.seel_pdp_widget[data-seel-product-type=${productType.ew}]`,
       );

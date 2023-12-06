@@ -51,10 +51,14 @@
   font-size: 14px;
   line-height: 14px;
 }
+
 .seel_widget--title_line--icon:hover {
   cursor: pointer;
 }
-
+.seel_widget--title_line--icon{
+  width: 14px!important;
+  height: 14px!important;
+}
 .seel_widget--title_line {
   display: flex;
   flex-direction: row;
