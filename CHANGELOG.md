@@ -1,3 +1,10 @@
+# [3.21.0](https://github.com/kover-ai/shopify-scripts/compare/v3.20.0...v3.21.0) (2023-12-06)
+
+
+### Features
+
+* **boowan-nicole.myshopify.com/woos-too-boutique.myshopify.com:** add two new shop ([3a057b1](https://github.com/kover-ai/shopify-scripts/commit/3a057b1b55e484327dee38f3d39508f44ec186bd))
+
 # [3.20.0](https://github.com/kover-ai/shopify-scripts/compare/v3.19.0...v3.20.0) (2023-12-06)
 
 
