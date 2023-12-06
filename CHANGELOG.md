@@ -1,3 +1,10 @@
+# [3.20.0](https://github.com/kover-ai/shopify-scripts/compare/v3.19.0...v3.20.0) (2023-12-06)
+
+
+### Features
+
+* **32f188\906f8e-3\658e0e-3\the-308-boutique:** add four new shop and fixed 报价为0是删除保险产品 ([7dab69a](https://github.com/kover-ai/shopify-scripts/commit/7dab69ad8d3c16e9ea6f572ebfc3ec40b88257c9))
+
 # [3.19.0](https://github.com/kover-ai/shopify-scripts/compare/v3.18.0...v3.19.0) (2023-12-05)
 
 
