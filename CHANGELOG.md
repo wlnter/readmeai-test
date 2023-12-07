@@ -1,3 +1,10 @@
+# [3.22.0](https://github.com/kover-ai/shopify-scripts/compare/v3.21.0...v3.22.0) (2023-12-07)
+
+
+### Features
+
+* **tomasso-black\yolo-luxury-consignment:** tomasso-black迁移到v3,yolo-luxury-consignment错位问题，拒绝报价功能完善 ([f52b5c8](https://github.com/kover-ai/shopify-scripts/commit/f52b5c892d98463a0d3a8ea572058513cf659e9c))
+
 # [3.21.0](https://github.com/kover-ai/shopify-scripts/compare/v3.20.0...v3.21.0) (2023-12-06)
 
 
