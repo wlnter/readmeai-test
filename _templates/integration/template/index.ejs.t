@@ -214,6 +214,13 @@ const actionDurationFrame = (
 
   actionDurationFrame(snapshot(store), option);
 
+  // init Rerender cart
+  try {
+    rerenderCart(updateSection, dynamicUpdateSection, store);
+  } catch {
+    console.log("rerender cart fail");
+  }
+
   // reaction of cart update event
   document.addEventListener(seelEvents.cartUpdated, async () => {
     // rerender cart

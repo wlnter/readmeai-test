@@ -114,27 +114,42 @@ export const getQuotesAndUpdateCart = async (shop) => {
 
   document.dispatchEvent(new CustomEvent(seelEvents.quoteUpdated));
 
-  // 无报价
-  if (!store.quotes || !store.quotes.length) {
-    //需要把保险产品移除
-    declinedQuotes?.forEach((quote) => {
-      const [seelVariantsInCart, matched, notMatched] = cartDiff(
-        quote,
-        store.cart,
-      );
-
-      if (seelVariantsInCart?.length) {
-        notMatched?.forEach((_) => {
-          updates[_.id] = 0;
-        });
-      }
-      updateCart(shop, updates, attributes);
-    });
-    return null;
-  }
-
   // convert quote to cart attributes and updates
   store.types = [];
+
+  //如果有拒绝报价的需要把保险产品移除
+  declinedQuotes?.forEach(async (quote) => {
+    const [seelVariantsInCart, matched, notMatched] = cartDiff(
+      quote,
+      store.cart,
+    );
+
+    if (seelVariantsInCart?.length) {
+      notMatched?.forEach((_) => {
+        updates[_.id] = 0;
+      });
+      //把widget类型删除，移除widget
+      const idx = store.types.findIndex((item) => item === quote.type);
+      store.types.splice(idx, 1);
+    }
+
+    store.cart = await updateCart(shop, updates, attributes);
+    styledLogger("Store Snapshot");
+    console.log(snapshot(store));
+    document.dispatchEvent(
+      new CustomEvent(seelEvents.cartUpdated, {
+        detail: { updates, attributes },
+      }),
+    );
+    styledLogger("Cart Updated");
+    console.log({ updates, attributes });
+  });
+
+  // 无报价
+  if (!store.quotes || !store.quotes.length) {
+    updateCart(shop, updates, attributes);
+    return null;
+  }
 
   store.quotes.forEach((quote) => {
     store.types.push(quote.type);

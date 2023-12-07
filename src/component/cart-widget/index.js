@@ -14,6 +14,9 @@ export const flatten = (widget, type) => {
   const quote = quotes.find((_) => _.type === type);
   const { description, name, infoIcon, widgetIcon, listPriceRate } = config;
   const templateOption = { interpolate: /\{\{(.+?)\}\}/g };
+  if(!quote){
+    return null;
+  }
   const { value, price, currencySymbol } = quote;
   const listPrice =
     (value * listPriceRate).toFixed(2) > price

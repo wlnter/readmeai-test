@@ -21,7 +21,7 @@ const dynamicSubtotalSelector = "";
 const chekoutBtnSelector = "#CartSection [name=checkout]";
 const dynamicCheckoutBtnSelector = "";
 const dynamicUpdateSection = "";
-const updateSection = "";
+const updateSection = "#CartSection";
 
 const changeSubtotal = (snapshot) => {
   // Change Subtotal
@@ -64,6 +64,13 @@ const changeSubtotal = (snapshot) => {
     embedWidget(type);
     renderModal(type);
   });
+
+  // 初始化的时候 Rerender cart
+  try {
+    rerenderCart(updateSection, dynamicUpdateSection, store);
+  } catch {
+    console.log("rerender cart fail");
+  }
 
   // Cart Update Handler
   document.addEventListener(seelEvents.cartUpdated, () => {
