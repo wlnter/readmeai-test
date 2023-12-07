@@ -50,14 +50,6 @@
       }
     },
     {
-      "shop": "goodbuygear.com",
-      "domain": "kid-gear.myshopify.com",
-      "buckets": ["a", "b", "c"],
-      "profile": {
-        "productType": ["ra"]
-      }
-    },
-    {
       "shop": "roomshop.us",
       "domain": "room-shop-vintage.myshopify.com",
       "buckets": ["a", "b", "c"],
