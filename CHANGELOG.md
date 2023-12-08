@@ -1,3 +1,10 @@
+## [3.22.1](https://github.com/kover-ai/shopify-scripts/compare/v3.22.0...v3.22.1) (2023-12-08)
+
+
+### Bug Fixes
+
+* **fff37f\tomasso-black:** 修复fff37f 主题变更widget消失、tomasso-black rabanner不出现 ([1b62e35](https://github.com/kover-ai/shopify-scripts/commit/1b62e35fcbdd1037d540a96e0a66ba7abe0de484))
+
 # [3.22.0](https://github.com/kover-ai/shopify-scripts/compare/v3.21.0...v3.22.0) (2023-12-07)
 
 
