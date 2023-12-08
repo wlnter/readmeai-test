@@ -15,13 +15,13 @@ store.configs = configurations;
 
 const shop = window?.Shopify?.shop || window?.Shopify?.Checkout?.apiHost;
 
-const subtotalSelector = "#MainContent .cart__summary-total span:last-child";
+const subtotalSelector = "#MainContent .cart__footer .totals__subtotal-value";
 const dynamicSubtotalSelector =
-  "#CartDrawer-Body .cart-drawer__summary-total span:last-child";
+  "#CartDrawer .cart-drawer__footer .totals__subtotal-value";
 const chekoutBtnSelector = "#cart [name=checkout]";
-const dynamicCheckoutBtnSelector = "#CartDrawer-Body [name=checkout]";
-const dynamicUpdateSection = "";
-const updateSection = "";
+const dynamicCheckoutBtnSelector = "#CartDrawer [name=checkout]";
+const dynamicUpdateSection = "#CartDrawer-CartItems";
+const updateSection = "#main-cart-items";
 
 const changeSubtotal = (snapshot) => {
   // Change Subtotal
