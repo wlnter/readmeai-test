@@ -2,7 +2,7 @@ import lodashTemplate from "lodash.template";
 import widgetTemplate from "./index.html";
 import { bindWidgetEvents, seelEvents } from "../../core";
 import store, { snapshot } from "../../core/store";
-import { formatMoney } from "../../core/util";
+import { formatMoney, getWidgetSwitchStatus } from "../../core/util";
 import { loadExperimentAsset, trafficSplitter } from "../../experiment";
 import "./index.css";
 import { renderingMarker } from "../../pixel/performance";
@@ -52,8 +52,10 @@ export const flatten = (widget, type) => {
     listPrice: listPriceRate ? listPrice : "",
   });
 
+  const widgetStatus = getWidgetSwitchStatus(type);
+  const newWidgetStatus = sessions ? (sessions?.[type] !== null ? sessions?.[type] : widgetStatus) : widgetStatus;
   widget.querySelector("[data-seel-widget-input]").checked =
-    sessions?.[type] == null ? profile?.checked : sessions?.[type];
+  newWidgetStatus !== null ? newWidgetStatus : profile?.checked;
 
   return widget;
 };

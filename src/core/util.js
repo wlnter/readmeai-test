@@ -1,7 +1,11 @@
 import FingerprintJS from "@fingerprintjs/fingerprintjs";
 import camelCase from "lodash.camelcase";
 import { v4 as uuidv4 } from "uuid";
-import { SEEL_SESSION_ID_KEY, SEEL_USER_ID_KEY } from "./constant";
+import {
+  SEEL_SESSION_ID_KEY,
+  SEEL_USER_ID_KEY,
+  SEEL_SWITCH_STATUS_STORAGE_KEY,
+} from "./constant";
 
 // reference: https://fingerprint.com/github/
 const fpPromise = FingerprintJS.load();
@@ -195,4 +199,35 @@ export const rerenderCart = (updateSection, dynamicUpdateSection, store) => {
       }
     }
   }
+};
+
+export const setWidgetSwitchStatus = (type, value) => {
+  const widgetSwitchStatus = localStorage?.getItem(
+    SEEL_SWITCH_STATUS_STORAGE_KEY,
+  );
+  if (widgetSwitchStatus) {
+    const widgetSwitchStatusJson = JSON.parse(widgetSwitchStatus);
+    widgetSwitchStatusJson[type] = value;
+    localStorage.setItem(
+      SEEL_SWITCH_STATUS_STORAGE_KEY,
+      JSON.stringify(widgetSwitchStatusJson),
+    );
+  } else {
+    const newWidgetSwitchStatusJson = {};
+    newWidgetSwitchStatusJson[type] = value;
+    localStorage.setItem(
+      SEEL_SWITCH_STATUS_STORAGE_KEY,
+      JSON.stringify(newWidgetSwitchStatusJson),
+    );
+  }
+};
+
+export const getWidgetSwitchStatus = (type) => {
+  const widgetSwitchStatus = localStorage?.getItem(
+    SEEL_SWITCH_STATUS_STORAGE_KEY,
+  );
+  if (widgetSwitchStatus) {
+    return JSON.parse(widgetSwitchStatus)[type] || null;
+  }
+  return null;
 };

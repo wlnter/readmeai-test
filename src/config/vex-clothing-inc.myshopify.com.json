@@ -7,8 +7,8 @@
       "infoIconLink": "",
       "description": "You have item(s) worth {{currencySymbol}}{{value}} in your cart that are final sale. For <del>{{listPrice}}</del> {{currencySymbol}}{{price}}, you can add an option within {{returnWindow}} days to return these item(s) if they don’t work out for any reason.",
       "widgetIcon": "https://static.seel.com/image/ra-widget-icon.svg",
-      "anchor": "#cart_form > div > div.eleven.columns",
-      "position": "beforeend",
+      "anchor": ".giftbox-checkout-cloned[name=checkout]",
+      "position": "beforebegin",
       "dynamicAnchor": "",
       "dynamicPosition": "beforebegin",
       "checkoutAnchor": "",
@@ -99,5 +99,6 @@
       "anchor": ".product-form__buttons",
       "position": "beforebegin"
     }
-  ]
+  ],
+  "sections":["cart-template"]
 }

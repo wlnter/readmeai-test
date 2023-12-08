@@ -7,7 +7,12 @@ import {
   fetchRAEligibility,
 } from "./fetch";
 import { seelEvents, MERCHANT_PROFILE_KEY, productType } from "./constant";
-import { cartDiff, styledLogger, getProduct } from "./util";
+import {
+  cartDiff,
+  styledLogger,
+  getProduct,
+  getWidgetSwitchStatus,
+} from "./util";
 import store, { snapshot } from "./store";
 import { setCartObserver, locationHashObserver } from "./event";
 import { performanceObserver } from "../pixel/performance";
@@ -159,12 +164,19 @@ export const getQuotesAndUpdateCart = async (shop) => {
     );
     const profile = store.profiles.find((_) => _.type === quote.type);
 
+    const storageSwitchStatus = getWidgetSwitchStatus(quote.type);
+
     if (seelVariantsInCart?.length) {
       notMatched?.forEach((_) => {
         updates[_.id] = 0;
       });
 
-      if (matched || store?.sessions?.[quote.type] || profile?.checked) {
+      if (
+        matched ||
+        store?.sessions?.[quote.type] ||
+        storageSwitchStatus ||
+        profile?.checked
+      ) {
         if (quote?.variantId) {
           updates[quote.variantId] = 1;
         }
@@ -178,9 +190,15 @@ export const getQuotesAndUpdateCart = async (shop) => {
         }
       });
     } else if (
-      store?.sessions?.[quote.type] == null
+      store?.sessions
+        ? store?.sessions?.[quote.type] == null
+          ? storageSwitchStatus == null
+            ? profile.checked
+            : storageSwitchStatus
+          : store?.sessions?.[quote.type]
+        : storageSwitchStatus == null
         ? profile.checked
-        : store?.sessions?.[quote.type]
+        : storageSwitchStatus
     ) {
       if (quote?.variantId) {
         updates[quote.variantId] = 1;

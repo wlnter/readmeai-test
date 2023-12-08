@@ -1,7 +1,7 @@
 import { updateCart } from "./fetch";
 import store, { snapshot } from "./store";
-import { seelEvents } from "./constant";
-import { styledLogger } from "./util";
+import { seelEvents, SEEL_SWITCH_STATUS_STORAGE_KEY } from "./constant";
+import { styledLogger, setWidgetSwitchStatus } from "./util";
 
 export const setCartObserver = () => {
   const observer = new PerformanceObserver((list) => {
@@ -51,6 +51,7 @@ export const bindWidgetEvents = async (type, widget) => {
       });
       store.sessions = store.sessions || {};
       store.sessions[type] = !!source.checked;
+      setWidgetSwitchStatus(type, store.sessions[type]);
 
       const detail = {
         updates: { [variantId]: source.checked ? 1 : 0 },

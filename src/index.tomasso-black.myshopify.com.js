@@ -9,6 +9,7 @@ import renderPdpBanner from "./component/pdp-banner";
 import configurations from "./config/tomasso-black.myshopify.com.json";
 import { rerenderCart } from "./core/util";
 import { pixelEvent } from "./pixel/product-protection-pixel";
+import "./component/cart-widget/tomasso-black.myshopify.com.css";
 import embedPdpWidget, {
   flatten as repaintPdpWidget,
 } from "./component/pdp-widget";

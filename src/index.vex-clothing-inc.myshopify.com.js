@@ -24,7 +24,7 @@ const option = {
   chekoutBtnSelector: "#checkout",
   dynamicCheckoutBtnSelector: "",
   dynamicUpdateSection: "",
-  updateSection: "",
+  updateSection: "#cart_form > div > div.eleven.columns",
 };
 
 // helper
