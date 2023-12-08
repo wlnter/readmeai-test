@@ -1,3 +1,10 @@
+## [3.22.2](https://github.com/kover-ai/shopify-scripts/compare/v3.22.1...v3.22.2) (2023-12-08)
+
+
+### Bug Fixes
+
+* **room-shop-vintage.myshopify.com:** fixed 商品错位问题 ([52d651e](https://github.com/kover-ai/shopify-scripts/commit/52d651e391b8e0b32ea67b68e7ecd5269659a9e3))
+
 ## [3.22.1](https://github.com/kover-ai/shopify-scripts/compare/v3.22.0...v3.22.1) (2023-12-08)
 
 
