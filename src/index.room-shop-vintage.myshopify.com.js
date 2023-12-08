@@ -25,7 +25,7 @@ const option = {
   chekoutBtnSelector: "#checkout",
   dynamicCheckoutBtnSelector: "",
   dynamicUpdateSection: "",
-  updateSection: "",
+  updateSection: ".cart-items",
 };
 
 // helper

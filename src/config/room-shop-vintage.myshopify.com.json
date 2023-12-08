@@ -99,5 +99,6 @@
       "anchor": ".product-form__buttons",
       "position": "beforebegin"
     }
-  ]
+  ],
+  "sections":["template--16860516876512__cart-items"]
 }

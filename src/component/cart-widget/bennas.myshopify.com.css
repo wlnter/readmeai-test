@@ -1,8 +1,13 @@
 .seel_widget {
-    margin-bottom: 10px;
-    min-width: 260px;
-  }
+  margin-bottom: 10px;
+  min-width: 260px;
+}
 
-  .ajaxcart__footer.ajaxcart__footer--fixed{
-    overflow: auto;
-  }
+.ajaxcart__footer.ajaxcart__footer--fixed{
+  overflow: auto;
+}
+
+#PageContainer .seel_widget{
+  width: 330px;
+  margin: 0 auto 10px;
+}
