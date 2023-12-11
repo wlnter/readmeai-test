@@ -1,3 +1,10 @@
+## [3.23.1](https://github.com/kover-ai/shopify-scripts/compare/v3.23.0...v3.23.1) (2023-12-11)
+
+
+### Bug Fixes
+
+* **519736-4:** fixed checkbox style ([47fbf1c](https://github.com/kover-ai/shopify-scripts/commit/47fbf1c9862eaa8d9130619dd2d9a28f5cc1e715))
+
 # [3.23.0](https://github.com/kover-ai/shopify-scripts/compare/v3.22.2...v3.23.0) (2023-12-11)
 
 
