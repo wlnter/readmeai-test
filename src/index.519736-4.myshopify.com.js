@@ -1,30 +1,32 @@
-import initialize, { addCart, updateCart } from "./core/index.js";
-import { productType, seelEvents } from "./core/constant.js";
-import store, { snapshot } from "./core/store.js";
+import initialize, { addCart, updateCart } from "./core";
+import { productType, seelEvents } from "./core/constant";
+import store, { snapshot } from "./core/store";
 import embedWidget, {
   flatten as repaint,
 } from "./component/cart-widget/index.js";
-import renderModal from "./component/modal/index.js";
-import renderPdpBanner from "./component/pdp-banner/index.js";
-import configurations from "./config/vex-clothing-inc.myshopify.com.json";
-import { rerenderCart } from "./core/util.js";
+import renderModal from "./component/modal";
+import renderPdpBanner from "./component/pdp-banner";
+import configurations from "./config/519736-4.myshopify.com.json";
+import { rerenderCart, createElementFromString } from "./core/util";
+import { pixelEvent } from "./pixel/product-protection-pixel";
 import embedPdpWidget, {
   flatten as repaintPdpWidget,
-} from "./component/pdp-widget/index.js";
+} from "./component/pdp-widget";
+import "./component/cart-widget/519736-4.myshopify.com.css";
 
 store.configs = configurations;
 
 // shop related variables
-const shop = "vex-clothing-inc.myshopify.com";
+const shop = "519736-4.myshopify.com";
 const option = {
   atcButtonSelector: "",
   quantitySelector: "",
-  subtotalSelector: "p.cart_subtotal.js-cart_subtotal > span.right > span",
+  subtotalSelector: "",
   dynamicSubtotalSelector: "",
-  chekoutBtnSelector: "#checkout",
-  dynamicCheckoutBtnSelector: "",
+  chekoutBtnSelector: "#cart-checkout",
+  dynamicCheckoutBtnSelector: "#cart-sidebar-checkout",
   dynamicUpdateSection: "",
-  updateSection: "",
+  updateSection: ".cart-list",
 };
 
 // helper
@@ -38,25 +40,25 @@ const changeSubtotal = (
 
   const { total_price: cartTotalPrice, currency } = store.cart;
   const subTotal = (cartTotalPrice / 100).toFixed(2);
-  const numberFormat = new Intl.NumberFormat("de-DE", {
+  const numberFormat = new Intl.NumberFormat("en-US", {
     style: "currency",
     currency,
   });
   const parts = numberFormat.formatToParts(subTotal);
   const partValues = parts.map((p) => p.value);
-  const currencySymbol = partValues.pop();
+  const currencySymbol = partValues.shift();
   const amount = partValues.join("");
 
   if (subtotalSelector && document.querySelector(subtotalSelector)) {
     const element = document.querySelector(subtotalSelector);
-    element.innerHTML = `${currencySymbol} ${amount}${currency}`;
+    element.innerHTML = `${currencySymbol}${amount} ${currency}`;
   }
   if (
     dynamicSubtotalSelector &&
     document.querySelector(dynamicSubtotalSelector)
   ) {
     const element = document.querySelector(dynamicSubtotalSelector);
-    element.innerHTML = `Checkout · ${currencySymbol} ${amount}${currency}`;
+    element.innerHTML = `${currencySymbol}${amount} ${currency}`;
   }
 };
 
@@ -180,9 +182,25 @@ const actionDurationFrame = (
 
     const atcButton =
       atcButtonSelector && document.querySelector(atcButtonSelector);
-    atcButton?.addEventListener("click", (ev) => {
-      atcActionHandler(ev, option);
-    });
+    atcButton &&
+      atcButton?.addEventListener("click", (ev) => {
+        const pdpWidget = document.querySelector(
+          `.seel_pdp_widget[data-seel-product-type=${productType.ew}]`,
+        );
+        if (
+          pdpWidget &&
+          pdpWidget.querySelector(`[data-seel-pdp-widget-option-selected]`)
+        ) {
+          document.dispatchEvent(
+            new CustomEvent(pixelEvent.protectionSelected, {
+              detail: {
+                source: "widget",
+              },
+            }),
+          );
+        }
+        atcActionHandler(ev, option);
+      });
     document.addEventListener(seelEvents.protectionAdded, (ev) => {
       atcActionHandler(ev, option);
     });
@@ -213,11 +231,11 @@ const actionDurationFrame = (
 
   actionDurationFrame(snapshot(store), option);
 
-  // rerender cart
+  // init Rerender cart
   try {
-    rerenderCart(updateSection, dynamicUpdateSection, snapshot(store));
-  } catch (e) {
-    console.log(e.message);
+    rerenderCart(updateSection, dynamicUpdateSection, store);
+  } catch {
+    console.log("rerender cart fail");
   }
 
   // reaction of cart update event

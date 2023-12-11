@@ -7,7 +7,7 @@ import embedWidget, {
 import renderModal from "./component/modal";
 import renderPdpBanner from "./component/pdp-banner";
 import configurations from "./config/tomasso-black.myshopify.com.json";
-import { rerenderCart, createElementFromString } from "./core/util";
+import { rerenderCart } from "./core/util";
 import { pixelEvent } from "./pixel/product-protection-pixel";
 import embedPdpWidget, {
   flatten as repaintPdpWidget,
