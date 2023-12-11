@@ -3,6 +3,7 @@ import store, { snapshot } from "../../core/store";
 import "./index.css";
 import { pixelEvent } from "../../pixel/product-protection-pixel";
 import renderPdpModal, { flatten as flattenModal } from "../pdp-modal";
+import { renderingMarker } from "../../pixel/performance";
 
 const createOption = () => {
   const optionTemplate = `<div data-seel-pdp-widget-option class="seel_pdp_widget--option">
@@ -23,7 +24,7 @@ export const flatten = (node, type) => {
   const config = configs?.pdpWidgets?.find((_) => _.type === type);
   const profile = profiles.find((_) => _.type === type);
   const quote = quotes.find((_) => _.type === type);
-  if(!config){
+  if (!config) {
     return null;
   }
   const { name, logo, anchor, position, linkHref, linkText, description } =
@@ -101,6 +102,7 @@ const renderPdpWidget = (type, shop) => {
         product: product.productId,
       },
     });
+    renderingMarker(type, "product");
     widget
       .querySelector("[data-seel-pdp-widget-options]")
       .addEventListener("click", (e) => {

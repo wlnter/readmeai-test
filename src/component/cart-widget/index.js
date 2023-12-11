@@ -5,6 +5,7 @@ import store, { snapshot } from "../../core/store";
 import { formatMoney } from "../../core/util";
 import { loadExperimentAsset, trafficSplitter } from "../../experiment";
 import "./index.css";
+import { renderingMarker } from "../../pixel/performance";
 
 export const flatten = (widget, type) => {
   const { configs, profiles, quotes, sessions } = snapshot(store);
@@ -14,7 +15,7 @@ export const flatten = (widget, type) => {
   const quote = quotes.find((_) => _.type === type);
   const { description, name, infoIcon, widgetIcon, listPriceRate } = config;
   const templateOption = { interpolate: /\{\{(.+?)\}\}/g };
-  if(!quote){
+  if (!quote) {
     return null;
   }
   const { value, price, currencySymbol } = quote;
@@ -123,8 +124,8 @@ export const embedWidget = async (type) => {
   if (anchor && document.querySelector(anchor) && widget) {
     document.querySelector(anchor).insertAdjacentElement(position, widget);
     widget.dataset.seelProductType = type;
-    console.log(`insert ${type} widget and bind events`);
     bindWidgetEvents(type);
+    renderingMarker(type);
   } else if (
     checkoutAnchor &&
     document.querySelector(checkoutAnchor) &&
@@ -134,8 +135,8 @@ export const embedWidget = async (type) => {
       .querySelector(checkoutAnchor)
       .insertAdjacentElement(checkoutPosition, widget);
     widget.dataset.seelProductType = type;
-    console.log(`insert ${type} widget and bind events`);
     bindWidgetEvents(type);
+    renderingMarker(type);
   } else if (dynamicAnchor && widget) {
     const widgetElement = document.querySelector(
       `.seel_widget[data-seel-product-type='${type}']`,
@@ -145,8 +146,8 @@ export const embedWidget = async (type) => {
         .querySelector(dynamicAnchor)
         .insertAdjacentElement(dynamicPosition || "beforebegin", widget);
       widget.dataset.seelProductType = type;
-      console.log(`insert dynamicAnchor ${type} widget and bind events`);
       bindWidgetEvents(type);
+      renderingMarker(type);
     }
     dynamicAnchorObserver?.[type]?.disconnect?.();
     dynamicAnchorObserver[type] = new MutationObserver(() => {
@@ -160,6 +161,7 @@ export const embedWidget = async (type) => {
         widget.dataset.seelProductType = type;
         console.log(`insert dynamicAnchor ${type} widget and bind events`);
         bindWidgetEvents(type);
+        renderingMarker(type);
         dynamicAnchorObserver?.[type]?.disconnect?.();
       }
     });

@@ -11,8 +11,11 @@ import { rerenderCart, createElementFromString } from "./core/util";
 import embedPdpWidget, {
   flatten as repaintPdpWidget,
 } from "./component/pdp-widget";
+import { scriptingMarker } from "./pixel/performance.js";
 
 store.configs = configurations;
+
+scriptingMarker();
 
 // shop related variables
 const shop = "seel-dev-store.myshopify.com";

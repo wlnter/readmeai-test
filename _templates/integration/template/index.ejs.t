@@ -15,8 +15,11 @@ import { pixelEvent } from "./pixel/product-protection-pixel";
 import embedPdpWidget, {
   flatten as repaintPdpWidget,
 } from "./component/pdp-widget";
+import { scriptingMarker } from "./pixel/performance.js";
 
 store.configs = configurations;
+
+scriptingMarker()
 
 // shop related variables
 const shop = "<%= shop %>.myshopify.com";

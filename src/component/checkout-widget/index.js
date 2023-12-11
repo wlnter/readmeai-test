@@ -5,6 +5,7 @@ import store, { snapshot } from "../../core/store";
 import { formatMoney } from "../../core/util";
 import { loadExperimentAsset, trafficSplitter } from "../../experiment";
 import "./index.css";
+import { renderingMarker } from "../../pixel/performance";
 
 export const flatten = (widget, type) => {
   const { configs, profiles, quotes, sessions } = snapshot(store);
@@ -124,6 +125,7 @@ export const embedWidget = async (type) => {
       .querySelector(checkoutAnchor)
       .insertAdjacentElement(checkoutPosition || "beforebegin", widget);
     bindWidgetEvents(type);
+    renderingMarker(type, "checkout");
   }
 };
 

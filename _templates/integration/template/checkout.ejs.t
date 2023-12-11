@@ -9,8 +9,11 @@ import embedWidget, {
 import renderModal from "./component/modal";
 import initialize, { seelEvents } from "./core";
 import configuration from "./config/<%= shop %>.myshopify.com.json";
+import { scriptingMarker } from "./pixel/performance.js";
 
 store.configs = configuration;
+
+scriptingMarker();
 
 const shop = "<%= shop %>.myshopify.com";
 

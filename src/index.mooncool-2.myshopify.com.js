@@ -10,6 +10,9 @@ import embedPdpWidget, {
 import embedWidget, { flatten as repaint } from "./component/cart-widget";
 import renderModal from "./component/modal";
 import { pixelEvent } from "./pixel/product-protection-pixel";
+import { scriptingMarker } from "./pixel/performance.js";
+
+scriptingMarker();
 
 store.configs = configurations;
 
