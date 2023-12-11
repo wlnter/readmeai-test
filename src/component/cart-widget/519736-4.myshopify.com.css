@@ -1,3 +1,7 @@
 .seel_widget--title_line--checkbox{
   position: relative!important;
+  border: 1px solid #202223!important;
+}
+.seel_widget--title_line--checkbox:checked {
+  border-color: #645aff!important;
 }
