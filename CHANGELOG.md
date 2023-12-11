@@ -1,3 +1,10 @@
+# [3.23.0](https://github.com/kover-ai/shopify-scripts/compare/v3.22.2...v3.23.0) (2023-12-11)
+
+
+### Features
+
+* **736d75\eden-ash\fff89c\74edb8-3\950ce7\05a3e8-2\519736-4\71a674-3:** add eight new shop ([4a9b225](https://github.com/kover-ai/shopify-scripts/commit/4a9b2253b36708e3ee8dd32163a44d14ec133e0e))
+
 ## [3.22.2](https://github.com/kover-ai/shopify-scripts/compare/v3.22.1...v3.22.2) (2023-12-08)
 
 
