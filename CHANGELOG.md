@@ -1,3 +1,10 @@
+# [3.26.0](https://github.com/kover-ai/shopify-scripts/compare/v3.25.0...v3.26.0) (2023-12-12)
+
+
+### Features
+
+* 新增shopify商家的A/B试验（capybara） ([dc4fb73](https://github.com/kover-ai/shopify-scripts/commit/dc4fb73a06ef58d011fafc2e3ca32b863ee281f9))
+
 # [3.25.0](https://github.com/kover-ai/shopify-scripts/compare/v3.24.0...v3.25.0) (2023-12-12)
 
 
