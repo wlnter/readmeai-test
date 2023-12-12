@@ -61,6 +61,7 @@ jobs:
           then
             find ./dist/script -name '*.js' -exec sed -i -e 's/SEMANTIC_RELEASE_VERSION/${{steps.semantic.outputs.new_release_version}}/g' {} \;
             aws s3 cp dist s3://static-resources-prod-bucket/shopify/ --recursive
+            aws s3 cp dist "s3://static-resources-prod-bucket/shopify/${{steps.semantic.outputs.new_release_version}}/" --recursive
           fi
 
       - name: Invalidate Cloudfront Distribution and Wait For Completion
