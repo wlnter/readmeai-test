@@ -94,6 +94,8 @@ export const loadExperimentAsset = async (type, { bucket, profile, code }) => {
         `./component/cart-widget-${bucket}/`
       );
       return { cartWidgetTemplate, overrideConfig };
+    } else {
+      return null;
     }
   } catch (e) {
     console.log(e.message);
