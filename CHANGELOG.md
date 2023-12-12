@@ -1,3 +1,10 @@
+## [3.27.2](https://github.com/kover-ai/shopify-scripts/compare/v3.27.1...v3.27.2) (2023-12-12)
+
+
+### Bug Fixes
+
+* 试验分组数据会缓存24小时，在缓存期间还是需要正常获取试验分组资源 ([2cc0195](https://github.com/kover-ai/shopify-scripts/commit/2cc0195c6b64031b97cb3136b6b86f8748dbdb0a))
+
 ## [3.27.1](https://github.com/kover-ai/shopify-scripts/compare/v3.27.0...v3.27.1) (2023-12-12)
 
 
