@@ -1,10 +1,10 @@
 {
-  "code": "meerkat",
+  "code": "capybara",
   "scope": [
     {
       "shop": "adelanteshoes.com",
       "domain": "adelante-shoe-co.myshopify.com",
-      "buckets": ["a", "b", "c"],
+      "buckets": ["b", "c", "d"],
       "profile": {
         "productType": ["ra"]
       }
@@ -12,7 +12,7 @@
     {
       "shop": "ericjavits.com",
       "domain": "eric-javits.myshopify.com",
-      "buckets": ["a", "b", "c"],
+      "buckets": ["b", "c", "d"],
       "profile": {
         "productType": ["ra"]
       }
@@ -20,7 +20,7 @@
     {
       "shop": "riversidetoolanddye.com",
       "domain": "bennas.myshopify.com",
-      "buckets": ["a", "b", "c"],
+      "buckets": ["b", "c", "d"],
       "profile": {
         "productType": ["ra"]
       }
@@ -28,7 +28,7 @@
     {
       "shop": "holythrift.com",
       "domain": "holy-thrift.myshopify.com",
-      "buckets": ["a", "b", "c"],
+      "buckets": ["b", "c", "d"],
       "profile": {
         "productType": ["ra"]
       }
@@ -36,7 +36,7 @@
     {
       "shop": "www.marcjanie.com",
       "domain": "marcjanie.myshopify.com",
-      "buckets": ["a", "b", "c"],
+      "buckets": ["b", "c", "d"],
       "profile": {
         "productType": ["ra"]
       }
@@ -44,7 +44,7 @@
     {
       "shop": "www.bewelldressed.com",
       "domain": "well-dressed-nasvhille.myshopify.com",
-      "buckets": ["a", "b", "c"],
+      "buckets": ["b", "c", "d"],
       "profile": {
         "productType": ["ra"]
       }
@@ -52,7 +52,7 @@
     {
       "shop": "roomshop.us",
       "domain": "room-shop-vintage.myshopify.com",
-      "buckets": ["a", "b", "c"],
+      "buckets": ["b", "c", "d"],
       "profile": {
         "productType": ["ra"]
       }
@@ -60,7 +60,7 @@
     {
       "shop": "striptofficial.com",
       "domain": "stript-official.myshopify.com",
-      "buckets": ["a", "b", "c"],
+      "buckets": ["b", "c", "d"],
       "profile": {
         "productType": ["ra"]
       }
@@ -68,7 +68,7 @@
     {
       "shop": "vex-clothing-inc.myshopify.com",
       "domain": "vex-clothing-inc.myshopify.com",
-      "buckets": ["a", "b", "c"],
+      "buckets": ["b", "c", "d"],
       "profile": {
         "productType": ["ra"]
       }
@@ -76,7 +76,7 @@
     {
       "shop": "seel-dev-store.myshopify.com",
       "domain": "seel-dev-store.myshopify.com",
-      "buckets": ["a", "b", "b", "c", "c"],
+      "buckets": ["b", "c", "d"],
       "profile": {
         "productType": ["ra"]
       }

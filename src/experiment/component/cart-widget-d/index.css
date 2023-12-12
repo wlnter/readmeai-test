@@ -1,0 +1,86 @@
+.seel_widget.seel_experiment {
+  border: 1px #d9d9d9 solid;
+  border-radius: 5px;
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  min-width: 280px;
+  text-align: left;
+}
+.seel_widget--icon.seel_experiment {
+  width: 30px;
+  height: 30px;
+}
+.seel_widget--content.seel_experiment {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-right: 15px;
+  flex: 1;
+}
+.seel_widget--title_line.seel_experiment {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  /* margin: 0; */
+}
+.seel_widget--title_line--name.seel_experiment {
+  font-weight: 600;
+  color: #202223;
+  font-size: 14px;
+  line-height: 14px;
+  margin: 0;
+}
+.seel_widget--title_line--icon.seel_experiment {
+  margin: 0 10px;
+}
+.seel_widget--desc_line.seel_experiment {
+  color: #202223;
+  font-size: 14px;
+}
+
+/* toggle in label designing */
+.seel_widget--toggle {
+  position: relative;
+  display: flex;
+  width: 34px;
+  height: 18px;
+  background-color: #bdbdbd;
+  border-radius: 30px;
+  align-items: flex-end;
+  /* border: 2px solid gray; */
+}
+
+/* After slide changes */
+.seel_widget--toggle:after {
+  content: "";
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: white;
+  border: 1px solid white;
+  box-sizing: border-box;
+  top: 1px;
+  left: 1px;
+  transition: all 0.3s;
+}
+/* Checkbox checked effect */
+#seel_widget--switch:checked + .seel_widget--toggle::after {
+  left: 17px;
+  border: 1px solid #9b95ff;
+}
+
+/* Checkbox checked seel_widget--toggle label bg color */
+#seel_widget--switch:checked + .seel_widget--toggle {
+  background-color: #645aff;
+}
+
+/* Checkbox vanished */
+#seel_widget--switch {
+  display: none;
+}

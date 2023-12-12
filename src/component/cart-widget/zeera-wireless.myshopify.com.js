@@ -29,7 +29,7 @@ export const flatten = (widget, type) => {
   const widgetDesc = widget.querySelector("[data-seel-widget-desc]");
   widgetName.innerHTML = lodashTemplate(
     name,
-    templateOption
+    templateOption,
   )({
     ...profile,
     ...quote,
@@ -40,7 +40,7 @@ export const flatten = (widget, type) => {
   widgetInfoIconEl.setAttribute("src", infoIcon);
   widgetDesc.innerHTML = lodashTemplate(
     description,
-    templateOption
+    templateOption,
   )({
     ...profile,
     ...quote,
@@ -60,7 +60,7 @@ export const getComponent = async (type) => {
   // bucket testing start
   const { bucket, profile, ...rest } = await trafficSplitter({
     shop: store.shop,
-    code: "meerkat",
+    code: "capybara",
   });
 
   console.log(bucket, profile);
@@ -69,7 +69,7 @@ export const getComponent = async (type) => {
     bucket,
     profile,
     ...rest,
-    code: "meerkat",
+    code: "capybara",
   });
 
   console.log(experimentAsset);
@@ -139,7 +139,7 @@ export const embedWidget = async (type) => {
     bindWidgetEvents(type);
   } else if (dynamicAnchor && widget) {
     const widgetElement = document.querySelector(
-      `.seel_widget[data-seel-product-type='${type}']`
+      `.seel_widget[data-seel-product-type='${type}']`,
     );
     if (!widgetElement && document.querySelector(dynamicAnchor)) {
       document
@@ -152,7 +152,7 @@ export const embedWidget = async (type) => {
     dynamicAnchorObserver?.[type]?.disconnect?.();
     dynamicAnchorObserver[type] = new MutationObserver(() => {
       const widgetElement = document.querySelector(
-        `.seel_widget[data-seel-product-type='${type}']`
+        `.seel_widget[data-seel-product-type='${type}']`,
       );
       if (!widgetElement && document.querySelector(dynamicAnchor)) {
         document

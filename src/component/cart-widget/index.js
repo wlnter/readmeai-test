@@ -64,14 +64,14 @@ export const getComponent = async (type) => {
   // bucket testing start
   const { bucket, profile, ...rest } = await trafficSplitter({
     shop: store.shop,
-    code: "meerkat",
+    code: "capybara",
   });
 
   const experimentAsset = await loadExperimentAsset(type, {
     bucket,
     profile,
     ...rest,
-    code: "meerkat",
+    code: "capybara",
   });
 
   if (experimentAsset) {
