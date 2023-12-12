@@ -1,3 +1,10 @@
+# [3.24.0](https://github.com/kover-ai/shopify-scripts/compare/v3.23.1...v3.24.0) (2023-12-12)
+
+
+### Features
+
+* **common style:** change 17bp checkout style ([03876e8](https://github.com/kover-ai/shopify-scripts/commit/03876e8588e791f9719cfafceaae7bd8eb772edd))
+
 ## [3.23.1](https://github.com/kover-ai/shopify-scripts/compare/v3.23.0...v3.23.1) (2023-12-11)
 
 
