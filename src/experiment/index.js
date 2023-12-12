@@ -88,7 +88,7 @@ export const loadExperimentAsset = async (type, { bucket, profile, code }) => {
     return null;
   }
   try {
-    if (code === "capybara") {
+    if (code === "capybara" || code === "meerkat") {
       const { cartWidgetTemplate, overrideConfig } = await import(
         /* webpackChunkName: "experiment/component/[request]" */
         `./component/cart-widget-${bucket}/`
