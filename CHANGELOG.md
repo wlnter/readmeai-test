@@ -1,3 +1,10 @@
+# [3.27.0](https://github.com/kover-ai/shopify-scripts/compare/v3.26.0...v3.27.0) (2023-12-12)
+
+
+### Features
+
+* **0d5553\leizileimall\sweet-butterfly-boutique-llc:** add three new shop ([122bf0c](https://github.com/kover-ai/shopify-scripts/commit/122bf0cbc6131c7f785f8dbc76470b94ca003c71))
+
 # [3.26.0](https://github.com/kover-ai/shopify-scripts/compare/v3.25.0...v3.26.0) (2023-12-12)
 
 
