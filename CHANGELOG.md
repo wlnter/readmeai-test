@@ -1,3 +1,10 @@
+## [3.27.1](https://github.com/kover-ai/shopify-scripts/compare/v3.27.0...v3.27.1) (2023-12-12)
+
+
+### Bug Fixes
+
+* 未命中试验分桶时，不加载试验资源 ([5a3665f](https://github.com/kover-ai/shopify-scripts/commit/5a3665f1b9dd4b47567b8a935ba659835a49023d))
+
 # [3.27.0](https://github.com/kover-ai/shopify-scripts/compare/v3.26.0...v3.27.0) (2023-12-12)
 
 
