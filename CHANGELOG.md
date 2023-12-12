@@ -1,3 +1,11 @@
+# [3.25.0](https://github.com/kover-ai/shopify-scripts/compare/v3.24.0...v3.25.0) (2023-12-12)
+
+
+### Features
+
+* **b27657-2/ihoverboarduk/iscooterglobaluk/iscooterglobalde:** add four new shop ([dbdbea4](https://github.com/kover-ai/shopify-scripts/commit/dbdbea47a1640f808c97d965a4523044d88c0fa1))
+* 增加性能统计相关的数据上报，包括渲染和接口调用 ([9102860](https://github.com/kover-ai/shopify-scripts/commit/9102860dbe4b9fc8e6b044ce517538b3038e34c1))
+
 # [3.24.0](https://github.com/kover-ai/shopify-scripts/compare/v3.23.1...v3.24.0) (2023-12-12)
 
 
