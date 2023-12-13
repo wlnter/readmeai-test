@@ -1,3 +1,10 @@
+## [3.30.1](https://github.com/kover-ai/shopify-scripts/compare/v3.30.0...v3.30.1) (2023-12-13)
+
+
+### Bug Fixes
+
+* **sweet-butterfly-boutique-llc.myshopify.com:** fixed 侧边栏ra弹窗被遮挡 ([2c377de](https://github.com/kover-ai/shopify-scripts/commit/2c377dee257e0baf0747f0253fb9512c7dff7a36))
+
 # [3.30.0](https://github.com/kover-ai/shopify-scripts/compare/v3.29.0...v3.30.0) (2023-12-13)
 
 
