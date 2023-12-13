@@ -1,3 +1,10 @@
+# [3.29.0](https://github.com/kover-ai/shopify-scripts/compare/v3.28.0...v3.29.0) (2023-12-13)
+
+
+### Features
+
+* **9c9b25-3\taanaa-jewelry:** add two new shop ([f966099](https://github.com/kover-ai/shopify-scripts/commit/f9660993dc62006abc0c5eb3940e4f6b5e33adb5))
+
 # [3.28.0](https://github.com/kover-ai/shopify-scripts/compare/v3.27.3...v3.28.0) (2023-12-13)
 
 
