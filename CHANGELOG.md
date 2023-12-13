@@ -1,3 +1,10 @@
+# [3.28.0](https://github.com/kover-ai/shopify-scripts/compare/v3.27.3...v3.28.0) (2023-12-13)
+
+
+### Features
+
+* **公共模块:** 保存最近一次widget勾选状态 ([f358ee5](https://github.com/kover-ai/shopify-scripts/commit/f358ee54318a5964b1ef11117c795d7c6028e8df))
+
 ## [3.27.3](https://github.com/kover-ai/shopify-scripts/compare/v3.27.2...v3.27.3) (2023-12-12)
 
 
