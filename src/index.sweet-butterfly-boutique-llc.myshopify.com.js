@@ -13,6 +13,7 @@ import embedPdpWidget, {
   flatten as repaintPdpWidget,
 } from "./component/pdp-widget";
 import { scriptingMarker } from "./pixel/performance.js";
+import "./component/cart-widget/sweet-butterfly-boutique-llc.myshopify.com.css";
 
 store.configs = configurations;
 
