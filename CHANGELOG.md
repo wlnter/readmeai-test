@@ -1,3 +1,10 @@
+# [3.30.0](https://github.com/kover-ai/shopify-scripts/compare/v3.29.0...v3.30.0) (2023-12-13)
+
+
+### Features
+
+* **fromtheheartconsignment\dzees\sweet-butterfly-boutique-llc:** add three new shop ([70039fe](https://github.com/kover-ai/shopify-scripts/commit/70039fea2df170ecf300ecf34834693a83ffda2c))
+
 # [3.29.0](https://github.com/kover-ai/shopify-scripts/compare/v3.28.0...v3.29.0) (2023-12-13)
 
 
