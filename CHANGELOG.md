@@ -1,3 +1,10 @@
+# [3.33.0](https://github.com/kover-ai/shopify-scripts/compare/v3.32.0...v3.33.0) (2023-12-14)
+
+
+### Features
+
+* **文案:** 修改pdp文案 ([72da7c5](https://github.com/kover-ai/shopify-scripts/commit/72da7c5f2345720cedeb5c9a264162f181e7861a))
+
 # [3.32.0](https://github.com/kover-ai/shopify-scripts/compare/v3.31.0...v3.32.0) (2023-12-14)
 
 
