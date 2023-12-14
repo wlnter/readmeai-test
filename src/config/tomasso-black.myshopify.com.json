@@ -95,7 +95,7 @@
       "bannerIcon": "",
       "bannerLogo": "https://cdn.seel.com/assets/images/logo/seel_logo.svg",
       "bannerDesc": "Return Option Available with",
-      "bannerTip": "You can add the option to return this item for a refund back to your original payment method. Proceed to the cart for more details.",
+      "bannerTip": "You can add the option to return this item for a refund. Proceed to the cart for more details.",
       "anchor": ".product__atc.margin__bottom--reduced",
       "position": "beforebegin"
     }
