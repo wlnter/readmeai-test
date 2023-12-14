@@ -1,3 +1,10 @@
+# [3.31.0](https://github.com/kover-ai/shopify-scripts/compare/v3.30.1...v3.31.0) (2023-12-14)
+
+
+### Features
+
+* **fromtheheartconsignment\f5a2c8\amvrshop\77c193-3:** add three shop fix 弹窗被遮挡问题 ([8892a0c](https://github.com/kover-ai/shopify-scripts/commit/8892a0c89a6053dad25278cbd3a93b5eb9b7a6a6))
+
 ## [3.30.1](https://github.com/kover-ai/shopify-scripts/compare/v3.30.0...v3.30.1) (2023-12-13)
 
 
