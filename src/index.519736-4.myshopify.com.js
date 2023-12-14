@@ -21,12 +21,12 @@ const shop = "519736-4.myshopify.com";
 const option = {
   atcButtonSelector: "",
   quantitySelector: "",
-  subtotalSelector: "",
-  dynamicSubtotalSelector: "",
-  chekoutBtnSelector: "#cart-checkout",
-  dynamicCheckoutBtnSelector: "#cart-sidebar-checkout",
+  subtotalSelector: ".card-footer .cart-cost .money",
+  dynamicSubtotalSelector: ".drawer__footer .cart-cost .money",
+  chekoutBtnSelector: ".card-footer [name=checkout]",
+  dynamicCheckoutBtnSelector: ".drawer__footer [name=checkout]",
   dynamicUpdateSection: "",
-  updateSection: ".cart-list",
+  updateSection: "",
 };
 
 // helper

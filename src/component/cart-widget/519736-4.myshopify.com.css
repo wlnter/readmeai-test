@@ -5,3 +5,26 @@
 .seel_widget--title_line--checkbox:checked {
   border-color: #645aff!important;
 }
+
+.drawer__footer .seel_widget--title_line--name{
+  color: #fff!important;
+}
+.drawer__footer .seel_widget--desc_line--text{
+  color: #fff!important;
+}
+.drawer__footer .seel_widget--title_line--icon{
+  filter: invert(1);
+}
+
+.seel_widget--title_line--checkbox:hover{
+  background-color: initial!important;
+  border-color: initial!important;
+}
+.seel_widget--title_line--checkbox{
+  background-color: initial!important;
+  border-color: initial!important;
+}
+.seel_widget--title_line--checkbox:checked{
+  background-color: #2360FD!important;
+  border-color: #2360FD!important;
+}

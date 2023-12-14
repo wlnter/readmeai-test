@@ -26,14 +26,14 @@
   margin-right:0!important;
 }
 
-[data-seel-product-type=bp] .seel_widget--title_line--checkbox:checked{
-  background-color: #2360FD;
-  border-color: #2360FD;
-}
-
 .seel_widget--title_line--checkbox:checked {
   background-color: #645aff;
   border-color: #645aff;
+}
+
+[data-seel-product-type=bp] .seel_widget--title_line--checkbox:checked{
+  background-color: #2360FD;
+  border-color: #2360FD;
 }
 
 .seel_widget--title_line--checkbox::before {

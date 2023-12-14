@@ -6,7 +6,7 @@ import embedWidget, {
 } from "./component/cart-widget/index.js";
 import renderModal from "./component/modal";
 import renderPdpBanner from "./component/pdp-banner";
-import configurations from "./config/leizileimall.myshopify.com.json";
+import configurations from "./config/f5a2c8.myshopify.com.json";
 import { rerenderCart, createElementFromString } from "./core/util";
 import { pixelEvent } from "./pixel/product-protection-pixel";
 import embedPdpWidget, {
@@ -19,17 +19,19 @@ store.configs = configurations;
 scriptingMarker();
 
 // shop related variables
-const shop = "leizileimall.myshopify.com";
+const shop = "f5a2c8.myshopify.com";
 const option = {
   atcButtonSelector: "",
   quantitySelector: "",
   subtotalSelector:
-    "#main-cart-footer > div > div > div > div.js-contents > div.totals > p > span.currency-converter-wrapper-amount-box.cbb-desktop-view.skiptranslate.notranslate > span > span",
-  dynamicSubtotalSelector: "",
-  chekoutBtnSelector: "#checkout",
-  dynamicCheckoutBtnSelector: "",
+    "div.template__cart__footer > div.cart__footer__total > p:nth-child(3) > span.cart__footer__value",
+  dynamicSubtotalSelector:
+    "#drawer-cart > div > div.drawer__bottom > form > button > span",
+  chekoutBtnSelector: ".cart__footer__checkout [name=checkout]",
+  dynamicCheckoutBtnSelector:
+    "#drawer-cart > div > div.drawer__bottom [name=checkout]",
   dynamicUpdateSection: "",
-  updateSection: "#cart",
+  updateSection: "",
 };
 
 // helper
@@ -54,14 +56,7 @@ const changeSubtotal = (
 
   if (subtotalSelector && document.querySelector(subtotalSelector)) {
     const element = document.querySelector(subtotalSelector);
-    const symbol = element.querySelector(".cbb-price-symbol");
-    const digits = element.querySelector(".cbb-price-digits");
-    const code = element.querySelector(".cbb-price-code");
-    if (symbol && digits && code) {
-      symbol.innerHTML = currencySymbol;
-      digits.innerHTML = amount;
-      code.innerHTML = currency;
-    }
+    element.innerHTML = `${currencySymbol}${amount} ${currency}`;
   }
   if (
     dynamicSubtotalSelector &&
@@ -256,6 +251,16 @@ const actionDurationFrame = (
     } catch (e) {
       console.log(e.message);
     }
+
+    // document.documentElement.dispatchEvent(
+    //   new CustomEvent("cart:refresh", {
+    //     bubbles: true,
+    //     detail: {
+    //       cart,
+    //       openMiniCart: true,
+    //     },
+    //   }),
+    // );
 
     // keep quantity of product and ew item start
     const { cart } = snapshot(store);

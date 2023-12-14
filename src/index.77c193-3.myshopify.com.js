@@ -6,30 +6,32 @@ import embedWidget, {
 } from "./component/cart-widget/index.js";
 import renderModal from "./component/modal";
 import renderPdpBanner from "./component/pdp-banner";
-import configurations from "./config/leizileimall.myshopify.com.json";
+import configurations from "./config/77c193-3.myshopify.com.json";
 import { rerenderCart, createElementFromString } from "./core/util";
 import { pixelEvent } from "./pixel/product-protection-pixel";
 import embedPdpWidget, {
   flatten as repaintPdpWidget,
 } from "./component/pdp-widget";
 import { scriptingMarker } from "./pixel/performance.js";
+import "./component/cart-widget/77c193-3.myshopify.com.css";
 
 store.configs = configurations;
 
 scriptingMarker();
 
 // shop related variables
-const shop = "leizileimall.myshopify.com";
+const shop = "77c193-3.myshopify.com";
 const option = {
   atcButtonSelector: "",
   quantitySelector: "",
   subtotalSelector:
-    "#main-cart-footer > div > div > div > div.js-contents > div.totals > p > span.currency-converter-wrapper-amount-box.cbb-desktop-view.skiptranslate.notranslate > span > span",
-  dynamicSubtotalSelector: "",
-  chekoutBtnSelector: "#checkout",
-  dynamicCheckoutBtnSelector: "",
-  dynamicUpdateSection: "",
-  updateSection: "#cart",
+    "div.cart__footer-wrapper > div > div > div.cart__footer-subtotal > span",
+  dynamicSubtotalSelector:
+    "div.quick-cart__footer.animation--quick-cart-footer > div > div > span",
+  chekoutBtnSelector: ".cart__footer [name=checkout]",
+  dynamicCheckoutBtnSelector: ".quick-cart__footer [name=checkout]",
+  dynamicUpdateSection: ".quick-cart__items",
+  updateSection: ".cart__form-items",
 };
 
 // helper
@@ -54,14 +56,7 @@ const changeSubtotal = (
 
   if (subtotalSelector && document.querySelector(subtotalSelector)) {
     const element = document.querySelector(subtotalSelector);
-    const symbol = element.querySelector(".cbb-price-symbol");
-    const digits = element.querySelector(".cbb-price-digits");
-    const code = element.querySelector(".cbb-price-code");
-    if (symbol && digits && code) {
-      symbol.innerHTML = currencySymbol;
-      digits.innerHTML = amount;
-      code.innerHTML = currency;
-    }
+    element.innerHTML = `${currencySymbol}${amount} ${currency}`;
   }
   if (
     dynamicSubtotalSelector &&
