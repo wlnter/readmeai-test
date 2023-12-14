@@ -1,3 +1,15 @@
+# [3.32.0](https://github.com/kover-ai/shopify-scripts/compare/v3.31.0...v3.32.0) (2023-12-14)
+
+
+### Bug Fixes
+
+* **aad554-2:** fixed 弹窗层级问题 ([438f3b6](https://github.com/kover-ai/shopify-scripts/commit/438f3b680a4d754a8a113628489f8cdf59010170))
+
+
+### Features
+
+* **amvrshop\aad554-2:** add two new shop ([4512e4d](https://github.com/kover-ai/shopify-scripts/commit/4512e4d8e6e7a209a79578d1a9c8876454a224d9))
+
 # [3.31.0](https://github.com/kover-ai/shopify-scripts/compare/v3.30.1...v3.31.0) (2023-12-14)
 
 
