@@ -6,7 +6,7 @@ import embedWidget, {
 } from "./component/cart-widget/index.js";
 import renderModal from "./component/modal";
 import renderPdpBanner from "./component/pdp-banner";
-import configurations from "./config/amvrshop.myshopify.com.json";
+import configurations from "./config/aad554-2.myshopify.com.json";
 import { rerenderCart, createElementFromString } from "./core/util";
 import { pixelEvent } from "./pixel/product-protection-pixel";
 import embedPdpWidget, {
@@ -19,17 +19,18 @@ store.configs = configurations;
 scriptingMarker();
 
 // shop related variables
-const shop = "amvrshop.myshopify.com";
+const shop = "aad554-2.myshopify.com";
 const option = {
   atcButtonSelector: "",
   quantitySelector: "",
   subtotalSelector:
-    "div.cart__aside > safe-sticky > form > div.cart__recap-block > div > span:nth-child(2) > span",
-  dynamicSubtotalSelector: "#mini-cart > footer > button > span.etrans-money",
-  chekoutBtnSelector: ".cart__aside [name=checkout]",
-  dynamicCheckoutBtnSelector: "#mini-cart [name=checkout]",
+    "div.cart-order > safe-sticky > form > div > div:nth-child(1) > span:nth-child(2)",
+  dynamicSubtotalSelector:
+    "#cart-drawer > div[slot=footer] > div > div:nth-child(2) > span:nth-child(2)",
+  chekoutBtnSelector: "#main .cart-order [name=checkout]",
+  dynamicCheckoutBtnSelector: "#cart-drawer .buy-buttons [name=checkout]",
   dynamicUpdateSection: "",
-  updateSection: ".line-item-table",
+  updateSection: "",
 };
 
 // helper
@@ -41,7 +42,12 @@ const changeSubtotal = (
     return;
   }
 
-  const { total_price: cartTotalPrice, currency } = store.cart;
+  const {
+    total_price: cartTotalPrice,
+    currency,
+    original_total_price,
+    total_discount,
+  } = store.cart;
   const subTotal = (cartTotalPrice / 100).toFixed(2);
   const numberFormat = new Intl.NumberFormat("en-US", {
     style: "currency",
@@ -54,7 +60,26 @@ const changeSubtotal = (
 
   if (subtotalSelector && document.querySelector(subtotalSelector)) {
     const element = document.querySelector(subtotalSelector);
-    element.innerHTML = `${currencySymbol}${amount} ${currency}`;
+    const discountPriceEle = document.querySelector(
+      "div.cart-order > safe-sticky > form > div > div:nth-child(2) > span:nth-child(2)",
+    );
+    const totalPriceEle = document.querySelector(
+      "div.cart-order > safe-sticky > form > div > div:nth-child(3) > span:nth-child(2)",
+    );
+
+    if (
+      element &&
+      discountPriceEle &&
+      totalPriceEle &&
+      original_total_price &&
+      total_discount
+    ) {
+      const originalTotal = (original_total_price / 100).toFixed(2);
+      const discountPrice = (total_discount / 100).toFixed(2);
+      element.innerHTML = `${currencySymbol}${originalTotal}`;
+      discountPriceEle.innerHTML = ` - ${currencySymbol}${discountPrice}`;
+      totalPriceEle.innerHTML = `${currencySymbol}${amount} ${currency}`;
+    }
   }
   if (
     dynamicSubtotalSelector &&
