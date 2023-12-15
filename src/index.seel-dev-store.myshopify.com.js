@@ -17,8 +17,6 @@ store.configs = configurations;
 
 scriptingMarker();
 
-console.log("dev store log");
-
 // shop related variables
 const shop = "seel-dev-store.myshopify.com";
 const option = {
