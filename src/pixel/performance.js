@@ -14,27 +14,32 @@ export const performanceObserver = (shop) => {
         entry;
       if (entryType === "mark" && name === COMPONENT_RENDERED) {
         const { type, integrationPoint } = detail;
-        const measure = performance.measure(
-          `${integrationPoint}-${type}-rendered-since-seel-script-executed`,
-          SCRIPT_EXECUTED,
-          name,
-        );
-        sendBeacon(
-          "performance",
-          "shopify",
-          JSON.stringify({
-            eventData: {
-              version: process.env.VERSION,
-              shop,
-              startTime: Math.round(measure.startTime),
-              duration: Math.round(measure.duration),
-              name,
-              eventName: "painting",
-              integrationPoint,
-              integrationType: type,
-            },
-          }),
-        );
+        try {
+          const measure = performance.measure(
+            `${integrationPoint}-${type}-rendered-since-seel-script-executed`,
+            SCRIPT_EXECUTED,
+            name,
+          );
+          sendBeacon(
+            "performance",
+            "shopify",
+            JSON.stringify({
+              eventData: {
+                version: process.env.VERSION,
+                shop,
+                startTime: Math.round(measure.startTime),
+                duration: Math.round(measure.duration),
+                name,
+                eventName: "painting",
+                integrationPoint,
+                integrationType: type,
+              },
+            }),
+          );
+        } catch (e) {
+          console.log(e.message);
+        }
+
         // console.log("painting", {
         //   version: process.env.VERSION,
         //   shop,
