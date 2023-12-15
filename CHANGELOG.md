@@ -1,3 +1,10 @@
+# [3.37.0](https://github.com/kover-ai/shopify-scripts/compare/v3.36.2...v3.37.0) (2023-12-15)
+
+
+### Features
+
+* **customize-this-2430\distressed-monster-boutique:** add two new shop ([55ccdf2](https://github.com/kover-ai/shopify-scripts/commit/55ccdf2c122dfea7be097bf95011fcc9072f2683))
+
 ## [3.36.2](https://github.com/kover-ai/shopify-scripts/compare/v3.36.1...v3.36.2) (2023-12-15)
 
 
