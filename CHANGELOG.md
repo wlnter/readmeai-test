@@ -1,3 +1,10 @@
+## [3.36.1](https://github.com/kover-ai/shopify-scripts/compare/v3.36.0...v3.36.1) (2023-12-15)
+
+
+### Bug Fixes
+
+* **kid-gear:** 修复非结算页引入结算页脚本后上报conversion相关的脏数据问题 ([05bd9f5](https://github.com/kover-ai/shopify-scripts/commit/05bd9f5aabb3b274f62ce9c15bc180950184f7c9))
+
 # [3.36.0](https://github.com/kover-ai/shopify-scripts/compare/v3.35.0...v3.36.0) (2023-12-15)
 
 
