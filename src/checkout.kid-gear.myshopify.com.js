@@ -39,7 +39,8 @@ const conversionDataReport = (widgetStatus, quoteId = "") => {
       shop,
       path: location.pathname,
       timestamp: Date.now(),
-      checkoutToken: location.pathname.split("/").pop(),
+      checkoutToken:
+        window?.Shopify?.Checkout?.token || location.pathname.split("/").pop(),
       quoteId,
       widgetStatus,
     }),

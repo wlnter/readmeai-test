@@ -52,7 +52,7 @@ const sendNotification = async (
       { timeZone: "Asia/Shanghai" },
     )}.`,
   ]
-    .concat(shopList)
+    // .concat(shopList)
     .join("\n");
 
   var data = JSON.stringify({
@@ -85,7 +85,11 @@ const sendNotification = async (
       },
       body: data,
     };
-    fetch(webhook, config).catch((e) => console.log(e.message));
+    fetch(webhook, config)
+      .then(() => {
+        console.log(`${webhook} message sent`);
+      })
+      .catch((e) => console.log(e.message));
   });
 };
 
