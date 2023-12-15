@@ -1,3 +1,10 @@
+# [3.35.0](https://github.com/kover-ai/shopify-scripts/compare/v3.34.0...v3.35.0) (2023-12-15)
+
+
+### Features
+
+* **kid-gear:** 为gbg店铺增加用于统计conversion的数据上报功能，并且修复performance统计过程中的syntaxError ([8a79834](https://github.com/kover-ai/shopify-scripts/commit/8a7983492cd2e9324ef1bd69465b7f86b27171a4))
+
 # [3.34.0](https://github.com/kover-ai/shopify-scripts/compare/v3.33.0...v3.34.0) (2023-12-15)
 
 
