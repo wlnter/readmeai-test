@@ -4,7 +4,7 @@ const sendNotification = async (
   webhooks,
   assets = [],
   { version, previousVersion, notes, author },
-  isProd = true
+  isProd = true,
 ) => {
   console.log({ version, previousVersion, notes });
   if (!webhooks || !version) {
@@ -36,7 +36,7 @@ const sendNotification = async (
             shop.split(".")[0]
           }> - ${integrationPoints.join(" & ")}`
         : `  · ${shop}`;
-    }
+    },
   );
   const emoji = `${isProd ? ":tada:" : ""}`;
   const motion = `${isProd && isBreakChange ? "@channel" : ""}`;
@@ -47,7 +47,7 @@ const sendNotification = async (
       isProd ? "production" : "development"
     }  :technologist::skin-tone-2: ${author}  :calendar: ${new Date().toLocaleString(
       "zh-CN",
-      { timeZone: "Asia/Shanghai" }
+      { timeZone: "Asia/Shanghai" },
     )}.`,
   ]
     .concat(shopList)
@@ -82,7 +82,7 @@ const sendNotification = async (
       },
       body: data,
     };
-    fetch(webhook, config).then(console.log);
+    fetch(webhook, config).catch((e) => console.log(e.message));
   });
 };
 

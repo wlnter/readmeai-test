@@ -10,6 +10,8 @@ import { productType } from "./core/constant";
 
 store.configs = configurations;
 
+console.log("seel script loaded");
+
 // get myshopify domain from global var
 const shop = window?.Shopify?.shop || window?.Shopify?.Checkout?.apiHost;
 const subtotalSelector =
