@@ -1,3 +1,10 @@
+## [3.37.2](https://github.com/kover-ai/shopify-scripts/compare/v3.37.1...v3.37.2) (2023-12-15)
+
+
+### Bug Fixes
+
+* **kid-gear:** 解决conversion数据上报的字段中checkout-token解析不准确的问题 ([a439fae](https://github.com/kover-ai/shopify-scripts/commit/a439fae83d92c08dd1e86565db8c986126f677ed))
+
 ## [3.37.1](https://github.com/kover-ai/shopify-scripts/compare/v3.37.0...v3.37.1) (2023-12-15)
 
 
