@@ -1,3 +1,10 @@
+## [3.36.2](https://github.com/kover-ai/shopify-scripts/compare/v3.36.1...v3.36.2) (2023-12-15)
+
+
+### Bug Fixes
+
+* test deploy ([f5e8a93](https://github.com/kover-ai/shopify-scripts/commit/f5e8a9354a9d9e4da66805fa34d6326878a0829c))
+
 ## [3.36.1](https://github.com/kover-ai/shopify-scripts/compare/v3.36.0...v3.36.1) (2023-12-15)
 
 
