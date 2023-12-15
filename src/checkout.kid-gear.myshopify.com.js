@@ -35,7 +35,7 @@ const conversionDataReport = (widgetStatus, quoteId = "") => {
     "conversion",
     "shopify",
     JSON.stringify({
-      eventName: "checkout-record",
+      eventName: "checkout-records",
       shop,
       path: location.pathname,
       timestamp: Date.now(),
@@ -48,9 +48,14 @@ const conversionDataReport = (widgetStatus, quoteId = "") => {
 };
 
 (async () => {
+  // kid-gear non-checkout pages also include this script
+  if (!location?.pathname?.includes("checkouts")) {
+    return null;
+  }
+
   // traffic split, 3/10 without widget
   const magicNumber = 3;
-  const storageKey = "seel-conversion-rate-experiment";
+  const storageKey = "seel-conversion-splitting-test";
   const cache = localStorage.getItem(storageKey);
   const { timestamp, hit } = JSON.parse(cache) || {};
   const expired = Date.now() - timestamp > 86400000;
