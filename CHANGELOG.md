@@ -1,3 +1,10 @@
+# [3.34.0](https://github.com/kover-ai/shopify-scripts/compare/v3.33.0...v3.34.0) (2023-12-15)
+
+
+### Features
+
+* **webcosplay2010\a058c4-3:** add two new shop ([bdb3c2a](https://github.com/kover-ai/shopify-scripts/commit/bdb3c2a9601eaf799c61fe200323f8dbfc978925))
+
 # [3.33.0](https://github.com/kover-ai/shopify-scripts/compare/v3.32.0...v3.33.0) (2023-12-14)
 
 
