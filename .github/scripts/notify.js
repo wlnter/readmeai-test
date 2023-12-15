@@ -8,6 +8,7 @@ const sendNotification = async (
 ) => {
   console.log({ version, previousVersion, notes });
   if (!webhooks || !version) {
+    console.log("no webhooks registered or no new version released");
     return;
   }
 
@@ -38,6 +39,7 @@ const sendNotification = async (
         : `  · ${shop}`;
     },
   );
+  console.log("shopList", shopList);
   const emoji = `${isProd ? ":tada:" : ""}`;
   const motion = `${isProd && isBreakChange ? "@channel" : ""}`;
   const verisonNumber = `${isProd ? `(${version})` : ""}`;
@@ -72,6 +74,7 @@ const sendNotification = async (
       },
     ],
   });
+  console.log("message content", data);
 
   webhooks.split(",").forEach((webhook) => {
     var config = {
