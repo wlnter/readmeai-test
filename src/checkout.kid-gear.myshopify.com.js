@@ -49,60 +49,64 @@ const conversionDataReport = (widgetStatus, quoteId = "") => {
 };
 
 (async () => {
-  // kid-gear non-checkout pages also include this script
-  if (!location?.pathname?.includes("checkouts")) {
-    return null;
-  }
+  const isCheckoutPage =
+    location?.pathname?.includes("checkouts") ||
+    window?.Shopify?.Checkout?.token;
 
   // traffic split, 3/10 without widget
-  const magicNumber = 3;
-  const storageKey = "seel-conversion-splitting-test";
-  const cache = localStorage.getItem(storageKey);
-  const { timestamp, hit } = JSON.parse(cache) || {};
-  const expired = Date.now() - timestamp > 86400000;
-  if (cache != null && !expired) {
-    if (hit === true || hit === "true") {
-      // without widget
-      conversionDataReport(0);
-      return null;
+  if (isCheckoutPage) {
+    const magicNumber = 3;
+    const storageKey = "seel-conversion-splitting-test";
+    const cache = localStorage.getItem(storageKey);
+    const { timestamp, hit } = JSON.parse(cache) || {};
+    const expired = Date.now() - timestamp > 86400000;
+    if (cache != null && !expired) {
+      if (hit === true || hit === "true") {
+        // without widget
+        conversionDataReport(0);
+        return null;
+      } else {
+        // with widget
+      }
     } else {
-      // with widget
-    }
-  } else {
-    localStorage.removeItem(storageKey);
-    const random = Date.now();
-    if (random % 10 < magicNumber) {
-      localStorage.setItem(
-        storageKey,
-        JSON.stringify({ timestamp: Date.now(), hit: true }),
-      );
-      conversionDataReport(0);
-      return null;
-    } else {
-      localStorage.setItem(
-        storageKey,
-        JSON.stringify({ timestamp: Date.now(), hit: false }),
-      );
+      localStorage.removeItem(storageKey);
+      const random = Date.now();
+      if (random % 10 < magicNumber) {
+        localStorage.setItem(
+          storageKey,
+          JSON.stringify({ timestamp: Date.now(), hit: true }),
+        );
+        conversionDataReport(0);
+        return null;
+      } else {
+        localStorage.setItem(
+          storageKey,
+          JSON.stringify({ timestamp: Date.now(), hit: false }),
+        );
+      }
     }
   }
 
   await initialize(shop);
 
-  const { profiles, quotes } = snapshot(store);
-  const profileFound = profiles.find((_) => _.type === productType.ra);
-  const quoteFound = quotes.find((_) => _.type === productType.ra);
+  renderPdpBanner(productType.ra, shop);
 
-  if (profileFound) {
-    if (quoteFound) {
-      // accepted
-      conversionDataReport(2, quoteFound.quoteId);
+  if (isCheckoutPage) {
+    const { profiles, quotes } = snapshot(store);
+    const profileFound = profiles.find((_) => _.type === productType.ra);
+    const quoteFound = quotes.find((_) => _.type === productType.ra);
+    if (profileFound) {
+      if (quoteFound) {
+        // accepted
+        conversionDataReport(2, quoteFound.quoteId);
+      } else {
+        // rejected
+        conversionDataReport(1);
+      }
     } else {
-      // rejected
-      conversionDataReport(1);
+      // without widget
+      conversionDataReport(0);
     }
-  } else {
-    // without widget
-    conversionDataReport(0);
   }
 
   store?.types?.forEach?.((type) => {
