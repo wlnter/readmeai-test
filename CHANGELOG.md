@@ -1,3 +1,10 @@
+## [3.37.3](https://github.com/kover-ai/shopify-scripts/compare/v3.37.2...v3.37.3) (2023-12-16)
+
+
+### Bug Fixes
+
+* **kid-gear:** 修复kid-gear店铺未显示product RA banner的问题 ([a8ed7d4](https://github.com/kover-ai/shopify-scripts/commit/a8ed7d404a56983d28ff78eccf0fd6617817ff37))
+
 ## [3.37.2](https://github.com/kover-ai/shopify-scripts/compare/v3.37.1...v3.37.2) (2023-12-15)
 
 
