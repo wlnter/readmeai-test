@@ -1,3 +1,11 @@
+# [3.38.0](https://github.com/kover-ai/shopify-scripts/compare/v3.37.3...v3.38.0) (2023-12-18)
+
+
+### Features
+
+* **7cff52-2\c9ba7b\eb7038-2\5de6ca-7\ecd6f8-2:** add five new shop ([865091a](https://github.com/kover-ai/shopify-scripts/commit/865091a88dc39f4373056336b0df669abc1a3de2))
+* **eb7038-2:** change style ([b2d16d5](https://github.com/kover-ai/shopify-scripts/commit/b2d16d520fcc3ff4d34f811303557c8563627123))
+
 ## [3.37.3](https://github.com/kover-ai/shopify-scripts/compare/v3.37.2...v3.37.3) (2023-12-16)
 
 
