@@ -54,14 +54,14 @@ const changeSubtotal = (
 
   if (subtotalSelector && document.querySelector(subtotalSelector)) {
     const element = document.querySelector(subtotalSelector);
-    element.innerHTML = `${amount} ${currencySymbol}`;
+    element.innerHTML = `${amount}${currencySymbol}`;
   }
   if (
     dynamicSubtotalSelector &&
     document.querySelector(dynamicSubtotalSelector)
   ) {
     const element = document.querySelector(dynamicSubtotalSelector);
-    element.innerHTML = `${amount} ${currencySymbol}`;
+    element.innerHTML = `${amount}${currencySymbol}`;
   }
 };
 
