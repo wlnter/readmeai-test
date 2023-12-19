@@ -32,6 +32,10 @@ const copyScript = (mockDir, scriptPath) => {
     path.join(__dirname, `${mockDir}/script/${name}`),
     path.join(__dirname, `${mockDir}/script/${name}?shop=${shop}`),
   );
+  fs.copyFileSync(
+    path.join(__dirname, `${mockDir}/script/${name}`),
+    path.join(__dirname, `${mockDir}/script/${name}?shop=${shop}&shop=${shop}`),
+  );
 };
 
 glob.sync(`${mockDir}/script/*.js`).forEach((scriptPath) => {

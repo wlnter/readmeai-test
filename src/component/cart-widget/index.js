@@ -53,9 +53,13 @@ export const flatten = (widget, type) => {
   });
 
   const widgetStatus = getWidgetSwitchStatus(type);
-  const newWidgetStatus = sessions ? (sessions?.[type] !== null ? sessions?.[type] : widgetStatus) : widgetStatus;
+  const newWidgetStatus = sessions
+    ? sessions?.[type] !== null
+      ? sessions?.[type]
+      : widgetStatus
+    : widgetStatus;
   widget.querySelector("[data-seel-widget-input]").checked =
-  newWidgetStatus !== null ? newWidgetStatus : profile?.checked;
+    newWidgetStatus !== null ? newWidgetStatus : profile?.checked;
 
   return widget;
 };

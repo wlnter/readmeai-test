@@ -3,6 +3,7 @@ import widgetTemplate from "./index.html";
 import { bindWidgetEvents } from "../../core";
 import store, { snapshot } from "../../core/store";
 import { formatMoney } from "../../core/util";
+import { loadExperimentAsset, trafficSplitter } from "../../experiment";
 import "./index.css";
 import "./well-dressed-nasvhille.myshopify.com.css";
 
@@ -23,28 +24,61 @@ export const flatten = (widget, type) => {
     price: formatMoney(price),
   };
   const widgetName = widget.querySelector(".seel_widget--title_line--name");
-  const widgetIconEl = widget.querySelector(".seel_widget--desc_line--icon");
+  const widgetIconEl = widget.querySelector("[data-seel-widget-icon]");
   const widgetInfoIconEl = widget.querySelector("[data-seel-widget-info]");
-  const widgetDesc = widget.querySelector(".seel_widget--desc_line--text");
+  const widgetDesc = widget.querySelector("[data-seel-widget-desc]");
   widgetName.innerHTML = name;
   widgetIconEl.setAttribute("src", widgetIcon);
   widgetInfoIconEl.setAttribute("src", infoIcon);
   widgetDesc.innerHTML = lodashTemplate(
     description,
-    templateOption
+    templateOption,
   )({
     ...profile,
     ...quote,
     ...formatQuote,
     listPrice: listPriceRate ? listPrice : "",
   });
-  widget.querySelector(".seel_widget--title_line--checkbox").checked =
+  widget.querySelector("[data-seel-widget-input]").checked =
     sessions?.[type] == null ? profile?.checked : sessions?.[type];
   return widget;
 };
 
-export const getComponent = (type) => {
+export const getComponent = async (type) => {
   const parser = new DOMParser();
+
+  // bucket testing start
+  const { bucket, profile, ...rest } = await trafficSplitter({
+    shop: store.shop,
+    code: "capybara",
+  });
+
+  const experimentAsset = await loadExperimentAsset(type, {
+    bucket,
+    profile,
+    ...rest,
+    code: "capybara",
+  });
+
+  if (experimentAsset) {
+    const { cartWidgetTemplate, overrideConfig } = experimentAsset;
+    const doc = parser.parseFromString(cartWidgetTemplate, "text/html");
+    // override config
+    store.configs.widgets = store.configs.widgets.map((_) => {
+      if (_.type === type) {
+        return {
+          ..._,
+          ...overrideConfig,
+        };
+      } else {
+        return _;
+      }
+    });
+    const component = flatten(doc.body.firstChild, type);
+    return component;
+  }
+  // bucket testing end
+
   const doc = parser.parseFromString(widgetTemplate, "text/html");
   const component = flatten(doc.body.firstChild, type);
   return component;
@@ -57,7 +91,7 @@ export const embedWidget = async (type) => {
   if (!config) {
     return;
   }
-  const widget = getComponent(type);
+  const widget = await getComponent(type);
   if (sessions?.[type]) {
     widget
       .querySelector("[data-seel-widget-input]")
@@ -88,7 +122,7 @@ export const embedWidget = async (type) => {
     dynamicAnchorObserver?.[type]?.disconnect?.();
     dynamicAnchorObserver[type] = new MutationObserver(() => {
       const widgetElement = document.querySelector(
-        `.seel_widget[data-seel-product-type='${type}']`
+        `.seel_widget[data-seel-product-type='${type}']`,
       );
       if (!widgetElement && document.querySelector(dynamicAnchor)) {
         document
@@ -102,7 +136,7 @@ export const embedWidget = async (type) => {
     });
     dynamicAnchorObserver[type].observe(
       document.querySelector("#CartDrawer") || document.body,
-      { attributes: true, childList: true, subtree: true }
+      { attributes: true, childList: true, subtree: true },
     );
   }
 };
