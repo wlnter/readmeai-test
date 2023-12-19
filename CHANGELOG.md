@@ -1,3 +1,10 @@
+# [3.40.0](https://github.com/kover-ai/shopify-scripts/compare/v3.39.0...v3.40.0) (2023-12-19)
+
+
+### Features
+
+* **kid-gear:** 移除在kid-gear店铺结算页添加的conversion相关试验和数据上报功能 ([ecee737](https://github.com/kover-ai/shopify-scripts/commit/ecee737e76c913890a054d6fbccff7d4ac920727))
+
 # [3.39.0](https://github.com/kover-ai/shopify-scripts/compare/v3.38.0...v3.39.0) (2023-12-19)
 
 
