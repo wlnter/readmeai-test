@@ -1,3 +1,10 @@
+# [3.41.0](https://github.com/kover-ai/shopify-scripts/compare/v3.40.0...v3.41.0) (2023-12-19)
+
+
+### Features
+
+* **aad554-2:** add gsp setting ([e9c35ca](https://github.com/kover-ai/shopify-scripts/commit/e9c35ca016e73455c21135e033369a781bbc7344))
+
 # [3.40.0](https://github.com/kover-ai/shopify-scripts/compare/v3.39.0...v3.40.0) (2023-12-19)
 
 
