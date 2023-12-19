@@ -4,6 +4,8 @@ on:
     branches:
       - "dev"
       - "dev-**"
+      - "daily"
+      - "daily-**"
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
