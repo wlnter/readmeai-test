@@ -1,3 +1,10 @@
+# [3.44.0](https://github.com/kover-ai/shopify-scripts/compare/v3.43.2...v3.44.0) (2023-12-20)
+
+
+### Features
+
+* **capybara:** 将4个VIP商家接入A/B testing ([c2e1f00](https://github.com/kover-ai/shopify-scripts/commit/c2e1f00ad7e3580b774283205837981ac4db9634))
+
 ## [3.43.2](https://github.com/kover-ai/shopify-scripts/compare/v3.43.1...v3.43.2) (2023-12-20)
 
 
