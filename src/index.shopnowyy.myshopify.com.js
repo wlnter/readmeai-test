@@ -255,6 +255,8 @@ const actionDurationFrame = (
       console.log(e.message);
     }
 
+    window.ajaxCart?.load();
+
     // keep quantity of product and ew item start
     const { cart } = snapshot(store);
     const updates = {};

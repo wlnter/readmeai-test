@@ -9,8 +9,8 @@
       "widgetIcon": "https://static.seel.com/image/sp-widget-icon.svg",
       "anchor": "#PageContainer > main > div > div > div > form > div.cart__row.cart__row--last > div.grid--full.cart__row--table-large > div > p",
       "position": "afterend",
-      "dynamicAnchor": "#CartContainer [name=checkout]",
-      "dynamicPosition": "beforebegin",
+      "dynamicAnchor": "#CartContainer .ajaxcart__inner",
+      "dynamicPosition": "beforeend",
       "checkoutAnchor": "",
       "checkoutPosition": "",
       "listPriceRate": 0

@@ -23,12 +23,14 @@ const shop = "0d5553.myshopify.com";
 const option = {
   atcButtonSelector: "",
   quantitySelector: "",
-  subtotalSelector: ".t4s-cartPage__footer [data-cart-prices]",
-  dynamicSubtotalSelector: ".t4s-drawer__bottom [data-cart-prices]",
-  chekoutBtnSelector: ".t4s-cartPage__footer .t4s-btn__checkout",
-  dynamicCheckoutBtnSelector: ".t4s-drawer__bottom .t4s-btn__checkout",
-  dynamicUpdateSection: ".t4s-mini_cart__items",
-  updateSection: ".t4s-cartPage__items",
+  subtotalSelector:
+    "div.page-content.page-content--fluid > div > div.cart__aside > safe-sticky > form > div.cart__recap-block > div > span:nth-child(2)",
+  dynamicSubtotalSelector: "",
+  chekoutBtnSelector:
+    "div.page-content.page-content--fluid > div > div.cart__aside > safe-sticky > form > button",
+  dynamicCheckoutBtnSelector: "#mini-cart > footer > button",
+  dynamicUpdateSection: "#mini-cart-form",
+  updateSection: ".line-item-table__list",
 };
 
 // helper
@@ -58,23 +60,7 @@ const changeSubtotal = (
 
   if (subtotalSelector && document.querySelector(subtotalSelector)) {
     const element = document.querySelector(subtotalSelector);
-    const originalPriceEle = element.querySelector(".ymq_cart_total_price");
-    const discountPriceEle = element.querySelector(".t4s-cart__discountPrice");
-    const totalPriceEle = element.querySelector(".t4s-cart__totalPrice");
-
-    if (
-      originalPriceEle &&
-      discountPriceEle &&
-      totalPriceEle &&
-      original_total_price &&
-      total_discount
-    ) {
-      const originalTotal = (original_total_price / 100).toFixed(2);
-      const discountPrice = (total_discount / 100).toFixed(2);
-      originalPriceEle.innerHTML = `${currencySymbol}${originalTotal}`;
-      discountPriceEle.innerHTML = ` - ${currencySymbol}${discountPrice}`;
-      totalPriceEle.innerHTML = `${currencySymbol}${amount}`;
-    }
+    element.innerHTML = `${currencySymbol}${amount}`;
   }
   if (
     dynamicSubtotalSelector &&
