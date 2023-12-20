@@ -1,3 +1,10 @@
+## [3.44.1](https://github.com/kover-ai/shopify-scripts/compare/v3.44.0...v3.44.1) (2023-12-20)
+
+
+### Bug Fixes
+
+* **shopnowyy:** fixed widget position ([a1bee2f](https://github.com/kover-ai/shopify-scripts/commit/a1bee2f5bff024418c18ddecf6b691345690742c))
+
 # [3.44.0](https://github.com/kover-ai/shopify-scripts/compare/v3.43.2...v3.44.0) (2023-12-20)
 
 
