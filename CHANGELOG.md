@@ -1,3 +1,10 @@
+## [3.43.1](https://github.com/kover-ai/shopify-scripts/compare/v3.43.0...v3.43.1) (2023-12-20)
+
+
+### Bug Fixes
+
+* **well-dressed-nasvhille:** 修复该店铺试验D分桶中，widget组件标题模板字段未填充的问题 ([e3482d8](https://github.com/kover-ai/shopify-scripts/commit/e3482d82bb8348718c6f5480581168a4d2064a44))
+
 # [3.43.0](https://github.com/kover-ai/shopify-scripts/compare/v3.42.0...v3.43.0) (2023-12-20)
 
 
