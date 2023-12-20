@@ -80,7 +80,38 @@
       "profile": {
         "productType": ["ra"]
       }
+    },
+    {
+      "shop": "toxic-angelz.myshopify.com",
+      "domain": "toxic-angelz.myshopify.com",
+      "buckets": ["b", "c", "d"],
+      "profile": {
+        "productType": ["ra"]
+      }
+    },
+    {
+      "shop": "tenacioustoys.myshopify.com",
+      "domain": "tenacioustoys.myshopify.com",
+      "buckets": ["b", "c", "d"],
+      "profile": {
+        "productType": ["ra"]
+      }
+    },
+    {
+      "shop": "3d3249.myshopify.com",
+      "domain": "3d3249.myshopify.com",
+      "buckets": ["b", "c", "d"],
+      "profile": {
+        "productType": ["ra"]
+      }
+    },
+    {
+      "shop": "the-308-boutique.myshopify.com",
+      "domain": "the-308-boutique.myshopify.com",
+      "buckets": ["b", "c", "d"],
+      "profile": {
+        "productType": ["ra"]
+      }
     }
-  ],
-  "Transform": "AWS::Serverless-2016-10-31"
+  ]
 }
