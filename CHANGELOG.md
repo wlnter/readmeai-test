@@ -1,3 +1,10 @@
+## [3.43.2](https://github.com/kover-ai/shopify-scripts/compare/v3.43.1...v3.43.2) (2023-12-20)
+
+
+### Bug Fixes
+
+* **shopnowyy:** fixed widget style ([5f930f3](https://github.com/kover-ai/shopify-scripts/commit/5f930f3138ee787530086bf57e9725d9fd360d5e))
+
 ## [3.43.1](https://github.com/kover-ai/shopify-scripts/compare/v3.43.0...v3.43.1) (2023-12-20)
 
 
