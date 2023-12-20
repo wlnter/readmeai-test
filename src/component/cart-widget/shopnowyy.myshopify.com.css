@@ -1,0 +1,12 @@
+#CartDrawer .seel_widget--title_line--name{
+  color: #fff!important;
+}
+#CartDrawer .seel_widget--desc_line--text{
+  color: #fff!important;
+}
+#CartDrawer .seel_widget--title_line--icon{
+  filter: invert(1);
+}
+.ajaxcart__footer{
+  overflow-y: scroll;
+}

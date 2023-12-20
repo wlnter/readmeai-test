@@ -13,6 +13,7 @@ import embedPdpWidget, {
   flatten as repaintPdpWidget,
 } from "./component/pdp-widget";
 import { scriptingMarker } from "./pixel/performance.js";
+import "./component/cart-widget/shopnowyy.myshopify.com.css";
 
 store.configs = configurations;
 
@@ -24,7 +25,8 @@ const option = {
   atcButtonSelector: "",
   quantitySelector: "",
   subtotalSelector: ".cart__subtotal .zrx-cart-total",
-  dynamicSubtotalSelector: ".ajaxcart__subtotal",
+  dynamicSubtotalSelector:
+    "#CartContainer > form > div.ajaxcart__footer.ajaxcart__footer--fixed > div.grid--full > div:nth-child(4) > p",
   chekoutBtnSelector: "#PageContainer [name=checkout]",
   dynamicCheckoutBtnSelector: "#CartContainer [name=checkout]",
   dynamicUpdateSection: "",
