@@ -6,7 +6,7 @@ import embedWidget, {
 } from "./component/cart-widget/index.js";
 import renderModal from "./component/modal";
 import renderPdpBanner from "./component/pdp-banner";
-import configurations from "./config/amvrshop.myshopify.com.json";
+import configurations from "./config/shopnowyy.myshopify.com.json";
 import { rerenderCart, createElementFromString } from "./core/util";
 import { pixelEvent } from "./pixel/product-protection-pixel";
 import embedPdpWidget, {
@@ -19,17 +19,16 @@ store.configs = configurations;
 scriptingMarker();
 
 // shop related variables
-const shop = "amvrshop.myshopify.com";
+const shop = "shopnowyy.myshopify.com";
 const option = {
   atcButtonSelector: "",
   quantitySelector: "",
-  subtotalSelector:
-    "div.cart__aside > safe-sticky > form > div.cart__recap-block > div > span:nth-child(2) > span",
-  dynamicSubtotalSelector: "#mini-cart > footer > button > span.etrans-money",
-  chekoutBtnSelector: ".cart__aside [name=checkout]",
-  dynamicCheckoutBtnSelector: "#mini-cart [name=checkout]",
+  subtotalSelector: ".cart__subtotal .zrx-cart-total",
+  dynamicSubtotalSelector: ".ajaxcart__subtotal",
+  chekoutBtnSelector: "#PageContainer [name=checkout]",
+  dynamicCheckoutBtnSelector: "#CartContainer [name=checkout]",
   dynamicUpdateSection: "",
-  updateSection: ".line-item-table",
+  updateSection: "",
 };
 
 // helper
@@ -41,7 +40,11 @@ const changeSubtotal = (
     return;
   }
 
-  const { total_price: cartTotalPrice, currency } = store.cart;
+  const {
+    total_price: cartTotalPrice,
+    currency,
+    items_subtotal_price,
+  } = store.cart;
   const subTotal = (cartTotalPrice / 100).toFixed(2);
   const numberFormat = new Intl.NumberFormat("en-US", {
     style: "currency",
@@ -54,14 +57,14 @@ const changeSubtotal = (
 
   if (subtotalSelector && document.querySelector(subtotalSelector)) {
     const element = document.querySelector(subtotalSelector);
-    element.innerHTML = `${currencySymbol}${amount} ${currency}`;
+    element.innerHTML = `${currencySymbol}${amount}`;
   }
   if (
     dynamicSubtotalSelector &&
     document.querySelector(dynamicSubtotalSelector)
   ) {
     const element = document.querySelector(dynamicSubtotalSelector);
-    element.innerHTML = `${currencySymbol}${amount} ${currency}`;
+    element.innerHTML = `${currencySymbol}${amount}`;
   }
 };
 
@@ -252,15 +255,6 @@ const actionDurationFrame = (
 
     // keep quantity of product and ew item start
     const { cart } = snapshot(store);
-    document.documentElement.dispatchEvent(
-      new CustomEvent("cart:refresh", {
-        bubbles: true,
-        detail: {
-          cart,
-          openMiniCart: true,
-        },
-      }),
-    );
     const updates = {};
     cart.items.forEach((item) => {
       const { vendor, properties } = item;

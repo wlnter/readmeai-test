@@ -72,6 +72,17 @@ const submitHandler = async (event) => {
 
   // Cart Update Handler
   document.addEventListener(seelEvents.cartUpdated, () => {
+    const { cart } = snapshot(store);
+    document.documentElement.dispatchEvent(
+      new CustomEvent("cart:refresh", {
+        bubbles: true,
+        detail: {
+          cart,
+          openMiniCart: true,
+        },
+      }),
+    );
+
     // Rerender widget
     store?.types?.forEach?.((type) => {
       const widget = document.querySelector(
