@@ -1,3 +1,10 @@
+# [3.42.0](https://github.com/kover-ai/shopify-scripts/compare/v3.41.0...v3.42.0) (2023-12-20)
+
+
+### Features
+
+* **well-dressed-nasvhille:** 将该商家接入A/B试验（capybara） ([794d1e4](https://github.com/kover-ai/shopify-scripts/commit/794d1e4ea3162e3d758f0187f1021f13bc6b59f8))
+
 # [3.41.0](https://github.com/kover-ai/shopify-scripts/compare/v3.40.0...v3.41.0) (2023-12-19)
 
 
