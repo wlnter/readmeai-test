@@ -1,3 +1,10 @@
+# [3.46.0](https://github.com/kover-ai/shopify-scripts/compare/v3.45.0...v3.46.0) (2023-12-21)
+
+
+### Features
+
+* **maija-0618:** add new shop ([833da3b](https://github.com/kover-ai/shopify-scripts/commit/833da3b289c810fffe89621e9ee83e82742328d3))
+
 # [3.45.0](https://github.com/kover-ai/shopify-scripts/compare/v3.44.1...v3.45.0) (2023-12-21)
 
 
