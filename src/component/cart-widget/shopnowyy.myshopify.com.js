@@ -7,6 +7,8 @@ import { loadExperimentAsset, trafficSplitter } from "../../experiment";
 import "./index.css";
 import { renderingMarker } from "../../pixel/performance";
 
+const delay = (t) => new Promise((resolve) => setTimeout(resolve, t));
+
 export const flatten = (widget, type) => {
   const { configs, profiles, quotes, sessions } = snapshot(store);
   const config = configs.widgets.find((_) => _.type === type);
@@ -157,24 +159,23 @@ export const embedWidget = async (type) => {
       renderingMarker(type);
     }
     dynamicAnchorObserver?.[type]?.disconnect?.();
-    dynamicAnchorObserver[type] = new MutationObserver(() => {
-      setTimeout(()=>{
-        const widgetElement = document.querySelector(
-          `.seel_widget[data-seel-product-type='${type}']`,
-        );
-        if (!widgetElement && document.querySelector(dynamicAnchor)) {
-          document
-            .querySelector(dynamicAnchor)
-            .insertAdjacentElement(dynamicPosition || "beforebegin", widget);
-          widget.dataset.seelProductType = type;
-          console.log(`insert dynamicAnchor ${type} widget and bind events`);
-          bindWidgetEvents(type);
-          renderingMarker(type);
-          //dynamicAnchorObserver?.[type]?.disconnect?.();
-        }
-      },500)
+    dynamicAnchorObserver[type] = new MutationObserver(async (mutationRecoards) => {
+      await delay(800);
+      const widgetElement = document.querySelector(
+        `.seel_widget[data-seel-product-type='${type}']`,
+      );
+      if (!widgetElement && document.querySelector(dynamicAnchor)) {
+        document
+          .querySelector(dynamicAnchor)
+          .insertAdjacentElement(dynamicPosition || "beforebegin", widget);
+        widget.dataset.seelProductType = type;
+        console.log(`insert dynamicAnchor ${type} widget and bind events`);
+        bindWidgetEvents(type);
+        renderingMarker(type);
+        //dynamicAnchorObserver?.[type]?.disconnect?.();
+      }
     });
-    dynamicAnchorObserver[type].observe(document.body, {
+    dynamicAnchorObserver[type].observe(document.querySelector("body :not(.seel_widget)"), {
       attributes: true,
       childList: true,
       subtree: true,

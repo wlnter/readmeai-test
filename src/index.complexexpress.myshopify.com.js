@@ -3,34 +3,33 @@ import { productType, seelEvents } from "./core/constant";
 import store, { snapshot } from "./core/store";
 import embedWidget, {
   flatten as repaint,
-} from "./component/cart-widget/shopnowyy.myshopify.com.js";
+} from "./component/cart-widget/index.js";
 import renderModal from "./component/modal";
 import renderPdpBanner from "./component/pdp-banner";
-import configurations from "./config/shopnowyy.myshopify.com.json";
+import configurations from "./config/complexexpress.myshopify.com.json";
 import { rerenderCart, createElementFromString } from "./core/util";
 import { pixelEvent } from "./pixel/product-protection-pixel";
 import embedPdpWidget, {
   flatten as repaintPdpWidget,
 } from "./component/pdp-widget";
 import { scriptingMarker } from "./pixel/performance.js";
-import "./component/cart-widget/shopnowyy.myshopify.com.css";
 
 store.configs = configurations;
 
 scriptingMarker();
 
 // shop related variables
-const shop = "shopnowyy.myshopify.com";
+const shop = "complexexpress.myshopify.com";
 const option = {
   atcButtonSelector: "",
   quantitySelector: "",
-  subtotalSelector: ".cart__subtotal .zrx-cart-total",
-  dynamicSubtotalSelector:
-    "#CartContainer > form > div.ajaxcart__footer.ajaxcart__footer--fixed > div.grid--full > div:nth-child(4) > p",
-  chekoutBtnSelector: "#PageContainer [name=checkout]",
-  dynamicCheckoutBtnSelector: "#CartContainer [name=checkout]",
+  subtotalSelector:
+    "#shopify-section-static-cart > form > section > div.cartitems > div > div.cart-subtotal > span.money",
+  dynamicSubtotalSelector: "",
+  chekoutBtnSelector: ".cart-checkout [name=checkout]",
+  dynamicCheckoutBtnSelector: "",
   dynamicUpdateSection: "",
-  updateSection: "",
+  updateSection: ".cartitems",
 };
 
 // helper
@@ -42,11 +41,7 @@ const changeSubtotal = (
     return;
   }
 
-  const {
-    total_price: cartTotalPrice,
-    currency,
-    items_subtotal_price,
-  } = store.cart;
+  const { total_price: cartTotalPrice, currency } = store.cart;
   const subTotal = (cartTotalPrice / 100).toFixed(2);
   const numberFormat = new Intl.NumberFormat("en-US", {
     style: "currency",
@@ -253,9 +248,6 @@ const actionDurationFrame = (
       rerenderCart(updateSection, dynamicUpdateSection, snapshot(store));
     } catch (e) {
       console.log(e.message);
-    }
-    if (window.location.href.indexOf("/cart") < 0) {
-      window.ajaxCart?.load();
     }
 
     // keep quantity of product and ew item start

@@ -251,17 +251,6 @@ const actionDurationFrame = (
 
     // keep quantity of product and ew item start
     const { cart } = snapshot(store);
-
-    document.documentElement.dispatchEvent(
-      new CustomEvent("cart:refresh", {
-        bubbles: true,
-        detail: {
-          cart,
-          openMiniCart: true,
-        },
-      }),
-    );
-
     const updates = {};
     cart.items.forEach((item) => {
       const { vendor, properties } = item;
