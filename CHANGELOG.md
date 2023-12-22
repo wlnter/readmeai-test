@@ -1,3 +1,10 @@
+## [3.46.1](https://github.com/kover-ai/shopify-scripts/compare/v3.46.0...v3.46.1) (2023-12-22)
+
+
+### Bug Fixes
+
+* **519736-4\shopnowyy:** 519736-4主题变更，shopnowyy有商品的情况下首次加载不显示widget ([457ad2a](https://github.com/kover-ai/shopify-scripts/commit/457ad2a718e66039dfe471d4637c7867950d7157))
+
 # [3.46.0](https://github.com/kover-ai/shopify-scripts/compare/v3.45.0...v3.46.0) (2023-12-21)
 
 
