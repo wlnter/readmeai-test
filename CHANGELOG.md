@@ -1,3 +1,10 @@
+# [3.47.0](https://github.com/kover-ai/shopify-scripts/compare/v3.46.2...v3.47.0) (2023-12-22)
+
+
+### Features
+
+* **complexexpress:** 迁移一家新店铺 ([962de48](https://github.com/kover-ai/shopify-scripts/commit/962de48d6f260910f806f0a89f51ec7d6527f09f))
+
 ## [3.46.2](https://github.com/kover-ai/shopify-scripts/compare/v3.46.1...v3.46.2) (2023-12-22)
 
 
