@@ -21,10 +21,11 @@ const shop = "519736-4.myshopify.com";
 const option = {
   atcButtonSelector: "",
   quantitySelector: "",
-  subtotalSelector: ".card-footer .cart-cost .money",
-  dynamicSubtotalSelector: ".drawer__footer .cart-cost .money",
-  chekoutBtnSelector: ".card-footer [name=checkout]",
-  dynamicCheckoutBtnSelector: ".drawer__footer [name=checkout]",
+  subtotalSelector:
+    "#main-cart-footer > div > div > div > div.js-contents > div.totals > p > span",
+  dynamicSubtotalSelector: "",
+  chekoutBtnSelector: "#checkout",
+  dynamicCheckoutBtnSelector: "",
   dynamicUpdateSection: "",
   updateSection: "",
 };

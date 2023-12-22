@@ -3,7 +3,7 @@ import { productType, seelEvents } from "./core/constant";
 import store, { snapshot } from "./core/store";
 import embedWidget, {
   flatten as repaint,
-} from "./component/cart-widget/index.js";
+} from "./component/cart-widget/shopnowyy.myshopify.com.js";
 import renderModal from "./component/modal";
 import renderPdpBanner from "./component/pdp-banner";
 import configurations from "./config/shopnowyy.myshopify.com.json";
