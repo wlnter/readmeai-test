@@ -1,3 +1,10 @@
+## [3.46.2](https://github.com/kover-ai/shopify-scripts/compare/v3.46.1...v3.46.2) (2023-12-22)
+
+
+### Bug Fixes
+
+* **shopnowyy:** 修复侧边栏切换的时候，widget消失 ([ad99dea](https://github.com/kover-ai/shopify-scripts/commit/ad99dea356401f81ca5a424f712e8a2f896f63f2))
+
 ## [3.46.1](https://github.com/kover-ai/shopify-scripts/compare/v3.46.0...v3.46.1) (2023-12-22)
 
 
