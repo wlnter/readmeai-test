@@ -201,6 +201,41 @@ export const rerenderCart = (updateSection, dynamicUpdateSection, store) => {
   }
 };
 
+export const rerenderFooter = (
+  footerUpdateSection,
+  dynamicFooterUpdateSection,
+  store,
+) => {
+  if (footerUpdateSection || dynamicFooterUpdateSection) {
+    const sections = store.cart?.sections;
+    if (sections) {
+      for (let prop in sections) {
+        if (sections[prop]) {
+          const element = createElementFromString(sections[prop]);
+          if (footerUpdateSection) {
+            if (
+              element.querySelector(footerUpdateSection) &&
+              document.querySelector(footerUpdateSection)
+            ) {
+              document.querySelector(footerUpdateSection).innerHTML =
+                element.querySelector(footerUpdateSection).innerHTML;
+            }
+          }
+          if (dynamicFooterUpdateSection) {
+            if (
+              element.querySelector(dynamicFooterUpdateSection) &&
+              document.querySelector(dynamicFooterUpdateSection)
+            ) {
+              document.querySelector(dynamicFooterUpdateSection).innerHTML =
+                element.querySelector(dynamicFooterUpdateSection).innerHTML;
+            }
+          }
+        }
+      }
+    }
+  }
+};
+
 export const setWidgetSwitchStatus = (type, value) => {
   const widgetSwitchStatus = localStorage?.getItem(
     SEEL_SWITCH_STATUS_STORAGE_KEY,
