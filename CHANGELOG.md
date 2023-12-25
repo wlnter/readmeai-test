@@ -1,3 +1,10 @@
+# [3.49.0](https://github.com/kover-ai/shopify-scripts/compare/v3.48.0...v3.49.0) (2023-12-25)
+
+
+### Features
+
+* **sparklycare\0a3dcb-2\ea8704\99750b-2:** add four new shop ([ffcf7c9](https://github.com/kover-ai/shopify-scripts/commit/ffcf7c9fc4af800c9dcde73cbc866277cb6143de))
+
 # [3.48.0](https://github.com/kover-ai/shopify-scripts/compare/v3.47.0...v3.48.0) (2023-12-25)
 
 
