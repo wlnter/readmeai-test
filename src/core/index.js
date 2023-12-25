@@ -16,6 +16,7 @@ import {
 import store, { snapshot } from "./store";
 import { setCartObserver, locationHashObserver } from "./event";
 import { performanceObserver } from "../pixel/performance";
+import { detectReference } from "../pixel/reference-detection.js";
 
 export { seelEvents } from "./constant";
 export { updateCart, addCart } from "./fetch";
@@ -245,5 +246,7 @@ export default async (shop) => {
     getQuotesAndUpdateCart(shop);
   });
   styledLogger(`Script Version: ${window.SEEL_SCRIPT_VERSION}`);
+
+  detectReference(shop, window.SEEL_SCRIPT_VERSION);
   return store;
 };
