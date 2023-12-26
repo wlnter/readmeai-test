@@ -1,3 +1,11 @@
+# [3.51.0](https://github.com/kover-ai/shopify-scripts/compare/v3.50.0...v3.51.0) (2023-12-26)
+
+
+### Features
+
+* **ab9574:** add new shop ([e811e79](https://github.com/kover-ai/shopify-scripts/commit/e811e797dbe07fd93e3c33f52d56820d26d7099b))
+* **common:** 勾选状态保留半个小时 ([651087e](https://github.com/kover-ai/shopify-scripts/commit/651087e90264c1146ba8a9624e07a00a55f1122a))
+
 # [3.50.0](https://github.com/kover-ai/shopify-scripts/compare/v3.49.0...v3.50.0) (2023-12-26)
 
 
