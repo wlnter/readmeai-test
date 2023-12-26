@@ -237,12 +237,14 @@ export const rerenderFooter = (
 };
 
 export const setWidgetSwitchStatus = (type, value) => {
+  var expiration = new Date().getTime() + 1 * 30 * 60 * 1000;
   const widgetSwitchStatus = localStorage?.getItem(
     SEEL_SWITCH_STATUS_STORAGE_KEY,
   );
   if (widgetSwitchStatus) {
     const widgetSwitchStatusJson = JSON.parse(widgetSwitchStatus);
     widgetSwitchStatusJson[type] = value;
+    widgetSwitchStatusJson.expiration = expiration;
     localStorage.setItem(
       SEEL_SWITCH_STATUS_STORAGE_KEY,
       JSON.stringify(widgetSwitchStatusJson),
@@ -250,6 +252,7 @@ export const setWidgetSwitchStatus = (type, value) => {
   } else {
     const newWidgetSwitchStatusJson = {};
     newWidgetSwitchStatusJson[type] = value;
+    newWidgetSwitchStatusJson.expiration = expiration;
     localStorage.setItem(
       SEEL_SWITCH_STATUS_STORAGE_KEY,
       JSON.stringify(newWidgetSwitchStatusJson),
@@ -258,9 +261,19 @@ export const setWidgetSwitchStatus = (type, value) => {
 };
 
 export const getWidgetSwitchStatus = (type) => {
-  const widgetSwitchStatus = localStorage?.getItem(
+  let widgetSwitchStatus = localStorage?.getItem(
     SEEL_SWITCH_STATUS_STORAGE_KEY,
   );
+  var currentTime = new Date().getTime();
+
+  if (
+    widgetSwitchStatus &&
+    widgetSwitchStatus?.expiration &&
+    currentTime > JSON.parse(widgetSwitchStatus)?.expiration
+  ) {
+    localStorage.removeItem(SEEL_SWITCH_STATUS_STORAGE_KEY);
+    widgetSwitchStatus = null;
+  }
   if (widgetSwitchStatus) {
     return JSON.parse(widgetSwitchStatus)[type] || null;
   }
