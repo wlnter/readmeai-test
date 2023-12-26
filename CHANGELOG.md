@@ -1,3 +1,10 @@
+# [3.50.0](https://github.com/kover-ai/shopify-scripts/compare/v3.49.0...v3.50.0) (2023-12-26)
+
+
+### Features
+
+* **217444-2:** add new shop and two shop theme change ([044bf07](https://github.com/kover-ai/shopify-scripts/commit/044bf07be0be3d82b0db75abbf128973a9413512))
+
 # [3.49.0](https://github.com/kover-ai/shopify-scripts/compare/v3.48.0...v3.49.0) (2023-12-25)
 
 
