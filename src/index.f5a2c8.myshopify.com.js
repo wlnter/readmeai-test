@@ -24,14 +24,12 @@ const option = {
   atcButtonSelector: "",
   quantitySelector: "",
   subtotalSelector:
-    "div.template__cart__footer > div.cart__footer__total > p:nth-child(3) > span.cart__footer__value",
-  dynamicSubtotalSelector:
-    "#drawer-cart > div > div.drawer__bottom > form > button > span",
-  chekoutBtnSelector: ".cart__footer__checkout [name=checkout]",
-  dynamicCheckoutBtnSelector:
-    "#drawer-cart > div > div.drawer__bottom [name=checkout]",
+    "#main-cart-footer > div > div > div > div.js-contents > div.totals > p",
+  dynamicSubtotalSelector: "",
+  chekoutBtnSelector: "#checkout",
+  dynamicCheckoutBtnSelector: "",
   dynamicUpdateSection: "",
-  updateSection: "",
+  updateSection: "#main-cart-items",
 };
 
 // helper

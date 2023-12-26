@@ -6,27 +6,35 @@ import embedWidget, {
 } from "./component/cart-widget/index.js";
 import renderModal from "./component/modal";
 import renderPdpBanner from "./component/pdp-banner";
-import configurations from "./config/519736-4.myshopify.com.json";
-import { rerenderCart, createElementFromString } from "./core/util";
+import configurations from "./config/217444-2.myshopify.com.json";
+import {
+  rerenderCart,
+  rerenderFooter,
+  createElementFromString,
+} from "./core/util";
 import { pixelEvent } from "./pixel/product-protection-pixel";
 import embedPdpWidget, {
   flatten as repaintPdpWidget,
 } from "./component/pdp-widget";
-import "./component/cart-widget/519736-4.myshopify.com.css";
+import { scriptingMarker } from "./pixel/performance.js";
 
 store.configs = configurations;
 
+scriptingMarker();
+
 // shop related variables
-const shop = "519736-4.myshopify.com";
+const shop = "217444-2.myshopify.com";
 const option = {
   atcButtonSelector: "",
   quantitySelector: "",
   subtotalSelector: "",
   dynamicSubtotalSelector: "",
-  chekoutBtnSelector: "#cart-checkout",
+  chekoutBtnSelector: "",
   dynamicCheckoutBtnSelector: "",
   dynamicUpdateSection: "",
-  updateSection: "",
+  updateSection: ".cart_items",
+  footerUpdateSection: ".cart__footer .total",
+  dynamicFooterUpdateSection: ".mini_cart_footer .total",
 };
 
 // helper
@@ -51,14 +59,14 @@ const changeSubtotal = (
 
   if (subtotalSelector && document.querySelector(subtotalSelector)) {
     const element = document.querySelector(subtotalSelector);
-    element.innerHTML = `${currencySymbol}${amount} ${currency}`;
+    element.innerHTML = `${currencySymbol}${amount}`;
   }
   if (
     dynamicSubtotalSelector &&
     document.querySelector(dynamicSubtotalSelector)
   ) {
     const element = document.querySelector(dynamicSubtotalSelector);
-    element.innerHTML = `${currencySymbol}${amount} ${currency}`;
+    element.innerHTML = `${currencySymbol}${amount}`;
   }
 };
 
@@ -162,6 +170,8 @@ const actionDurationFrame = (
     atcButtonSelector,
     chekoutBtnSelector,
     quantitySelector,
+    footerUpdateSection,
+    dynamicFooterUpdateSection,
   },
 ) => {
   await initialize(shop);
@@ -243,6 +253,11 @@ const actionDurationFrame = (
     // rerender cart
     try {
       rerenderCart(updateSection, dynamicUpdateSection, snapshot(store));
+      rerenderFooter(
+        footerUpdateSection,
+        dynamicFooterUpdateSection,
+        snapshot(store),
+      );
     } catch (e) {
       console.log(e.message);
     }
