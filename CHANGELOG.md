@@ -1,3 +1,10 @@
+# [3.52.0](https://github.com/kover-ai/shopify-scripts/compare/v3.51.0...v3.52.0) (2023-12-27)
+
+
+### Features
+
+* **b44914-2\thesouthofr\do7solutions:** add three new shop ([6e28be0](https://github.com/kover-ai/shopify-scripts/commit/6e28be09628e3d28404f7960c19a45805273c74e))
+
 # [3.51.0](https://github.com/kover-ai/shopify-scripts/compare/v3.50.0...v3.51.0) (2023-12-26)
 
 
