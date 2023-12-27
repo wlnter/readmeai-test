@@ -268,14 +268,17 @@ export const getWidgetSwitchStatus = (type) => {
 
   if (
     widgetSwitchStatus &&
-    widgetSwitchStatus?.expiration &&
+    JSON.parse(widgetSwitchStatus)?.expiration &&
     currentTime > JSON.parse(widgetSwitchStatus)?.expiration
   ) {
     localStorage.removeItem(SEEL_SWITCH_STATUS_STORAGE_KEY);
     widgetSwitchStatus = null;
   }
   if (widgetSwitchStatus) {
-    return JSON.parse(widgetSwitchStatus)[type] || null;
+    if (JSON.parse(widgetSwitchStatus)[type] === undefined) {
+      return null;
+    }
+    return JSON.parse(widgetSwitchStatus)[type];
   }
   return null;
 };
