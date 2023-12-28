@@ -6,33 +6,31 @@ import embedWidget, {
 } from "./component/cart-widget/index.js";
 import renderModal from "./component/modal";
 import renderPdpBanner from "./component/pdp-banner";
-import configurations from "./config/b44914-2.myshopify.com.json";
-import { rerenderCart, createElementFromString } from "./core/util";
+import configurations from "./config/c5580b-6.myshopify.com.json";
+import { rerenderCart } from "./core/util";
 import { pixelEvent } from "./pixel/product-protection-pixel";
 import embedPdpWidget, {
   flatten as repaintPdpWidget,
 } from "./component/pdp-widget";
 import { scriptingMarker } from "./pixel/performance.js";
+import "./component/cart-widget/c5580b-6.myshopify.com.css";
 
 store.configs = configurations;
 
 scriptingMarker();
 
 // shop related variables
-const shop = "b44914-2.myshopify.com";
+const shop = "c5580b-6.myshopify.com";
 const option = {
   atcButtonSelector: "",
   quantitySelector: "",
-  subtotalSelector:
-    "#shopify-section-template--18357325136211__main > section > div > div > form > footer > div.Cart__Recap > p.Cart__Total.Heading.u-h6 > span",
-  dynamicSubtotalSelector:
-    "#sidebar-cart > form > div.Drawer__Footer > button.Cart__Checkout.Button.Button--primary.Button--full > span:nth-child(3)",
+  subtotalSelector: "",
+  dynamicSubtotalSelector: "",
   chekoutBtnSelector:
-    "#shopify-section-template--18357325136211__main > section > div > div > form > footer > div.Cart__Recap > button",
-  dynamicCheckoutBtnSelector:
-    "#sidebar-cart > form > div.Drawer__Footer > button.Cart__Checkout.Button.Button--primary.Button--full",
+    "#CartPageForm > div > div:nth-child(2) > div.cart__item-row.cart__checkout-wrapper > button",
+  dynamicCheckoutBtnSelector: "",
   dynamicUpdateSection: "",
-  updateSection: ".PageContent .Cart__ItemList",
+  updateSection: "",
 };
 
 // helper
@@ -45,39 +43,26 @@ const changeSubtotal = (
   }
 
   const { total_price: cartTotalPrice, currency } = store.cart;
-  let currencySymbol, amount;
-  if (currency === "EUR") {
-    const subTotal = (cartTotalPrice / 100).toFixed(2);
-    const numberFormat = new Intl.NumberFormat("de-DE", {
-      style: "currency",
-      currency,
-    });
-    const parts = numberFormat.formatToParts(subTotal);
-    const partValues = parts.map((p) => p.value);
-    currencySymbol = partValues.pop();
-    amount = partValues.join("");
-  } else {
-    const subTotal = (cartTotalPrice / 100).toFixed(2);
-    const numberFormat = new Intl.NumberFormat("en-US", {
-      style: "currency",
-      currency,
-    });
-    const parts = numberFormat.formatToParts(subTotal);
-    const partValues = parts.map((p) => p.value);
-    currencySymbol = partValues.shift();
-    amount = partValues.join("");
-  }
+  const subTotal = (cartTotalPrice / 100).toFixed(2);
+  const numberFormat = new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency,
+  });
+  const parts = numberFormat.formatToParts(subTotal);
+  const partValues = parts.map((p) => p.value);
+  const currencySymbol = partValues.shift();
+  const amount = partValues.join("");
 
   if (subtotalSelector && document.querySelector(subtotalSelector)) {
     const element = document.querySelector(subtotalSelector);
-    element.innerHTML = `${currencySymbol}${amount} ${currency}`;
+    element.innerHTML = `${currencySymbol}${amount}`;
   }
   if (
     dynamicSubtotalSelector &&
     document.querySelector(dynamicSubtotalSelector)
   ) {
     const element = document.querySelector(dynamicSubtotalSelector);
-    element.innerHTML = `${currencySymbol}${amount} ${currency}`;
+    element.innerHTML = `${currencySymbol}${amount}`;
   }
 };
 
