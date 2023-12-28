@@ -1,3 +1,10 @@
+# [3.53.0](https://github.com/kover-ai/shopify-scripts/compare/v3.52.0...v3.53.0) (2023-12-28)
+
+
+### Features
+
+* **3c1960-2\c5580b-6\shop-diamond-painting\fdf507-3:** add four new shop ([00cd69c](https://github.com/kover-ai/shopify-scripts/commit/00cd69c329eee7a111ff423064be9bbfe986bd98))
+
 # [3.52.0](https://github.com/kover-ai/shopify-scripts/compare/v3.51.0...v3.52.0) (2023-12-27)
 
 
