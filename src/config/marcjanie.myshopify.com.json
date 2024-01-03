@@ -1,6 +1,21 @@
 {
   "widgets": [
     {
+      "type": "sp",
+      "name": "Guaranteed Delivery&trade;",
+      "infoIcon": "https://static.seel.com/image/widget-info-icon.svg",
+      "infoIconLink": "https://www.seel.com/terms/learn-more-about-seel-shipping-protection",
+      "description": "Protect against loss, damage, delay & offset emissions for <strong>{{currencySymbol}}{{price}} {{currencyCode}}</strong>",
+      "widgetIcon": "https://cdn.seel.com/assets/images/gsp-widget-icon.png",
+      "anchor": ".t4s-btn-group__checkout-update",
+      "position": "beforebegin",
+      "dynamicAnchor": ".t4s-btn__cart",
+      "dynamicPosition": "beforebegin",
+      "checkoutAnchor": "",
+      "checkoutPosition": "",
+      "listPriceRate": 0
+    },
+    {
       "type": "ra",
       "name": "ADD RETURN ASSURANCE",
       "infoIcon": "https://static.seel.com/image/widget-info-icon.svg",
@@ -30,21 +45,7 @@
       "checkoutPosition": "",
       "listPriceRate": 0
     },
-    {
-      "type": "sp",
-      "name": "ADD GREEN SHIPPING PROTECTION",
-      "infoIcon": "https://static.seel.com/image/widget-info-icon.svg",
-      "infoIconLink": "https://www.seel.com/terms/learn-more-about-seel-shipping-protection",
-      "description": "Protect against loss, damage, delay & offset emissions for <strong>{{currencySymbol}}{{price}} {{currencyCode}}</strong>",
-      "widgetIcon": "https://static.seel.com/image/sp-widget-icon.svg",
-      "anchor": ".t4s-btn-group__checkout-update",
-      "position": "beforebegin",
-      "dynamicAnchor": ".t4s-btn__cart",
-      "dynamicPosition": "beforebegin",
-      "checkoutAnchor": "",
-      "checkoutPosition": "",
-      "listPriceRate": 0
-    }
+    null
   ],
   "modals": [
     {
@@ -123,11 +124,7 @@
         {
           "header": "1-click protect against",
           "contentIcon": "https://cdn.seel.com/assets/images/modal-section-icon-1.svg",
-          "contentText": [
-            "Loss",
-            "Damage",
-            "Delay"
-          ]
+          "contentText": ["Loss", "Damage", "Delay"]
         },
         {
           "header": "Instant resolution",

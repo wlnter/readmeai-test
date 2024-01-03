@@ -78,7 +78,7 @@
       "domain": "seel-dev-store.myshopify.com",
       "buckets": ["d", "e"],
       "profile": {
-        "productType": ["ra", "sp"]
+        "productType": ["ra"]
       }
     },
     {
@@ -109,14 +109,6 @@
       "shop": "the-308-boutique.myshopify.com",
       "domain": "the-308-boutique.myshopify.com",
       "buckets": ["d", "e"],
-      "profile": {
-        "productType": ["ra"]
-      }
-    },
-    {
-      "shop": "kid-gear.myshopify.com",
-      "domain": "kid-gear.myshopify.com",
-      "buckets": ["a", "b", "c"],
       "profile": {
         "productType": ["ra"]
       }
