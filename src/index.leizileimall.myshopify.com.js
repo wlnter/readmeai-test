@@ -7,7 +7,7 @@ import embedWidget, {
 import renderModal from "./component/modal";
 import renderPdpBanner from "./component/pdp-banner";
 import configurations from "./config/leizileimall.myshopify.com.json";
-import { rerenderCart, createElementFromString } from "./core/util";
+import { rerenderCart } from "./core/util";
 import { pixelEvent } from "./pixel/product-protection-pixel";
 import embedPdpWidget, {
   flatten as repaintPdpWidget,
@@ -24,12 +24,13 @@ const option = {
   atcButtonSelector: "",
   quantitySelector: "",
   subtotalSelector:
-    "#main-cart-footer > div > div > div > div.js-contents > div.totals > p > span.currency-converter-wrapper-amount-box.cbb-desktop-view.skiptranslate.notranslate > span > span",
+    "[data-armada-selector=cart-summary-info-container] #price-field > span.money",
   dynamicSubtotalSelector: "",
-  chekoutBtnSelector: "#checkout",
+  chekoutBtnSelector:
+    "[data-armada-selector=cart-summary-info-container] [data-armada-selector=checkout-button]",
   dynamicCheckoutBtnSelector: "",
   dynamicUpdateSection: "",
-  updateSection: "#cart",
+  updateSection: "[data-section-id=template--16141091274929__main]",
 };
 
 // helper
@@ -54,14 +55,7 @@ const changeSubtotal = (
 
   if (subtotalSelector && document.querySelector(subtotalSelector)) {
     const element = document.querySelector(subtotalSelector);
-    const symbol = element.querySelector(".cbb-price-symbol");
-    const digits = element.querySelector(".cbb-price-digits");
-    const code = element.querySelector(".cbb-price-code");
-    if (symbol && digits && code) {
-      symbol.innerHTML = currencySymbol;
-      digits.innerHTML = amount;
-      code.innerHTML = currency;
-    }
+    element.innerHTML = `${currencySymbol}${amount}`;
   }
   if (
     dynamicSubtotalSelector &&

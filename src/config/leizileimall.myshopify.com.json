@@ -7,7 +7,7 @@
       "infoIconLink": "https://www.seel.com/terms/17trackbuyerprotection",
       "description": "Protect against loss, damage, delay & offset emissions for <strong>{{currencySymbol}}{{price}} {{currencyCode}}</strong>",
       "widgetIcon": "https://static.seel.com/image/bp-widget-icon.svg",
-      "anchor": "#main-cart-footer > div > div > div > div.cart__ctas",
+      "anchor": "[data-armada-selector=cart-summary-info-container] [data-armada-selector=checkout-button]",
       "position": "beforebegin",
       "dynamicAnchor": "",
       "dynamicPosition": "beforebegin",
@@ -16,7 +16,7 @@
       "listPriceRate": 0
     }
   ],
-  "sections": ["template--16098659008689__main"]
+  "sections": ["template--16141091274929__main"]
 }
 
 
