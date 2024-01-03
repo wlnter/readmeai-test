@@ -1,3 +1,10 @@
+# [3.57.0](https://github.com/kover-ai/shopify-scripts/compare/v3.56.0...v3.57.0) (2024-01-03)
+
+
+### Features
+
+* **kiteleaf\5300ba\bierbuy\300a23\couturepl:** add five new shop ([7a8261e](https://github.com/kover-ai/shopify-scripts/commit/7a8261ef5307ff8f560285f5b9cc368e5400fb03))
+
 # [3.56.0](https://github.com/kover-ai/shopify-scripts/compare/v3.55.0...v3.56.0) (2024-01-03)
 
 
