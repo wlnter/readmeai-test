@@ -6,31 +6,31 @@ import embedWidget, {
 } from "./component/cart-widget/index.js";
 import renderModal from "./component/modal";
 import renderPdpBanner from "./component/pdp-banner";
-import configurations from "./config/mkgrillz-ltd.myshopify.com.json";
+import configurations from "./config/animaldrop24.myshopify.com.json";
 import { rerenderCart } from "./core/util";
 import { pixelEvent } from "./pixel/product-protection-pixel";
 import embedPdpWidget, {
   flatten as repaintPdpWidget,
 } from "./component/pdp-widget";
 import { scriptingMarker } from "./pixel/performance.js";
+import "./component/cart-widget/animaldrop24.myshopify.com.css";
 
 store.configs = configurations;
 
 scriptingMarker();
 
 // shop related variables
-const shop = "mkgrillz-ltd.myshopify.com";
+const shop = "animaldrop24.myshopify.com";
 const option = {
   atcButtonSelector: "",
   quantitySelector: "",
   subtotalSelector:
-    "#shopify-section-cart-template > div > form > footer > div > div.grid__item.text-right.small--text-center.medium-up--one-half > div.cart-subtotal > span.cart-subtotal__price",
-  dynamicSubtotalSelector: ".cart-drawer [data-cart-subtotal]",
-  chekoutBtnSelector:
-    "#shopify-section-cart-template > div > form > footer > div > div.grid__item.text-right.small--text-center.medium-up--one-half > div.btn-group > button",
-  dynamicCheckoutBtnSelector: ".cart-drawer__footer [name=checkout]",
+    "#main-cart-footer > div > div > div > div.js-contents > div.totals > p",
+  dynamicSubtotalSelector: "",
+  chekoutBtnSelector: "#checkout",
+  dynamicCheckoutBtnSelector: "",
   dynamicUpdateSection: "",
-  updateSection: "",
+  updateSection: "#main-cart-items",
 };
 
 // helper
@@ -44,25 +44,25 @@ const changeSubtotal = (
 
   const { total_price: cartTotalPrice, currency } = store.cart;
   const subTotal = (cartTotalPrice / 100).toFixed(2);
-  const numberFormat = new Intl.NumberFormat("en-US", {
+  const numberFormat = new Intl.NumberFormat("de-DE", {
     style: "currency",
     currency,
   });
   const parts = numberFormat.formatToParts(subTotal);
   const partValues = parts.map((p) => p.value);
-  const currencySymbol = partValues.shift();
+  const currencySymbol = partValues.pop();
   const amount = partValues.join("");
 
   if (subtotalSelector && document.querySelector(subtotalSelector)) {
     const element = document.querySelector(subtotalSelector);
-    element.innerHTML = `${currencySymbol}${amount}`;
+    element.innerHTML = `${currencySymbol}${amount}${currency}`;
   }
   if (
     dynamicSubtotalSelector &&
     document.querySelector(dynamicSubtotalSelector)
   ) {
     const element = document.querySelector(dynamicSubtotalSelector);
-    element.innerHTML = `${currencySymbol}${amount}`;
+    element.innerHTML = `${currencySymbol}${amount}${currency}`;
   }
 };
 
