@@ -1,3 +1,10 @@
+## [3.57.1](https://github.com/kover-ai/shopify-scripts/compare/v3.57.0...v3.57.1) (2024-01-03)
+
+
+### Bug Fixes
+
+* **couturepl:** 总价和按钮设置颠倒 ([2879712](https://github.com/kover-ai/shopify-scripts/commit/2879712dbe0e8c615c026414d4dad3f33f2432b0))
+
 # [3.57.0](https://github.com/kover-ai/shopify-scripts/compare/v3.56.0...v3.57.0) (2024-01-03)
 
 
