@@ -26,10 +26,10 @@ const option = {
   quantitySelector: "",
   subtotalSelector: "#cart_form .cart_subtotal .money",
   dynamicSubtotalSelector:
-    "#shopify-section-header > header.search-enabled--true.is-absolute > div > div.top-bar > div > div > div > form > ul:nth-child(3) > li:nth-child(5) > button",
+    "#shopify-section-header > header.search-enabled--true.is-absolute > div > div.top-bar > div > div > div > form > ul:nth-child(3) > li.cart_subtotal.js-cart_subtotal > span.right > span",
   chekoutBtnSelector: "#checkout",
   dynamicCheckoutBtnSelector:
-    "#shopify-section-header > header.search-enabled--true.is-absolute > div > div.top-bar > div > div > div > form > ul:nth-child(3) > li.cart_subtotal.js-cart_subtotal > span.right > span",
+    "#shopify-section-header > header.search-enabled--true.is-absolute > div > div.top-bar > div > div > div > form > ul:nth-child(3) > li:nth-child(5) > button",
   dynamicUpdateSection: "",
   updateSection: "",
 };
