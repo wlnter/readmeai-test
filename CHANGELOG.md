@@ -1,3 +1,10 @@
+# [3.58.0](https://github.com/kover-ai/shopify-scripts/compare/v3.57.2...v3.58.0) (2024-01-03)
+
+
+### Features
+
+* **294885-2/lakeandwind:** add two new shop ([11d2ae9](https://github.com/kover-ai/shopify-scripts/commit/11d2ae922443c36361ddf206d90ce9f422697764))
+
 ## [3.57.2](https://github.com/kover-ai/shopify-scripts/compare/v3.57.1...v3.57.2) (2024-01-03)
 
 
