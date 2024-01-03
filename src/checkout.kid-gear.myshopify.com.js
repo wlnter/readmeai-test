@@ -12,6 +12,8 @@ import { productType } from "./core/constant";
 import { scriptingMarker } from "./pixel/performance.js";
 import { sendBeacon } from "./pixel/util";
 
+console.log("staging script loaded");
+
 scriptingMarker();
 
 const shop = "kid-gear.myshopify.com";

@@ -13,6 +13,7 @@
 .seel_widget--icon.seel_experiment {
   width: 30px;
   height: 30px;
+  margin-right: 4px;
 }
 .seel_widget--content.seel_experiment {
   display: flex;
@@ -36,11 +37,13 @@
   margin: 0;
 }
 .seel_widget--title_line--icon.seel_experiment {
-  margin: 0 10px;
+  margin: 0 4px;
 }
 .seel_widget--desc_line.seel_experiment {
   color: #202223;
-  font-size: 14px;
+  font-size: 12px;
+  display: block !important;
+  line-height: 16px;
 }
 
 /* toggle in label designing */

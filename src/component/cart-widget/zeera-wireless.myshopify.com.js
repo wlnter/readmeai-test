@@ -60,7 +60,7 @@ export const getComponent = async (type) => {
   // bucket testing start
   const { bucket, profile, ...rest } = await trafficSplitter({
     shop: store.shop,
-    code: "capybara",
+    code: "raccoon",
   });
 
   console.log(bucket, profile);
@@ -69,7 +69,7 @@ export const getComponent = async (type) => {
     bucket,
     profile,
     ...rest,
-    code: "capybara",
+    code: "raccoon",
   });
 
   console.log(experimentAsset);

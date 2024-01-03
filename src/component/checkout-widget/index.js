@@ -58,7 +58,7 @@ export const getComponent = async (type) => {
   const parser = new DOMParser();
 
   // bucket testing start
-  const expCode = "capybara";
+  const expCode = "raccoon";
   const { bucket, profile, ...rest } = await trafficSplitter({
     shop: store.shop,
     code: expCode,

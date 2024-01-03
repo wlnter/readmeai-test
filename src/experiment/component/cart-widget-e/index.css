@@ -1,0 +1,149 @@
+.seel_widget {
+  border: 1px #d9d9d9 solid;
+  border-radius: 5px;
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  min-width: 280px;
+  text-align: left;
+}
+
+.seel_widget--title_line--checkbox {
+  appearance: none;
+  margin-left: 6px;
+  min-width: 16px;
+  width: 16px;
+  height: 16px;
+  border: 1px solid #202223;
+  border-radius: 4px;
+  display: grid !important;
+  place-content: center;
+  cursor: pointer;
+  padding: 0px;
+}
+
+.seel_widget--title_line--checkbox:checked {
+  background-color: #645aff;
+  border-color: #645aff;
+}
+
+.seel_widget--title_line--checkbox::before {
+  content: "";
+  display: block;
+  height: 10px;
+  width: 10px;
+  transform: scale(0);
+  box-shadow: inset 1em 1em white;
+  clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+}
+.seel_widget--title_line--checkbox:checked::before {
+  transform: scale(1);
+}
+
+.seel_widget--title_line--name {
+  margin: 0 8px;
+  font-weight: 600;
+  color: #202223;
+  font-size: 14px;
+  line-height: 14px;
+}
+.seel_widget--title_line--icon:hover {
+  cursor: pointer;
+}
+
+.seel_widget--title_line {
+  display: flex;
+  flex-direction: row;
+  height: 30px;
+  align-items: center;
+  /* margin-bottom: 10px; */
+}
+
+.seel_widget--desc_line {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.seel_widget--desc_line--icon {
+  width: 30px;
+  height: 30px;
+}
+
+.seel_widget--desc_item {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+.seel_widget--desc_item--section {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  width: 150px;
+  margin-bottom: 8px;
+  margin-left: 38px;
+  margin-right: 15px;
+}
+.seel_widget--desc_item--section--icon {
+  width: 10px;
+  height: 10px;
+  margin-right: 6px;
+}
+.seel_widget--desc_item--section--text {
+  color: #565656;
+  font-size: 12px;
+  font-weight: 400;
+}
+.seel_widget--desc_line--text.seel_experiment {
+  color: #6a6a6a;
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 13px;
+  border-top: 1px solid #ececec;
+  padding-top: 12px;
+}
+
+/* toggle in label designing */
+.seel_widget--toggle {
+  position: relative;
+  display: flex;
+  width: 34px;
+  height: 18px;
+  background-color: #bdbdbd;
+  border-radius: 30px;
+  align-items: flex-end;
+  /* border: 2px solid gray; */
+}
+
+/* After slide changes */
+.seel_widget--toggle:after {
+  content: "";
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: white;
+  border: 1px solid white;
+  top: 1px;
+  left: 1px;
+  transition: all 0.3s;
+  box-sizing: border-box;
+}
+/* Checkbox checked effect */
+#seel_widget--switch:checked + .seel_widget--toggle::after {
+  left: 17px;
+  border: 1px solid #9b95ff;
+}
+
+/* Checkbox checked seel_widget--toggle label bg color */
+#seel_widget--switch:checked + .seel_widget--toggle {
+  background-color: #645aff;
+}
+
+/* Checkbox vanished */
+#seel_widget--switch {
+  display: none;
+}

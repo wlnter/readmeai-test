@@ -4,7 +4,7 @@
     {
       "shop": "adelanteshoes.com",
       "domain": "adelante-shoe-co.myshopify.com",
-      "buckets": ["b", "c", "d"],
+      "buckets": ["d", "e"],
       "profile": {
         "productType": ["ra"]
       }
@@ -12,7 +12,7 @@
     {
       "shop": "ericjavits.com",
       "domain": "eric-javits.myshopify.com",
-      "buckets": ["b", "c", "d"],
+      "buckets": ["d", "e"],
       "profile": {
         "productType": ["ra"]
       }
@@ -20,7 +20,7 @@
     {
       "shop": "riversidetoolanddye.com",
       "domain": "bennas.myshopify.com",
-      "buckets": ["b", "c", "d"],
+      "buckets": ["d", "e"],
       "profile": {
         "productType": ["ra"]
       }
@@ -28,7 +28,7 @@
     {
       "shop": "holythrift.com",
       "domain": "holy-thrift.myshopify.com",
-      "buckets": ["b", "c", "d"],
+      "buckets": ["d", "e"],
       "profile": {
         "productType": ["ra"]
       }
@@ -36,7 +36,7 @@
     {
       "shop": "www.marcjanie.com",
       "domain": "marcjanie.myshopify.com",
-      "buckets": ["b", "c", "d"],
+      "buckets": ["d", "e"],
       "profile": {
         "productType": ["ra"]
       }
@@ -44,7 +44,7 @@
     {
       "shop": "www.bewelldressed.com",
       "domain": "well-dressed-nasvhille.myshopify.com",
-      "buckets": ["b", "c", "d"],
+      "buckets": ["d", "e"],
       "profile": {
         "productType": ["ra"]
       }
@@ -52,7 +52,7 @@
     {
       "shop": "roomshop.us",
       "domain": "room-shop-vintage.myshopify.com",
-      "buckets": ["b", "c", "d"],
+      "buckets": ["d", "e"],
       "profile": {
         "productType": ["ra"]
       }
@@ -60,7 +60,7 @@
     {
       "shop": "striptofficial.com",
       "domain": "stript-official.myshopify.com",
-      "buckets": ["b", "c", "d"],
+      "buckets": ["d", "e"],
       "profile": {
         "productType": ["ra"]
       }
@@ -68,7 +68,7 @@
     {
       "shop": "vex-clothing-inc.myshopify.com",
       "domain": "vex-clothing-inc.myshopify.com",
-      "buckets": ["b", "c", "d"],
+      "buckets": ["d", "e"],
       "profile": {
         "productType": ["ra"]
       }
@@ -76,15 +76,15 @@
     {
       "shop": "seel-dev-store.myshopify.com",
       "domain": "seel-dev-store.myshopify.com",
-      "buckets": ["b", "c", "d"],
+      "buckets": ["d", "e"],
       "profile": {
-        "productType": ["ra"]
+        "productType": ["ra", "sp"]
       }
     },
     {
       "shop": "toxic-angelz.myshopify.com",
       "domain": "toxic-angelz.myshopify.com",
-      "buckets": ["b", "c", "d"],
+      "buckets": ["d", "e"],
       "profile": {
         "productType": ["ra"]
       }
@@ -92,7 +92,7 @@
     {
       "shop": "tenacioustoys.myshopify.com",
       "domain": "tenacioustoys.myshopify.com",
-      "buckets": ["b", "c", "d"],
+      "buckets": ["d", "e"],
       "profile": {
         "productType": ["ra"]
       }
@@ -100,7 +100,15 @@
     {
       "shop": "3d3249.myshopify.com",
       "domain": "3d3249.myshopify.com",
-      "buckets": ["b", "c", "d"],
+      "buckets": ["d", "e"],
+      "profile": {
+        "productType": ["ra"]
+      }
+    },
+    {
+      "shop": "the-308-boutique.myshopify.com",
+      "domain": "the-308-boutique.myshopify.com",
+      "buckets": ["d", "e"],
       "profile": {
         "productType": ["ra"]
       }
@@ -109,14 +117,6 @@
       "shop": "kid-gear.myshopify.com",
       "domain": "kid-gear.myshopify.com",
       "buckets": ["a", "b", "c"],
-      "profile": {
-        "productType": ["ra"]
-      }
-    },
-    {
-      "shop": "the-308-boutique.myshopify.com",
-      "domain": "the-308-boutique.myshopify.com",
-      "buckets": ["b", "c", "d"],
       "profile": {
         "productType": ["ra"]
       }

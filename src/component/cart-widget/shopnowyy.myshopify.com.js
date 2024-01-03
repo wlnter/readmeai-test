@@ -72,14 +72,14 @@ export const getComponent = async (type) => {
   // bucket testing start
   const { bucket, profile, ...rest } = await trafficSplitter({
     shop: store.shop,
-    code: "capybara",
+    code: "raccoon",
   });
 
   const experimentAsset = await loadExperimentAsset(type, {
     bucket,
     profile,
     ...rest,
-    code: "capybara",
+    code: "raccoon",
   });
 
   if (experimentAsset) {
@@ -159,27 +159,32 @@ export const embedWidget = async (type) => {
       renderingMarker(type);
     }
     dynamicAnchorObserver?.[type]?.disconnect?.();
-    dynamicAnchorObserver[type] = new MutationObserver(async (mutationRecoards) => {
-      await delay(800);
-      const widgetElement = document.querySelector(
-        `.seel_widget[data-seel-product-type='${type}']`,
-      );
-      if (!widgetElement && document.querySelector(dynamicAnchor)) {
-        document
-          .querySelector(dynamicAnchor)
-          .insertAdjacentElement(dynamicPosition || "beforebegin", widget);
-        widget.dataset.seelProductType = type;
-        console.log(`insert dynamicAnchor ${type} widget and bind events`);
-        bindWidgetEvents(type);
-        renderingMarker(type);
-        //dynamicAnchorObserver?.[type]?.disconnect?.();
-      }
-    });
-    dynamicAnchorObserver[type].observe(document.querySelector("body :not(.seel_widget)"), {
-      attributes: true,
-      childList: true,
-      subtree: true,
-    });
+    dynamicAnchorObserver[type] = new MutationObserver(
+      async (mutationRecoards) => {
+        await delay(800);
+        const widgetElement = document.querySelector(
+          `.seel_widget[data-seel-product-type='${type}']`,
+        );
+        if (!widgetElement && document.querySelector(dynamicAnchor)) {
+          document
+            .querySelector(dynamicAnchor)
+            .insertAdjacentElement(dynamicPosition || "beforebegin", widget);
+          widget.dataset.seelProductType = type;
+          console.log(`insert dynamicAnchor ${type} widget and bind events`);
+          bindWidgetEvents(type);
+          renderingMarker(type);
+          //dynamicAnchorObserver?.[type]?.disconnect?.();
+        }
+      },
+    );
+    dynamicAnchorObserver[type].observe(
+      document.querySelector("body :not(.seel_widget)"),
+      {
+        attributes: true,
+        childList: true,
+        subtree: true,
+      },
+    );
   }
 };
 

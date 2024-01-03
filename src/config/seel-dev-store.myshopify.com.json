@@ -44,11 +44,11 @@
     },
     {
       "type": "sp",
-      "name": "ADD GREEN SHIPPING PROTECTION",
+      "name": "Guaranteed Delivery&trade;",
       "infoIcon": "https://static.seel.com/image/widget-info-icon.svg",
       "infoIconLink": "https://www.seel.com/terms/learn-more-about-seel-shipping-protection",
-      "description": "Protect against loss, damage, delay & offset emissions for <strong>{{currencySymbol}}{{price}} {{currencyCode}}</strong>",
-      "widgetIcon": "https://static.seel.com/image/sp-widget-icon.svg",
+      "description": "Protect against shipping delays, loss & damage for <strong>{{currencySymbol}}{{price}} {{currencyCode}}</strong>",
+      "widgetIcon": "https://cdn.seel.com/assets/images/gsp-widget-icon.png",
       "anchor": ".cart__ctas",
       "position": "beforebegin",
       "dynamicAnchor": "",
@@ -173,6 +173,3 @@
   ],
   "sections": ["template--21173089665323__cart-items"]
 }
-
-
-

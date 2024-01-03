@@ -6,6 +6,7 @@ import { formatMoney, getWidgetSwitchStatus } from "../../core/util";
 import { loadExperimentAsset, trafficSplitter } from "../../experiment";
 import "./index.css";
 import { renderingMarker } from "../../pixel/performance";
+import { productType } from "../../core/constant";
 
 export const flatten = (widget, type) => {
   const { configs, profiles, quotes, sessions } = snapshot(store);
@@ -66,26 +67,34 @@ export const flatten = (widget, type) => {
 
 export const getComponent = async (type) => {
   const parser = new DOMParser();
-
   // bucket testing start
   const { bucket, profile, ...rest } = await trafficSplitter({
     shop: store.shop,
-    code: "capybara",
+    code: "raccoon",
   });
 
-  const experimentAsset = await loadExperimentAsset(type, {
+  let experimentAsset = await loadExperimentAsset(type, {
     bucket,
     profile,
     ...rest,
-    code: "capybara",
+    code: "raccoon",
   });
+
+  // use C bucket when type is SP
+  if (type === productType.sp) {
+    experimentAsset = await loadExperimentAsset(type, {
+      bucket: "c",
+      code: "raccoon",
+    });
+  }
 
   if (experimentAsset) {
     const { cartWidgetTemplate, overrideConfig } = experimentAsset;
+
     const doc = parser.parseFromString(cartWidgetTemplate, "text/html");
-    // override config
+    // override config when type is RA
     store.configs.widgets = store.configs.widgets.map((_) => {
-      if (_.type === type) {
+      if (_.type === type && _.type === productType.ra) {
         return {
           ..._,
           ...overrideConfig,
@@ -97,6 +106,7 @@ export const getComponent = async (type) => {
     const component = flatten(doc.body.firstChild, type);
     return component;
   }
+  console.log("***", type);
   // bucket testing end
   const doc = parser.parseFromString(widgetTemplate, "text/html");
   const component = flatten(doc.body.firstChild, type);

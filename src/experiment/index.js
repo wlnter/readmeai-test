@@ -78,6 +78,7 @@ export const trafficSplitter = async ({ shop, code }) => {
 };
 
 export const loadExperimentAsset = async (type, { bucket, profile, code }) => {
+  console.log("***", profile, type);
   if (
     !type ||
     !code ||
@@ -88,7 +89,7 @@ export const loadExperimentAsset = async (type, { bucket, profile, code }) => {
     return null;
   }
   try {
-    if (code === "capybara" || code === "meerkat") {
+    if (code === "raccoon" || code === "meerkat") {
       const { cartWidgetTemplate, overrideConfig } = await import(
         /* webpackChunkName: "experiment/component/[request]" */
         `./component/cart-widget-${bucket}/`

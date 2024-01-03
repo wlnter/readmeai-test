@@ -5,7 +5,7 @@ export { default as cartWidgetTemplate } from "./index.html";
 // domain specific
 const specific = {};
 if (window.location.hostname === "goodbuygear.com") {
-  specific.name = `Include {{returnWindow}} day return option for any reason`;
+  specific.name = `Make it returnable&trade; for {{currencySymbol}}{{price}}`;
 }
 
 export const overrideConfig = {
