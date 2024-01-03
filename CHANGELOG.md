@@ -1,3 +1,10 @@
+# [3.56.0](https://github.com/kover-ai/shopify-scripts/compare/v3.55.0...v3.56.0) (2024-01-03)
+
+
+### Features
+
+* **animaldrop24\7e90d9:** add two new shop ([b647051](https://github.com/kover-ai/shopify-scripts/commit/b6470513d33b06973172dd4dfcee9da5ec64a093))
+
 # [3.55.0](https://github.com/kover-ai/shopify-scripts/compare/v3.54.0...v3.55.0) (2024-01-02)
 
 
