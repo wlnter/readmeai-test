@@ -1,3 +1,10 @@
+## [3.57.2](https://github.com/kover-ai/shopify-scripts/compare/v3.57.1...v3.57.2) (2024-01-03)
+
+
+### Bug Fixes
+
+* **leizileimall:** theme changed ([34efcc8](https://github.com/kover-ai/shopify-scripts/commit/34efcc860df63e2dda39bf9811493091525003ef))
+
 ## [3.57.1](https://github.com/kover-ai/shopify-scripts/compare/v3.57.0...v3.57.1) (2024-01-03)
 
 
