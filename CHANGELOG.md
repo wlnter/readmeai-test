@@ -1,3 +1,10 @@
+## [3.59.2](https://github.com/kover-ai/shopify-scripts/compare/v3.59.1...v3.59.2) (2024-01-04)
+
+
+### Bug Fixes
+
+* **shopnowyy.myshopify.com:** fix gsp style ([2d24ae4](https://github.com/kover-ai/shopify-scripts/commit/2d24ae4f942569a5c94809bbb57c30de6f225014))
+
 ## [3.59.1](https://github.com/kover-ai/shopify-scripts/compare/v3.59.0...v3.59.1) (2024-01-04)
 
 
