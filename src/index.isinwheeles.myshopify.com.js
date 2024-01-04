@@ -1,30 +1,35 @@
-import initialize, { addCart, updateCart } from "./core/index.js";
-import { productType, seelEvents } from "./core/constant.js";
-import store, { snapshot } from "./core/store.js";
+import initialize, { addCart, updateCart } from "./core";
+import { productType, seelEvents } from "./core/constant";
+import store, { snapshot } from "./core/store";
 import embedWidget, {
   flatten as repaint,
 } from "./component/cart-widget/index.js";
-import renderModal from "./component/modal/index.js";
-import renderPdpBanner from "./component/pdp-banner/index.js";
-import configurations from "./config/vex-clothing-inc.myshopify.com.json";
-import { rerenderCart } from "./core/util.js";
+import renderModal from "./component/modal";
+import renderPdpBanner from "./component/pdp-banner";
+import configurations from "./config/isinwheeles.myshopify.com.json";
+import { rerenderCart, createElementFromString } from "./core/util";
+import { pixelEvent } from "./pixel/product-protection-pixel";
 import embedPdpWidget, {
   flatten as repaintPdpWidget,
-} from "./component/pdp-widget/index.js";
+} from "./component/pdp-widget";
+import { scriptingMarker } from "./pixel/performance.js";
 
 store.configs = configurations;
 
+scriptingMarker();
+
 // shop related variables
-const shop = "vex-clothing-inc.myshopify.com";
+const shop = "isinwheeles.myshopify.com";
 const option = {
-  atcButtonSelector: "",
-  quantitySelector: "",
-  subtotalSelector: "p.cart_subtotal.js-cart_subtotal > span.right > span",
+  atcButtonSelector: ".product-form__submit",
+  quantitySelector: ".quantity__input",
+  subtotalSelector:
+    "#main-cart-footer > div > div > div > div.js-contents > div.totals > p",
   dynamicSubtotalSelector: "",
-  chekoutBtnSelector: "#checkout",
+  chekoutBtnSelector: ".cart__ctas",
   dynamicCheckoutBtnSelector: "",
   dynamicUpdateSection: "",
-  updateSection: "#cart_form > div > div.eleven.columns",
+  updateSection: "#template--21173089665323__cart-items",
 };
 
 // helper
@@ -182,6 +187,21 @@ const actionDurationFrame = (
       atcButtonSelector && document.querySelector(atcButtonSelector);
     atcButton &&
       atcButton?.addEventListener("click", (ev) => {
+        const pdpWidget = document.querySelector(
+          `.seel_pdp_widget[data-seel-product-type=${productType.ew}]`,
+        );
+        if (
+          pdpWidget &&
+          pdpWidget.querySelector(`[data-seel-pdp-widget-option-selected]`)
+        ) {
+          document.dispatchEvent(
+            new CustomEvent(pixelEvent.protectionSelected, {
+              detail: {
+                source: "widget",
+              },
+            }),
+          );
+        }
         atcActionHandler(ev, option);
       });
     document.addEventListener(seelEvents.protectionAdded, (ev) => {
@@ -214,11 +234,11 @@ const actionDurationFrame = (
 
   actionDurationFrame(snapshot(store), option);
 
-  // rerender cart
+  // init Rerender cart
   try {
-    rerenderCart(updateSection, dynamicUpdateSection, snapshot(store));
-  } catch (e) {
-    console.log(e.message);
+    rerenderCart(updateSection, dynamicUpdateSection, store);
+  } catch {
+    console.log("rerender cart fail");
   }
 
   // reaction of cart update event

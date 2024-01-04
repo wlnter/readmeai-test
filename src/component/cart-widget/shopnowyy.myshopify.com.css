@@ -1,7 +1,7 @@
 #CartDrawer .seel_widget--title_line--name{
   color: #fff!important;
 }
-#CartDrawer .seel_widget--desc_line--text{
+#CartDrawer .seel_widget--desc_line--text,#CartDrawer .seel_widget--desc_line{
   color: #fff!important;
 }
 #CartDrawer .seel_widget--title_line--icon{
