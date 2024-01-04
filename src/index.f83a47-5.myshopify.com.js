@@ -6,7 +6,7 @@ import embedWidget, {
 } from "./component/cart-widget/index.js";
 import renderModal from "./component/modal";
 import renderPdpBanner from "./component/pdp-banner";
-import configurations from "./config/isinwheel-co-uk.myshopify.com.json";
+import configurations from "./config/f83a47-5.myshopify.com.json";
 import { rerenderCart } from "./core/util";
 import { pixelEvent } from "./pixel/product-protection-pixel";
 import embedPdpWidget, {
@@ -19,16 +19,16 @@ store.configs = configurations;
 scriptingMarker();
 
 // shop related variables
-const shop = "isinwheel-co-uk.myshopify.com";
+const shop = "f83a47-5.myshopify.com";
 const option = {
   atcButtonSelector: "",
   quantitySelector: "",
-  subtotalSelector: "#CartPageForm > div.cart__footer [data-subtotal]",
-  dynamicSubtotalSelector: "",
-  chekoutBtnSelector: ".cart__footer .cart__checkout-wrapper [name=checkout]",
+  subtotalSelector: "",
+  dynamicSubtotalSelector: ".dropdown-box .cart-total .price",
+  chekoutBtnSelector: "",
   dynamicCheckoutBtnSelector: "",
   dynamicUpdateSection: "",
-  updateSection: "",
+  updateSection: ".cart-table",
 };
 
 // helper

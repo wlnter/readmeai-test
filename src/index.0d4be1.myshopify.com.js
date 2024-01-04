@@ -6,8 +6,8 @@ import embedWidget, {
 } from "./component/cart-widget/index.js";
 import renderModal from "./component/modal";
 import renderPdpBanner from "./component/pdp-banner";
-import configurations from "./config/isinwheel-co-uk.myshopify.com.json";
-import { rerenderCart } from "./core/util";
+import configurations from "./config/0d4be1.myshopify.com.json";
+import { rerenderCart, rerenderFooter } from "./core/util";
 import { pixelEvent } from "./pixel/product-protection-pixel";
 import embedPdpWidget, {
   flatten as repaintPdpWidget,
@@ -19,16 +19,18 @@ store.configs = configurations;
 scriptingMarker();
 
 // shop related variables
-const shop = "isinwheel-co-uk.myshopify.com";
+const shop = "0d4be1.myshopify.com";
 const option = {
   atcButtonSelector: "",
   quantitySelector: "",
-  subtotalSelector: "#CartPageForm > div.cart__footer [data-subtotal]",
-  dynamicSubtotalSelector: "",
-  chekoutBtnSelector: ".cart__footer .cart__checkout-wrapper [name=checkout]",
+  subtotalSelector: "",
+  dynamicSubtotalSelector: ".cart-drawer__footer .totals__total-value .money",
+  chekoutBtnSelector: "",
   dynamicCheckoutBtnSelector: "",
-  dynamicUpdateSection: "",
-  updateSection: "",
+  dynamicUpdateSection: "#CartDrawer-CartItems",
+  updateSection: "#main-cart-items",
+  footerUpdateSection: ".vitals-discounts",
+  dynamicFooterUpdateSection: "",
 };
 
 // helper
@@ -164,6 +166,8 @@ const actionDurationFrame = (
     atcButtonSelector,
     chekoutBtnSelector,
     quantitySelector,
+    footerUpdateSection,
+    dynamicFooterUpdateSection,
   },
 ) => {
   await initialize(shop);
@@ -245,6 +249,11 @@ const actionDurationFrame = (
     // rerender cart
     try {
       rerenderCart(updateSection, dynamicUpdateSection, snapshot(store));
+      rerenderFooter(
+        footerUpdateSection,
+        dynamicFooterUpdateSection,
+        snapshot(store),
+      );
     } catch (e) {
       console.log(e.message);
     }

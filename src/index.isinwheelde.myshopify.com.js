@@ -6,8 +6,8 @@ import embedWidget, {
 } from "./component/cart-widget/index.js";
 import renderModal from "./component/modal";
 import renderPdpBanner from "./component/pdp-banner";
-import configurations from "./config/isinwheel-co-uk.myshopify.com.json";
-import { rerenderCart } from "./core/util";
+import configurations from "./config/isinwheelde.myshopify.com.json";
+import { rerenderCart, createElementFromString } from "./core/util";
 import { pixelEvent } from "./pixel/product-protection-pixel";
 import embedPdpWidget, {
   flatten as repaintPdpWidget,
@@ -19,7 +19,7 @@ store.configs = configurations;
 scriptingMarker();
 
 // shop related variables
-const shop = "isinwheel-co-uk.myshopify.com";
+const shop = "isinwheelde.myshopify.com";
 const option = {
   atcButtonSelector: "",
   quantitySelector: "",
@@ -42,13 +42,13 @@ const changeSubtotal = (
 
   const { total_price: cartTotalPrice, currency } = store.cart;
   const subTotal = (cartTotalPrice / 100).toFixed(2);
-  const numberFormat = new Intl.NumberFormat("en-US", {
+  const numberFormat = new Intl.NumberFormat("de-DE", {
     style: "currency",
     currency,
   });
   const parts = numberFormat.formatToParts(subTotal);
   const partValues = parts.map((p) => p.value);
-  const currencySymbol = partValues.shift();
+  const currencySymbol = partValues.pop();
   const amount = partValues.join("");
 
   if (subtotalSelector && document.querySelector(subtotalSelector)) {

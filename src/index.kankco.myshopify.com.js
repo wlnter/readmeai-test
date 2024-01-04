@@ -6,7 +6,7 @@ import embedWidget, {
 } from "./component/cart-widget/index.js";
 import renderModal from "./component/modal";
 import renderPdpBanner from "./component/pdp-banner";
-import configurations from "./config/isinwheel-co-uk.myshopify.com.json";
+import configurations from "./config/kankco.myshopify.com.json";
 import { rerenderCart } from "./core/util";
 import { pixelEvent } from "./pixel/product-protection-pixel";
 import embedPdpWidget, {
@@ -19,16 +19,16 @@ store.configs = configurations;
 scriptingMarker();
 
 // shop related variables
-const shop = "isinwheel-co-uk.myshopify.com";
+const shop = "kankco.myshopify.com";
 const option = {
   atcButtonSelector: "",
   quantitySelector: "",
-  subtotalSelector: "#CartPageForm > div.cart__footer [data-subtotal]",
-  dynamicSubtotalSelector: "",
-  chekoutBtnSelector: ".cart__footer .cart__checkout-wrapper [name=checkout]",
-  dynamicCheckoutBtnSelector: "",
-  dynamicUpdateSection: "",
-  updateSection: "",
+  subtotalSelector: ".t4s-cartPage__footer .t4s-cart__totalPrice .money",
+  dynamicSubtotalSelector: "#t4s-mini_cart  .t4s-cart__totalPrice .money",
+  chekoutBtnSelector: ".t4s-cartPage__footer .t4s-btn__checkout",
+  dynamicCheckoutBtnSelector: ".t4s-drawer__bottom .t4s-btn__checkout",
+  dynamicUpdateSection: ".t4s-drawer__main",
+  updateSection: ".t4s-cartPage__items",
 };
 
 // helper

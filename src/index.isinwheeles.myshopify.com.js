@@ -21,15 +21,14 @@ scriptingMarker();
 // shop related variables
 const shop = "isinwheeles.myshopify.com";
 const option = {
-  atcButtonSelector: ".product-form__submit",
-  quantitySelector: ".quantity__input",
-  subtotalSelector:
-    "#main-cart-footer > div > div > div > div.js-contents > div.totals > p",
+  atcButtonSelector: "",
+  quantitySelector: "",
+  subtotalSelector: "#CartPageForm > div.cart__footer [data-subtotal]",
   dynamicSubtotalSelector: "",
-  chekoutBtnSelector: ".cart__ctas",
+  chekoutBtnSelector: ".cart__footer .cart__checkout-wrapper [name=checkout]",
   dynamicCheckoutBtnSelector: "",
   dynamicUpdateSection: "",
-  updateSection: "#template--21173089665323__cart-items",
+  updateSection: "",
 };
 
 // helper
@@ -54,14 +53,14 @@ const changeSubtotal = (
 
   if (subtotalSelector && document.querySelector(subtotalSelector)) {
     const element = document.querySelector(subtotalSelector);
-    element.innerHTML = `${currencySymbol} ${amount}${currency}`;
+    element.innerHTML = `${currencySymbol}${amount}`;
   }
   if (
     dynamicSubtotalSelector &&
     document.querySelector(dynamicSubtotalSelector)
   ) {
     const element = document.querySelector(dynamicSubtotalSelector);
-    element.innerHTML = `Checkout · ${currencySymbol} ${amount}${currency}`;
+    element.innerHTML = `${currencySymbol}${amount}`;
   }
 };
 
