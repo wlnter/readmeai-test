@@ -1,3 +1,10 @@
+## [3.59.1](https://github.com/kover-ai/shopify-scripts/compare/v3.59.0...v3.59.1) (2024-01-04)
+
+
+### Bug Fixes
+
+* 修复TypeError ([94d332c](https://github.com/kover-ai/shopify-scripts/commit/94d332c362c311c1c1a639c0ce4649e94f387c2f))
+
 # [3.59.0](https://github.com/kover-ai/shopify-scripts/compare/v3.58.0...v3.59.0) (2024-01-04)
 
 
