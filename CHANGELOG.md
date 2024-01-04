@@ -1,3 +1,10 @@
+# [3.60.0](https://github.com/kover-ai/shopify-scripts/compare/v3.59.2...v3.60.0) (2024-01-04)
+
+
+### Features
+
+* **add shop:** add nine new shop ([973209d](https://github.com/kover-ai/shopify-scripts/commit/973209d56af43245d86142fdac805cde1e3a4a48))
+
 ## [3.59.2](https://github.com/kover-ai/shopify-scripts/compare/v3.59.1...v3.59.2) (2024-01-04)
 
 
