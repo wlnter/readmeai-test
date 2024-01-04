@@ -94,7 +94,7 @@ export const getComponent = async (type) => {
     const doc = parser.parseFromString(cartWidgetTemplate, "text/html");
     // override config when type is RA
     store.configs.widgets = store.configs.widgets.map((_) => {
-      if (_.type === type && _.type === productType.ra) {
+      if (_?.type === type && _?.type === productType.ra) {
         return {
           ..._,
           ...overrideConfig,
@@ -106,7 +106,6 @@ export const getComponent = async (type) => {
     const component = flatten(doc.body.firstChild, type);
     return component;
   }
-  console.log("***", type);
   // bucket testing end
   const doc = parser.parseFromString(widgetTemplate, "text/html");
   const component = flatten(doc.body.firstChild, type);

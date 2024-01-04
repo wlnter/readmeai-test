@@ -13,7 +13,7 @@ glob.sync(`./src/config/**.json`).forEach((path) => {
   const found = widgets.find((_) => _.type === "sp");
   const rest =
     widgets.map((_) => {
-      if (_.type !== "sp") {
+      if (_?.type !== "sp") {
         return _;
       }
     }) || [];
