@@ -1,3 +1,11 @@
+# [3.59.0](https://github.com/kover-ai/shopify-scripts/compare/v3.58.0...v3.59.0) (2024-01-04)
+
+
+### Features
+
+* 新增A/B试验raccoon，并且变更GSP的文案和样式 ([6ab52e4](https://github.com/kover-ai/shopify-scripts/commit/6ab52e4130ac192d0d6f227ad31193e4fb3ebba3))
+* 还原GBG线上配置，重写所有配置了GSP店铺的widget标题和icon信息 ([03551cb](https://github.com/kover-ai/shopify-scripts/commit/03551cbbdecf41305ac9d669d2701814f79a4712))
+
 # [3.58.0](https://github.com/kover-ai/shopify-scripts/compare/v3.57.2...v3.58.0) (2024-01-03)
 
 
